@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>頁面載入測試</title>
+    <link href="./home.css" rel="stylesheet">
+    <style>
+        .debug-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+            z-index: 10000;
+            max-width: 300px;
+        }
+        .test-content {
+            padding: 100px 20px;
+            text-align: center;
+            color: #f0e4d2;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-info" id="debugInfo">
+        <strong>調試信息：</strong><br>
+        <div id="debugOutput">載入中...</div>
+    </div>
+
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="#/works" data-route="works">Work</a>
+            <a href="#/home" data-route="home">Home</a>
+            <a href="#/about" data-route="about">About</a>
+            <a href="#/notes" data-route="notes">Notes</a>
+            <a href="#/contact" data-route="contact">Contact</a>
+        </nav>
+    </header>
+
+    <div id="app">
+        <div class="test-content">
+            <h1>測試頁面</h1>
+            <p>如果你看到這個內容，說明基本結構正常。</p>
+        </div>
+    </div>
+
+    <script>
+        function updateDebug(message) {
+            const debugOutput = document.getElementById('debugOutput');
+            const timestamp = new Date().toLocaleTimeString();
+            debugOutput.innerHTML += `[${timestamp}] ${message}<br>`;
+        }
+
+        updateDebug('開始載入腳本...');
+        
+        // 檢查 DOM 元素
+        setTimeout(() => {
+            const header = document.getElementById('header');
+            const app = document.getElementById('app');
+            
+            updateDebug(`Header 元素: ${header ? '✅' : '❌'}`);
+            updateDebug(`App 元素: ${app ? '✅' : '❌'}`);
+            updateDebug(`CSS 載入: ${getComputedStyle(document.body).backgroundColor !== 'rgba(0, 0, 0, 0)' ? '✅' : '❌'}`);
+            
+            if (!location.hash) location.hash = "#/home";
+            updateDebug(`當前 Hash: ${location.hash}`);
+        }, 100);
+
+        // 捕捉錯誤
+        window.addEventListener('error', (e) => {
+            updateDebug(`❌ 錯誤: ${e.message}`);
+        });
+    </script>
+
+    <script src="./index.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+[build]
+  # 發布目錄（當前目錄）
+  publish = "."
+  
+  # 沒有建構命令，因為是靜態網站
+  command = ""
+
+[build.environment]
+  # Node.js 版本（如果需要）
+  NODE_VERSION = "18"
+
+# 單頁應用程式的路由重定向
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  
+# 設定檔案的 MIME 類型
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Content-Type = "text/css; charset=utf-8"
+    
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
+
+[[headers]]
+  for = "*.MOV"
+  [headers.values]
+    Content-Type = "video/quicktime"
+    
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Content-Type = "image/jpeg"
+    
+[[headers]]
+  for = "*.JPG"
+  [headers.values]
+    Content-Type = "image/jpeg"
+
+# 快取設定
+[[headers]]
+  for = "/pic/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"

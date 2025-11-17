@@ -1,0 +1,33 @@
+# 開發環境文件
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 日誌文件
+*.log
+npm-debug.log*
+
+# 依賴文件
+node_modules/
+
+# 臨時文件
+*.tmp
+*.temp
+temp_*
+
+# 系統文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 編輯器臨時文件
+*~
+*.swp
+*.swo
+
+# Python 相關（如果有）
+__pycache__/
+*.py[cod]
+*$py.class
