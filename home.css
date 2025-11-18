@@ -529,16 +529,30 @@ a:hover {
   border-bottom: 1px solid rgba(240, 228, 210, 0.3);
 }
 
-/* 樹葉Canvas樣式 */
-.weather-leaves {
+/* SVG葉子樣式 */
+.weather-leaf-svg {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 5;
-  pointer-events: all;
+  bottom: 70px; /* 往下移動10px (80px -> 70px) */
+  left: 62px;   /* 再往左移動8px (70px -> 62px) */
+  z-index: 15;
   cursor: pointer;
+  transition: filter 0.3s ease;
+  transform: rotate(70deg); /* 基礎旋轉70度 */
+  transform-origin: center;
+}
+
+.weather-leaf-svg:hover {
+  filter: brightness(1.2) drop-shadow(0 0 8px rgba(50, 205, 50, 0.4));
+}
+
+.leaf-svg-icon {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.2s ease;
+}
+
+.weather-leaf-svg:hover .leaf-svg-icon {
+  transform: scale(1.05);
 }
 
 /* 天氣面板顯示/隱藏動畫 */
@@ -2501,10 +2515,38 @@ a:hover {
   background: rgba(31, 61, 56, 0.6);
 }
 
+.work-card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.work-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: all 0.3s ease;
+}
+
+.work-card:hover .work-card-image img {
+  transform: scale(1.05);
+  opacity: 0.7;
+}
+
 .work-card-inner {
   position: relative;
   z-index: 2;
   transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 12px;
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
 }
 
 /* Work Card Hover Overlay */

@@ -499,63 +499,35 @@ const pages = {
 const worksData = [
   {
     id: 1,
-    title: "Pigment",
-    category: "designs",
-    subtitle: "The Gradients and colors for the next smart creator",
-    description: "Pigment is a curated collection of amazingly colored gradients for designers, developers, and smart creators over the world. now you can generate, explores, save, easy CSS cross-browser gradient codes all in one place.",
-    technologies: ["React", "Sass & CSS", "JavaScript", "Contrast"],
-    website: "https://pigment.co",
-    github: "https://github.com"
+    title: "Ray's Personal Website",
+    category: "projects",
+    subtitle: "Modern portfolio website with interactive features",
+    description: "A modern personal portfolio website built with Vanilla JavaScript, featuring dynamic weather effects, AI chatbot assistant, and beautiful animations. Includes responsive design, single-page application architecture, and real-time Taiwan weather API integration with visual effects.",
+    technologies: ["HTML5", "CSS3", "JavaScript ES6+", "Taiwan Weather API", "EmailJS"],
+    website: "https://oorongtee.netlify.app",
+    github: "https://github.com/oorongtee/personalWebsite"
   },
   {
     id: 2,
-    title: "Usable Query",
-    category: "projects",
-    subtitle: "Simplifies the use of React Query by offering a streamlined",
-    description: "Usable Query simplifies the use of React Query by offering a streamlined and decentralized approach to managing queries and mutations. It provides a clean API and intuitive patterns that make it easier to handle data fetching and caching in your React applications.",
-    technologies: ["React", "TypeScript", "JavaScript"],
-    website: "https://example.com",
-    github: "https://github.com"
+    title: "2025 World Expo Website",
+    category: "designs",
+    subtitle: "Replica of Osaka World Expo 2025 official website",
+    description: "A faithful recreation of the 2025 Osaka World Expo official website with interactive animations and responsive design. Features hover effects, card animations, and mobile-friendly layout at 768px breakpoint, built entirely from scratch without copying original code.",
+    technologies: ["HTML", "TailwindCSS 3.4.4", "JavaScript", "RWD"],
+    website: "#",
+    github: "https://github.com/oorongtee/2025WorldExpo",
+    image: "./pic/358906446-d96358a5-d66f-4ede-ad02-c90d024f7903.png"
   },
   {
     id: 3,
-    title: "Navigation Helper",
-    category: "devtools",
-    subtitle: "Navigation is hard lets automate it",
-    description: "A comprehensive navigation automation tool that helps developers streamline their routing logic and improve user experience through intelligent path management and smooth transitions.",
-    technologies: ["JavaScript", "CSS", "React"],
-    website: "https://example.com",
-    github: "https://github.com"
-  },
-  {
-    id: 4,
-    title: "Design System",
-    category: "designs",
-    subtitle: "Build faster with consistent components",
-    description: "A complete design system with reusable components, documentation, and best practices for building scalable and maintainable user interfaces.",
-    technologies: ["Figma", "CSS", "Design Tokens"],
-    website: "https://example.com",
-    github: "https://github.com"
-  },
-  {
-    id: 5,
-    title: "Open Source UI",
-    category: "opensource",
-    subtitle: "Community-driven component library",
-    description: "A collaborative open-source project building accessible, customizable UI components for the web. Contributors from around the world help maintain and improve the library.",
-    technologies: ["React", "TypeScript", "Storybook"],
-    website: "https://example.com",
-    github: "https://github.com"
-  },
-  {
-    id: 6,
-    title: "Frontend Tools",
-    category: "devtools",
-    subtitle: "Essential utilities for modern development",
-    description: "A collection of lightweight, well-tested utilities and tools designed to improve developer experience and productivity in modern web development workflows.",
-    technologies: ["JavaScript", "TypeScript", "Node.js"],
-    website: "https://example.com",
-    github: "https://github.com"
+    title: "E-Shopping Mall",
+    category: "projects",
+    subtitle: "Full-featured shopping cart and checkout system",
+    description: "Complete e-commerce application with shopping cart, product catalog, and checkout flow. Integrates Taiwan agricultural API data, features user authentication, Redux state management, and coupon system. Built with React and Bootstrap for responsive design.",
+    technologies: ["React 18.3.1", "Redux", "Bootstrap", "Axios", "Vite"],
+    website: "#",
+    github: "https://github.com/oorongtee/eShoppingMall",
+    image: "./pic/358908403-37c23c03-6cc8-4943-b8b1-aca3178bee5f.png"
   }
 ];
 
@@ -657,6 +629,7 @@ function initWorksPage() {
       const card = document.createElement('div');
       card.className = 'work-card';
       card.innerHTML = `
+        ${work.image ? `<div class="work-card-image"><img src="${work.image}" alt="${work.title}" /></div>` : ''}
         <div class="work-card-inner">
           <h3>${work.title}</h3>
           <p class="work-subtitle">${work.subtitle}</p>
