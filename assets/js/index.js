@@ -74,7 +74,7 @@ const footer = `
               </svg>
               LinkedIn
             </a>
-            <a href="#" target="_blank" title="CV">
+            <a href="./docs/ray.pdf" target="_blank" title="Download Resume" download>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
               </svg>
@@ -192,15 +192,14 @@ const pages = {
         <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
           <div class="card services-card">
             <div class="card-header">
-              <div class="flex items-center gap-3">
+              <div class="flex items-center gap-6">
                 <div class="badge services-badge-number">01</div>
-                <h3 class="card-title services-card-title">Research & Strategy</h3>
+                <h3 class="card-title services-card-title">Product Strategy & Research</h3>
               </div>
             </div>
             <div class="card-content">
               <p class="services-card-text">
-                I conduct competitive analysis, user research, and market insights to define product vision and strategy. 
-                From fintech platforms to metaverse games, I ground every decision in data and user needs.
+                I conduct competitive analysis, user research, and market insights to define product vision and strategy. From blockchain platforms to metaverse games, I ground every decision in user needs.
               </p>
             </div>
             <div class="card-footer">
@@ -212,35 +211,33 @@ const pages = {
 
           <div class="card services-card">
             <div class="card-header">
-              <div class="flex items-center gap-3">
+              <div class="flex items-center gap-6">
                 <div class="badge services-badge-number">02</div>
-                <h3 class="card-title services-card-title">Build & Code</h3>
+                <h3 class="card-title services-card-title">Front-end Development</h3>
               </div>
             </div>
             <div class="card-content">
               <p class="services-card-text">
-                Self-taught in modern web development with React, JavaScript ES6+, and full-stack technologies. 
-                I build functional prototypes and production-ready applications that bridge design and engineering.
+                Self-taught in modern web development with React, JavaScript ES6+, and front-end technologies. I build functional prototypes and production-ready applications that bridge design and engineering.
               </p>
             </div>
             <div class="card-footer">
               <span class="badge services-badge">React</span>
               <span class="badge services-badge">JavaScript</span>
-              <span class="badge services-badge">Full-Stack</span>
+              <span class="badge services-badge">Front-end</span>
             </div>
           </div>
 
           <div class="card services-card">
             <div class="card-header">
-              <div class="flex items-center gap-3">
+              <div class="flex items-center gap-6">
                 <div class="badge services-badge-number">03</div>
-                <h3 class="card-title services-card-title">Cross-functional Leadership</h3>
+                <h3 class="card-title services-card-title">Cross-functional Collaboration</h3>
               </div>
             </div>
             <div class="card-content">
               <p class="services-card-text">
-                I facilitate communication between business, design, and engineering teams. Having worked across blockchain, 
-                gaming, and e-commerce, I understand how to align technical feasibility with business goals.
+                I facilitate communication between business, design, and engineering teams. Having worked across blockchain application and gaming. I understand how to align technical feasibility with business goals.
               </p>
             </div>
             <div class="card-footer">
@@ -252,20 +249,19 @@ const pages = {
 
           <div class="card services-card">
             <div class="card-header">
-              <div class="flex items-center gap-3">
+              <div class="flex items-center gap-6">
                 <div class="badge services-badge-number">04</div>
-                <h3 class="card-title services-card-title">Data-driven Iteration</h3>
+                <h3 class="card-title services-card-title">Data & UX-Driven Iteration</h3>
               </div>
             </div>
             <div class="card-content">
               <p class="services-card-text">
-                I believe in continuous improvement through testing and feedback. Whether managing virtual land sales 
-                worth NT$5M+ or optimizing game mechanics, I use data insights to drive product decisions.
+                I believe in continuous improvement through testing and feedback. I leverage data insights and UX principles to guide product decisions and refine user experiences.
               </p>
             </div>
             <div class="card-footer">
               <span class="badge services-badge">Testing</span>
-              <span class="badge services-badge">Analytics</span>
+              <span class="badge services-badge">Insights</span>
               <span class="badge services-badge">Optimization</span>
             </div>
           </div>
@@ -317,6 +313,18 @@ const pages = {
             <div class="expertise-item">
               <div class="expertise-content">
                 <div class="expertise-header">
+                  <span class="expertise-icon product"></span>
+                  <h2>Product</h2>
+                </div>
+                <p class="expertise-description">
+                  Bringing multidisciplinary background in political economy and philosophy to product challenges with analytical rigor and human-centered thinking. Experienced in defining product vision and strategy, conducting market analysis, and creating user-centered workflows.
+                </p>
+              </div>
+            </div>
+
+            <div class="expertise-item">
+              <div class="expertise-content">
+                <div class="expertise-header">
                   <span class="expertise-icon engineering"></span>
                   <h2>Engineering</h2>
                 </div>
@@ -324,33 +332,6 @@ const pages = {
                   Self-taught in front-end development with hands-on experience in JavaScript ES6+, React.js, and modern CSS frameworks. Proficient in building full-featured web applications from the ground up, including e-commerce platforms with Redux state management and responsive design. My technical experience allows me to collaborate effectively with engineers, assess feasibility, and balance architecture, performance, and UX considerations.
                 </p>
               </div>
-              <a href="https://github.com/oorongtee" target="_blank" class="expertise-link">View Github</a>
-            </div>
-
-            <div class="expertise-item">
-              <div class="expertise-content">
-                <div class="expertise-header">
-                  <span class="expertise-icon product"></span>
-                  <h2>Product</h2>
-                </div>
-                <p class="expertise-description">
-                  Bringing multidisciplinary background in political economy and philosophy to product challenges with analytical rigor and human-centered thinking. Experienced in defining product vision and strategy, conducting market analysis, and creating user-centered workflows using UX tools. Successfully led fintech platform development and coordinated gaming projects with cross-functional teams, achieving significant business outcomes including NT$5M+ in virtual asset transactions.
-                </p>
-              </div>
-              <a href="#/works" class="expertise-link">View Products</a>
-            </div>
-
-            <div class="expertise-item">
-              <div class="expertise-content">
-                <div class="expertise-header">
-                  <span class="expertise-icon design"></span>
-                  <h2>Design</h2>
-                </div>
-                <p class="expertise-description">
-                  Proficient in UX design tools including Figma, Photoshop, and prototyping frameworks. Experienced in creating wireframes, user journeys, and visual content for digital marketing campaigns. Successfully designed game narratives, character development, and user interfaces that enhanced player engagement. My design approach focuses on bridging communication between business, design, and engineering teams to deliver products that are both desirable and technically feasible.
-                </p>
-              </div>
-              <a href="https://dribbble.com" target="_blank" class="expertise-link">View Dribbble</a>
             </div>
           </div>
         </section>
@@ -372,13 +353,13 @@ const pages = {
                   <span class="location">Taipei, Taiwan</span>
                 </div>
                 <div class="job-description">
-                  <p>Led product development for blockchain exchange platform from conception to testing phase.</p>
+                  <p>Product development for blockchain application in conception and testing phase.</p>
                   <ul>
-                    <li>Defined product scope, features, and core user flows for blockchain-based exchange platform</li>
+                    <li>Defined product scope, features, and core user flows for blockchain application</li>
                     <li>Conducted competitive analysis and user flow research to refine product structure</li>
                     <li>Developed prototypes and flowcharts to visualize user experience and system logic</li>
                     <li>Collaborated with CEO to clarify client requirements and ensure functional feasibility</li>
-                    <li>Conducted feature testing and proposed improvements to enhance front-end usability</li>
+                    <li>Conducted feature testing and proposed improvements to enhance product usability</li>
                   </ul>
                 </div>
               </div>
@@ -398,11 +379,10 @@ const pages = {
                 <div class="job-description">
                   <p>Contributed to Freeport Metaverse game planning and coordination, integrating blockchain technology.</p>
                   <ul>
-                    <li>Drafted and maintained whitepaper based on stakeholder input and development milestones</li>
+                    <li>Drafted and maintained whitepaper based on stakeholder user's feedback and development milestones</li>
                     <li>Managed community engagement and digital marketing campaigns (Discord & Twitter)</li>
                     <li>Designed game missions, narrative storylines, and character development</li>
-                    <li>Conducted Beta testing and game mechanics optimization using data-driven insights</li>
-                    <li>Supported virtual land sales achieving NT$5M+ transaction value</li>
+                    <li>Conducted Beta testing and game mechanics optimization using data-driven & UX insights</li>
                     <li>Coordinated cross-functional collaboration between developers and designers</li>
                   </ul>
                 </div>
@@ -469,7 +449,6 @@ const pages = {
     <main class="page-content notes-page">
       <div class="hero-content">
         <h1>My Notes</h1>
-        <p class="notes-subtitle">Development insights, tutorials, and thoughts on web technologies</p>
         
         <!-- 搜尋和篩選 -->
         <div class="notes-search-section">
@@ -484,9 +463,9 @@ const pages = {
           <div class="notes-filter">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="development">Development</button>
-            <button class="filter-btn" data-filter="life">Life</button>
             <button class="filter-btn" data-filter="life-exploration">Life Exploration</button>
-            <button class="filter-btn" data-filter="technology-education">Technology & Education</button>
+            <button class="filter-btn" data-filter="humanity">Humanity</button>
+            <button class="filter-btn" data-filter="product-management">Product Management</button>
           </div>
         </div>
         
@@ -517,9 +496,9 @@ const pages = {
             </div>
           </div>
           <div class="contact-personal-info">
-            <p class="contact-subtitle">👋 Hi there! I'm Ray, a Product Manager & Front-end Engineer.</p>
-            <p class="response-info">💬 <strong>I personally read and respond to every message.</strong> Whether it's about work opportunities, collaboration ideas, or just wanting to connect — I'd love to hear from you!</p>
-            <p class="response-time">⏰ <strong>Response Time:</strong> I usually reply within <span class="highlight">2-3 business days</span>. For urgent matters, feel free to email me directly.</p>
+            <p class="contact-subtitle">Hi there! I'm Ray — a Product Manager & Front-end Engineer.</p>
+            <p class="response-info">💬 I read and respond to every message myself. Whether you're reaching out about opportunities, collaboration, or simply to connect, I'm always happy to hear from you.</p>
+            <p class="response-time">I typically reply within 2–3 business days. For urgent inquiries, please feel free to contact me via email.</p>
           </div>
         </div>
 
@@ -625,15 +604,7 @@ const pages = {
                     <line x1="9" y1="14" x2="15" y2="14"></line>
                   </svg>
                 </a>
-                <span class="social-divider">/</span>
-                <a href="./docs/ray.pdf" target="_blank" title="Download Resume" download>
-                  <span class="social-link-text">Resume</span>
-                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                    <polyline points="14,2 14,8 20,8"></polyline>
-                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                    <polyline points="10,9 9,9 8,9"></polyline>
+
                   </svg>
                 </a>
               </div>
@@ -652,14 +623,14 @@ const pages = {
 const worksData = [
   {
     id: 1,
-    title: "E-Shopping Mall",
-    category: "dev", 
-    subtitle: "Shopping cart and checkout system",
-    description: "Complete e-commerce application with shopping cart, product catalog, and checkout flow. Integrates Taiwan agricultural API data, features user authentication, Redux state management, and coupon system. Built with React and Bootstrap for responsive design.",
-    technologies: ["React", "Redux", "Bootstrap"],
-    website: "https://oorongteeshoppingmall1.netlify.app/",
-    github: "https://github.com/oorongtee/ShoppingMall",
-    image: "./assets/images/pic/358908403-37c23c03-6cc8-4943-b8b1-aca3178bee5f.png"
+    title: "Ray's Personal Website",
+    category: "dev",
+    subtitle: "Modern portfolio website with interactive features",
+    description: "A modern personal portfolio website built with Vanilla JavaScript, featuring dynamic weather effects, AI chatbot assistant, and beautiful animations. Includes responsive design, single-page application architecture, and real-time Taiwan weather API integration with visual effects.",
+    technologies: ["HTML5", "CSS3", "JavaScript ES6+", "EmailJS"],
+    website: "",
+    github: "https://github.com/oorongtee/personalWebsite",
+    image: "./assets/images/pic/personalWebsite.png"
   },
   {
     id: 2,
@@ -674,14 +645,14 @@ const worksData = [
   },
   {
     id: 3,
-    title: "Ray's Personal Website",
-    category: "dev",
-    subtitle: "Modern portfolio website with interactive features",
-    description: "A modern personal portfolio website built with Vanilla JavaScript, featuring dynamic weather effects, AI chatbot assistant, and beautiful animations. Includes responsive design, single-page application architecture, and real-time Taiwan weather API integration with visual effects.",
-    technologies: ["HTML5", "CSS3", "JavaScript ES6+", "EmailJS"],
-    website: "",
-    github: "https://github.com/oorongtee/personalWebsite",
-    image: "./assets/images/pic/personalWebsite.png"
+    title: "E-Shopping Mall",
+    category: "dev", 
+    subtitle: "Shopping cart and checkout system",
+    description: "Complete e-commerce application with shopping cart, product catalog, and checkout flow. Integrates Taiwan agricultural API data, features user authentication, Redux state management, and coupon system. Built with React and Bootstrap for responsive design.",
+    technologies: ["React", "Redux", "Bootstrap"],
+    website: "https://oorongteeshoppingmall1.netlify.app/",
+    github: "https://github.com/oorongtee/ShoppingMall",
+    image: "./assets/images/pic/358908403-37c23c03-6cc8-4943-b8b1-aca3178bee5f.png"
   },
   {
     id: 4,
@@ -700,48 +671,21 @@ const worksData = [
 const notesData = [
   {
     id: 1,
-    title: "CSS for the shell of it",
-    description: "Not all work needs to lead somewhere.",
-    category: "development",
-    date: "2024-03-15",
-    icon: "css",
-    color: "#61DAFB"
-  },
-  {
-    id: 2,
     title: "How I leverage AI in my everyday work",
-    description: "AI is here to eat all the things. Here's how I use it to my advantage.",
+    description: "Here's how I use it to my advantage.",
     category: "technology-education",
     date: "2024-03-10",
     icon: "ai",
     color: "#FF6B35"
   },
   {
-    id: 3,
-    title: "Throwaway projects are the best kinds of projects",
-    description: "Not all ideas are good ideas. But thats a good thing.",
-    category: "life-exploration",
-    date: "2024-03-05",
-    icon: "project",
-    color: "#D63384"
-  },
-  {
-    id: 4,
-    title: "WIP: Cover Status Figma plugin",
-    description: "I'm reworking my Cover Status plugin for Figma, here's a sneak peak.",
+    id: 2,
+    title: "JS for the shape of interaction",
+    description: "Make interfaces behave like people expect.",
     category: "development",
-    date: "2024-02-28",
-    icon: "figma",
-    color: "#8B5CF6"
-  },
-  {
-    id: 5,
-    title: "Flash to Figma: My love story with prototyping tools",
-    description: "I've witnessed coding simplify and prototyping principles endure.",
-    category: "life",
-    date: "2024-02-20",
-    icon: "design",
-    color: "#EF4444"
+    date: "2024-03-15",
+    icon: "js",
+    color: "#F7DF1E"
   }
 ];
 

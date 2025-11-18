@@ -744,12 +744,12 @@ a:hover {
   transform: translateX(-50%);
   z-index: 1000;
   transition: var(--transition-bounce);
-  /* 🌫️ 透明玻璃效果 - 橢圓形 */
+  /* 🌫️ 透明玻璃效果 - 更橢圓的設計 */
   background: rgba(255, 255, 255, 0.1);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 32px;
+  border-radius: 48px;
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -765,14 +765,13 @@ a:hover {
   transform: translateX(-50%) translateY(-2px);
 }
 
-/* Navigation container - 橢圓形設計 */
+/* Navigation container - 更橢圓的設計 */
 .nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px 24px;
-  border-radius: 32px;
-  padding: var(--space-4) var(--space-8);
+  padding: var(--space-3) var(--space-8);
+  border-radius: 48px;
   gap: var(--space-6);
   position: relative;
 }
@@ -803,7 +802,7 @@ a:hover {
   text-decoration: none;
   font-weight: var(--font-medium);
   color: var(--color-text-secondary);
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   letter-spacing: 0.025em;
   transition: var(--transition-normal);
   position: relative;
@@ -1077,16 +1076,20 @@ a:hover {
 }
 
 /* 統�??�?��??��?主�?題樣�?*/
+/* 統一所有頁面標題樣式 */
 .hero-content h1,
-.hero h1 {
-  font-size: 117px;
-  line-height: 1.05;
-  margin: 0 0 24px 0;
-  color: #e6d8c0;
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: -2px;
+.hero h1,
+.page-content h1 {
+  font-size: 120px !important;
+  line-height: 1.05 !important;
+  margin: 80px 0 40px 0 !important;
+  color: #e6d8c0 !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  letter-spacing: -2px !important;
 }
+
+/* Notes頁面標題現在使用統一樣式 */
 
 /* 🌟 統一頁面副標題樣式 */
 .page-subtitle {
@@ -1998,6 +2001,7 @@ a:hover {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  margin-top: 0;
 }
 
 /* 使用統�???.hero-content h1 �?? */
@@ -2388,7 +2392,7 @@ a:hover {
   font-size: 18px;
   color: #ddd0b8;
   text-align: center;
-  margin-bottom: 60px;
+  margin: 0 0 60px 0;
   opacity: 0.8;
 }
 
@@ -2679,7 +2683,7 @@ a:hover {
   }
   
   .nav a {
-    font-size: 11px;
+    font-size: 13px;
     padding: 4px 8px;
   }
   
@@ -2699,10 +2703,10 @@ a:hover {
     padding: 20px 15px;
   }
   
-  .works-page h1,
-  .notes-page h1,
-  .contact-content h1 {
-    font-size: 24px;
+  .hero-content h1,
+  .page-content h1 {
+    font-size: 32px !important;
+    margin: 60px 0 30px 0 !important;
   }
 }
 
@@ -2841,9 +2845,9 @@ a:hover {
   bottom: 40px;
   width: 3px;
   background: linear-gradient(to bottom, 
-    rgba(124, 211, 192, 0.6), 
-    rgba(124, 211, 192, 0.3),
-    rgba(124, 211, 192, 0.1));
+    rgba(76, 144, 178, 0.8), 
+    rgba(122, 174, 169, 0.5),
+    rgba(183, 207, 188, 0.3));
   border-radius: 2px;
 }
 
@@ -2881,21 +2885,27 @@ a:hover {
   position: absolute;
   right: -10px;
   top: 12px;
-  border: 4px solid rgba(31, 61, 56, 1);
+  border: 4px solid rgba(76, 144, 178, 0.9);
   z-index: 2;
-  box-shadow: 0 0 0 4px rgba(31, 61, 56, 0.3);
+  box-shadow: 0 0 0 4px rgba(122, 174, 169, 0.3);
 }
 
 .timeline-dot.orange {
-  background-color: #FF8C42;
+  background-color: #D2B48C;
+  border-color: rgba(139, 108, 80, 0.9) !important;
+  box-shadow: 0 0 0 4px rgba(139, 108, 80, 0.3) !important;
 }
 
 .timeline-dot.blue {
-  background-color: #4A90E2;
+  background-color: #4682B4;
+  border-color: rgba(52, 104, 145, 0.9) !important;
+  box-shadow: 0 0 0 4px rgba(52, 104, 145, 0.3) !important;
 }
 
 .timeline-dot.green {
-  background-color: #22C55E;
+  background-color: #7AAEA9;
+  border-color: rgba(98, 147, 142, 0.9) !important;
+  box-shadow: 0 0 0 4px rgba(98, 147, 142, 0.3) !important;
 }
 
 /* 📚 認證區塊樣式 */
@@ -4882,6 +4892,11 @@ a:hover {
   transform: translateY(-8px) !important;
   border-color: rgba(200, 247, 220, 0.7) !important;
   box-shadow: 0 12px 40px rgba(38, 92, 75, 0.15) !important;
+}
+
+/* Services 卡片 Header 間距 */
+.services-card .card-header .flex {
+  gap: 1.5rem !important; /* 相當於 gap-6 的 24px */
 }
 
 /* Services 卡片標題 */
