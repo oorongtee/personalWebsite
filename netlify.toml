@@ -56,3 +56,16 @@
   for = "/assets/js/*"
   [headers.values]
     Cache-Control = "public, max-age=86400"
+
+# SVG 文件設定
+[[headers]]
+  for = "*.svg"
+  [headers.values]
+    Content-Type = "image/svg+xml; charset=utf-8"
+
+# PDF 文件設定（履歷下載）
+[[headers]]
+  for = "/docs/*.pdf"
+  [headers.values]
+    Content-Type = "application/pdf"
+    Content-Disposition = "attachment"

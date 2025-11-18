@@ -9,15 +9,15 @@ class PersonalChatbot {
     // Ray's personal knowledge base
     this.knowledgeBase = {
       skills: [
-        'React', 'Vue.js', 'JavaScript', 'TypeScript', 'Node.js', 
-        'Product Management', 'UI/UX Design', 'Frontend Development',
-        'API Integration', 'Responsive Design', 'Performance Optimization'
+        'Product Strategy & User Research', 'React & Vue.js Development', 'JavaScript & TypeScript', 
+        'Human-Centered Design', 'Frontend Architecture', 'API Integration',
+        'Performance Optimization', 'Cross-functional Collaboration', 'Empathy-Driven Development'
       ],
       services: [
-        'Website Development', 'Web Application Development',
-        'Product Management Consulting', 'UI/UX Design',
-        'Frontend Architecture', 'Performance Optimization',
-        'API Integration', 'Mobile-First Design'
+        'Product Strategy & User Experience Design', 'Full-Stack Web Development',
+        'Digital Product Consulting', 'Frontend Architecture & Development',
+        'User Research & Prototyping', 'Cross-Platform Application Development',
+        'Performance & Accessibility Optimization', 'Team Collaboration & Mentoring'
       ],
       projects: {
         'portfolio': 'This interactive portfolio website with weather integration',
@@ -32,28 +32,28 @@ class PersonalChatbot {
     
     this.responses = {
       greeting: [
-        "Hello! I'm Ray's AI assistant. I'm here to help you learn about his work and expertise. What interests you most?",
-        "Hi there! I can tell you all about Ray's skills, projects, and how he might help with your next project. What would you like to know?"
+        "👋 Hi! I'm Ray's AI assistant. I'm here to share how Ray creates digital experiences that users love and businesses grow with. What would you like to explore?",
+        "Hello! I can tell you about Ray's unique blend of product thinking and technical craft. What aspect of building great digital products interests you most?"
       ],
       skills: [
-        "Ray specializes in modern frontend technologies including **React**, **Vue.js**, and **TypeScript**. He's also experienced in **Product Management** and **UI/UX Design**.",
-        "Ray's core expertise includes **JavaScript/TypeScript**, **React & Vue.js frameworks**, **Node.js backend development**, and **API integration**."
+        "Ray combines **product strategy** with **technical implementation**. He specializes in **React & Vue.js**, **user research**, **empathy-driven development**, and **cross-functional collaboration**.",
+        "Ray's superpower is bridging **product vision** and **technical execution**. Core skills include **JavaScript/TypeScript**, **human-centered design**, **API architecture**, and **team collaboration**."
       ],
       projects: [
         "Ray has worked on diverse projects including **interactive portfolio websites**, **e-commerce platforms**, **data visualization dashboards**, and **mobile-first applications**.",
         "Recent work includes this **weather-integrated portfolio**, **responsive e-commerce solutions**, and **custom dashboard applications**."
       ],
       services: [
-        "Ray offers **Website Development**, **Web Application Development**, **Product Management Consulting**, and **UI/UX Design** services.",
-        "Services include **full-stack web development**, **mobile-first responsive design**, **product strategy consulting**, and **technical architecture planning**."
+        "Ray helps teams **build products users love**. Services include **product strategy consulting**, **frontend development with purpose**, **user experience design**, and **technical mentoring**.",
+        "Whether you need **end-to-end product development**, **technical architecture planning**, or **user-centered design strategy**, Ray brings both **empathy** and **technical excellence** to every project."
       ],
       contact: [
-        "You can reach Ray at **ray68125@gmail.com** or through the contact form on this website. He's based in **Taipei, Taiwan**.",
-        "Ready to discuss your project? Ray typically responds within 24 hours and offers free initial consultations to discuss your project needs. You can also use the contact form for detailed project inquiries."
+        "Ready to create something meaningful together? Reach Ray at **ray68125@gmail.com** or use the contact form. He's based in **Taipei, Taiwan** and loves collaborating with purpose-driven teams.",
+        "Let's talk about your vision! Ray offers **free discovery calls** to understand your users' needs and explore how technology can serve them better. Contact him at **ray68125@gmail.com**."
       ],
       default: [
-        "That's an interesting question! I'd be happy to tell you about Ray's **skills**, **projects**, **services**, or how to **get in touch**.",
-        "I'd love to help you learn more about Ray's work! What interests you most?"
+        "Great question! I'd love to share more about Ray's **product-minded approach**, **technical skills**, **collaborative projects**, or how to **start a conversation** about your needs.",
+        "I'm here to help you understand how Ray creates digital experiences with **purpose and empathy**! What would you like to explore?"
       ]
     };
     

@@ -94,55 +94,181 @@ const footer = `
 // 頁面模板
 const pages = {
   home: `
-    <main class="hero">
-      <div class="hero-content">
-        <h1>I'M Ray!</h1>
-        
-        <div class="hero-main">
-          <div class="photo-section">
-            <div class="photo-block">
-              <img src="./assets/images/pic/RNI-Films-IMG-6B66762A-3B66-4426-A38E-D627A5555A92.JPG" alt="Ray" class="photo">
+    <!-- Hero Section -->
+    <section class="section-lg">
+      <div class="container">
+        <div class="hero-content">
+          <!-- Main Content Grid -->
+          <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <!-- Photo Section -->
+            <div class="photo-section">
+              <div class="photo-block">
+                <img src="./assets/images/pic/RNI-Films-IMG-6B66762A-3B66-4426-A38E-D627A5555A92.JPG" 
+                     alt="Ray - A product-minded creator focused on empathy-driven experiences" 
+                     class="photo lazy-image"
+                     data-src="./assets/images/pic/RNI-Films-IMG-6B66762A-3B66-4426-A38E-D627A5555A92.JPG">
+              </div>
+              <div class="photo-actions">
+                <a href="#/works" class="btn btn-primary gentle-hover">
+                  <span>Explore My Work</span>
+                  <!-- Lucide Arrow Right -->
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </a>
+                <a href="#/contact" class="btn btn-secondary gentle-hover">
+                  <!-- Lucide Heart -->
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                  Let's Connect
+                </a>
+              </div>
             </div>
-            <div class="photo-buttons">
-              <a href="#/works" class="photo-btn work-btn">View My Work</a>
-              <a href="#/contact" class="photo-btn contact-btn">Get In Touch</a>
-            </div>
-          </div>
 
-          <div class="text-block">
-            <h2>I'm a Product Manager & Front-end Engineer based in Taipei.</h2>
-            <p>
-              I bring a multidisciplinary background in political economy, philosophy, and product development to approach challenges with analytical rigor and human-centered thinking. Self-taught in front-end development with hands-on experience in JavaScript, React.js, and modern frameworks. I've led fintech platforms, coordinated metaverse game projects, and built full-featured web applications from the ground up. I believe meaningful digital experiences require both emotional resonance and technical excellence.
-            </p>
+            <!-- Text Content -->
+            <div class="text-content">
+              <div class="intro-badge">
+                <span class="badge badge-nature">Product-Minded Creator</span>
+              </div>
+              
+              <h1 class="hero-title">
+                I design and build <span class="text-accent">product experiences</span><br>
+                — not just interfaces or features.
+              </h1>
+              
+              <div class="hero-subtitle">
+                <p class="lead-text">
+                  With a humanities background and empathy-driven mindset, I write code to understand 
+                  feasibility and create meaningful solutions that put people first.
+                </p>
+              </div>
+
+              <div class="value-props">
+                <div class="value-item">
+                  <!-- Lucide Users -->
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                  <span>Bridge between business, design, and engineering</span>
+                </div>
+                <div class="value-item">
+                  <!-- Lucide Lightbulb -->
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path>
+                    <path d="M9 18h6"></path>
+                    <path d="M10 22h4"></path>
+                  </svg>
+                  <span>Rapid prototyping for idea validation</span>
+                </div>
+                <div class="value-item">
+                  <!-- Lucide Heart -->
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                  <span>Gentle leadership focused on human needs</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </main>
+    </section>
 
-    <section class="cards-section">
-      <div class="cards-grid">
-        <div class="card">
-          <span class="card-number">01</span>
-          <h3 class="card-title">Research & Strategy</h3>
-          <p class="card-description">I conduct competitive analysis, user research, and market insights to define product vision and strategy. From fintech platforms to metaverse games, I ground every decision in data and user needs.</p>
+    <!-- Services Section -->
+    <section class="section bg-gradient">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2 class="text-h2 mb-4">What I Do</h2>
+          <p class="text-body-lg text-tertiary max-w-2xl mx-auto">
+            From strategy to implementation, I bridge the gap between business goals and technical execution
+          </p>
         </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+          <div class="card card-elevated">
+            <div class="card-header">
+              <div class="flex items-center gap-3">
+                <div class="badge badge-primary">01</div>
+                <h3 class="card-title">Research & Strategy</h3>
+              </div>
+            </div>
+            <div class="card-content">
+              <p class="text-body">
+                I conduct competitive analysis, user research, and market insights to define product vision and strategy. 
+                From fintech platforms to metaverse games, I ground every decision in data and user needs.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="badge badge-secondary">Strategy</span>
+              <span class="badge badge-secondary">Research</span>
+              <span class="badge badge-secondary">Analysis</span>
+            </div>
+          </div>
 
-        <div class="card">
-          <span class="card-number">02</span>
-          <h3 class="card-title">Build & Code</h3>
-          <p class="card-description">Self-taught in modern web development with React, JavaScript ES6+, and full-stack technologies. I build functional prototypes and production-ready applications that bridge the gap between design and engineering.</p>
-        </div>
+          <div class="card card-elevated">
+            <div class="card-header">
+              <div class="flex items-center gap-3">
+                <div class="badge badge-primary">02</div>
+                <h3 class="card-title">Build & Code</h3>
+              </div>
+            </div>
+            <div class="card-content">
+              <p class="text-body">
+                Self-taught in modern web development with React, JavaScript ES6+, and full-stack technologies. 
+                I build functional prototypes and production-ready applications that bridge design and engineering.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="badge badge-secondary">React</span>
+              <span class="badge badge-secondary">JavaScript</span>
+              <span class="badge badge-secondary">Full-Stack</span>
+            </div>
+          </div>
 
-        <div class="card">
-          <span class="card-number">03</span>
-          <h3 class="card-title">Cross-functional Leadership</h3>
-          <p class="card-description">I facilitate communication between business, design, and engineering teams. Having worked across blockchain, gaming, and e-commerce, I understand how to align technical feasibility with business goals and user experience.</p>
-        </div>
+          <div class="card card-elevated">
+            <div class="card-header">
+              <div class="flex items-center gap-3">
+                <div class="badge badge-primary">03</div>
+                <h3 class="card-title">Cross-functional Leadership</h3>
+              </div>
+            </div>
+            <div class="card-content">
+              <p class="text-body">
+                I facilitate communication between business, design, and engineering teams. Having worked across blockchain, 
+                gaming, and e-commerce, I understand how to align technical feasibility with business goals.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="badge badge-secondary">Leadership</span>
+              <span class="badge badge-secondary">Communication</span>
+              <span class="badge badge-secondary">Alignment</span>
+            </div>
+          </div>
 
-        <div class="card">
-          <span class="card-number">04</span>
-          <h3 class="card-title">Data-driven Iteration</h3>
-          <p class="card-description">I believe in continuous improvement through testing and feedback. Whether managing virtual land sales worth NT$5M+ or optimizing game mechanics, I use data insights to drive product decisions and enhance user engagement.</p>
+          <div class="card card-elevated">
+            <div class="card-header">
+              <div class="flex items-center gap-3">
+                <div class="badge badge-primary">04</div>
+                <h3 class="card-title">Data-driven Iteration</h3>
+              </div>
+            </div>
+            <div class="card-content">
+              <p class="text-body">
+                I believe in continuous improvement through testing and feedback. Whether managing virtual land sales 
+                worth NT$5M+ or optimizing game mechanics, I use data insights to drive product decisions.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="badge badge-success">Testing</span>
+              <span class="badge badge-success">Analytics</span>
+              <span class="badge badge-success">Optimization</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -385,13 +511,31 @@ const pages = {
         <h1>Contact Me</h1>
         
         <div class="contact-content">
-        <p class="contact-subtitle">Get in touch with me for work inquiries or just to say hello.</p>
+        <div class="contact-intro">
+          <div class="contact-avatar">
+            <img src="./assets/images/profile-photo.svg" alt="Ray's Photo" class="profile-photo">
+            <div class="status-indicator">
+              <span class="status-dot"></span>
+              <span class="status-text">Usually responds within 2 days</span>
+            </div>
+          </div>
+          <div class="contact-personal-info">
+            <p class="contact-subtitle">👋 Hi there! I'm Ray, a Product Manager & Front-end Engineer.</p>
+            <p class="response-info">💬 <strong>I personally read and respond to every message.</strong> Whether it's about work opportunities, collaboration ideas, or just wanting to connect — I'd love to hear from you!</p>
+            <p class="response-time">⏰ <strong>Response Time:</strong> I usually reply within <span class="highlight">2-3 business days</span>. For urgent matters, feel free to email me directly.</p>
+          </div>
+        </div>
 
         <div class="contact-wrapper">
           <!-- 左邊：聯絡表單 -->
           <div class="contact-form-section">
-            <h3>Get In Touch</h3>
+            <div class="form-header">
+              <h3>Send me a message</h3>
+              <p class="form-description">I'll get back to you within 2-3 business days. All fields are required.</p>
+            </div>
             <form class="contact-form">
+              <!-- Honeypot field for spam protection -->
+              <input type="text" name="website" style="display: none;" tabindex="-1" autocomplete="off">
               <div class="form-group">
                 <label>Name</label>
                 <input type="text" name="name" placeholder="Please enter your name" required>
@@ -412,7 +556,18 @@ const pages = {
                 <textarea name="message" placeholder="Please enter your message" rows="5" required></textarea>
               </div>
 
-              <button type="submit" class="submit-btn">Send Message</button>
+              <div class="form-message" id="form-message"></div>
+              <button type="submit" class="submit-btn" id="submit-btn">
+                <span class="btn-text">Send Message</span>
+                <span class="btn-loading" style="display: none;">
+                  <svg class="loading-spinner" width="16" height="16" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="32" stroke-dashoffset="32">
+                      <animate attributeName="stroke-dashoffset" dur="1s" repeatCount="indefinite" values="32;0"/>
+                    </circle>
+                  </svg>
+                  Sending...
+                </span>
+              </button>
             </form>
           </div>
 
@@ -464,8 +619,8 @@ const pages = {
                   </svg>
                 </a>
                 <span class="social-divider">/</span>
-                <a href="#" target="_blank" title="CV">
-                  <span class="social-link-text">CV</span>
+                <a href="./docs/ray.pdf" target="_blank" title="Download Resume" download>
+                  <span class="social-link-text">Resume</span>
                   <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                     <polyline points="14 2 14 8 20 8"></polyline>
@@ -792,6 +947,150 @@ function initNotesPage() {
 
 // 頁面加載時的初始化
 
+// ============================================
+// 圖片優化與延遲載入
+// ============================================
+
+// 圖片延遲載入觀察器
+let imageObserver = null;
+
+// 初始化圖片延遲載入
+function initImageLazyLoading() {
+  // 檢查瀏覽器支援
+  if ('IntersectionObserver' in window) {
+    imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          loadImage(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '50px 0px',
+      threshold: 0.01
+    });
+  }
+}
+
+// 載入單一圖片
+function loadImage(img) {
+  return new Promise((resolve, reject) => {
+    const imageLoader = new Image();
+    
+    imageLoader.onload = () => {
+      // 圖片載入完成
+      img.src = imageLoader.src;
+      img.classList.add('loaded');
+      img.classList.remove('loading');
+      
+      if (imageObserver) {
+        imageObserver.unobserve(img);
+      }
+      
+      resolve(img);
+    };
+    
+    imageLoader.onerror = () => {
+      // 載入失敗，使用佔位圖
+      img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5YTNhZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vdCBhdmFpbGFibGU8L3RleHQ+PC9zdmc+';
+      img.classList.add('loaded', 'error');
+      img.classList.remove('loading');
+      
+      if (imageObserver) {
+        imageObserver.unobserve(img);
+      }
+      
+      reject(new Error('Failed to load image'));
+    };
+    
+    imageLoader.src = img.dataset.src || img.src;
+  });
+}
+
+// 處理所有圖片延遲載入
+function setupLazyImages() {
+  const images = document.querySelectorAll('img[data-src], img.lazy-image');
+  
+  images.forEach(img => {
+    // 添加載入類別
+    img.classList.add('lazy-image', 'loading');
+    
+    // 設定佔位符
+    if (!img.src) {
+      img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2IiBjbGFzcz0iaW1hZ2UtcGxhY2Vob2xkZXIiLz48L3N2Zz4=';
+    }
+    
+    if (imageObserver) {
+      imageObserver.observe(img);
+    } else {
+      // 備用：立即載入
+      loadImage(img);
+    }
+  });
+}
+
+// 圖片壓縮與優化
+function optimizeImages() {
+  const images = document.querySelectorAll('img');
+  
+  images.forEach(img => {
+    // 添加 loading="lazy" 屬性（現代瀏覽器原生支持）
+    if (!img.hasAttribute('loading')) {
+      img.setAttribute('loading', 'lazy');
+    }
+    
+    // 添加 decoding="async" 提升效能
+    if (!img.hasAttribute('decoding')) {
+      img.setAttribute('decoding', 'async');
+    }
+  });
+}
+
+// ============================================
+// 用戶回饋機制
+// ============================================
+
+// 顯示成功訊息
+function showSuccessMessage(message, container = document.body) {
+  const messageEl = document.createElement('div');
+  messageEl.className = 'success-message';
+  messageEl.innerHTML = `<span>✅</span><span>${message}</span>`;
+  
+  container.appendChild(messageEl);
+  
+  setTimeout(() => {
+    messageEl.remove();
+  }, 3000);
+}
+
+// 顯示錯誤訊息
+function showErrorMessage(message, container = document.body) {
+  const messageEl = document.createElement('div');
+  messageEl.className = 'error-message';
+  messageEl.innerHTML = `<span>❌</span><span>${message}</span>`;
+  
+  container.appendChild(messageEl);
+  
+  setTimeout(() => {
+    messageEl.remove();
+  }, 5000);
+}
+
+// 添加點擊回饋效果
+function addClickFeedback() {
+  document.addEventListener('click', (e) => {
+    const element = e.target;
+    
+    // 為按鈕和連結添加點擊效果
+    if (element.matches('button, .btn, a, .card, .work-card')) {
+      element.classList.add('clicked');
+      
+      setTimeout(() => {
+        element.classList.remove('clicked');
+      }, 200);
+    }
+  });
+}
+
 // 修正 navigateTo 函數，確保正確處理首次載入和無效路由
 function navigateTo(route) {
   console.log('Navigating to:', route);
@@ -802,15 +1101,26 @@ function navigateTo(route) {
     return;
   }
   
-  const page = pages[route] || pages.home;
+  const page = pages[route];
   console.log('Loading page content for route:', route);
   
   if (!page) {
-    console.error('错誤: 找不到頁面內容:', route);
+    console.error('錯誤: 找不到頁面內容:', route);
+    showErrorMessage(`找不到頁面: ${route}`);
+    // 導航到首頁而不是 404
+    if (route !== 'home') {
+      navigateTo('home');
+    }
     return;
   }
   
   app.innerHTML = `<div class="main-content">${page}</div>`;
+  
+  // 設定圖片延遲載入和優化
+  setTimeout(() => {
+    setupLazyImages();
+    optimizeImages();
+  }, 100);
   console.log('Page content loaded successfully');
   console.log('App element after content load:', app);
   console.log('Content length:', page.length);
@@ -822,16 +1132,8 @@ function navigateTo(route) {
   history.pushState(null, null, newHash);
   
   // 更新導航指示器
-  if (navigation) {
-    const activeLink = document.querySelector(`.nav a[data-route="${route}"]`);
-    if (activeLink) {
-      // 移除所有 active 類別
-      document.querySelectorAll('.nav a').forEach(l => l.classList.remove('active'));
-      // 添加 active 類別
-      activeLink.classList.add('active');
-      // 更新指示器位置
-      navigation.updateIndicator(activeLink);
-    }
+  if (navigation && navigation.updateIndicatorForRoute) {
+    navigation.updateIndicatorForRoute(route);
   }
 
   // 如果是 works 頁面，初始化項目網格
@@ -849,12 +1151,81 @@ function navigateTo(route) {
     initCarousels();
   }
   
-  // 如果是 contact 頁面，添加表單提交監聽
+  // 如果是 contact 頁面，添加表單提交監聽和即時驗證
   if (route === 'contact') {
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
       contactForm.addEventListener('submit', handleContactFormSubmit);
+      
+      // 添加即時驗證
+      const inputs = contactForm.querySelectorAll('input, textarea');
+      inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+          validateFieldRealTime(this);
+        });
+        
+        input.addEventListener('input', function() {
+          // 清除錯誤狀態當用戶開始輸入
+          if (this.classList.contains('error')) {
+            this.classList.remove('error');
+            const errorMsg = this.parentNode.querySelector('.field-error');
+            if (errorMsg) {
+              errorMsg.remove();
+            }
+          }
+        });
+      });
     }
+  }
+}
+
+// 即時欄位驗證
+function validateFieldRealTime(field) {
+  const value = field.value.trim();
+  const fieldName = field.name;
+  let errorMessage = '';
+  
+  // 清除之前的錯誤
+  field.classList.remove('error');
+  const existingError = field.parentNode.querySelector('.field-error');
+  if (existingError) {
+    existingError.remove();
+  }
+  
+  // 驗證各欄位
+  switch (fieldName) {
+    case 'name':
+      if (value && value.length < 2) {
+        errorMessage = 'Name must be at least 2 characters long';
+      }
+      break;
+    case 'email':
+      if (value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+          errorMessage = 'Please enter a valid email address';
+        }
+      }
+      break;
+    case 'subject':
+      if (value && value.length < 3) {
+        errorMessage = 'Subject must be at least 3 characters long';
+      }
+      break;
+    case 'message':
+      if (value && value.length < 10) {
+        errorMessage = 'Message must be at least 10 characters long';
+      }
+      break;
+  }
+  
+  // 顯示錯誤訊息
+  if (errorMessage) {
+    field.classList.add('error');
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'field-error';
+    errorDiv.textContent = errorMessage;
+    field.parentNode.appendChild(errorDiv);
   }
 }
 
@@ -884,24 +1255,92 @@ function initNavigationIndicator() {
   
   // 更新指示器位置
   function updateIndicator(activeLink) {
-    if (activeLink) {
-      const linkRect = activeLink.getBoundingClientRect();
-      const navRect = nav.getBoundingClientRect();
-      
-      indicator.style.left = (activeLink.offsetLeft) + 'px';
-      indicator.style.width = activeLink.offsetWidth + 'px';
-      indicator.style.height = activeLink.offsetHeight + 'px';
+    if (activeLink && indicator) {
+      // 使用 requestAnimationFrame 確保 DOM 更新完成
+      requestAnimationFrame(() => {
+        try {
+          // 獲取導航容器的相對位置
+          const navRect = nav.getBoundingClientRect();
+          const linkRect = activeLink.getBoundingClientRect();
+          
+          // 計算相對於導航容器的位置
+          const relativeLeft = linkRect.left - navRect.left;
+          const relativeTop = linkRect.top - navRect.top;
+          
+          indicator.style.left = relativeLeft + 'px';
+          indicator.style.width = activeLink.offsetWidth + 'px';
+          indicator.style.height = activeLink.offsetHeight + 'px';
+          indicator.style.top = relativeTop + 'px';
+          
+          console.log('Navigation indicator updated for:', activeLink.getAttribute('data-route'));
+        } catch (error) {
+          console.error('Error updating navigation indicator:', error);
+        }
+      });
     }
   }
   
-  // 設置初始指示器位置（預設 home 頁面）
-  const activeLink = document.querySelector('.nav a[data-route="home"]');
-  if (activeLink) {
-    activeLink.classList.add('active');
-    setTimeout(() => updateIndicator(activeLink), 100);
+  // 根據路由名稱更新指示器
+  function updateIndicatorForRoute(routeName) {
+    console.log('Updating indicator for route:', routeName);
+    
+    // 移除所有 active 類別
+    document.querySelectorAll('.nav a').forEach(l => l.classList.remove('active'));
+    
+    // 找到對應的導航連結
+    const targetLink = document.querySelector(`.nav a[data-route="${routeName}"]`);
+    if (targetLink) {
+      targetLink.classList.add('active');
+      updateIndicator(targetLink);
+    } else {
+      console.warn('No navigation link found for route:', routeName);
+    }
   }
   
-  return { indicator, updateIndicator };
+  // 設置初始指示器位置 - 多次嘗試確保正確初始化
+  function initializeIndicator() {
+    const initialRoute = getCurrentRoute();
+    console.log('Initializing indicator for route:', initialRoute);
+    
+    // 確保導航元素已完全渲染
+    const targetLink = document.querySelector(`.nav a[data-route="${initialRoute}"]`);
+    if (targetLink && targetLink.offsetWidth > 0) {
+      updateIndicatorForRoute(initialRoute);
+    } else {
+      // 如果元素還未完全渲染，延遲重試
+      setTimeout(initializeIndicator, 100);
+    }
+  }
+  
+  // 初始化指示器
+  setTimeout(initializeIndicator, 100);
+  
+  // 監聽窗口大小變化，重新計算位置
+  window.addEventListener('resize', () => {
+    const currentRoute = getCurrentRoute();
+    setTimeout(() => {
+      updateIndicatorForRoute(currentRoute);
+    }, 100);
+  });
+  
+  // 監聽字體載入完成，重新計算位置
+  if (document.fonts) {
+    document.fonts.ready.then(() => {
+      const currentRoute = getCurrentRoute();
+      updateIndicatorForRoute(currentRoute);
+    });
+  }
+  
+  return { indicator, updateIndicator, updateIndicatorForRoute };
+}
+
+// 獲取當前路由
+function getCurrentRoute() {
+  let hash = window.location.hash.slice(1); // 移除 #
+  if (hash.startsWith('/')) {
+    hash = hash.slice(1); // 移除 /
+  }
+  return hash || 'home';
 }
 
 // 全局導航對象
@@ -921,17 +1360,7 @@ function initNavigation() {
       const route = link.getAttribute('data-route');
       console.log('Navigation clicked:', route);
       
-      // 移除所有 active 類別
-      document.querySelectorAll('.nav a').forEach(l => l.classList.remove('active'));
-      
-      // 添加 active 類別到當前連結
-      link.classList.add('active');
-      
-      // 更新指示器位置
-      if (navigation && navigation.updateIndicator) {
-        navigation.updateIndicator(link);
-      }
-      
+      // navigateTo will handle indicator updates
       navigateTo(route);
     });
   });
@@ -952,30 +1381,114 @@ function initNavigation() {
 // EmailJS 初始化與表單提交
 // ============================================
 
-// 初始化 EmailJS
-// 注意：需要替換為您的 Service ID 和 Public Key
-emailjs.init("lH__yZMP01RGP0bD3");  // 已填入您的 Public Key
+// 檢查 EmailJS 是否載入
+if (typeof emailjs === 'undefined') {
+  console.error('EmailJS not loaded! Contact form will not work.');
+} else {
+  console.log('✅ EmailJS loaded successfully');
+  // 初始化 EmailJS
+  emailjs.init("lH__yZMP01RGP0bD3");  // 已填入您的 Public Key
+  console.log('✅ EmailJS initialized');
+}
 
 // 處理表單提交
 function handleContactFormSubmit(e) {
   e.preventDefault();
   
   const form = e.target;
-  const formData = new FormData(form);
+  const messageDiv = document.getElementById('form-message');
+  const submitBtn = document.getElementById('submit-btn');
+  const btnText = submitBtn.querySelector('.btn-text');
+  const btnLoading = submitBtn.querySelector('.btn-loading');
   
-  // 獲取表單數據
-  const name = form.querySelector('input[placeholder="Please enter your name"]')?.value || '';
-  const email = form.querySelector('input[placeholder="Please enter your email"]')?.value || '';
-  const subject = form.querySelector('input[placeholder="Please enter your subject"]')?.value || '';
-  const message = form.querySelector('textarea[placeholder="Please enter your message"]')?.value || '';
+  // 清除之前的訊息
+  clearFormMessage();
   
-  // 驗證表單
-  if (!name || !email || !subject || !message) {
-    alert('Please fill in all required fields');
+  // 添加提交動畫反饋
+  form.classList.add('form-submitting');
+  
+  // Honeypot spam protection check
+  const honeypot = form.querySelector('input[name="website"]')?.value || '';
+  if (honeypot) {
+    console.log('Spam detected via honeypot');
+    // Silently ignore spam submissions with fake success
+    setTimeout(() => {
+      showFormMessage(
+        '✅ <strong>Thank you for your message!</strong><br>' +
+        'We have received your inquiry and will get back to you soon.',
+        'success'
+      );
+      form.reset();
+      form.classList.remove('form-submitting');
+    }, 1500); // 模擬真實提交時間
     return;
   }
   
-  // 準備郵件參數（確保變數名稱與 EmailJS 模板一致）
+  // 獲取表單數據
+  const name = form.querySelector('input[name="name"]')?.value?.trim() || '';
+  const email = form.querySelector('input[name="email"]')?.value?.trim() || '';
+  const subject = form.querySelector('input[name="subject"]')?.value?.trim() || '';
+  const message = form.querySelector('textarea[name="message"]')?.value?.trim() || '';
+  
+  // 即時欄位驗證反饋
+  const fields = [
+    { name: 'name', value: name, element: form.querySelector('input[name="name"]') },
+    { name: 'email', value: email, element: form.querySelector('input[name="email"]') },
+    { name: 'subject', value: subject, element: form.querySelector('input[name="subject"]') },
+    { name: 'message', value: message, element: form.querySelector('textarea[name="message"]') }
+  ];
+  
+  // 清除之前的錯誤狀態
+  fields.forEach(field => {
+    field.element.classList.remove('error', 'valid');
+  });
+  
+  // 詳細驗證
+  const validation = validateContactForm({ name, email, subject, message });
+  if (!validation.isValid) {
+    // 標記錯誤欄位
+    fields.forEach(field => {
+      if (validation.fieldErrors && validation.fieldErrors[field.name]) {
+        field.element.classList.add('error');
+        // 添加震動效果
+        field.element.style.animation = 'shake 0.5s ease-in-out';
+        setTimeout(() => {
+          field.element.style.animation = '';
+        }, 500);
+      } else if (field.value) {
+        field.element.classList.add('valid');
+      }
+    });
+    
+    showFormMessage(
+      `❌ <strong>請檢查以下問題：</strong><br>${validation.errors.join('<br>')}`, 
+      'error'
+    );
+    form.classList.remove('form-submitting');
+    return;
+  }
+  
+  // 標記所有欄位為有效
+  fields.forEach(field => {
+    field.element.classList.add('valid');
+  });
+  
+  // 檢查 EmailJS 是否可用
+  if (typeof emailjs === 'undefined') {
+    showFormMessage(
+      '❌ <strong>Email service temporarily unavailable.</strong><br>' +
+      'Please contact me directly at <a href="mailto:ray68125@gmail.com">ray68125@gmail.com</a><br>' +
+      'Sorry for the inconvenience.',
+      'error'
+    );
+    form.classList.remove('form-submitting');
+    return;
+  }
+  
+  // 顯示載入狀態
+  setLoadingState(true);
+  
+  // 準備郵件參數
   const templateParams = {
     from_name: name,
     from_email: email,
@@ -990,13 +1503,102 @@ function handleContactFormSubmit(e) {
   emailjs.send('service_fetlagj', 'template_4ns0c4a', templateParams)
     .then(function(response) {
       console.log('SUCCESS!', response.status, response.text);
-      alert('Message sent successfully! ✓');
+      showFormMessage(
+        '🎉 <strong>Message sent successfully!</strong><br>' +
+        'Thank you for reaching out. I will get back to you within <strong>24-48 hours</strong>.<br>' +
+        'Have a great day! 😊',
+        'success'
+      );
       form.reset();
-    }, function(error) {
-      console.log('FAILED...', error);
-      console.log('Error details:', error.text);
-      alert(`Failed to send message: ${error.text || 'Unknown error'}. Please check console for details.`);
+    })
+    .catch(function(error) {
+      console.error('EmailJS Error:', error);
+      showFormMessage(
+        '❌ <strong>Oops! Something went wrong.</strong><br>' +
+        'Please try again later or contact me directly at <a href="mailto:ray68125@gmail.com">ray68125@gmail.com</a>',
+        'error'
+      );
+    })
+    .finally(function() {
+      setLoadingState(false);
     });
+}
+
+// 表單驗證函數
+function validateContactForm({ name, email, subject, message }) {
+  const errors = [];
+  
+  // 姓名驗證
+  if (!name) {
+    errors.push('• Please enter your <strong>name</strong>');
+  } else if (name.length < 2) {
+    errors.push('• Name must be at least <strong>2 characters</strong> long');
+  }
+  
+  // Email 驗證
+  if (!email) {
+    errors.push('• Please enter your <strong>email address</strong>');
+  } else {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      errors.push('• Please enter a <strong>valid email address</strong>');
+    }
+  }
+  
+  // 主旨驗證
+  if (!subject) {
+    errors.push('• Please enter a <strong>subject</strong>');
+  } else if (subject.length < 3) {
+    errors.push('• Subject must be at least <strong>3 characters</strong> long');
+  }
+  
+  // 訊息驗證
+  if (!message) {
+    errors.push('• Please enter your <strong>message</strong>');
+  } else if (message.length < 10) {
+    errors.push('• Message must be at least <strong>10 characters</strong> long');
+  }
+  
+  return {
+    isValid: errors.length === 0,
+    errors: errors
+  };
+}
+
+// 顯示表單訊息
+function showFormMessage(message, type) {
+  const messageDiv = document.getElementById('form-message');
+  messageDiv.innerHTML = message;
+  messageDiv.className = `form-message ${type}`;
+  messageDiv.style.display = 'block';
+  
+  // 滾動到訊息位置
+  messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// 清除表單訊息
+function clearFormMessage() {
+  const messageDiv = document.getElementById('form-message');
+  messageDiv.style.display = 'none';
+  messageDiv.className = 'form-message';
+  messageDiv.innerHTML = '';
+}
+
+// 設定載入狀態
+function setLoadingState(isLoading) {
+  const submitBtn = document.getElementById('submit-btn');
+  const btnText = submitBtn.querySelector('.btn-text');
+  const btnLoading = submitBtn.querySelector('.btn-loading');
+  
+  submitBtn.disabled = isLoading;
+  btnText.style.display = isLoading ? 'none' : 'inline';
+  btnLoading.style.display = isLoading ? 'inline-flex' : 'none';
+  
+  if (isLoading) {
+    submitBtn.classList.add('loading');
+  } else {
+    submitBtn.classList.remove('loading');
+  }
 }
 
 // 輪播功能
@@ -1121,6 +1723,12 @@ function initializeApp() {
   
   // 初始化導航事件監聽器
   initNavigation();
+  
+  // 初始化圖片優化功能
+  initImageLazyLoading();
+  
+  // 初始化用戶回饋機制
+  addClickFeedback();
   
   // 初始化頁面 - 修正路由解析
   let currentRoute = window.location.hash.slice(1); // 移除 #
