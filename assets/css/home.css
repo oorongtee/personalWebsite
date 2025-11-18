@@ -345,7 +345,7 @@ body {
 /* 統�??�?��??��?主�?題樣�?*/
 .hero-content h1,
 .hero h1 {
-  font-size: 90px;
+  font-size: 117px;
   line-height: 1.05;
   margin: 0 0 60px 0;
   color: #e6d8c0;
@@ -502,21 +502,28 @@ a:hover {
 
 /* ========= Weather Visualization ========= */
 
-/* 氣象資訊顯示面板 */
+/* 氣象資訊顯示面板 - 改善視覺和位置 */
 .weather-display {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  background: rgba(42, 35, 24, 0.9);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  padding: 16px;
+  bottom: 140px; /* 距離葉子上方 */
+  left: 20px;    /* 靠近葉子位置 */
+  background: linear-gradient(135deg, 
+    rgba(42, 35, 24, 0.85) 0%, 
+    rgba(31, 30, 26, 0.9) 100%);
+  backdrop-filter: blur(15px) saturate(150%);
+  border-radius: 16px;
+  padding: 18px;
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  min-width: 140px;
-  border: 1px solid rgba(240, 228, 210, 0.2);
+  gap: 10px;
+  min-width: 160px;
+  border: 1px solid rgba(212, 184, 150, 0.3);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(212, 184, 150, 0.1);
+  /* 滑出動畫效果 */
+  transform-origin: bottom left;
 }
 
 .weather-location {
@@ -586,19 +593,73 @@ a:hover {
   }
 }
 
-/* 天氣面板顯示/隱藏動畫 */
+/* 平板尺寸的天氣面板調整 */
+@media (max-width: 768px) and (min-width: 481px) {
+  .weather-display {
+    bottom: 120px;
+    left: 15px;
+    min-width: 140px;
+    padding: 14px;
+  }
+  
+  .weather-leaf-svg {
+    bottom: 60px;
+    left: 50px;
+  }
+}
+
+/* 天氣面板顯示/隱藏動畫 - 從葉子位置滑出 */
 .weather-hidden {
   opacity: 0;
-  transform: translateX(100%);
+  transform: translateY(20px) scale(0.9);
   pointer-events: none;
-  transition: all 0.5s ease-in-out;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .weather-visible {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0) scale(1);
   pointer-events: all;
-  transition: all 0.5s ease-in-out;
+  visibility: visible;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 天氣面板內部元素樣式優化 */
+.weather-location {
+  color: #d4b896;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 6px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(212, 184, 150, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.weather-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+.weather-icon {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+.weather-value {
+  font-weight: 600;
+  color: #f0e4d2;
+  min-width: 40px;
+}
+
+.weather-unit {
+  color: #d4b896;
+  font-size: 12px;
 }
 
 /* 狀態點樣式 */
@@ -608,6 +669,34 @@ a:hover {
   border-radius: 50%;
   align-self: center;
   margin-top: 8px;
+}
+
+.weather-status-dot.online {
+  background: linear-gradient(45deg, #32cd32, #90ee90);
+  box-shadow: 0 0 8px rgba(50, 205, 50, 0.4);
+}
+
+.weather-status-dot.offline {
+  background: linear-gradient(45deg, #cd5c5c, #f08080);
+  box-shadow: 0 0 8px rgba(205, 92, 92, 0.4);
+}
+
+/* 葉子旁邊的Weather標籤 */
+.weather-label {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(42, 35, 24, 0.9);
+  color: #d4b896;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0.8;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(212, 184, 150, 0.2);
 }
 
 .weather-status-dot.online {
@@ -2073,7 +2162,7 @@ a:hover {
   }
 
   .hero h1 {
-    font-size: 56px;
+    font-size: 73px;
     margin-bottom: 40px;
   }
 
@@ -2263,7 +2352,7 @@ a:hover {
   }
 
   .hero h1 {
-    font-size: 40px;
+    font-size: 52px;
     margin-bottom: 30px;
   }
 
@@ -2779,6 +2868,20 @@ a:hover {
   font-size: 16px;
   color: #d4b896;
   line-height: 1.5;
+}
+
+.detail-image {
+  margin-top: 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.detail-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 .detail-description {
@@ -3300,7 +3403,7 @@ a:hover {
   }
   
   .hero h1 {
-    font-size: 28px;
+    font-size: 36px;
   }
   
   .cards-section {

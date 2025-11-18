@@ -131,7 +131,7 @@ class WeatherVisualizer {
         <span class="weather-value" id="airTemp">--</span>
         <span class="weather-unit">°C</span>
       </div>
-      <div class="weather-status-dot ${this.isApiWorking ? 'online' : 'offline'}" id="apiStatus"></div>
+      <div class="weather-status-dot ${this.isApiWorking ? 'online' : 'offline'}" id="apiStatus" title="${this.isApiWorking ? '即時數據' : '預設數據'}"></div>
     `;
     
     document.body.appendChild(weatherPanel);
@@ -328,29 +328,37 @@ class WeatherVisualizer {
     
     // 添加點擊回饋效果
     this.triggerClickFeedback();
-    this.showWeatherPanel();
+    
+    // 切換天氣面板顯示/隱藏
+    if (this.weatherPanel && this.weatherPanel.classList.contains('weather-visible')) {
+      this.hideWeatherPanel();
+    } else {
+      this.showWeatherPanel();
+    }
   }
   
   triggerClickFeedback() {
-    // 葉子點擊時的動畫回饋 - 模擬被風吹起
+    // 葉子點擊時的動畫回饋 - 更自然的反饋效果
     if (this.leafSvg) {
-      // 暫時停止動畫以應用點擊效果
-      const currentTransform = this.leafSvg.style.transform;
+      // 暫時停止呼吸動畫
+      this.leafSvg.style.animation = 'none';
       
-      this.leafSvg.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-      
-      // 點擊時的上升和輕微旋轉效果
-      const clickTransform = currentTransform + ' scale(1.08) translateY(-15px) rotate(5deg)';
-      this.leafSvg.style.transform = clickTransform;
-      
-      setTimeout(() => {
-        this.leafSvg.style.transition = 'transform 0.6s ease-out';
-        this.leafSvg.style.transform = currentTransform; // 回到原位
-      }, 400);
+      // 點擊反饋動畫
+      this.leafSvg.style.transition = 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+      this.leafSvg.style.transform = 'rotate(70deg) scale(1.15)';
+      this.leafSvg.style.filter = 'brightness(1.4) drop-shadow(0 0 15px rgba(50, 205, 50, 0.8))';
       
       setTimeout(() => {
-        this.leafSvg.style.transition = ''; // 恢復動畫
-      }, 1000);
+        this.leafSvg.style.transition = 'all 0.5s ease-out';
+        this.leafSvg.style.transform = 'rotate(70deg) scale(1)';
+        this.leafSvg.style.filter = 'drop-shadow(0 0 4px rgba(50, 205, 50, 0.3))';
+      }, 300);
+      
+      setTimeout(() => {
+        // 恢復呼吸動畫
+        this.leafSvg.style.transition = '';
+        this.leafSvg.style.animation = 'leafBreathing 3s ease-in-out infinite';
+      }, 800);
     }
   }
   
@@ -361,17 +369,21 @@ class WeatherVisualizer {
     // 強制更新天氣數據顯示
     this.updateWeatherDisplay();
     
-    // 顯示天氣面板
+    // 顯示天氣面板 - 添加漸進動畫
     this.weatherPanel.classList.remove('weather-hidden');
-    this.weatherPanel.classList.add('weather-visible');
     
-    // 8秒後自動隱藏
+    // 使用setTimeout確保動畫效果
+    setTimeout(() => {
+      this.weatherPanel.classList.add('weather-visible');
+    }, 10);
+    
+    // 10秒後自動隱藏（增加顯示時間）
     clearTimeout(this.hideTimeout);
     this.hideTimeout = setTimeout(() => {
       this.hideWeatherPanel();
-    }, 8000);
+    }, 10000);
     
-    console.log('🍃 樹葉被點擊，顯示天氣面板', this.currentData);
+    console.log('🍃 天氣葉子被點擊，顯示即時天氣面板', this.currentData);
   }
   
   hideWeatherPanel() {

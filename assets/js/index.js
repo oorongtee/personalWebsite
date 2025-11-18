@@ -28,7 +28,7 @@ const footer = `
         <!-- 左邊：介紹和信息 -->
         <div class="footer-section footer-left">
           <h4>Ray</h4>
-          <p>Focused on creating exquisite websites and applications, blending creativity with quality. Providing comprehensive frontend development and Product management.</p>
+          <p>Product Manager & Front-end Engineer bridging strategy and execution. Specialized in fintech platforms, gaming products, and full-stack web development with a focus on human-centered design.</p>
         </div>
 
         <!-- 中間：聯絡信息 -->
@@ -56,19 +56,19 @@ const footer = `
         <div class="footer-section footer-right">
           <h4>Elsewhere</h4>
           <div class="footer-links">
-            <a href="https://github.com" target="_blank" title="GitHub">
+            <a href="https://github.com/oorongtee" target="_blank" title="GitHub">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z"/>
               </svg>
               GitHub
             </a>
-            <a href="https://medium.com" target="_blank" title="Medium">
+            <a href="https://medium.com/@ray841206" target="_blank" title="Medium">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
               </svg>
               Medium
             </a>
-            <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+            <a href="https://www.linkedin.com/in/ray-chen-112916331/" target="_blank" title="LinkedIn">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
               </svg>
@@ -78,7 +78,7 @@ const footer = `
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
               </svg>
-              CV
+              Resume
             </a>
           </div>
         </div>
@@ -96,7 +96,7 @@ const pages = {
   home: `
     <main class="hero">
       <div class="hero-content">
-        <h1>I'M Ray.</h1>
+        <h1>I'M Ray!</h1>
         
         <div class="hero-main">
           <div class="photo-section">
@@ -112,7 +112,7 @@ const pages = {
           <div class="text-block">
             <h2>I'm a Product Manager & Front-end Engineer based in Taipei.</h2>
             <p>
-              I combine a background in political economy, philosophy, and product development to build thoughtful, human-centered digital experiences. With experience spanning front-end engineering, product management, and UX design, I move seamlessly from strategy to execution—turning complex ideas into clear, testable solutions. I work closely with engineers and cross-functional teams to balance feasibility, performance, and user experience, creating products that are both meaningful and technically strong.
+              I bring a multidisciplinary background in political economy, philosophy, and product development to approach challenges with analytical rigor and human-centered thinking. Self-taught in front-end development with hands-on experience in JavaScript, React.js, and modern frameworks. I've led fintech platforms, coordinated metaverse game projects, and built full-featured web applications from the ground up. I believe meaningful digital experiences require both emotional resonance and technical excellence.
             </p>
           </div>
         </div>
@@ -123,26 +123,26 @@ const pages = {
       <div class="cards-grid">
         <div class="card">
           <span class="card-number">01</span>
-          <h3 class="card-title">Make it</h3>
-          <p class="card-description">I sketch wireframes and make prototypes. Talking through tactile designs existing in the browser is worth its weight. Design tools only carry you so far; the rest should be realized with a link my team can rally around.</p>
+          <h3 class="card-title">Research & Strategy</h3>
+          <p class="card-description">I conduct competitive analysis, user research, and market insights to define product vision and strategy. From fintech platforms to metaverse games, I ground every decision in data and user needs.</p>
         </div>
 
         <div class="card">
           <span class="card-number">02</span>
-          <h3 class="card-title">Collaborate</h3>
-          <p class="card-description">Good design is not created in a vacuum but rather in a shared space. It must be facilitated and iterated upon as a team. I aim to include stakeholders in my design process and create a collaborative environment that welcomes and encourages feedback.</p>
+          <h3 class="card-title">Build & Code</h3>
+          <p class="card-description">Self-taught in modern web development with React, JavaScript ES6+, and full-stack technologies. I build functional prototypes and production-ready applications that bridge the gap between design and engineering.</p>
         </div>
 
         <div class="card">
           <span class="card-number">03</span>
-          <h3 class="card-title">Accessible FTW</h3>
-          <p class="card-description">I aim to make everything I design accessible to all for one main reason - it's the right thing to do. Accessible products benefit the many, not the few.</p>
+          <h3 class="card-title">Cross-functional Leadership</h3>
+          <p class="card-description">I facilitate communication between business, design, and engineering teams. Having worked across blockchain, gaming, and e-commerce, I understand how to align technical feasibility with business goals and user experience.</p>
         </div>
 
         <div class="card">
           <span class="card-number">04</span>
-          <h3 class="card-title">Keep experimenting</h3>
-          <p class="card-description">Everything I create is subject to change and experimentation. Not everything will work, but it's worth trying - and learning from what doesn't.</p>
+          <h3 class="card-title">Data-driven Iteration</h3>
+          <p class="card-description">I believe in continuous improvement through testing and feedback. Whether managing virtual land sales worth NT$5M+ or optimizing game mechanics, I use data insights to drive product decisions and enhance user engagement.</p>
         </div>
       </div>
     </section>
@@ -197,10 +197,10 @@ const pages = {
                   <h2>Engineering</h2>
                 </div>
                 <p class="expertise-description">
-                  The power of first impressions cannot be underestimated, and the gateway to capitalizing on them lies in exceptional website design. An outstanding website transcends mere aesthetics and extends its influence to encompass seamless functionality and user-friendly navigation. Drawing upon my expertise as a seasoned programmer, I possess the unique ability to tackle intricate technical challenges while crafting websites that exude sleekness and visual allure. Moreover, my extensive knowledge of recognized technical standards is complemented by my proficiency in modern building practices, ensuring that every aspect of your website is finely tuned to perfection.
+                  Self-taught in front-end development with hands-on experience in JavaScript ES6+, React.js, and modern CSS frameworks. Proficient in building full-featured web applications from the ground up, including e-commerce platforms with Redux state management and responsive design. My technical experience allows me to collaborate effectively with engineers, assess feasibility, and balance architecture, performance, and UX considerations.
                 </p>
               </div>
-              <a href="https://github.com" target="_blank" class="expertise-link">View Github</a>
+              <a href="https://github.com/oorongtee" target="_blank" class="expertise-link">View Github</a>
             </div>
 
             <div class="expertise-item">
@@ -210,7 +210,7 @@ const pages = {
                   <h2>Product</h2>
                 </div>
                 <p class="expertise-description">
-                  While I may not fit the conventional mold of a product manager, my diverse skill set in research, product design, and product coordination empowers me to drive the growth of a product from its inception. As an exceptional analytical thinker, I possess the ability to uphold the product's vision throughout its entire journey, effectively bridging the technical and product aspects. By leveraging my expertise, I can navigate the path from 0 to 1, ensuring the product's success at every stage.
+                  Bringing multidisciplinary background in political economy and philosophy to product challenges with analytical rigor and human-centered thinking. Experienced in defining product vision and strategy, conducting market analysis, and creating user-centered workflows using UX tools. Successfully led fintech platform development and coordinated gaming projects with cross-functional teams, achieving significant business outcomes including NT$5M+ in virtual asset transactions.
                 </p>
               </div>
               <a href="#/works" class="expertise-link">View Products</a>
@@ -223,7 +223,7 @@ const pages = {
                   <h2>Design</h2>
                 </div>
                 <p class="expertise-description">
-                  Despite not fitting the typical designer stereotype, my exceptional visual abilities enable me to excel as a presenter, effectively conveying design concepts to stakeholders and design teams. I possess a remarkable aptitude for conceptualization, allowing me to envision and bring forth stunning creations. Additionally, my expertise lies in fine-tuning stylesheets and crafting seamless user experiences that flow effortlessly.
+                  Proficient in UX design tools including Figma, Photoshop, and prototyping frameworks. Experienced in creating wireframes, user journeys, and visual content for digital marketing campaigns. Successfully designed game narratives, character development, and user interfaces that enhanced player engagement. My design approach focuses on bridging communication between business, design, and engineering teams to deliver products that are both desirable and technically feasible.
                 </p>
               </div>
               <a href="https://dribbble.com" target="_blank" class="expertise-link">View Dribbble</a>
@@ -238,21 +238,23 @@ const pages = {
           <div class="timeline">
             <div class="timeline-item">
               <div class="timeline-date">
-                <span class="date-range">Oct 2025 - Present</span>
+                <span class="date-range">Aug 2023 - Oct 2023</span>
                 <div class="timeline-dot orange"></div>
               </div>
               <div class="timeline-content">
-                <h3>Software Engineer Intern</h3>
+                <h3>Product Manager</h3>
                 <div class="company-info">
-                  <span class="company-name">Akira Dialog Tech Inc.</span>
+                  <span class="company-name">Locas Technology CO., LTD</span>
                   <span class="location">Taipei, Taiwan</span>
                 </div>
                 <div class="job-description">
-                  <p>Software engineering intern focused on backend API development and machine learning data enhancement.</p>
+                  <p>Led product development for blockchain exchange platform from conception to testing phase.</p>
                   <ul>
-                    <li>Designed and implemented RESTful APIs for mobile number verification and user profile management, including backend database schema planning and integration with SMS service providers</li>
-                    <li>Conducted end-to-end research on synthetic data generation for machine learning model enhancement – proposed methodology, designed labeling strategies, generated training datasets, and optimized model training pipelines</li>
-                    <li>Collaborated cross-functionally with frontend engineers to define API specifications, review QA checklists, and establish an efficient backend-frontend integration workflow</li>
+                    <li>Defined product scope, features, and core user flows for blockchain-based exchange platform</li>
+                    <li>Conducted competitive analysis and user flow research to refine product structure</li>
+                    <li>Developed prototypes and flowcharts to visualize user experience and system logic</li>
+                    <li>Collaborated with CEO to clarify client requirements and ensure functional feasibility</li>
+                    <li>Conducted feature testing and proposed improvements to enhance front-end usability</li>
                   </ul>
                 </div>
               </div>
@@ -260,37 +262,25 @@ const pages = {
 
             <div class="timeline-item">
               <div class="timeline-date">
-                <span class="date-range">Aug 2025 - Present</span>
+                <span class="date-range">Mar 2022 - May 2023</span>
                 <div class="timeline-dot blue"></div>
               </div>
               <div class="timeline-content">
-                <h3>Technical Developer</h3>
+                <h3>Product Planner</h3>
                 <div class="company-info">
-                  <span class="company-name">Superb Tech Studio</span>
+                  <span class="company-name">BITAPE Logistics Technology CO., LTD</span>
+                  <span class="location">Taichung, Taiwan</span>
                 </div>
                 <div class="job-description">
-                  <p>Full-stack development and technical consulting for technology projects.</p>
+                  <p>Contributed to Freeport Metaverse game planning and coordination, integrating blockchain technology.</p>
                   <ul>
-                    <li>Developed custom web applications and automation tools for institutions</li>
-                    <li>Implemented API integrations and database optimization solutions</li>
-                    <li>Provided technical consulting and code reviews for client projects</li>
+                    <li>Drafted and maintained whitepaper based on stakeholder input and development milestones</li>
+                    <li>Managed community engagement and digital marketing campaigns (Discord & Twitter)</li>
+                    <li>Designed game missions, narrative storylines, and character development</li>
+                    <li>Conducted Beta testing and game mechanics optimization using data-driven insights</li>
+                    <li>Supported virtual land sales achieving NT$5M+ transaction value</li>
+                    <li>Coordinated cross-functional collaboration between developers and designers</li>
                   </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-date">
-                <span class="date-range">2025 - Present</span>
-                <div class="timeline-dot orange"></div>
-              </div>
-              <div class="timeline-content">
-                <h3>Dogtor Full Stack Engineer</h3>
-                <div class="company-info">
-                  <span class="company-name">Personal Project</span>
-                </div>
-                <div class="job-description">
-                  <p>Participated in full-stack development of the Dogtor project, combining Flutter, FastAPI, and MySQL to build a student learning platform deployed on GCP.</p>
                 </div>
               </div>
             </div>
@@ -449,14 +439,14 @@ const pages = {
             <div class="social-links-contact">
               <p class="info-label">Social Links</p>
               <div class="social-icons-contact">
-                <a href="https://github.com" target="_blank" title="GitHub">
+                <a href="https://github.com/oorongtee" target="_blank" title="GitHub">
                   <span class="social-link-text">GitHub</span>
                   <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V21"></path>
                   </svg>
                 </a>
                 <span class="social-divider">/</span>
-                <a href="https://medium.com" target="_blank" title="Medium">
+                <a href="https://medium.com/@ray841206" target="_blank" title="Medium">
                   <span class="social-link-text">Medium</span>
                   <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
                     <circle cx="12" cy="12" r="1"></circle>
@@ -466,7 +456,7 @@ const pages = {
                   </svg>
                 </a>
                 <span class="social-divider">/</span>
-                <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/ray-chen-112916331/" target="_blank" title="LinkedIn">
                   <span class="social-link-text">LinkedIn</span>
                   <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path>
@@ -481,6 +471,17 @@ const pages = {
                     <polyline points="14 2 14 8 20 8"></polyline>
                     <line x1="12" y1="11" x2="12" y2="17"></line>
                     <line x1="9" y1="14" x2="15" y2="14"></line>
+                  </svg>
+                </a>
+                <span class="social-divider">/</span>
+                <a href="./docs/ray.pdf" target="_blank" title="Download Resume" download>
+                  <span class="social-link-text">Resume</span>
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14,2 14,8 20,8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10,9 9,9 8,9"></polyline>
                   </svg>
                 </a>
               </div>
@@ -499,35 +500,47 @@ const pages = {
 const worksData = [
   {
     id: 1,
+    title: "E-Shopping Mall",
+    category: "projects", 
+    subtitle: "Full-featured shopping cart and checkout system",
+    description: "Complete e-commerce application with shopping cart, product catalog, and checkout flow. Integrates Taiwan agricultural API data, features user authentication, Redux state management, and coupon system. Built with React and Bootstrap for responsive design.",
+    technologies: ["React", "Redux", "Bootstrap"],
+    website: "https://oorongteeshoppingmall1.netlify.app/",
+    github: "https://github.com/oorongtee/ShoppingMall",
+    image: "./assets/images/pic/358908403-37c23c03-6cc8-4943-b8b1-aca3178bee5f.png"
+  },
+  {
+    id: 2,
+    title: "2025 World Expo Website",
+    category: "designs",
+    subtitle: "Replica of Osaka World Expo 2025 official website", 
+    description: "A faithful recreation of the 2025 Osaka World Expo official website with interactive animations and responsive design. Features hover effects, card animations, and mobile-friendly layout at 768px breakpoint, built entirely from scratch without copying original code.",
+    technologies: ["HTML", "TailwindCSS", "JavaScript"],
+    website: "https://2025worldexpopractice.netlify.app/",
+    github: "https://github.com/oorongtee/2025worldexpo",
+    image: "./assets/images/pic/358906446-d96358a5-d66f-4ede-ad02-c90d024f7903.png"
+  },
+  {
+    id: 3,
     title: "Ray's Personal Website",
     category: "projects",
     subtitle: "Modern portfolio website with interactive features",
     description: "A modern personal portfolio website built with Vanilla JavaScript, featuring dynamic weather effects, AI chatbot assistant, and beautiful animations. Includes responsive design, single-page application architecture, and real-time Taiwan weather API integration with visual effects.",
     technologies: ["HTML5", "CSS3", "JavaScript ES6+", "Taiwan Weather API", "EmailJS"],
     website: "https://oorongtee.netlify.app",
-    github: "https://github.com/oorongtee/personalWebsite"
+    github: "https://github.com/oorongtee/personalWebsite",
+    image: "./assets/images/pic/personal-website.jpg"
   },
   {
-    id: 2,
-    title: "2025 World Expo Website",
-    category: "designs",
-    subtitle: "Replica of Osaka World Expo 2025 official website",
-    description: "A faithful recreation of the 2025 Osaka World Expo official website with interactive animations and responsive design. Features hover effects, card animations, and mobile-friendly layout at 768px breakpoint, built entirely from scratch without copying original code.",
-    technologies: ["HTML", "TailwindCSS 3.4.4", "JavaScript", "RWD"],
-    website: "#",
-    github: "https://github.com/oorongtee/2025WorldExpo",
-    image: "./assets/images/pic/358906446-d96358a5-d66f-4ede-ad02-c90d024f7903.png"
-  },
-  {
-    id: 3,
-    title: "E-Shopping Mall",
+    id: 4,
+    title: "Freeport Metaverse Game",
     category: "projects",
-    subtitle: "Full-featured shopping cart and checkout system",
-    description: "Complete e-commerce application with shopping cart, product catalog, and checkout flow. Integrates Taiwan agricultural API data, features user authentication, Redux state management, and coupon system. Built with React and Bootstrap for responsive design.",
-    technologies: ["React 18.3.1", "Redux", "Bootstrap", "Axios", "Vite"],
+    subtitle: "Metaverse gaming platform with virtual asset management",
+    description: "Contributed to planning and coordination of metaverse game featuring cross-platform virtual asset management. Managed community engagement across Discord & Twitter, drafted technical documentation, designed game missions and narratives. Coordinated cross-functional teams and achieved NT$5M+ in virtual land sales transactions.",
+    technologies: ["Game Design", "Community Management", "Virtual Assets", "Content Strategy", "Project Management"],
     website: "#",
-    github: "https://github.com/oorongtee/eShoppingMall",
-    image: "./assets/images/pic/358908403-37c23c03-6cc8-4943-b8b1-aca3178bee5f.png"
+    github: "#",
+    image: "./assets/images/pic/476145173_639227048630092_9063901635535859318_n.jpg"
   }
 ];
 
@@ -598,6 +611,7 @@ function initWorksPage() {
         <div class="detail-header">
           <h2>${work.title}</h2>
           <p class="detail-subtitle">${work.subtitle}</p>
+          ${work.image ? `<div class="detail-image"><img src="${work.image}" alt="${work.title}" /></div>` : ''}
         </div>
         <p class="detail-description">${work.description}</p>
         <div class="detail-technologies">
@@ -957,7 +971,7 @@ function handleContactFormSubmit(e) {
   
   // 驗證表單
   if (!name || !email || !subject || !message) {
-    alert('Please fill in all fields');
+    alert('Please fill in all required fields');
     return;
   }
   
