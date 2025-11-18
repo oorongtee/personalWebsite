@@ -42,6 +42,9 @@ class WeatherVisualizer {
     // 定期更新（每5分鐘）
     setInterval(() => this.fetchWeatherData(), 5 * 60 * 1000);
     
+    // 監聽窗口大小變化
+    window.addEventListener('resize', () => this.handleResize());
+    
     console.log('✅ 氣象視覺化系統已啟動', {
       currentData: this.currentData,
       panelExists: !!this.weatherPanel
@@ -228,6 +231,12 @@ class WeatherVisualizer {
   }
   
   createLeaves() {
+    // 檢查螢幕寬度，平板和手機不創建葉子
+    if (window.innerWidth <= 768) {
+      console.log('平板/手機設備，跳過葉子創建');
+      return;
+    }
+    
     // 創建SVG葉子圖片
     const leafSvg = document.createElement('div');
     leafSvg.className = 'weather-leaf-svg';
@@ -248,7 +257,7 @@ class WeatherVisualizer {
   
   getLeafSVG() {
     // 直接使用img標籤載入外部SVG文件
-    return `<img src="./pic/b_5d0a6b298ee6e.svg" class="leaf-svg-icon" width="48" height="48" alt="Leaf" style="object-fit: contain;">`;
+    return `<img src="./assets/images/pic/b_5d0a6b298ee6e.svg" class="leaf-svg-icon" width="48" height="48" alt="Leaf" style="object-fit: contain;">`;
   }
   
   getLeafSVGColor(temperature) {
@@ -455,6 +464,21 @@ class WeatherVisualizer {
           this.leafSvg.style.filter = 'hue-rotate(-10deg) saturate(1.2) brightness(1.1)';
         }
       }
+    }
+  }
+
+  handleResize() {
+    const isSmallScreen = window.innerWidth <= 768;
+    
+    if (isSmallScreen && this.leafSvg) {
+      // 小螢幕時移除葉子
+      this.leafSvg.remove();
+      this.leafSvg = null;
+      console.log('🔄 小螢幕模式：移除葉子');
+    } else if (!isSmallScreen && !this.leafSvg) {
+      // 大螢幕時重新創建葉子
+      this.createLeaves();
+      console.log('🔄 大螢幕模式：重新創建葉子');
     }
   }
 

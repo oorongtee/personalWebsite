@@ -101,7 +101,7 @@ const pages = {
         <div class="hero-main">
           <div class="photo-section">
             <div class="photo-block">
-              <img src="./pic/RNI-Films-IMG-6B66762A-3B66-4426-A38E-D627A5555A92.JPG" alt="Ray" class="photo">
+              <img src="./assets/images/pic/RNI-Films-IMG-6B66762A-3B66-4426-A38E-D627A5555A92.JPG" alt="Ray" class="photo">
             </div>
             <div class="photo-buttons">
               <a href="#/works" class="photo-btn work-btn">View My Work</a>
@@ -157,11 +157,11 @@ const pages = {
           <div class="video-carousel">
             <div class="carousel-container">
               <video class="nature-video active" autoplay muted loop playsinline>
-                <source src="./pic/1759939484377.MOV" type="video/mp4">
+                <source src="./assets/images/pic/1759939484377.MOV" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
               <video class="nature-video" autoplay muted loop playsinline>
-                <source src="./pic/1759939782624.MOV" type="video/mp4">
+                <source src="./assets/images/pic/1759939782624.MOV" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -169,9 +169,9 @@ const pages = {
           </div>
           <div class="image-carousel">
             <div class="carousel-container">
-              <img src="./pic/77120EDE-EAB9-455E-9DA1-B43B688E842A.jpg" alt="Nature Scene" class="nature-image active">
-              <img src="./pic/BD96E9F9-612B-468F-BBCA-BECE5930AC0E.jpg" alt="Mountain Adventure" class="nature-image">
-              <img src="./pic/DE6D93A2-A7CA-47E8-B58E-C474B15EF9C6.jpg" alt="Outdoor Exploration" class="nature-image">
+              <img src="./assets/images/pic/77120EDE-EAB9-455E-9DA1-B43B688E842A.jpg" alt="Nature Scene" class="nature-image active">
+              <img src="./assets/images/pic/BD96E9F9-612B-468F-BBCA-BECE5930AC0E.jpg" alt="Mountain Adventure" class="nature-image">
+              <img src="./assets/images/pic/DE6D93A2-A7CA-47E8-B58E-C474B15EF9C6.jpg" alt="Outdoor Exploration" class="nature-image">
             </div>
             <span class="media-caption">Mountain Adventures</span>
           </div>
@@ -516,7 +516,7 @@ const worksData = [
     technologies: ["HTML", "TailwindCSS 3.4.4", "JavaScript", "RWD"],
     website: "#",
     github: "https://github.com/oorongtee/2025WorldExpo",
-    image: "./pic/358906446-d96358a5-d66f-4ede-ad02-c90d024f7903.png"
+    image: "./assets/images/pic/358906446-d96358a5-d66f-4ede-ad02-c90d024f7903.png"
   },
   {
     id: 3,
@@ -527,7 +527,7 @@ const worksData = [
     technologies: ["React 18.3.1", "Redux", "Bootstrap", "Axios", "Vite"],
     website: "#",
     github: "https://github.com/oorongtee/eShoppingMall",
-    image: "./pic/358908403-37c23c03-6cc8-4943-b8b1-aca3178bee5f.png"
+    image: "./assets/images/pic/358908403-37c23c03-6cc8-4943-b8b1-aca3178bee5f.png"
   }
 ];
 
