@@ -1401,8 +1401,8 @@ a:hover {
 .weather-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  justify-content: flex-start;
+  gap: 12px;
   padding: 6px 0;
   font-size: 13px;
 }
@@ -1416,21 +1416,28 @@ a:hover {
 
 .weather-icon {
   font-size: 16px;
-  width: 20px;
+  width: 24px;
   text-align: center;
   filter: brightness(1.2);
+  flex-shrink: 0;
 }
 
 .weather-value {
   font-weight: 600;
   color: #FAF8F5;
-  min-width: 40px;
+  min-width: 45px;
+  text-align: right;
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .weather-unit {
   color: rgba(250, 248, 245, 0.85);
   font-size: 12px;
+  min-width: 30px;
+  text-align: left;
+  flex-shrink: 0;
 }
 
 /* 狀態點樣式 */
@@ -4785,16 +4792,23 @@ a:hover {
   box-shadow: var(--shadow-lg);
 }
 
-/* Background Gradient */
+/* Services Section - 湖水藍玻璃質感背景 */
 .bg-gradient {
   background: linear-gradient(
     135deg,
-    rgba(15, 23, 42, 0.8) 0%,
-    rgba(30, 41, 59, 0.6) 50%,
-    rgba(15, 23, 42, 0.8) 100%
+    rgba(6, 182, 212, 0.08) 0%,
+    rgba(14, 165, 233, 0.12) 30%,
+    rgba(6, 182, 212, 0.10) 70%,
+    rgba(8, 145, 178, 0.08) 100%
   );
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 32px;
+  margin: 40px 20px;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(6, 182, 212, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* Enhanced Card Animations */
@@ -4806,6 +4820,536 @@ a:hover {
 .card:nth-child(2) { animation-delay: 0.2s; }
 .card:nth-child(3) { animation-delay: 0.3s; }
 .card:nth-child(4) { animation-delay: 0.4s; }
+
+/* ============================================
+   🌿 NEW SERVICES SECTION STYLES - 淡綠奶油色系
+   ============================================ */
+
+/* Services Section 容器 */
+.services-section-new {
+  position: relative;
+  z-index: 2;
+}
+
+/* Services Section 標題 */
+.services-title {
+  color: #FFFFFF !important;          /* 白色 */
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.services-subtitle {
+  color: #212121 !important;          /* 深灰 */
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+/* Services 卡片重新設計 */
+.services-card {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 2px solid rgba(200, 247, 220, 0.4) !important;
+  border-radius: 20px !important;
+  padding: 2rem !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  box-shadow: 0 4px 20px rgba(38, 92, 75, 0.08) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #C8F7DC 0%, #265C4B 50%, #C8F7DC 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.services-card:hover::before {
+  opacity: 1;
+}
+
+.services-card:hover {
+  transform: translateY(-8px) !important;
+  border-color: rgba(200, 247, 220, 0.7) !important;
+  box-shadow: 0 12px 40px rgba(38, 92, 75, 0.15) !important;
+}
+
+/* Services 卡片標題 */
+.services-card-title {
+  color: #265C4B !important;          /* 森林綠 */
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  margin: 0 !important;
+}
+
+/* Services 卡片內容文字 */
+.services-card-text {
+  color: #212121 !important;          /* 深灰 */
+  line-height: 1.7 !important;
+  margin: 0 !important;
+  font-size: 0.95rem !important;
+}
+
+/* Services 數字 Badge */
+.services-badge-number {
+  background: linear-gradient(135deg, #C8F7DC 0%, #A5E6C8 100%) !important;
+  color: #265C4B !important;
+  border: 2px solid #265C4B !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  padding: 0.375rem 0.75rem !important;
+  min-width: 2.5rem;
+  text-align: center;
+}
+
+/* Services 技能 Badge */
+.services-badge {
+  background: rgba(200, 247, 220, 0.3) !important;
+  color: #265C4B !important;
+  border: 1px solid rgba(38, 92, 75, 0.3) !important;
+  border-radius: 20px !important;
+  font-weight: 500 !important;
+  font-size: 0.8rem !important;
+  padding: 0.25rem 0.75rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.services-badge:hover {
+  background: rgba(200, 247, 220, 0.5) !important;
+  border-color: rgba(38, 92, 75, 0.5) !important;
+  transform: scale(1.05);
+}
+
+/* Services Section 整體間距調整 */
+.services-section-new .container {
+  padding: 2rem;
+}
+
+/* Services 卡片網格間距 */
+.services-section-new .grid {
+  gap: 2rem !important;
+}
+
+/* Services Section 響應式調整 */
+@media (max-width: 768px) {
+  .services-section-new .container {
+    padding: 1rem;
+  }
+  
+  .services-card {
+    padding: 1.5rem !important;
+  }
+  
+  .services-title {
+    font-size: 2rem;
+  }
+}
+
+/* 確保services section在各種螢幕尺寸下都有良好表現 */
+@media (min-width: 1200px) {
+  .services-section-new .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+}
+
+/* ============================================
+   🚨 媒體載入錯誤提示樣式
+   ============================================ */
+
+.media-error-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(239, 68, 68, 0.95);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 32px rgba(239, 68, 68, 0.3);
+  z-index: 10000;
+  animation: slideInError 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 300px;
+  word-wrap: break-word;
+}
+
+.media-error-toast .error-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.media-error-toast .error-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.media-error-toast .error-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* 錯誤提示動畫 */
+@keyframes slideInError {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 響應式錯誤提示 */
+@media (max-width: 768px) {
+  .media-error-toast {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+}
+
+/* ============================================
+   🖼️ WORKS PAGE - 新布局設計 & 統一色調濾鏡
+   ============================================ */
+
+/* 更新work卡片尺寸和布局 */
+.works-page .work-card {
+  width: calc(100% * 1.2) !important;
+  max-width: 420px !important;
+  height: 380px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 卡片圖片區域 - 最小邊框距離讓圖片更大 */
+.works-page .work-card-image {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  margin: 1px;
+  border-radius: 12px;
+}
+
+.works-page .work-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* 卡片內容區域 - 最小化邊框讓圖片更大 */
+.works-page .work-card-content {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.6) 70%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+  padding: 20px 12px 12px 12px;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.works-page .work-card-inner {
+  color: white;
+}
+
+.works-page .work-card-inner h3 {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  margin: 0 0 4px 0 !important;
+  color: #FFFFFF !important;
+  line-height: 1.2 !important;
+}
+
+.works-page .work-card-inner .work-subtitle {
+  font-size: 0.75rem !important;
+  margin: 0 !important;
+  color: #E2E8F0 !important;
+  opacity: 0.9;
+  line-height: 1.3 !important;
+}
+
+/* Hover overlay - 佔據整張卡片，防止跑版 */
+.works-page .work-card-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 10;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.works-page .work-card:hover .work-card-hover-overlay {
+  opacity: 1;
+}
+
+.works-page .hover-content {
+  text-align: center;
+  color: white;
+}
+
+.works-page .hover-title {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.375rem !important;
+  color: #FFFFFF !important;
+  line-height: 1.2 !important;
+}
+
+.works-page .hover-subtitle {
+  font-size: 0.875rem !important;
+  margin-bottom: 0.75rem !important;
+  color: #E2E8F0 !important;
+  line-height: 1.3 !important;
+}
+
+.works-page .hover-description {
+  margin: 0.75rem 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.works-page .hover-description p {
+  font-size: 0.75rem !important;
+  line-height: 1.4 !important;
+  color: #CBD5E1 !important;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.works-page .hover-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  justify-content: center;
+  margin: 0.75rem 0 1rem 0;
+}
+
+.works-page .view-details {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ADE80;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.works-page .view-details:hover {
+  background: rgba(34, 197, 94, 0.3);
+  border-color: rgba(34, 197, 94, 0.6);
+}
+
+/* 響應式設計 */
+@media (max-width: 1200px) {
+  .works-page .work-card {
+    max-width: 350px !important;
+    width: calc(100% * 1.1) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .works-page .work-card {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 320px !important;
+  }
+  
+  .works-page .work-card-content {
+    padding: 8px 6px 6px 6px;
+  }
+  
+  .works-page .work-card-inner h3 {
+    font-size: 0.9rem !important;
+  }
+  
+  .works-page .work-card-inner .work-subtitle {
+    font-size: 0.7rem !important;
+  }
+  
+  .works-page .work-card-hover-overlay {
+    padding: 1rem;
+  }
+  
+  .works-page .hover-title {
+    font-size: 1.1rem !important;
+  }
+  
+  .works-page .hover-subtitle {
+    font-size: 0.8rem !important;
+  }
+  
+  .works-page .hover-description p {
+    font-size: 0.7rem !important;
+    line-height: 1.3 !important;
+    -webkit-line-clamp: 3;
+  }
+}
+
+@media (max-width: 480px) {
+  .works-page .work-card {
+    height: 280px !important;
+  }
+  
+  .works-page .work-card-content {
+    padding: 6px 4px 4px 4px;
+  }
+  
+  .works-page .work-card-inner h3 {
+    font-size: 0.85rem !important;
+  }
+  
+  .works-page .work-card-inner .work-subtitle {
+    font-size: 0.65rem !important;
+  }
+  
+  .works-page .work-card-hover-overlay {
+    padding: 0.75rem;
+  }
+  
+  .works-page .hover-title {
+    font-size: 1rem !important;
+  }
+  
+  .works-page .hover-technologies {
+    gap: 0.25rem;
+    margin: 0.5rem 0 0.75rem 0;
+  }
+  
+  .works-page .tech-tag {
+    font-size: 0.65rem !important;
+    padding: 0.15rem 0.3rem !important;
+  }
+  
+  .works-page .view-details {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* 網格布局調整 */
+.works-page .works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+@media (min-width: 768px) {
+  .works-page .works-grid {
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .works-page .works-grid {
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 3rem;
+  }
+}
+
+/* 為work卡片圖片添加輕微的統一色調濾鏡 */
+.works-page .work-card-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(38, 92, 75, 0.1);      /* 非常淡的森林綠遮罩 */
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* Hover 時移除遮罩 */
+.works-page .work-card:hover .work-card-image::after {
+  background: transparent;
+}
+
+/* 更新work卡片的邊框色系 */
+.works-page .work-card {
+  border-color: rgba(200, 247, 220, 0.3) !important;
+  border-radius: 16px !important;
+}
+
+.works-page .work-card:hover {
+  border-color: rgba(200, 247, 220, 0.6) !important;
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Tech tags 原本設計樣式 */
+.works-page .work-card .tech-tag {
+  background: rgba(34, 197, 94, 0.2) !important;
+  color: #4ADE80 !important;
+  border: 1px solid rgba(34, 197, 94, 0.4) !important;
+  border-radius: 12px !important;
+  font-size: 0.75rem !important;
+  padding: 0.25rem 0.5rem !important;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.works-page .work-card .tech-tag:hover {
+  background: rgba(34, 197, 94, 0.3) !important;
+  border-color: rgba(34, 197, 94, 0.6) !important;
+}
+
+/* 可選的不同濾鏡效果（註解） */
+/*
+// 選項1: 深色遮罩
+.works-page .work-card-image::after {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+// 選項2: 奶油色遮罩（需要同時調整文字顏色）
+.works-page .work-card-image::after {
+  background: rgba(255, 253, 248, 0.35);
+}
+// 如使用奶油色遮罩，文字顏色改為：
+.works-page .work-card-inner h3 { color: #265C4B !important; }
+.works-page .work-card-inner p { color: #212121 !important; }
+*/
 
 /* Utility Classes */
 .max-w-2xl {

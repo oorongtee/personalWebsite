@@ -28,7 +28,7 @@ const footer = `
         <!-- 左邊：介紹和信息 -->
         <div class="footer-section footer-left">
           <h4>Ray</h4>
-          <p>Product Manager & Front-end Engineer bridging strategy and execution. Specialized in fintech platforms, gaming products, and full-stack web development with a focus on human-centered design.</p>
+          <p>Product Manager & Front-end Engineer bridging strategy and execution — creating digital experiences shaped by technology, grounded in human behavior, and refined through both empathy and technical craft.</p>
         </div>
 
         <!-- 中間：聯絡信息 -->
@@ -180,93 +180,93 @@ const pages = {
     </section>
 
     <!-- Services Section -->
-    <section class="section bg-gradient">
+    <section class="section bg-gradient services-section-new">
       <div class="container">
         <div class="text-center mb-12">
-          <h2 class="text-h2 mb-4">What I Do</h2>
-          <p class="text-body-lg text-tertiary max-w-2xl mx-auto">
+          <h2 class="text-h2 mb-4 services-title">What I Do</h2>
+          <p class="text-body-lg services-subtitle max-w-2xl mx-auto">
             From strategy to implementation, I bridge the gap between business goals and technical execution
           </p>
         </div>
         
-        <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
-          <div class="card card-elevated">
+        <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div class="card services-card">
             <div class="card-header">
               <div class="flex items-center gap-3">
-                <div class="badge badge-primary">01</div>
-                <h3 class="card-title">Research & Strategy</h3>
+                <div class="badge services-badge-number">01</div>
+                <h3 class="card-title services-card-title">Research & Strategy</h3>
               </div>
             </div>
             <div class="card-content">
-              <p class="text-body">
+              <p class="services-card-text">
                 I conduct competitive analysis, user research, and market insights to define product vision and strategy. 
                 From fintech platforms to metaverse games, I ground every decision in data and user needs.
               </p>
             </div>
             <div class="card-footer">
-              <span class="badge badge-secondary">Strategy</span>
-              <span class="badge badge-secondary">Research</span>
-              <span class="badge badge-secondary">Analysis</span>
+              <span class="badge services-badge">Strategy</span>
+              <span class="badge services-badge">Research</span>
+              <span class="badge services-badge">Analysis</span>
             </div>
           </div>
 
-          <div class="card card-elevated">
+          <div class="card services-card">
             <div class="card-header">
               <div class="flex items-center gap-3">
-                <div class="badge badge-primary">02</div>
-                <h3 class="card-title">Build & Code</h3>
+                <div class="badge services-badge-number">02</div>
+                <h3 class="card-title services-card-title">Build & Code</h3>
               </div>
             </div>
             <div class="card-content">
-              <p class="text-body">
+              <p class="services-card-text">
                 Self-taught in modern web development with React, JavaScript ES6+, and full-stack technologies. 
                 I build functional prototypes and production-ready applications that bridge design and engineering.
               </p>
             </div>
             <div class="card-footer">
-              <span class="badge badge-secondary">React</span>
-              <span class="badge badge-secondary">JavaScript</span>
-              <span class="badge badge-secondary">Full-Stack</span>
+              <span class="badge services-badge">React</span>
+              <span class="badge services-badge">JavaScript</span>
+              <span class="badge services-badge">Full-Stack</span>
             </div>
           </div>
 
-          <div class="card card-elevated">
+          <div class="card services-card">
             <div class="card-header">
               <div class="flex items-center gap-3">
-                <div class="badge badge-primary">03</div>
-                <h3 class="card-title">Cross-functional Leadership</h3>
+                <div class="badge services-badge-number">03</div>
+                <h3 class="card-title services-card-title">Cross-functional Leadership</h3>
               </div>
             </div>
             <div class="card-content">
-              <p class="text-body">
+              <p class="services-card-text">
                 I facilitate communication between business, design, and engineering teams. Having worked across blockchain, 
                 gaming, and e-commerce, I understand how to align technical feasibility with business goals.
               </p>
             </div>
             <div class="card-footer">
-              <span class="badge badge-secondary">Leadership</span>
-              <span class="badge badge-secondary">Communication</span>
-              <span class="badge badge-secondary">Alignment</span>
+              <span class="badge services-badge">Leadership</span>
+              <span class="badge services-badge">Communication</span>
+              <span class="badge services-badge">Alignment</span>
             </div>
           </div>
 
-          <div class="card card-elevated">
+          <div class="card services-card">
             <div class="card-header">
               <div class="flex items-center gap-3">
-                <div class="badge badge-primary">04</div>
-                <h3 class="card-title">Data-driven Iteration</h3>
+                <div class="badge services-badge-number">04</div>
+                <h3 class="card-title services-card-title">Data-driven Iteration</h3>
               </div>
             </div>
             <div class="card-content">
-              <p class="text-body">
+              <p class="services-card-text">
                 I believe in continuous improvement through testing and feedback. Whether managing virtual land sales 
                 worth NT$5M+ or optimizing game mechanics, I use data insights to drive product decisions.
               </p>
             </div>
             <div class="card-footer">
-              <span class="badge badge-success">Testing</span>
-              <span class="badge badge-success">Analytics</span>
-              <span class="badge badge-success">Optimization</span>
+              <span class="badge services-badge">Testing</span>
+              <span class="badge services-badge">Analytics</span>
+              <span class="badge services-badge">Optimization</span>
             </div>
           </div>
         </div>
@@ -291,7 +291,6 @@ const pages = {
                 Your browser does not support the video tag.
               </video>
             </div>
-            <span class="media-caption">Ocean Moments</span>
           </div>
           <div class="image-carousel">
             <div class="carousel-container">
@@ -299,7 +298,6 @@ const pages = {
               <img src="./assets/images/pic/BD96E9F9-612B-468F-BBCA-BECE5930AC0E.jpg" alt="Mountain Adventure" class="nature-image">
               <img src="./assets/images/pic/DE6D93A2-A7CA-47E8-B58E-C474B15EF9C6.jpg" alt="Outdoor Exploration" class="nature-image">
             </div>
-            <span class="media-caption">Mountain Adventures</span>
           </div>
         </div>
       </div>
@@ -430,8 +428,7 @@ const pages = {
             <div class="works-filter">
               <button class="filter-btn active" data-filter="all">All</button>
               <button class="filter-btn" data-filter="projects">Projects</button>
-              <button class="filter-btn" data-filter="devtools">Dev Tools</button>
-              <button class="filter-btn" data-filter="opensource">Open Source</button>
+              <button class="filter-btn" data-filter="dev">Dev</button>
               <button class="filter-btn" data-filter="designs">Designs</button>
             </div>
 
@@ -656,8 +653,8 @@ const worksData = [
   {
     id: 1,
     title: "E-Shopping Mall",
-    category: "projects", 
-    subtitle: "Full-featured shopping cart and checkout system",
+    category: "dev", 
+    subtitle: "Shopping cart and checkout system",
     description: "Complete e-commerce application with shopping cart, product catalog, and checkout flow. Integrates Taiwan agricultural API data, features user authentication, Redux state management, and coupon system. Built with React and Bootstrap for responsive design.",
     technologies: ["React", "Redux", "Bootstrap"],
     website: "https://oorongteeshoppingmall1.netlify.app/",
@@ -667,9 +664,9 @@ const worksData = [
   {
     id: 2,
     title: "2025 World Expo Website",
-    category: "designs",
+    category: "dev",
     subtitle: "Replica of Osaka World Expo 2025 official website", 
-    description: "A faithful recreation of the 2025 Osaka World Expo official website with interactive animations and responsive design. Features hover effects, card animations, and mobile-friendly layout at 768px breakpoint, built entirely from scratch without copying original code.",
+    description: "A faithful recreation of the 2025 Osaka World Expo official website with interactive animations and responsive design (768px only). Features hover effects and card animations, built entirely from scratch without copying original code.",
     technologies: ["HTML", "TailwindCSS", "JavaScript"],
     website: "https://2025worldexpopractice.netlify.app/",
     github: "https://github.com/oorongtee/2025worldexpo",
@@ -678,23 +675,23 @@ const worksData = [
   {
     id: 3,
     title: "Ray's Personal Website",
-    category: "projects",
+    category: "dev",
     subtitle: "Modern portfolio website with interactive features",
     description: "A modern personal portfolio website built with Vanilla JavaScript, featuring dynamic weather effects, AI chatbot assistant, and beautiful animations. Includes responsive design, single-page application architecture, and real-time Taiwan weather API integration with visual effects.",
-    technologies: ["HTML5", "CSS3", "JavaScript ES6+", "Taiwan Weather API", "EmailJS"],
-    website: "https://oorongtee.netlify.app",
+    technologies: ["HTML5", "CSS3", "JavaScript ES6+", "EmailJS"],
+    website: "",
     github: "https://github.com/oorongtee/personalWebsite",
-    image: "./assets/images/pic/personal-website.jpg"
+    image: "./assets/images/pic/personalWebsite.png"
   },
   {
     id: 4,
     title: "Freeport Metaverse Game",
     category: "projects",
-    subtitle: "Metaverse gaming platform with virtual asset management",
-    description: "Contributed to planning and coordination of metaverse game featuring cross-platform virtual asset management. Managed community engagement across Discord & Twitter, drafted technical documentation, designed game missions and narratives. Coordinated cross-functional teams and achieved NT$5M+ in virtual land sales transactions.",
-    technologies: ["Game Design", "Community Management", "Virtual Assets", "Content Strategy", "Project Management"],
-    website: "#",
-    github: "#",
+    subtitle: "A cross-platform metaverse game integrating blockchain for virtual asset management.",
+    description: "Contributed to the planning and coordination of a metaverse game with cross-platform virtual asset management. Led community engagement, created product, and designed game missions and narrative contents. Collaborated closely with cross-functional teams to support development and feature execution.",
+    technologies: ["Game Design", "Community Management", "Content Strategy", "Project Management"],
+    website: "",
+    github: "",
     image: "./assets/images/pic/476145173_639227048630092_9063901635535859318_n.jpg"
   }
 ];
@@ -776,8 +773,8 @@ function initWorksPage() {
           </div>
         </div>
         <div class="detail-links">
-          <a href="${work.website}" target="_blank" class="detail-link">🔗 Website</a>
-          <a href="${work.github}" target="_blank" class="detail-link">Github</a>
+          ${work.website ? `<a href="${work.website}" target="_blank" class="detail-link">🔗 Website</a>` : ''}
+          ${work.github ? `<a href="${work.github}" target="_blank" class="detail-link">Github</a>` : ''}
         </div>
       </div>
     `;
@@ -799,14 +796,19 @@ function initWorksPage() {
       card.className = 'work-card';
       card.innerHTML = `
         ${work.image ? `<div class="work-card-image"><img src="${work.image}" alt="${work.title}" /></div>` : ''}
-        <div class="work-card-inner">
-          <h3>${work.title}</h3>
-          <p class="work-subtitle">${work.subtitle}</p>
+        <div class="work-card-content">
+          <div class="work-card-inner">
+            <h3>${work.title}</h3>
+            <p class="work-subtitle">${work.subtitle}</p>
+          </div>
         </div>
         <div class="work-card-hover-overlay">
           <div class="hover-content">
             <h3 class="hover-title">${work.title}</h3>
             <p class="hover-subtitle">${work.subtitle}</p>
+            <div class="hover-description">
+              <p>${work.description}</p>
+            </div>
             <div class="hover-technologies">
               ${work.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
             </div>
@@ -1607,19 +1609,41 @@ function initCarousels() {
   const videos = document.querySelectorAll('.nature-video');
   if (videos.length > 1) {
     let currentVideoIndex = 0;
+    let videoErrorCount = 0;
+    
+    // 為每個影片添加錯誤處理
+    videos.forEach((video, index) => {
+      video.addEventListener('error', () => {
+        videoErrorCount++;
+        console.error(`Video ${index + 1} failed to load`);
+        showMediaError('video', index + 1);
+      });
+      
+      video.addEventListener('loadstart', () => {
+        console.log(`Video ${index + 1} started loading`);
+      });
+    });
     
     // 確保第一個影片開始播放
-    videos[0].play().catch(e => console.log('Video autoplay prevented:', e));
+    videos[0].play().catch(e => {
+      console.log('Video autoplay prevented:', e);
+      showMediaError('video', 1, 'Autoplay prevented');
+    });
     
     setInterval(() => {
-      videos[currentVideoIndex].classList.remove('active');
-      videos[currentVideoIndex].pause(); // 暫停當前影片
-      
-      currentVideoIndex = (currentVideoIndex + 1) % videos.length;
-      
-      videos[currentVideoIndex].classList.add('active');
-      videos[currentVideoIndex].currentTime = 0; // 重頭播放
-      videos[currentVideoIndex].play().catch(e => console.log('Video play failed:', e));
+      if (videoErrorCount < videos.length) {
+        videos[currentVideoIndex].classList.remove('active');
+        videos[currentVideoIndex].pause(); // 暫停當前影片
+        
+        currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+        
+        videos[currentVideoIndex].classList.add('active');
+        videos[currentVideoIndex].currentTime = 0; // 重頭播放
+        videos[currentVideoIndex].play().catch(e => {
+          console.log('Video play failed:', e);
+          showMediaError('video', currentVideoIndex + 1, 'Playback failed');
+        });
+      }
     }, 5000); // 每5秒切換，給影片更多時間
   }
   
@@ -1627,13 +1651,54 @@ function initCarousels() {
   const images = document.querySelectorAll('.nature-image');
   if (images.length > 1) {
     let currentImageIndex = 0;
+    let imageErrorCount = 0;
+    
+    // 為每個圖片添加錯誤處理
+    images.forEach((img, index) => {
+      img.addEventListener('error', () => {
+        imageErrorCount++;
+        console.error(`Image ${index + 1} failed to load`);
+        showMediaError('image', index + 1);
+      });
+      
+      img.addEventListener('load', () => {
+        console.log(`Image ${index + 1} loaded successfully`);
+      });
+    });
     
     setInterval(() => {
-      images[currentImageIndex].classList.remove('active');
-      currentImageIndex = (currentImageIndex + 1) % images.length;
-      images[currentImageIndex].classList.add('active');
+      if (imageErrorCount < images.length) {
+        images[currentImageIndex].classList.remove('active');
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        images[currentImageIndex].classList.add('active');
+      }
     }, 4000); // 每4秒切換
   }
+}
+
+// 媒體載入錯誤提示函數
+function showMediaError(mediaType, index, reason = 'Failed to load') {
+  const errorMessage = `${mediaType === 'video' ? '影片' : '圖片'} ${index} 載入失敗: ${reason}`;
+  
+  // 創建錯誤提示元素
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'media-error-toast';
+  errorDiv.innerHTML = `
+    <div class="error-content">
+      <span class="error-icon">⚠️</span>
+      <span class="error-text">${errorMessage}</span>
+    </div>
+  `;
+  
+  // 添加到頁面
+  document.body.appendChild(errorDiv);
+  
+  // 3秒後自動移除
+  setTimeout(() => {
+    if (errorDiv.parentNode) {
+      errorDiv.remove();
+    }
+  }, 3000);
 }
 
 
