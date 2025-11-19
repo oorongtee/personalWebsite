@@ -52,7 +52,7 @@ class PersonalChatbot {
 
       ],
       leaf: [
-        "🌿 Oh, that precious little leaf! It’s one of Ray’s most thoughtful touches—dancing with real-time weather data from Taiwan’s Central Weather Administration and creating a magical link between the digital world and nature. 🌿 It beautifully reflects Ray’s gentle heart for blending natural elements into design, letting the website change with the weather so every visit feels unique, alive, and connected to the environment.✨"
+        "🌿 Oh, that precious little leaf! It’s one of Ray’s most thoughtful touches—dancing with real-time weather data from Taiwan’s Central Weather Administration and creating a magical link between the digital world and nature. 🌿 It beautifully reflects Ray’s gentle heart for blending natural elements into design, letting the website design change with the weather so every visit feels unique, alive, and connected to the environment.✨"
       ],
       contact: [
         "💌 Ready to create something beautiful together? Reach our lovely Ray at **ray68125@gmail.com** or use the contact form! He's based in **Taipei, Taiwan** and his heart lights up when collaborating with wonderful people like you! 🌟",
