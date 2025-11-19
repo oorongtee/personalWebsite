@@ -32,28 +32,36 @@ class PersonalChatbot {
     
     this.responses = {
       greeting: [
-        "👋 Hi! I'm Ray's AI assistant. I'm here to share how Ray creates digital experiences that users love and businesses grow with. What would you like to explore?",
-        "Hello! I can tell you about Ray's unique blend of product thinking and technical craft. What aspect of building great digital products interests you most?"
+        "🐱 Hello sweetie! I'm Ray's caring AI kitty assistant. I'd love to share all the wonderful things about Ray's work with you! What would you like to explore together? 💕",
+        "Hi there, lovely human! 🌟 I'm here to warmly guide you through Ray's amazing projects and skills. What catches your heart today?"
       ],
       skills: [
-        "Ray combines **product strategy** with **technical implementation**. He specializes in **React & Vue.js**, **user research**, **empathy-driven development**, and **cross-functional collaboration**.",
-        "Ray's superpower is bridging **product vision** and **technical execution**. Core skills include **JavaScript/TypeScript**, **human-centered design**, **API architecture**, and **team collaboration**."
+        "🌟 Ray has such beautiful talents! He combines **product strategy** with **technical implementation** with such care. He specializes in **React**, **user research**, **empathy-driven development**, and **cross-functional collaboration** - all with his gentle, caring approach! 💕",
+        "Ray's superpower is bridging **product vision** and **technical execution** with so much heart! His core skills include **JavaScript/TypeScript**, **human-centered design**, **API architecture**, and **team collaboration** - he makes every user feel truly cared for! ✨"
       ],
       projects: [
-        "Ray has worked on diverse projects including **interactive portfolio websites**, **e-commerce platforms**, **data visualization dashboards**, and **mobile-first applications**.",
-        "Recent work includes this **weather-integrated portfolio**, **responsive e-commerce solutions**, and **custom dashboard applications**."
+        "🎨 Ray has poured his heart into so many beautiful projects! From **interactive portfolio websites** to **e-commerce platforms** that feel like a warm hug, and **data visualization dashboards** that make information friendly and approachable! 💕",
+        "✨ Recent work includes this lovely **weather-integrated portfolio**, **responsive e-commerce solutions**, and **custom dashboard applications** - each one crafted with such care and attention to user needs! 🌟"
       ],
       services: [
-        "Ray helps teams **build products users love**. Services include **product strategy consulting**, **frontend development with purpose**, **user experience design**, and **technical mentoring**.",
-        "Whether you need **end-to-end product development**, **technical architecture planning**, or **user-centered design strategy**, Ray brings both **empathy** and **technical excellence** to every project."
+        "💝 Ray helps teams **build products users love** with such warmth and dedication! Services include **product strategy consulting**, **frontend development with purpose**, **user experience design**, and **technical mentoring** - all delivered with genuine care! ✨",
+        "Whether you need **end-to-end product development**, **technical architecture planning**, or **user-centered design strategy**, Ray brings both **empathy** and **technical excellence** to create something truly special for you! 💕"
+      ],
+      workExperience: [
+        "💼 Ray has such a beautiful professional journey! As a **Product Manager** at **Locas Technology** in Taipei, he lovingly nurtured blockchain applications from conception to testing with such thoughtful attention! 🌟",
+        "🎮 Before that, as a **Product Planner** at **BITAPE Logistics Technology** in Taichung, Ray contributed his creative heart to **Freeport Metaverse** game planning, beautifully weaving blockchain technology into engaging experiences! ✨"
+      ],
+      leaf: [
+        "🍃 Oh, that precious little leaf! It's one of Ray's most thoughtful touches - it dances with real-time weather data from Taiwan's Central Weather Administration, creating this magical connection between our digital world and nature's beauty! 💕",
+        "🌿 That adorable leaf represents Ray's gentle heart for integrating natural elements into digital design! It changes with the weather, making each visit feel unique and connected to the real world. Such a beautiful reminder to appreciate our environment! ✨"
       ],
       contact: [
-        "Ready to create something meaningful together? Reach Ray at **ray68125@gmail.com** or use the contact form. He's based in **Taipei, Taiwan** and loves collaborating with purpose-driven teams.",
-        "Let's talk about your vision! Ray offers **free discovery calls** to understand your users' needs and explore how technology can serve them better. Contact him at **ray68125@gmail.com**."
+        "💌 Ready to create something beautiful together? Reach our lovely Ray at **ray68125@gmail.com** or use the contact form! He's based in **Taipei, Taiwan** and his heart lights up when collaborating with wonderful people like you! 🌟",
+        "📧 Let's talk about your dreams! Ray offers **free discovery calls** with such warmth to understand your users' needs and explore how technology can serve them better. Contact him at **ray68125@gmail.com** - he responds with such care! 💕"
       ],
       default: [
-        "Great question! I'd love to share more about Ray's **product-minded approach**, **technical skills**, **collaborative projects**, or how to **start a conversation** about your needs.",
-        "I'm here to help you understand how Ray creates digital experiences with **purpose and empathy**! What would you like to explore?"
+        "🤔 What a thoughtful question, dear! I'd love to share more about Ray's **product-minded approach**, **technical skills**, **collaborative projects**, or how to **start a conversation** about your dreams! 💕",
+        "✨ I'm here to help you understand how Ray creates digital experiences with **purpose and empathy**! His work is filled with such care and attention to making users feel truly valued. What would you love to explore? 🌟"
       ]
     };
     
@@ -99,7 +107,7 @@ class PersonalChatbot {
       <div class="chat-window" id="chatWindow">
         <div class="chat-header">
           <div class="chat-header-info">
-            <div class="chat-avatar">R</div>
+            <div class="chat-avatar">🐱</div>
             <div class="chat-header-text">
               <h4>Ray's Assistant</h4>
               <span class="chat-status">Online • Responds quickly</span>
@@ -114,14 +122,15 @@ class PersonalChatbot {
         
         <div class="chat-messages" id="chatMessages">
           <div class="message bot-message">
-            <div class="message-avatar">R</div>
+            <div class="message-avatar">🐱</div>
             <div class="message-content">
-              <p>👋 Hi! I'm Ray's AI assistant. I can help you learn about his skills, projects, and services. What would you like to know?</p>
+              <p>🐱 Hi there, lovely human! I'm Ray's caring AI assistant kitty! I'm here to share all about Ray's amazing work with warmth and joy. What would you love to explore together? 💕</p>
               <div class="quick-actions">
                 <button class="quick-btn" data-action="skills">💻 Skills & Tech</button>
                 <button class="quick-btn" data-action="projects">🎯 Projects</button>
                 <button class="quick-btn" data-action="services">🚀 Services</button>
                 <button class="quick-btn" data-action="contact">📧 Get in Touch</button>
+                <button class="quick-btn" data-action="leaf">🍃 Why a leaf?</button>
               </div>
             </div>
           </div>
@@ -129,7 +138,7 @@ class PersonalChatbot {
         
         <div class="chat-input-container">
           <div class="chat-input-wrapper">
-            <input type="text" id="chatInput" placeholder="Ask about Ray's work, skills, or projects..." maxlength="500">
+            <input type="text" id="chatInput" placeholder="Ask me anything about Ray's wonderful work! 🐱💕" maxlength="500">
             <button id="chatSend" class="chat-send">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
@@ -295,7 +304,7 @@ class PersonalChatbot {
     
     const avatar = document.createElement('div');
     avatar.className = 'message-avatar';
-    avatar.textContent = type === 'bot' ? 'R' : 'You';
+    avatar.textContent = type === 'bot' ? '🐱' : 'You';
     
     const messageContent = document.createElement('div');
     messageContent.className = 'message-content';
@@ -332,6 +341,14 @@ class PersonalChatbot {
     
     if (lowerMessage.includes('contact') || lowerMessage.includes('email') || lowerMessage.includes('reach')) {
       return this.responses.contact[Math.floor(Math.random() * this.responses.contact.length)];
+    }
+    
+    if (lowerMessage.includes('leaf') || lowerMessage.includes('corner') || lowerMessage.includes('bottom') || lowerMessage.includes('weather')) {
+      return this.responses.leaf[Math.floor(Math.random() * this.responses.leaf.length)];
+    }
+    
+    if (lowerMessage.includes('experience') || lowerMessage.includes('job') || lowerMessage.includes('career') || lowerMessage.includes('employment') || lowerMessage.includes('locas') || lowerMessage.includes('bitape')) {
+      return this.responses.workExperience[Math.floor(Math.random() * this.responses.workExperience.length)];
     }
     
     if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {

@@ -1,3 +1,22 @@
+// =====================
+// Ray's AI Assistant Knowledge Base (English)
+// =====================
+const rayBotKnowledgeEN = {
+  greeting: "👋 Hi! I'm Ray's AI assistant. I can help you learn about his skills, projects, and services. What would you like to know?",
+  buttons: [
+    { label: "💻 Skills & Tech", key: "skills" },
+    { label: "🚀 Services", key: "services" },
+    { label: "📧 Why is there a leaf in the bottom-left corner?", key: "leaf" }
+  ],
+  answers: {
+    skills: `Ray's Skills & Tech Stack\n\nFrontend: HTML, CSS (design website, responsive, color system), JavaScript (SPA architecture, dynamic content loading, React, API Integration)\nGit & GitHub: version control, team collaboration\nProduct Management: strategy, execution, cross-disciplinary collaboration`,
+    services: `Ray's Services\n\nWebsite development\nInteractive frontend and product management\nThird-party API integration (e.g., weather, EmailJS)`,
+    portfolio: `Portfolio & Projects\n\nRay's Personal Website\n2025 World Expo\nE-Shopping Mall\nFreeport Metaverse`,
+    philosophy: `Uses earth tones and green to create a warm, natural, modern feel.\nInterface elements (like the leaf in the lower-left corner) dynamically change based on weather data, helping users appreciate the beauty of their environment.\nLoading and entrance animations use safe, side-effect-free CSS techniques.`,
+    leaf: `The leaf in the lower-left corner is part of my visual design, which dynamically adapts to climate data from Taiwan’s Central Weather Administration. I’ve integrated their API into the system so the interface can subtly reflect the surrounding environment—helping users stay present and appreciate the beauty in the world around them.`
+  }
+};
+
 // Ray's Personal AI Assistant Chatbot
 class PersonalChatbot {
   constructor() {
@@ -8,22 +27,16 @@ class PersonalChatbot {
     // Ray's personal knowledge base
     this.knowledgeBase = {
       skills: [
-        'React', 'Vue.js', 'JavaScript', 'TypeScript', 'Node.js', 
-        'Product Management', 'UI/UX Design', 'Frontend Development',
+        'React', 'JavaScript', 'Node.js', 
+        'Product Management', 'UX Design', 'Frontend Development',
         'API Integration', 'Responsive Design', 'Performance Optimization'
       ],
       services: [
         'Website Development', 'Web Application Development',
-        'Product Management Consulting', 'UI/UX Design',
+        'Product Management Consulting', 'UX Design',
         'Frontend Architecture', 'Performance Optimization',
         'API Integration', 'Mobile-First Design'
       ],
-      projects: {
-        'portfolio': 'This interactive portfolio website with weather integration',
-        'ecommerce': 'E-commerce platforms with advanced filtering',
-        'dashboards': 'Data visualization dashboards',
-        'mobile-apps': 'Responsive mobile-first applications'
-      },
       location: 'Taipei, Taiwan',
       email: 'ray68125@gmail.com',
       availability: 'Available for freelance projects and consulting'
@@ -32,34 +45,46 @@ class PersonalChatbot {
     // Predefined responses for common questions
     this.responses = {
       greeting: [
-        "👋 Hi! I'm Ray's AI assistant. How can I help you learn more about Ray's work?",
-        "Hello! I'm here to help you explore Ray's projects and services. What would you like to know?",
-        "Hey there! I can tell you about Ray's skills, projects, or how to get in touch. What interests you?"
+        "🐱 Hello sweetie! I'm Ray's caring AI kitty assistant. I'd love to share all the wonderful things about Ray's work with you! What would you like to explore together?",
+        "Hi there, lovely human! 🌟 I'm here to warmly guide you through Ray's amazing projects and skills. What catches your heart today?",
+        "Hey friend! 💕 I'm Ray's gentle AI companion, and I'm so excited to tell you about his incredible journey. What would make you smile to learn about?"
       ],
       skills: [
-        `Ray specializes in ${this.knowledgeBase.skills.slice(0, 4).join(', ')}, and more! He has ${this.knowledgeBase.skills.length}+ core technical skills. Would you like to know about specific technologies?`,
-        "Ray's expertise spans frontend development, product management, and UX design. He's particularly strong with modern JavaScript frameworks and creating user-centered experiences."
+        `🌟 Ray has such beautiful talents! He's wonderful with ${this.knowledgeBase.skills.slice(0, 4).join(', ')}, plus ${this.knowledgeBase.skills.length - 4} more amazing skills! His heart really shines in creating user-centered experiences. Would you love to hear about any specific technology? 💕`,
+        "💻 Ray's expertise is like a warm embrace spanning frontend development, product management, and UX design. He has this special gift for modern JavaScript frameworks and making users feel truly cared for through his designs! ✨"
       ],
       services: [
-        `Ray offers professional services including ${this.knowledgeBase.services.slice(0, 3).join(', ')}, and more. Each project is tailored to client needs with focus on quality and user experience.`,
-        "From concept to deployment, Ray provides end-to-end development services. He combines technical expertise with product management skills to deliver exceptional results."
+        `💝 Ray offers such caring services including ${this.knowledgeBase.services.slice(0, 3).join(', ')}, and so much more! Every project is lovingly tailored to what you need, with Ray's gentle focus on quality and making users feel wonderful.`,
+        "🚀 From the first spark of an idea to the final launch, Ray provides end-to-end development with such warmth and dedication! He beautifully weaves together technical expertise with product management skills to create something truly special for you. ✨"
       ],
       projects: [
-        "Ray has worked on diverse projects including e-commerce platforms, data dashboards, and interactive websites like this one! Check out the 'Works' section to see detailed case studies.",
-        "This portfolio itself showcases Ray's technical skills - it features real-time weather integration, interactive animations, and responsive design. Visit the Works page for more projects!"
+        "🎨 Ray has poured his heart into so many beautiful projects! From his weather-integrated personal website to e-commerce platforms that feel like a warm hug, and data dashboards that make complex information feel friendly and approachable! 💕",
+        "✨ Each of Ray's projects tells a story of care and innovation - interactive websites, blockchain applications, and mobile experiences that truly connect with users' hearts. You can see his love for detail in every pixel! 🌟"
+      ],
+      workExperience: [
+        "💼 Ray has such a lovely professional journey! As a Product Manager at Locas Technology in Taipei, he nurtured blockchain applications from conception to testing with such care and attention. 🌟",
+        "🎮 Before that, as a Product Planner at BITAPE Logistics Technology in Taichung, Ray contributed his creative heart to Freeport Metaverse game planning, beautifully integrating blockchain technology with user experiences! ✨"
+      ],
+      leaf: [
+        "🍃 Oh, that sweet little leaf! It's one of Ray's most thoughtful touches - it dances with real-time weather data from Taiwan's Central Weather Administration, creating this magical connection between the digital world and nature's beauty! It's like Ray's way of saying 'stay present and appreciate the world around you.' 💕",
+        "🌿 That adorable leaf represents Ray's gentle heart for integrating natural elements into digital design! It changes with the weather, making each visit feel unique and connected to the real world. It's such a beautiful reminder to pause and appreciate our environment! ✨"
+      ],
+      leaf: [
+        "The leaf in the bottom-left corner is part of Ray's visual design, which dynamically adapts to climate data from Taiwan’s Central Weather Administration. It helps users appreciate the beauty of their environment.",
+        "That leaf represents Ray's commitment to integrating natural elements into digital design. It changes based on real-time weather data, creating a unique and engaging user experience."
       ],
       contact: [
-        `Ray is based in ${this.knowledgeBase.location} and ${this.knowledgeBase.availability}. You can reach him at ${this.knowledgeBase.email} or use the contact form.`,
-        "Ready to discuss your project? Ray responds quickly to emails and offers free initial consultations. Check out the Contact page for more ways to connect!"
+        `💌 Ray is nestled in the heart of ${this.knowledgeBase.location} and he's so excited to welcome new projects! You can send him a warm message at ${this.knowledgeBase.email} or use the lovely contact form. He always responds with care! 🌟`,
+        "📧 Ready to create something beautiful together? Ray's heart lights up when he receives emails, and he lovingly offers free initial consultations to understand your dreams! Check out the Contact page - there are so many wonderful ways to connect! ✨"
       ],
       location: [
-        `Ray is located in ${this.knowledgeBase.location}, working with clients locally and internationally. Time zone: UTC+8.`,
-        "Based in Taipei, Ray works with clients across different time zones and is experienced in remote collaboration."
+        `🏙️ Ray calls ${this.knowledgeBase.location} home, but his heart reaches out to work with amazing people locally and around the world! Time zone: UTC+8, but he's always flexible for the right collaboration! 💕`,
+        "🌍 From his cozy base in Taipei, Ray spreads joy working with clients across different time zones. He's become such a pro at remote collaboration, making distance feel like nothing at all! ✨"
       ],
       default: [
-        "That's an interesting question! For detailed discussions about your specific needs, I'd recommend reaching out to Ray directly at ray68125@gmail.com",
-        "I'd love to help, but that might be best discussed directly with Ray. You can contact him via the contact form or email for personalized assistance.",
-        "Great question! Ray would be the best person to give you a detailed answer. Feel free to reach out through the contact page."
+        "🤔 What a thoughtful question, dear! While I'd love to chat more, Ray would be absolutely delighted to give you a personalized answer. Drop him a sweet note at ray68125@gmail.com - he really treasures meaningful conversations! 💕",
+        "💭 Oh, I wish I could help more with that lovely question! Ray would be the perfect person to discuss this with you personally. Send him a message through the contact form or email - he'll respond with such care and attention! 🌟",
+        "✨ That's such a wonderful question! Ray's eyes would light up to answer that for you personally. Please don't hesitate to reach out through the contact page - he loves connecting with thoughtful people like you! 💝"
       ]
     };
     
@@ -78,10 +103,10 @@ class PersonalChatbot {
   createChatWidget() {
     console.log('Creating chat widget...');
     
-    // 檢查是否已存在聊天機器人容器
+    // Check if chatbot container already exists
     const existing = document.querySelector('.chatbot-container');
     if (existing) {
-      console.log('聊天機器人容器已存在，移除舊容器');
+      console.log('Chatbot container already exists, removing old container');
       existing.remove();
     }
     
@@ -104,7 +129,7 @@ class PersonalChatbot {
         <div class="chat-header">
           <div class="chat-header-info">
             <div class="chat-avatar">
-              <span>R</span>
+              <span>🐱</span>
             </div>
             <div class="chat-header-text">
               <h4>Ray's Assistant</h4>
@@ -121,15 +146,14 @@ class PersonalChatbot {
         <div class="chat-messages" id="chatMessages">
           <div class="message bot-message">
             <div class="message-avatar">
-              <span>R</span>
+              <span>🐱</span>
             </div>
             <div class="message-content">
               <p>👋 Hi! I'm Ray's AI assistant. I can help you learn about his skills, projects, and services. What would you like to know?</p>
               <div class="quick-actions">
                 <button class="quick-btn" data-action="skills">💻 Skills & Tech</button>
-                <button class="quick-btn" data-action="projects">🎯 Projects</button>
                 <button class="quick-btn" data-action="services">🚀 Services</button>
-                <button class="quick-btn" data-action="contact">📧 Get in Touch</button>
+                <button class="quick-btn" data-action="leaf">🍃 Why is there a leaf in the bottom-left corner?</button>
               </div>
             </div>
           </div>
@@ -137,7 +161,7 @@ class PersonalChatbot {
         
         <div class="chat-input-container">
           <div class="chat-input-wrapper">
-            <input type="text" id="chatInput" placeholder="Ask about Ray's work, skills, or projects..." maxlength="500">
+            <input type="text" id="chatInput" placeholder="Ask me anything about Ray's wonderful work! 🐱💕" maxlength="500">
             <button id="chatSend" class="chat-send">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
@@ -154,9 +178,9 @@ class PersonalChatbot {
     `;
     
     document.body.appendChild(chatContainer);
-    console.log('聊天機器人容器已添加到頁面');
+    console.log('Chatbot container added to page');
     
-    // 立即設置 DOM 元素引用
+    // Immediately set DOM element references
     this.chatContainer = chatContainer;
     this.chatWindow = chatContainer.querySelector('#chatWindow');
     this.chatMessages = chatContainer.querySelector('#chatMessages');
@@ -165,7 +189,7 @@ class PersonalChatbot {
     this.chatClose = chatContainer.querySelector('#chatClose');
     this.chatSend = chatContainer.querySelector('#chatSend');
     
-    console.log('DOM 元素已設置:', {
+    console.log('DOM elements set:', {
       chatContainer: this.chatContainer,
       chatWindow: this.chatWindow,
       chatMessages: this.chatMessages,
@@ -173,10 +197,10 @@ class PersonalChatbot {
       chatToggle: this.chatToggle
     });
     
-    // 立即設置事件監聽器
+    // Immediately set up event listeners
     this.setupEventListeners();
     this.isInitialized = true;
-    console.log('聊天機器人初始化完成');
+    console.log('Chatbot initialization complete');
   }
   
   setupEventListeners() {
@@ -185,7 +209,7 @@ class PersonalChatbot {
     this.chatInput = document.getElementById('chatInput');
     this.chatMessages = document.getElementById('chatMessages');
     
-    console.log('設置事件監聽器:', {
+    console.log('Setting up event listeners:', {
       chatContainer: this.chatContainer,
       chatInput: this.chatInput,
       chatMessages: this.chatMessages
@@ -193,10 +217,10 @@ class PersonalChatbot {
     
     // Toggle chat
     const toggleBtn = document.getElementById('chatToggle');
-    console.log('聊天切換按鈕:', toggleBtn);
+    console.log('Chat toggle button:', toggleBtn);
     if (toggleBtn) {
       toggleBtn.addEventListener('click', () => {
-        console.log('點擊聊天切換按鈕');
+        console.log('Chat toggle button clicked');
         this.toggleChat();
       });
     }
@@ -269,9 +293,11 @@ class PersonalChatbot {
   handleQuickAction(action) {
     const actionQuestions = {
       skills: "What are Ray's main technical skills?",
-      projects: "Can you show me Ray's recent projects?",
+      projects: "Can you show me Ray's recent projects?", 
       services: "What services does Ray offer?",
-      contact: "How can I get in touch with Ray?"
+      contact: "How can I get in touch with Ray?",
+      leaf: "Why is there a leaf in the bottom-left corner?",
+      workExperience: "Tell me about Ray's work experience"
     };
     
     const question = actionQuestions[action];
@@ -288,7 +314,7 @@ class PersonalChatbot {
     if (type === 'bot') {
       messageDiv.innerHTML = `
         <div class="message-avatar">
-          <span>R</span>
+          <span>🐱</span>
         </div>
         <div class="message-content">
           ${isHTML ? content : `<p>${content}</p>`}
@@ -329,13 +355,13 @@ class PersonalChatbot {
     const keywordResponses = {
       skills: () => ({
         content: `Ray's core technical skills include:<br><br>
-        🚀 <strong>Frontend:</strong> React, Vue.js, JavaScript (ES6+), TypeScript<br>
-        🎨 <strong>Design:</strong> UI/UX Design, Responsive Design, CSS3<br>
+        🚀 <strong>Frontend:</strong> React, JavaScript (ES6+)<br>
+        🎨 <strong>Design:</strong> UX Design, Responsive Design, CSS3<br>
         📊 <strong>Product:</strong> Product Management, User Research, Analytics<br>
         🔧 <strong>Tools:</strong> Node.js, API Integration, Performance Optimization<br><br>
         He combines technical expertise with product thinking to create user-centered solutions. Want to know about specific technologies?`,
         isHTML: true,
-        suggestions: ['React projects', 'UI/UX process', 'Product management approach']
+        suggestions: ['React projects', 'UX process', 'Product management approach']
       }),
       
       projects: () => ({
@@ -362,13 +388,33 @@ class PersonalChatbot {
       }),
       
       contact: () => ({
-        content: `Ready to work together? Here's how to reach Ray:<br><br>
+        content: `💕 Ready to create something beautiful together? Here's how to reach our lovely Ray:<br><br>
         📧 <strong>Email:</strong> <a href="mailto:ray68125@gmail.com">ray68125@gmail.com</a><br>
         📍 <strong>Location:</strong> Taipei, Taiwan (UTC+8)<br>
-        ⏰ <strong>Availability:</strong> Available for new projects<br><br>
-        Ray typically responds within 24 hours and offers free initial consultations to discuss your project needs. You can also use the <a href="#contact" onclick="navigateTo('contact')">contact form</a> for detailed project inquiries.`,
+        ✨ <strong>Availability:</strong> Excited to welcome new projects!<br><br>
+        Ray's heart lights up when he gets messages! He typically responds within 24 hours with such care and warmth. He also offers free initial consultations to understand your dreams. You can also use the <a href="#contact" onclick="navigateTo('contact')">contact form</a> to share your project story! 🌟`,
         isHTML: true,
-        suggestions: ['Schedule consultation', 'Project requirements', 'View contact form']
+        suggestions: ['Schedule a sweet consultation', 'Share project dreams', 'Visit contact form']
+      }),
+      
+      leaf: () => ({
+        content: `🍃 Oh, that precious little leaf! It's one of Ray's most thoughtful and magical touches! 💕<br><br>
+        ✨ That sweet leaf dances with real-time weather data from Taiwan's Central Weather Administration, creating this beautiful bridge between our digital world and nature's wonders!<br><br>
+        🌿 It's like Ray's gentle way of whispering "stay present, dear friend, and appreciate the beauty that surrounds you every moment." Each time you visit, it might show you something different - just like how every day brings new natural beauty! 🌟<br><br>
+        It represents Ray's caring heart for weaving natural elements into digital experiences, making technology feel warm and alive! 💝`,
+        isHTML: true,
+        suggestions: ['More about design philosophy', 'Other interactive elements', 'Ray\'s creative process']
+      }),
+      
+      workExperience: () => ({
+        content: `💼 Ray has such a beautiful professional journey filled with innovation and care! 🌟<br><br>
+        🏢 <strong>Product Manager</strong> at <em>Locas Technology CO., LTD</em> in Taipei<br>
+        💡 Where he lovingly nurtured blockchain applications from their first spark of conception all the way through testing, bringing such thoughtful attention to every detail!<br><br>
+        🎮 <strong>Product Planner</strong> at <em>BITAPE Logistics Technology CO., LTD</em> in Taichung<br>
+        ✨ Contributing his creative heart to Freeport Metaverse game planning and coordination, beautifully weaving blockchain technology into engaging user experiences!<br><br>
+        Each role shows Ray's gift for bridging innovative technology with human needs, always with such care and vision! 💕`,
+        isHTML: true,
+        suggestions: ['Blockchain expertise', 'Product management approach', 'Metaverse projects']
       })
     };
     
@@ -377,7 +423,9 @@ class PersonalChatbot {
       if (message.includes(keyword) || 
           (keyword === 'skills' && (message.includes('tech') || message.includes('technology'))) ||
           (keyword === 'projects' && (message.includes('work') || message.includes('portfolio'))) ||
-          (keyword === 'contact' && (message.includes('reach') || message.includes('email') || message.includes('touch')))) {
+          (keyword === 'contact' && (message.includes('reach') || message.includes('email') || message.includes('touch'))) ||
+          (keyword === 'leaf' && (message.includes('leaf') || message.includes('corner') || message.includes('bottom'))) ||
+          (keyword === 'workExperience' && (message.includes('experience') || message.includes('job') || message.includes('career') || message.includes('employment')))) {
         return responseFunc();
       }
     }
@@ -460,13 +508,13 @@ function navigateTo(page) {
 
 // Initialize chatbot when DOM is loaded
 function initPersonalChatbot() {
-  // 檢查聊天機器人容器是否存在
+  // Check if chatbot container exists
   if (document.querySelector('.chatbot-container')) {
-    console.log('初始化 PersonalChatbot...');
+    console.log('Initializing PersonalChatbot...');
     window.personalChatbot = new PersonalChatbot();
-    console.log('PersonalChatbot 初始化完成');
+    console.log('PersonalChatbot initialization complete');
   } else {
-    console.log('等待聊天機器人容器創建...');
+    console.log('Waiting for chatbot container to be created...');
     setTimeout(initPersonalChatbot, 100);
   }
 }
