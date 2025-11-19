@@ -1,7 +1,5 @@
 # Ray's Personal Website
 
-一個現代化的個人作品集網站，使用 Vanilla JavaScript 打造，具有豐富的視覺效果和互動功能。
-
 ## 🤖 COPILOT 開發觀察筆記
 
 ### ✨ AI 開發優勢
