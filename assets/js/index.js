@@ -1,3 +1,23 @@
+// 🌟 Loading Screen 控制
+function initLoadingScreen() {
+  const loadingScreen = document.getElementById('loadingScreen');
+  
+  // 確保所有資源載入完成
+  window.addEventListener('load', () => {
+    // 延遲3秒顯示完整動畫效果
+    setTimeout(() => {
+      if (loadingScreen) {
+        loadingScreen.classList.add('fade-out');
+        
+        // 動畫完成後移除元素
+        setTimeout(() => {
+          loadingScreen.remove();
+        }, 1600); // 與CSS transition時間同步
+      }
+    }, 3000);
+  });
+}
+
 // 延遲獲取 DOM 元素，確保在 DOM 載入後獲取
 let header = null;
 let app = null;
@@ -1775,6 +1795,9 @@ function initializeApp() {
       }
     }
   }, 1000);
+  
+  // 初始化 Loading Screen
+  initLoadingScreen();
   
   console.log('All systems initialized');
 }
