@@ -88,9 +88,28 @@ class PersonalChatbot {
       console.log('Removed existing chatbot container');
     }
     
+    // 檢查是否在 loading 畫面期間
+    const loadingScreen = document.getElementById('loadingScreen');
+    if (loadingScreen && !loadingScreen.classList.contains('fade-out')) {
+      console.log('Loading screen active, delaying chatbot creation');
+      // 等待 loading 完成後再顯示聊天機器人
+      setTimeout(() => {
+        this.createChatWidget();
+      }, 4000); // 等待 loading 動畫完成
+      return;
+    }
+    
     // 創建聊天機器人容器
     const chatContainer = document.createElement('div');
     chatContainer.className = 'chatbot-container';
+    
+    // 檢查當前頁面，只在非 loading 狀態下顯示
+    const currentRoute = this.getCurrentRoute();
+    if (currentRoute && currentRoute !== 'loading') {
+      chatContainer.style.display = 'block';
+    } else {
+      chatContainer.style.display = 'none';
+    }
     chatContainer.innerHTML = `
       <!-- Chat Toggle Button -->
       <div class="chat-toggle" id="chatToggle">
@@ -368,6 +387,22 @@ class PersonalChatbot {
       setTimeout(() => {
         this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
       }, 100);
+    }
+  }
+  
+  getCurrentRoute() {
+    let hash = window.location.hash.slice(1);
+    if (hash.startsWith('/')) {
+      hash = hash.slice(1);
+    }
+    return hash || 'home';
+  }
+  
+  // 顯示聊天機器人（在 loading 完成後調用）
+  showChatbot() {
+    if (this.chatContainer) {
+      this.chatContainer.style.display = 'block';
+      console.log('Chatbot now visible');
     }
   }
 }

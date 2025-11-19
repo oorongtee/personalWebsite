@@ -3295,9 +3295,10 @@ a:hover {
     align-items: center;
   }
 
-  .hero h1 {
-    font-size: 73px;
-    margin-bottom: 40px;
+  .hero h1, .hero-title {
+    font-size: 2.8rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
   }
 
   .hero-main {
@@ -3479,7 +3480,87 @@ a:hover {
   }
 }
 
-/* Mobile: 480px 以�? */
+/* iPhone 14 Pro Max and similar large phones: 430px 以下 */
+@media (max-width: 430px) {
+  /* Hero Section - 大標題優化 */
+  .hero-title {
+    font-size: 2rem !important;
+    line-height: 1.1 !important;
+    margin-bottom: 1rem !important;
+    padding: 0 10px !important;
+  }
+  
+  .text-h2, h2 {
+    font-size: 1.6rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .text-h3, h3 {
+    font-size: 1.2rem !important;
+    line-height: 1.25 !important;
+  }
+  
+  /* Hero Section Responsive */
+  .hero, .section-lg {
+    padding: 30px 10px 0 10px !important;
+  }
+  
+  .container {
+    padding: 0 10px !important;
+    max-width: 100% !important;
+  }
+  
+  /* Photo Section */
+  .photo-block {
+    width: 180px !important;
+    height: 240px !important;
+  }
+  
+  /* Services Section */
+  .services-title {
+    font-size: 1.8rem !important;
+    padding: 0 10px !important;
+  }
+  
+  .services-card-title {
+    font-size: 1.1rem !important;
+  }
+  
+  .services-card-text {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Navigation */
+  .nav {
+    padding: 8px 10px !important;
+    gap: 8px !important;
+  }
+  
+  .nav a {
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+  }
+  
+  /* Button adjustments */
+  .btn {
+    padding: 10px 16px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  /* Grid adjustments */
+  .grid {
+    gap: 1rem !important;
+  }
+  
+  /* Text content spacing */
+  .lead-text {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* Mobile: 480px 以下 */
 @media (max-width: 480px) {
   /* Header */
   .header {

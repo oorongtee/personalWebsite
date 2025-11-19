@@ -12,6 +12,10 @@ function initLoadingScreen() {
         // 動畫完成後移除元素
         setTimeout(() => {
           loadingScreen.remove();
+          // 顯示聊天機器人
+          if (window.personalChatbot && window.personalChatbot.showChatbot) {
+            window.personalChatbot.showChatbot();
+          }
         }, 1600); // 與CSS transition時間同步
       }
     }, 3000);
