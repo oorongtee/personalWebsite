@@ -61,22 +61,17 @@ JavaScript (ES6+) – Routing & interaction logic
 EmailJS – Contact form integration
 
 Central Weather Administration API – Real-time weather data
-
-🗂️ Project Structure
 personal-website/
-├── index.html
-├── index.js
-├── assets/
-│   ├── css/
-│   │   ├── home.css
-│   │   ├── chatbot.css
-│   ├── js/
-│   │   ├── chatbot-fixed.js
-│   │   ├── weather-api.js
-│   ├── images/
-│   │   └── leaf.svg
-├── netlify.toml
-└── README.md
+├── index.html          # 主頁入口
+├── index.js            # 路由系統與主要邏輯
+├── home.css            # 設計系統與通用樣式
+├── chatbot.css         # AI 聊天機器人樣式
+├── chatbot-fixed.js    # AI 助理功能
+├── weather-api.js      # 天氣系統與視覺效果
+├── netlify.toml        # Netlify 部署設定
+├── pic/                # 圖片與 SVG 資源
+└── README.md           # 專案說明
+
 
 🛠️ Development Notes & Best Practices (AI-Assisted Workflow)
 ✨ Benefits of AI-Assisted Development
