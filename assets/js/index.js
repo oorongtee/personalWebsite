@@ -497,7 +497,7 @@ const pages = {
         <div class="contact-content">
         <div class="contact-intro">
           <div class="contact-avatar">
-            <img src="./assets/images/profile-photo.svg" alt="Ray's Photo" class="profile-photo">
+            <img src="./assets/images/pic/head.png" alt="Ray's Photo" class="profile-photo">
             <div class="status-indicator">
               <span class="status-dot"></span>
               <span class="status-text">Usually responds within 2 days</span>
@@ -506,7 +506,6 @@ const pages = {
           <div class="contact-personal-info">
             <p class="contact-subtitle">Hi there! I'm Ray — a Product Manager & Front-end Engineer.</p>
             <p class="response-info">💬 I read and respond to every message myself. Whether you're reaching out about opportunities, collaboration, or simply to connect, I'm always happy to hear from you.</p>
-            <p class="response-time">I typically reply within 2–3 business days. For urgent inquiries, please feel free to contact me via email.</p>
           </div>
         </div>
 
@@ -1415,7 +1414,7 @@ function handleContactFormSubmit(e) {
     });
     
     showFormMessage(
-      `❌ <strong>請檢查以下問題：</strong><br>${validation.errors.join('<br>')}`, 
+      `❌ <strong>please check the following issues：</strong><br>${validation.errors.join('<br>')}`, 
       'error'
     );
     form.classList.remove('form-submitting');
@@ -1543,7 +1542,7 @@ function setLoadingState(isLoading) {
   const submitBtn = document.getElementById('submit-btn');
   const btnText = submitBtn.querySelector('.btn-text');
   const btnLoading = submitBtn.querySelector('.btn-loading');
-  
+
   submitBtn.disabled = isLoading;
   btnText.style.display = isLoading ? 'none' : 'inline';
   btnLoading.style.display = isLoading ? 'inline-flex' : 'none';

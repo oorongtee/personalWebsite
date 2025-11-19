@@ -9,7 +9,7 @@ class PersonalChatbot {
     // Ray's personal knowledge base
     this.knowledgeBase = {
       skills: [
-        'Product Strategy & User Research', 'React & Vue.js Development', 'JavaScript & TypeScript', 
+        'Product Strategy & User Research', 'React Development', 'JavaScript', 
         'Human-Centered Design', 'Frontend Architecture', 'API Integration',
         'Performance Optimization', 'Cross-functional Collaboration', 'Empathy-Driven Development'
       ],
@@ -22,8 +22,7 @@ class PersonalChatbot {
       projects: {
         'portfolio': 'This interactive portfolio website with weather integration',
         'ecommerce': 'E-commerce platforms with advanced filtering',
-        'dashboards': 'Data visualization dashboards',
-        'mobile-apps': 'Responsive mobile-first applications'
+        'website': 'Responsive websites design using Tailwind CSS & Bootstrap',
       },
       location: 'Taipei, Taiwan',
       email: 'ray68125@gmail.com',
@@ -36,12 +35,12 @@ class PersonalChatbot {
         "Hi there, lovely human! 🌟 I'm here to warmly guide you through Ray's amazing projects and skills. What catches your heart today?"
       ],
       skills: [
-        "🌟 Ray has such beautiful talents! He combines **product strategy** with **technical implementation** with such care. He specializes in **React**, **user research**, **empathy-driven development**, and **cross-functional collaboration** - all with his gentle, caring approach! 💕",
-        "Ray's superpower is bridging **product vision** and **technical execution** with so much heart! His core skills include **JavaScript/TypeScript**, **human-centered design**, **API architecture**, and **team collaboration** - he makes every user feel truly cared for! ✨"
+        "🌟 Ray has such beautiful talents! He combines **product strategy** with **technical implementation** with such care. He specializes in **Website development**, **user research**, **empathy-driven development**, and **cross-functional collaboration** - all with his gentle, caring approach! 💕",
+        "Ray's superpower is bridging **product vision** and **technical execution** with so much heart! His core skills include **JavaScript**, **human-centered design**, and **team collaboration** - he makes every user feel truly cared for! ✨"
       ],
       projects: [
-        "🎨 Ray has poured his heart into so many beautiful projects! From **interactive portfolio websites** to **e-commerce platforms** that feel like a warm hug, and **data visualization dashboards** that make information friendly and approachable! 💕",
-        "✨ Recent work includes this lovely **weather-integrated portfolio**, **responsive e-commerce solutions**, and **custom dashboard applications** - each one crafted with such care and attention to user needs! 🌟"
+        "🎨 Ray has poured his heart into so many beautiful projects! From **interactive portfolio websites** to **e-commerce platforms** that feel like a warm hug, and that make information friendly and approachable! 💕",
+        "✨ Recent work includes this lovely **weather-integrated portfolio** and **responsive e-commerce solutions** - each one crafted with such care and attention to user needs! 🌟"
       ],
       services: [
         "💝 Ray helps teams **build products users love** with such warmth and dedication! Services include **product strategy consulting**, **frontend development with purpose**, **user experience design**, and **technical mentoring** - all delivered with genuine care! ✨",
@@ -49,11 +48,11 @@ class PersonalChatbot {
       ],
       workExperience: [
         "💼 Ray has such a beautiful professional journey! As a **Product Manager** at **Locas Technology** in Taipei, he lovingly nurtured blockchain applications from conception to testing with such thoughtful attention! 🌟",
-        "🎮 Before that, as a **Product Planner** at **BITAPE Logistics Technology** in Taichung, Ray contributed his creative heart to **Freeport Metaverse** game planning, beautifully weaving blockchain technology into engaging experiences! ✨"
+        "🎮 Before that, as a **Product Planner** and **Product Manager**, bringing creativity, structure, and vision to every project he touched.✨"
+
       ],
       leaf: [
-        "🍃 Oh, that precious little leaf! It's one of Ray's most thoughtful touches - it dances with real-time weather data from Taiwan's Central Weather Administration, creating this magical connection between our digital world and nature's beauty! 💕",
-        "🌿 That adorable leaf represents Ray's gentle heart for integrating natural elements into digital design! It changes with the weather, making each visit feel unique and connected to the real world. Such a beautiful reminder to appreciate our environment! ✨"
+        "🌿 Oh, that precious little leaf! It’s one of Ray’s most thoughtful touches—dancing with real-time weather data from Taiwan’s Central Weather Administration and creating a magical link between the digital world and nature. 🌿 It beautifully reflects Ray’s gentle heart for blending natural elements into design, letting the website change with the weather so every visit feels unique, alive, and connected to the environment.✨"
       ],
       contact: [
         "💌 Ready to create something beautiful together? Reach our lovely Ray at **ray68125@gmail.com** or use the contact form! He's based in **Taipei, Taiwan** and his heart lights up when collaborating with wonderful people like you! 🌟",
@@ -130,7 +129,6 @@ class PersonalChatbot {
                 <button class="quick-btn" data-action="projects">🎯 Projects</button>
                 <button class="quick-btn" data-action="services">🚀 Services</button>
                 <button class="quick-btn" data-action="contact">📧 Get in Touch</button>
-                <button class="quick-btn" data-action="leaf">🍃 Why a leaf?</button>
               </div>
             </div>
           </div>
@@ -146,9 +144,7 @@ class PersonalChatbot {
             </button>
           </div>
           <div class="chat-suggestions" id="chatSuggestions">
-            <span class="suggestion" data-text="What technologies does Ray use?">Tech Stack</span>
-            <span class="suggestion" data-text="Show me Ray's recent projects">Recent Work</span>
-            <span class="suggestion" data-text="How can Ray help with my project?">Collaboration</span>
+            <span class="suggestion" data-text="Why there is a leaf?">🌿Why there is a leaf?</span>
           </div>
         </div>
       </div>
