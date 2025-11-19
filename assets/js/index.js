@@ -374,13 +374,7 @@ const pages = {
                 </div>
                 <div class="job-description">
                   <p>Product development for blockchain application in conception and testing phase.</p>
-                  <ul>
-                    <li>Defined product scope, features, and core user flows for blockchain application</li>
-                    <li>Conducted competitive analysis and user flow research to refine product structure</li>
-                    <li>Developed prototypes and flowcharts to visualize user experience and system logic</li>
-                    <li>Collaborated with CEO to clarify client requirements and ensure functional feasibility</li>
-                    <li>Conducted feature testing and proposed improvements to enhance product usability</li>
-                  </ul>
+                  
                 </div>
               </div>
             </div>
@@ -398,13 +392,7 @@ const pages = {
                 </div>
                 <div class="job-description">
                   <p>Contributed to Freeport Metaverse game planning and coordination, integrating blockchain technology.</p>
-                  <ul>
-                    <li>Drafted and maintained whitepaper based on stakeholder user's feedback and development milestones</li>
-                    <li>Managed community engagement and digital marketing campaigns (Discord & Twitter)</li>
-                    <li>Designed game missions, narrative storylines, and character development</li>
-                    <li>Conducted Beta testing and game mechanics optimization using data-driven & UX insights</li>
-                    <li>Coordinated cross-functional collaboration between developers and designers</li>
-                  </ul>
+                 
                 </div>
               </div>
             </div>
