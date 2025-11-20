@@ -210,11 +210,11 @@ This article examines how AI-Build methodologies reshape the cognitive, operatio
 
 The current discourse across the product-development community reveals a shared recognition: AI alters not merely productivity, but the architecture of collaboration.
 
-**[Vince Law](https://vincelawco.medium.com/ai-will-not-help-product-managers-the-same-way-as-engineers-designers-3a2ebdc688bf)** argues that AI accelerates engineering far more than product management, reinforcing the PM's responsibility for strategic clarity, narrative coherence, and prioritization under conditions of abundance rather than scarcity.
+<a href="https://vincelawco.medium.com/ai-will-not-help-product-managers-the-same-way-as-engineers-designers-3a2ebdc688bf" target="_blank" style="color: #D97706; text-decoration: underline;">Vince Law</a>argues that AI accelerates engineering far more than product management, reinforcing the PM's responsibility for strategic clarity, narrative coherence, and prioritization under conditions of abundance rather than scarcity.
 
-**[LG](https://lg.substack.com/p/the-death-of-product-development)** suggests that the traditional separation between "product specification" and "technical implementation" is dissolving, giving rise to a nonlinear loop where prototyping, testing, and iteration occur nearly instantaneously.
+<a href="https://lg.substack.com/p/the-death-of-product-development" target="_blank" style="color: #D97706; text-decoration: underline;">LG</a>suggests that the traditional separation between "product specification" and "technical implementation" is dissolving, giving rise to a nonlinear loop where prototyping, testing, and iteration occur nearly instantaneously.
 
-**[Raza Habib](https://humanloop.com/blog/ai-is-blurring-the-lines-between-pms-and-engineers)** emphasizes that AI systems increasingly perform tasks historically associated with engineering workflows, necessitating a redefinition of PM responsibilities toward context design and decision-making under uncertainty.
+<a href="https://humanloop.com/blog/ai-is-blurring-the-lines-between-pms-and-engineers" target="_blank" style="color: #D97706; text-decoration: underline;">Raza Habib</a> emphasizes that AI systems increasingly perform tasks historically associated with engineering workflows, necessitating a redefinition of PM responsibilities toward context design and decision-making under uncertainty.
 
 Collectively, these perspectives frame the emergence of a hybrid role—one where the PM becomes not a communicator but an orchestrator of AI-mediated execution.
 
