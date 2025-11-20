@@ -1,0 +1,464 @@
+/**
+ * 🚨 現代化通知系統樣式 (Modern Notification System Styles)
+ * 
+ * 設計特點:
+ * - 毛玻璃效果和現代化設計
+ * - 流暢的動畫和過渡效果
+ * - 響應式和無障礙設計
+ * - 多種通知類型的視覺區分
+ * - 自適應定位系統
+ */
+
+/* ================================
+   通知容器 (Notification Container)
+   ================================ */
+
+.notification-container {
+  position: fixed;
+  z-index: 10000;
+  pointer-events: none;
+  max-width: 420px;
+  width: 100%;
+}
+
+/* 定位變體 */
+.notification-top-right {
+  top: 20px;
+  right: 20px;
+}
+
+.notification-top-left {
+  top: 20px;
+  left: 20px;
+}
+
+.notification-bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+
+.notification-bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+
+.notification-top-center {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.notification-bottom-center {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ================================
+   通知卡片 (Notification Card)
+   ================================ */
+
+.notification {
+  position: relative;
+  margin-bottom: 16px;
+  padding: 20px;
+  border-radius: 16px;
+  pointer-events: auto;
+  transform: translateX(100%) scale(0.95);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+/* 顯示動畫 */
+.notification-show {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+}
+
+/* 隱藏動畫 */
+.notification-hide {
+  transform: translateX(100%) scale(0.95);
+  opacity: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  max-height: 0;
+}
+
+/* 刷新動畫 */
+.notification-refresh {
+  animation: notificationRefresh 0.4s ease-in-out;
+}
+
+@keyframes notificationRefresh {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* ================================
+   通知類型樣式 (Notification Types)
+   ================================ */
+
+.notification-success {
+  background: linear-gradient(135deg, 
+    rgba(16, 185, 129, 0.9) 0%, 
+    rgba(34, 197, 94, 0.8) 100%);
+  color: white;
+}
+
+.notification-error {
+  background: linear-gradient(135deg, 
+    rgba(239, 68, 68, 0.9) 0%, 
+    rgba(220, 38, 127, 0.8) 100%);
+  color: white;
+}
+
+.notification-warning {
+  background: linear-gradient(135deg, 
+    rgba(245, 158, 11, 0.9) 0%, 
+    rgba(251, 191, 36, 0.8) 100%);
+  color: white;
+}
+
+.notification-info {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.9) 0%, 
+    rgba(99, 102, 241, 0.8) 100%);
+  color: white;
+}
+
+/* ================================
+   優先級樣式 (Priority Styles)
+   ================================ */
+
+.priority-critical {
+  animation: criticalPulse 2s infinite;
+  box-shadow: 
+    0 0 20px rgba(239, 68, 68, 0.4),
+    0 10px 40px rgba(0, 0, 0, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.priority-high {
+  border-width: 2px;
+  transform: scale(1.02);
+}
+
+@keyframes criticalPulse {
+  0%, 100% { 
+    box-shadow: 
+      0 0 20px rgba(239, 68, 68, 0.4),
+      0 10px 40px rgba(0, 0, 0, 0.1);
+  }
+  50% { 
+    box-shadow: 
+      0 0 30px rgba(239, 68, 68, 0.6),
+      0 12px 44px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* ================================
+   通知內容布局 (Content Layout)
+   ================================ */
+
+.notification-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.notification-icon {
+  flex-shrink: 0;
+  font-size: 18px;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.notification-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-message {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.notification-subtitle {
+  font-size: 12px;
+  opacity: 0.9;
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+/* ================================
+   控制按鈕 (Controls)
+   ================================ */
+
+.notification-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.notification-action {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.notification-action:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.notification-action:active {
+  transform: translateY(0);
+}
+
+.notification-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.notification-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.notification-close:active {
+  transform: scale(0.95);
+}
+
+.notification-close svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ================================
+   進度條 (Progress Bar)
+   ================================ */
+
+.notification-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 0 0 16px 16px;
+  transform-origin: left;
+  transition: width 0.1s linear;
+}
+
+/* ================================
+   響應式設計 (Responsive Design)
+   ================================ */
+
+@media (max-width: 768px) {
+  .notification-container {
+    max-width: calc(100vw - 32px);
+    left: 16px !important;
+    right: 16px !important;
+    transform: none !important;
+  }
+  
+  .notification-top-center,
+  .notification-bottom-center {
+    left: 16px;
+    transform: none;
+  }
+  
+  .notification {
+    margin-bottom: 12px;
+    padding: 16px;
+    border-radius: 12px;
+  }
+  
+  .notification-message {
+    font-size: 13px;
+  }
+  
+  .notification-subtitle {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .notification-container {
+    max-width: calc(100vw - 16px);
+    left: 8px !important;
+    right: 8px !important;
+  }
+  
+  .notification {
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .notification-content {
+    gap: 8px;
+  }
+  
+  .notification-controls {
+    margin-top: 8px;
+  }
+}
+
+/* ================================
+   無障礙設計 (Accessibility)
+   ================================ */
+
+.notification:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+.notification-action:focus,
+.notification-close:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 1px;
+}
+
+/* 減少動畫偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .notification {
+    transition: opacity 0.2s ease;
+  }
+  
+  .notification-show {
+    animation: none;
+    transform: none;
+  }
+  
+  .notification-hide {
+    animation: none;
+  }
+  
+  .priority-critical {
+    animation: none;
+  }
+}
+
+/* ================================
+   深色模式支援 (Dark Mode Support)
+   ================================ */
+
+@media (prefers-color-scheme: dark) {
+  .notification {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 
+      0 10px 40px rgba(0, 0, 0, 0.3),
+      0 4px 16px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* ================================
+   高對比模式 (High Contrast)
+   ================================ */
+
+@media (prefers-contrast: high) {
+  .notification {
+    border-width: 2px;
+    border-style: solid;
+  }
+  
+  .notification-success {
+    border-color: #10b981;
+  }
+  
+  .notification-error {
+    border-color: #ef4444;
+  }
+  
+  .notification-warning {
+    border-color: #f59e0b;
+  }
+  
+  .notification-info {
+    border-color: #3b82f6;
+  }
+}
+
+/* ================================
+   列印樣式 (Print Styles)
+   ================================ */
+
+@media print {
+  .notification-container {
+    display: none;
+  }
+}
+
+/* ================================
+   自定義屬性 (CSS Custom Properties)
+   ================================ */
+
+:root {
+  --notification-border-radius: 16px;
+  --notification-backdrop-blur: 20px;
+  --notification-animation-duration: 0.3s;
+  --notification-animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
+  --notification-max-width: 420px;
+  --notification-spacing: 16px;
+}
+
+/* ================================
+   工具類別 (Utility Classes)
+   ================================ */
+
+.notification-no-backdrop-blur {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.notification-large {
+  padding: 24px;
+  font-size: 16px;
+}
+
+.notification-small {
+  padding: 12px;
+  font-size: 12px;
+}
+
+.notification-rounded {
+  border-radius: 24px;
+}
+
+.notification-square {
+  border-radius: 4px;
+}

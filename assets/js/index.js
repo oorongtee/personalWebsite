@@ -31,6 +31,12 @@ function initDOMElements() {
   header = document.getElementById("header");
   app = document.getElementById("app");
   
+  // 確保導航默認可見
+  if (header) {
+    header.classList.add('nav-visible');
+    header.classList.remove('nav-hidden');
+  }
+  
   console.log('DOM elements initialized:', {
     header: !!header,
     app: !!app
@@ -126,11 +132,13 @@ const pages = {
           <div class="grid lg:grid-cols-2 gap-16 items-center">
             <!-- Photo Section -->
             <div class="photo-section">
-              <div class="photo-block">
-                <img src="./assets/images/pic/RNI-Films-IMG-6B66762A-3B66-4426-A38E-D627A5555A92.JPG" 
-                     alt="Ray - A product-minded creator focused on empathy-driven experiences" 
+              <div class="photo-block image-container">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzQwIiBoZWlnaHQ9IjQyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJyZ2JhKDI0MCwgMjI4LCAyMTAsIDAuMSkiLz48L3N2Zz4=" 
+                     alt="Ray - A digital experience craftsman focused on empathy-driven solutions" 
                      class="photo lazy-image"
-                     data-src="./assets/images/pic/RNI-Films-IMG-6B66762A-3B66-4426-A38E-D627A5555A92.JPG">
+                     data-src="./assets/images/pic/RNI-Films-IMG-6B66762A-3B66-4426-A38E-D627A5555A92.JPG"
+                     loading="lazy"
+                     decoding="async">
               </div>
               <div class="photo-actions">
                 <a href="#/works" class="btn btn-primary gentle-hover">
@@ -154,18 +162,18 @@ const pages = {
             <!-- Text Content -->
             <div class="text-content">
               <div class="intro-badge">
-                <span class="badge badge-nature">Product-Minded Creator</span>
+                <span class="badge badge-nature">Digital Experience Craftsman</span>
               </div>
               
               <h1 class="hero-title">
-                I design and build <span class="text-accent">product experiences</span><br>
-                — not just interfaces or features.
+                I craft <span class="text-accent">digital experiences</span><br>
+                that matter — not just interfaces.
               </h1>
               
               <div class="hero-subtitle">
                 <p class="lead-text">
-                  With a humanities background and empathy-driven mindset, I write code to understand 
-                  feasibility and create meaningful solutions that put people first.
+                  Bridging strategy and execution with empathy-driven design, I create meaningful solutions 
+                  shaped by technology, grounded in human behavior, and refined through both analytical rigor and technical craft.
                 </p>
               </div>
 
@@ -700,6 +708,23 @@ const notesData = [
   }
 ];
 
+// 全域導航控制函數
+function hideNavigation() {
+  const header = document.getElementById('header');
+  if (header) {
+    header.classList.remove('nav-visible');
+    header.classList.add('nav-hidden');
+  }
+}
+
+function showNavigation() {
+  const header = document.getElementById('header');
+  if (header) {
+    header.classList.remove('nav-hidden');
+    header.classList.add('nav-visible');
+  }
+}
+
 // 初始化 Works 頁面
 function initWorksPage() {
   const worksGrid = document.getElementById("worksGrid");
@@ -734,11 +759,19 @@ function initWorksPage() {
       </div>
     `;
     worksDetailOverlay.classList.add('open');
+    
+    // 🎯 智能隱藏導航 - 使用優雅的延遲效果
+    setTimeout(() => {
+      hideNavigation();
+    }, 300);
   }
 
   // 關閉詳情面板
   function closeDetailPanel() {
     worksDetailOverlay.classList.remove('open');
+    
+    // 🎯 智能顯示導航 - 立即顯示以提供更好的用戶體驗
+    showNavigation();
   }
 
   // 渲染項目卡片
@@ -825,81 +858,51 @@ function initNotesPage() {
   const searchInput = document.getElementById("notesSearch");
   const filterBtns = document.querySelectorAll(".notes-filter .filter-btn");
 
-  if (!notesGrid) return;
+  if (!notesGrid || !window.ArticleSystem) {
+    console.warn('Notes grid or ArticleSystem not available');
+    return;
+  }
 
-  // 渲染文章列表
-  function renderNotes(filter = 'all', searchTerm = '') {
-    notesGrid.innerHTML = '';
-    
-    let filtered = notesData;
-    
-    // 篩選分類
-    if (filter !== 'all') {
-      filtered = filtered.filter(note => note.category === filter);
-    }
-    
-    // 搜尋篩選
-    if (searchTerm) {
-      filtered = filtered.filter(note => 
-        note.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        note.description.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
-    
-    filtered.forEach(note => {
-      const card = document.createElement('div');
-      card.className = 'note-card';
-      card.innerHTML = `
-        <div class="note-content">
-          <h3 class="note-title">${note.title}</h3>
-          <p class="note-description">${note.description}</p>
-        </div>
-        <div class="note-icon" style="background-color: ${note.color}">
-          ${getIconSVG(note.icon)}
-        </div>
-      `;
-      
-      card.addEventListener('click', () => {
-        // 點擊文章卡片的動作（未來可以開啟文章詳情）
-        console.log('Clicked note:', note.title);
-      });
-      
-      notesGrid.appendChild(card);
-    });
-  }
+  // 創建響應式網格和過濾器
+  const grid = new window.ArticleSystem.ResponsiveGrid(notesGrid);
+  const articleCards = window.ArticleSystem.SAMPLE_ARTICLES.map(article => 
+    new window.ArticleSystem.ArticleCard(article)
+  );
   
-  // 取得圖標 SVG
-  function getIconSVG(iconType) {
-    const icons = {
-      css: '<svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.413l.213 2.622h10.125l-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg>',
-      ai: '<svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>',
-      project: '<svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>',
-      figma: '<svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.354-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.015-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148z"/></svg>',
-      design: '<svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>'
-    };
-    return icons[iconType] || icons.design;
-  }
+  const filter = new window.ArticleSystem.ArticleFilter(
+    window.ArticleSystem.SAMPLE_ARTICLES,
+    (filteredArticles) => {
+      const filteredCards = filteredArticles.map(article => 
+        new window.ArticleSystem.ArticleCard(article)
+      );
+      grid.renderItems(filteredCards);
+    }
+  );
 
   // 搜尋功能
   if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      const activeFilter = document.querySelector('.notes-filter .filter-btn.active')?.dataset.filter || 'all';
-      renderNotes(activeFilter, e.target.value);
+    searchInput.addEventListener("input", (e) => {
+      filter.setSearch(e.target.value);
     });
   }
 
-  // 篩選功能
+  // 分類篩選
   filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const searchTerm = searchInput?.value || '';
-      renderNotes(btn.dataset.filter, searchTerm);
+    btn.addEventListener("click", (e) => {
+      // 移除所有按鈕的 active 類
+      filterBtns.forEach(b => b.classList.remove("active"));
+      // 添加到當前按鈕
+      e.target.classList.add("active");
+      
+      const filterValue = e.target.dataset.filter;
+      filter.setCategory(filterValue);
     });
   });
 
   // 初始渲染
-  renderNotes();
+  grid.addItems(articleCards);
+  
+  console.log('📚 Notes page initialized with', articleCards.length, 'articles');
 }
 
 // 頁面加載時的初始化
@@ -928,61 +931,213 @@ function initImageLazyLoading() {
   }
 }
 
-// 載入單一圖片
+// 載入單一圖片（增強版）
 function loadImage(img) {
   return new Promise((resolve, reject) => {
-    const imageLoader = new Image();
+    // 檢查是否支援 WebP 格式
+    const supportsWebP = checkWebPSupport();
+    let imageSrc = img.dataset.src || img.src;
     
-    imageLoader.onload = () => {
-      // 圖片載入完成
-      img.src = imageLoader.src;
-      img.classList.add('loaded');
-      img.classList.remove('loading');
-      
-      if (imageObserver) {
-        imageObserver.unobserve(img);
-      }
-      
-      resolve(img);
-    };
-    
-    imageLoader.onerror = () => {
-      // 載入失敗，使用佔位圖
-      img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5YTNhZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vdCBhdmFpbGFibGU8L3RleHQ+PC9zdmc+';
-      img.classList.add('loaded', 'error');
-      img.classList.remove('loading');
-      
-      if (imageObserver) {
-        imageObserver.unobserve(img);
-      }
-      
-      reject(new Error('Failed to load image'));
-    };
-    
-    imageLoader.src = img.dataset.src || img.src;
+    // 嘗試使用 WebP 格式（如果支援的話）
+    if (supportsWebP && imageSrc.includes('.jpg') || imageSrc.includes('.jpeg') || imageSrc.includes('.png')) {
+      const webpSrc = imageSrc.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+      // 檢查 WebP 版本是否存在（簡化版，實際應該檢查伺服器回應）
+      testImageExists(webpSrc).then(exists => {
+        if (exists) {
+          imageSrc = webpSrc;
+        }
+        loadImageWithSrc(img, imageSrc, resolve, reject);
+      }).catch(() => {
+        loadImageWithSrc(img, imageSrc, resolve, reject);
+      });
+    } else {
+      loadImageWithSrc(img, imageSrc, resolve, reject);
+    }
   });
 }
 
-// 處理所有圖片延遲載入
+// 實際載入圖片的函數
+function loadImageWithSrc(img, src, resolve, reject) {
+  const imageLoader = new Image();
+  
+  // 設定載入開始時間
+  const startTime = performance.now();
+  
+  imageLoader.onload = () => {
+    const loadTime = performance.now() - startTime;
+    console.log(`Image loaded in ${loadTime.toFixed(2)}ms:`, src);
+    
+    // 使用淡入動畫
+    img.style.opacity = '0';
+    img.src = imageLoader.src;
+    img.classList.add('loaded');
+    img.classList.remove('loading');
+    
+    // 淡入效果
+    setTimeout(() => {
+      img.style.transition = 'opacity 0.3s ease';
+      img.style.opacity = '1';
+    }, 10);
+    
+    if (imageObserver) {
+      imageObserver.unobserve(img);
+    }
+    
+    resolve(img);
+  };
+  
+  imageLoader.onerror = () => {
+    const loadTime = performance.now() - startTime;
+    console.error(`Image failed to load after ${loadTime.toFixed(2)}ms:`, src);
+    
+    // 載入失敗，使用美化的佔位圖
+    const fallbackSvg = createFallbackImage(img.alt || 'Image not available');
+    img.src = fallbackSvg;
+    img.classList.add('loaded', 'error');
+    img.classList.remove('loading');
+    
+    if (imageObserver) {
+      imageObserver.unobserve(img);
+    }
+    
+    // 顯示用戶友好的錯誤訊息
+    showImageLoadError(src);
+    
+    reject(new Error('Failed to load image'));
+  };
+  
+  // 設定載入超時（10秒）
+  setTimeout(() => {
+    if (!img.classList.contains('loaded')) {
+      imageLoader.onerror();
+    }
+  }, 10000);
+  
+  imageLoader.src = src;
+}
+
+// 檢查 WebP 支援
+function checkWebPSupport() {
+  if (typeof checkWebPSupport.supported !== 'undefined') {
+    return checkWebPSupport.supported;
+  }
+  
+  const canvas = document.createElement('canvas');
+  canvas.width = 1;
+  canvas.height = 1;
+  const supported = canvas.toDataURL('image/webp').indexOf('webp') > -1;
+  checkWebPSupport.supported = supported;
+  return supported;
+}
+
+// 測試圖片是否存在
+function testImageExists(url) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = url;
+    setTimeout(() => resolve(false), 3000); // 3秒超時
+  });
+}
+
+// 創建美化的錯誤佔位圖
+function createFallbackImage(alt) {
+  const svg = `
+    <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="fallbackGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:rgba(240,228,210,0.1);stop-opacity:1" />
+          <stop offset="100%" style="stop-color:rgba(240,228,210,0.05);stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#fallbackGradient)"/>
+      <circle cx="200" cy="120" r="30" fill="rgba(240,228,210,0.2)"/>
+      <path d="M185 105 L215 105 L200 135 Z" fill="rgba(240,228,210,0.3)"/>
+      <text x="50%" y="70%" font-family="Inter, sans-serif" font-size="14" fill="rgba(240,228,210,0.6)" text-anchor="middle">${alt}</text>
+    </svg>
+  `;
+  return 'data:image/svg+xml;base64,' + btoa(svg);
+}
+
+// 顯示圖片載入錯誤提示
+function showImageLoadError(src) {
+  const filename = src.split('/').pop();
+  
+  // 不要顯示太多錯誤訊息，避免干擾用戶
+  if (Date.now() - (showImageLoadError.lastShown || 0) > 5000) {
+    NotificationManager.warning(`Image loading failed: ${filename}`, {
+      subtitle: 'Some images may not display correctly',
+      duration: 3000,
+      priority: 'low'
+    });
+    showImageLoadError.lastShown = Date.now();
+  }
+}
+
+// 處理所有圖片延遲載入（增強版）
 function setupLazyImages() {
   const images = document.querySelectorAll('img[data-src], img.lazy-image');
+  const startTime = performance.now();
   
-  images.forEach(img => {
+  console.log(`Setting up lazy loading for ${images.length} images...`);
+  
+  images.forEach((img, index) => {
     // 添加載入類別
     img.classList.add('lazy-image', 'loading');
     
-    // 設定佔位符
-    if (!img.src) {
-      img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2IiBjbGFzcz0iaW1hZ2UtcGxhY2Vob2xkZXIiLz48L3N2Zz4=';
+    // 設定更好的佔位符
+    if (!img.src || img.src.includes('data:image/svg+xml')) {
+      const placeholder = createImagePlaceholder(img);
+      img.src = placeholder;
+    }
+    
+    // 設定圖片屬性以優化效能
+    img.setAttribute('loading', 'lazy');
+    img.setAttribute('decoding', 'async');
+    
+    // 為重要圖片（首屏）設定較高優先級
+    if (index < 3) {
+      img.setAttribute('fetchpriority', 'high');
     }
     
     if (imageObserver) {
       imageObserver.observe(img);
     } else {
-      // 備用：立即載入
-      loadImage(img);
+      // 備用：延遲載入以避免阻塞
+      setTimeout(() => {
+        loadImage(img);
+      }, index * 100);
     }
   });
+  
+  const setupTime = performance.now() - startTime;
+  console.log(`Lazy loading setup completed in ${setupTime.toFixed(2)}ms`);
+}
+
+// 創建適應性圖片佔位符
+function createImagePlaceholder(img) {
+  const width = img.getAttribute('width') || 400;
+  const height = img.getAttribute('height') || 300;
+  const alt = img.alt || 'Loading...';
+  
+  const svg = `
+    <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="shimmer" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:rgba(240,228,210,0.1);stop-opacity:1" />
+          <stop offset="50%" style="stop-color:rgba(240,228,210,0.2);stop-opacity:1" />
+          <stop offset="100%" style="stop-color:rgba(240,228,210,0.1);stop-opacity:1" />
+        </linearGradient>
+        <animateTransform attributeName="gradientTransform" type="translate" 
+                          values="-100 0;100 0;-100 0" dur="2s" repeatCount="indefinite"/>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#shimmer)"/>
+      <text x="50%" y="50%" font-family="Inter, sans-serif" font-size="12" 
+            fill="rgba(240,228,210,0.4)" text-anchor="middle" dy=".3em">${alt}</text>
+    </svg>
+  `;
+  return 'data:image/svg+xml;base64,' + btoa(svg);
 }
 
 // 圖片壓縮與優化
@@ -1006,31 +1161,13 @@ function optimizeImages() {
 // 用戶回饋機制
 // ============================================
 
-// 顯示成功訊息
-function showSuccessMessage(message, container = document.body) {
-  const messageEl = document.createElement('div');
-  messageEl.className = 'success-message';
-  messageEl.innerHTML = `<span>✅</span><span>${message}</span>`;
-  
-  container.appendChild(messageEl);
-  
-  setTimeout(() => {
-    messageEl.remove();
-  }, 3000);
-}
+// 顯示成功訊息 (使用新的通知系統)
+// 這個函數現在由 notificationSystem.js 提供
+// function showSuccessMessage 已移至 notificationSystem.js
 
-// 顯示錯誤訊息
-function showErrorMessage(message, container = document.body) {
-  const messageEl = document.createElement('div');
-  messageEl.className = 'error-message';
-  messageEl.innerHTML = `<span>❌</span><span>${message}</span>`;
-  
-  container.appendChild(messageEl);
-  
-  setTimeout(() => {
-    messageEl.remove();
-  }, 5000);
-}
+// 顯示錯誤訊息 (使用新的通知系統)
+// 這個函數現在由 notificationSystem.js 提供
+// function showErrorMessage 已移至 notificationSystem.js
 
 // 添加點擊回饋效果
 function addClickFeedback() {
@@ -1058,12 +1195,22 @@ function navigateTo(route) {
     return;
   }
   
+  // 檢查是否為notes子路由（文章詳情）
+  if (route.startsWith('notes/')) {
+    const articleSlug = route.split('/')[1];
+    loadArticlePage(articleSlug);
+    return;
+  }
+  
   const page = pages[route];
   console.log('Loading page content for route:', route);
   
   if (!page) {
     console.error('錯誤: 找不到頁面內容:', route);
-    showErrorMessage(`找不到頁面: ${route}`);
+    NotificationManager.warning(`Page not found: ${route}`, {
+      subtitle: 'Redirecting to home page...',
+      duration: 3000
+    });
     // 導航到首頁而不是 404
     if (route !== 'home') {
       navigateTo('home');
@@ -1092,6 +1239,9 @@ function navigateTo(route) {
   if (navigation && navigation.updateIndicatorForRoute) {
     navigation.updateIndicatorForRoute(route);
   }
+
+  // 顯示導航（確保在一般頁面導航時導航是可見的）
+  showNavigation();
 
   // 如果是 works 頁面，初始化項目網格
   if (route === 'works') {
@@ -1307,20 +1457,26 @@ let navigation = null;
 function initNavigation() {
   console.log('Setting up navigation event listeners...');
   
-  // 導航連結點擊
-  const navLinks = document.querySelectorAll('.nav a');
-  console.log('Found navigation links:', navLinks.length);
+  // 導航連結點擊 - 包含桌面和手機版
+  const allNavLinks = document.querySelectorAll('.nav a, .mobile-nav-menu a');
+  console.log('Found navigation links:', allNavLinks.length);
   
-  navLinks.forEach(link => {
+  allNavLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const route = link.getAttribute('data-route');
       console.log('Navigation clicked:', route);
       
+      // 如果是手機版導航，關閉選單
+      closeMobileNav();
+      
       // navigateTo will handle indicator updates
       navigateTo(route);
     });
   });
+
+  // 初始化手機版導航
+  initMobileNavigation();
 
   // 滾動事件 - header 效果
   window.addEventListener("scroll", () => {
@@ -1332,6 +1488,122 @@ function initNavigation() {
   });
   
   console.log('Navigation initialized');
+}
+
+// 🚀 Enhanced Mobile Navigation with Better UX
+function initMobileNavigation() {
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+  const mobileNavClose = document.getElementById('mobileNavClose');
+  const mobileNavLinks = mobileNavOverlay?.querySelectorAll('a[data-route]');
+  
+  if (!mobileMenuToggle || !mobileNavOverlay || !mobileNavClose) {
+    console.log('Mobile navigation elements not found, skipping mobile nav setup');
+    return;
+  }
+  
+  // Enhanced open mobile navigation with visual feedback
+  mobileMenuToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    // Add click feedback animation
+    mobileMenuToggle.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      mobileMenuToggle.style.transform = '';
+    }, 150);
+    
+    openMobileNav();
+  });
+  
+  // Enhanced close with visual feedback
+  mobileNavClose.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    // Add visual feedback
+    mobileNavClose.style.transform = 'rotate(90deg) scale(0.9)';
+    setTimeout(() => {
+      mobileNavClose.style.transform = '';
+      closeMobileNav();
+    }, 150);
+  });
+  
+  // 點擊背景關閉選單
+  mobileNavOverlay.addEventListener('click', (e) => {
+    if (e.target === mobileNavOverlay) {
+      closeMobileNav();
+    }
+  });
+  
+  // ESC 鍵關閉選單
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileNavOverlay.classList.contains('open')) {
+      closeMobileNav();
+    }
+  });
+  
+  // Enhanced mobile nav link clicks
+  mobileNavLinks?.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Add visual feedback
+      link.style.transform = 'translateY(-4px) scale(1.05)';
+      link.style.boxShadow = '0 8px 20px rgba(34, 197, 94, 0.3)';
+      
+      const route = link.getAttribute('data-route');
+      if (route) {
+        setTimeout(() => {
+          closeMobileNav();
+          setTimeout(() => {
+            loadPage(route);
+          }, 250);
+        }, 200);
+      }
+    });
+  });
+  
+  console.log('🚀 Enhanced mobile navigation initialized');
+}
+
+function openMobileNav() {
+  const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+  if (mobileNavOverlay) {
+    // Store scroll position to prevent jumping
+    const scrollY = window.scrollY;
+    
+    mobileNavOverlay.classList.add('open');
+    
+    // Enhanced scroll prevention
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+    
+    // Store scroll position for restoration
+    document.body.dataset.scrollY = scrollY;
+  }
+}
+
+function closeMobileNav() {
+  const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+  if (mobileNavOverlay) {
+    mobileNavOverlay.classList.remove('open');
+    
+    // Restore scroll position smoothly
+    const scrollY = document.body.dataset.scrollY || 0;
+    
+    // Reset body styles
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    
+    // Restore scroll position
+    window.scrollTo(0, parseInt(scrollY));
+    
+    // Clean up
+    delete document.body.dataset.scrollY;
+  }
 }
 
 // ============================================
@@ -1417,10 +1689,10 @@ function handleContactFormSubmit(e) {
       }
     });
     
-    showFormMessage(
-      `❌ <strong>please check the following issues：</strong><br>${validation.errors.join('<br>')}`, 
-      'error'
-    );
+    NotificationManager.error('Form validation failed', {
+      subtitle: validation.errors.join(' | '),
+      duration: 6000
+    });
     form.classList.remove('form-submitting');
     return;
   }
@@ -1432,12 +1704,18 @@ function handleContactFormSubmit(e) {
   
   // 檢查 EmailJS 是否可用
   if (typeof emailjs === 'undefined') {
-    showFormMessage(
-      '❌ <strong>Email service temporarily unavailable.</strong><br>' +
-      'Please contact me directly at <a href="mailto:ray68125@gmail.com">ray68125@gmail.com</a><br>' +
-      'Sorry for the inconvenience.',
-      'error'
-    );
+    NotificationManager.error('Email service temporarily unavailable', {
+      subtitle: 'Please contact me directly at ray68125@gmail.com',
+      persistent: true,
+      actionButton: {
+        text: 'Copy Email',
+        label: 'Copy email address to clipboard',
+        onClick: () => {
+          navigator.clipboard.writeText('ray68125@gmail.com');
+          NotificationManager.success('Email address copied to clipboard');
+        }
+      }
+    });
     form.classList.remove('form-submitting');
     return;
   }
@@ -1460,21 +1738,27 @@ function handleContactFormSubmit(e) {
   emailjs.send('service_fetlagj', 'template_4ns0c4a', templateParams)
     .then(function(response) {
       console.log('SUCCESS!', response.status, response.text);
-      showFormMessage(
-        '🎉 <strong>Message sent successfully!</strong><br>' +
-        'Thank you for reaching out. I will get back to you within <strong>24-48 hours</strong>.<br>' +
-        'Have a great day! 😊',
-        'success'
-      );
+      NotificationManager.success('Message sent successfully! 🎉', {
+        subtitle: 'Thank you for reaching out. I will get back to you within 24-48 hours.',
+        duration: 8000,
+        icon: '🚀'
+      });
       form.reset();
     })
     .catch(function(error) {
       console.error('EmailJS Error:', error);
-      showFormMessage(
-        '❌ <strong>Oops! Something went wrong.</strong><br>' +
-        'Please try again later or contact me directly at <a href="mailto:ray68125@gmail.com">ray68125@gmail.com</a>',
-        'error'
-      );
+      NotificationManager.error('Failed to send message', {
+        subtitle: 'There was a technical issue. Please try again or contact me directly.',
+        actionButton: {
+          text: 'Copy Email',
+          label: 'Copy email address to clipboard',
+          onClick: () => {
+            navigator.clipboard.writeText('ray68125@gmail.com');
+            NotificationManager.success('Email address copied to clipboard');
+          }
+        },
+        duration: 10000
+      });
     })
     .finally(function() {
       setLoadingState(false);
@@ -1747,8 +2031,11 @@ function initializeApp() {
   // 初始化圖片優化功能
   initImageLazyLoading();
   
-  // 初始化用戶回饋機制
+  // 初始化增強的用戶交互功能
   addClickFeedback();
+  initEnhancedHoverEffects();
+  initAccessibilityFeatures();
+  initPerformanceOptimizations();
   
   // 初始化頁面 - 修正路由解析
   let currentRoute = window.location.hash.slice(1); // 移除 #
@@ -1793,10 +2080,166 @@ function initializeApp() {
   console.log('All systems initialized');
 }
 
+// 圖片預載入策略
+function preloadCriticalImages() {
+  const criticalImages = [
+    './assets/images/pic/RNI-Films-IMG-6B66762A-3B66-4426-A38E-D627A5555A92.JPG',
+    // 添加其他關鍵圖片
+  ];
+  
+  criticalImages.forEach(src => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = src;
+    document.head.appendChild(link);
+  });
+}
+
+// 圖片效能監控
+function monitorImagePerformance() {
+  if ('PerformanceObserver' in window) {
+    const observer = new PerformanceObserver((entries) => {
+      entries.getEntries().forEach(entry => {
+        if (entry.initiatorType === 'img') {
+          console.log(`Image loaded: ${entry.name} in ${entry.duration.toFixed(2)}ms`);
+        }
+      });
+    });
+    observer.observe({ entryTypes: ['resource'] });
+  }
+}
+
+// 🎨 Enhanced Hover Effects for Better UX
+function initEnhancedHoverEffects() {
+  // Enhanced card hover effects
+  const cards = document.querySelectorAll('.card, .services-card, .note-card');
+  cards.forEach(card => {
+    let hoverTimeout;
+    
+    card.addEventListener('mouseenter', () => {
+      clearTimeout(hoverTimeout);
+      card.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      card.style.transform = 'translateY(-6px) scale(1.02)';
+      card.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(34, 197, 94, 0.1)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      hoverTimeout = setTimeout(() => {
+        card.style.transform = '';
+        card.style.boxShadow = '';
+      }, 50);
+    });
+  });
+  
+  console.log('🎨 Enhanced hover effects initialized');
+}
+
+// ♿ Accessibility Features
+function initAccessibilityFeatures() {
+  // Add focus indicators for keyboard navigation
+  const focusableElements = document.querySelectorAll('a, button, input, textarea, [tabindex]:not([tabindex="-1"])');
+  
+  focusableElements.forEach(element => {
+    element.addEventListener('focus', () => {
+      element.style.outline = '3px solid rgba(34, 197, 94, 0.6)';
+      element.style.outlineOffset = '2px';
+    });
+    
+    element.addEventListener('blur', () => {
+      element.style.outline = '';
+      element.style.outlineOffset = '';
+    });
+  });
+  
+  console.log('♿ Accessibility features initialized');
+}
+
+// ⚡ Performance Optimizations
+function initPerformanceOptimizations() {
+  // Optimize scroll performance
+  let ticking = false;
+  
+  function updateOnScroll() {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  
+  window.addEventListener('scroll', updateOnScroll, { passive: true });
+  console.log('⚡ Performance optimizations initialized');
+}
+
+// ============================================
+//   📚 ARTICLE SYSTEM INTEGRATION
+// ============================================
+
+// 載入文章詳情頁面
+function loadArticlePage(slug) {
+  if (!window.ArticleSystem) {
+    console.error('ArticleSystem not loaded');
+    navigateTo('notes');
+    return;
+  }
+  
+  const article = window.ArticleSystem.SAMPLE_ARTICLES.find(a => a.slug === slug);
+  
+  if (!article) {
+    console.warn('Article not found:', slug);
+    navigateTo('notes');
+    return;
+  }
+  
+  const articlePage = new window.ArticleSystem.ArticlePage(article);
+  app.innerHTML = `<div class="main-content">${articlePage.render()}</div>`;
+  
+  // 隱藏導航（類似WORKS頁面的體驗）
+  setTimeout(() => {
+    hideNavigationForContent();
+  }, 300);
+  
+  // 更新URL
+  const newHash = `#/notes/${slug}`;
+  history.pushState(null, null, newHash);
+  
+  // 更新導航指示器為notes
+  if (navigation && navigation.updateIndicatorForRoute) {
+    navigation.updateIndicatorForRoute('notes');
+  }
+  
+  window.scrollTo(0, 0);
+}
+
+// 導航控制函數
+function hideNavigationForContent() {
+  const header = document.getElementById('header');
+  if (header) {
+    header.classList.remove('nav-visible');
+    header.classList.add('nav-hidden');
+  }
+}
+
+function showNavigationForContent() {
+  const header = document.getElementById('header');
+  if (header) {
+    header.classList.remove('nav-hidden');
+    header.classList.add('nav-visible');
+  }
+}
+
 // 確保在 DOM 完全載入後初始化
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initializeApp);
+  document.addEventListener('DOMContentLoaded', () => {
+    preloadCriticalImages();
+    monitorImagePerformance();
+    initializeApp();
+  });
 } else {
   // DOM 已經載入完成，立即初始化
+  preloadCriticalImages();
+  monitorImagePerformance();
   initializeApp();
 }

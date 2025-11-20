@@ -9,6 +9,8 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     <link href="./assets/css/home.css" rel="stylesheet">
     <link href="./assets/css/chatbot.css" rel="stylesheet">
+    <link href="./assets/css/articleSystem.css" rel="stylesheet">
+    <link href="./assets/css/notificationSystem.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -24,14 +26,41 @@
   </div>
 
   <header class="header" id="header">
-    <nav class="nav">
-      <a href="#/works" data-route="works">Works</a>
+    <div class="header-content">
+      <a href="#/home" class="header-brand">Ray</a>
+      <nav class="nav">
+        <a href="#/works" data-route="works">Works</a>
+        <a href="#/home" data-route="home">Home</a>
+        <a href="#/about" data-route="about">About</a>
+        <a href="#/notes" data-route="notes">Notes</a>
+        <a href="#/contact" data-route="contact">Contact</a>
+      </nav>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open mobile navigation menu" title="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close mobile navigation menu" title="Close menu">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <nav class="mobile-nav-menu">
       <a href="#/home" data-route="home">Home</a>
+      <a href="#/works" data-route="works">Works</a>
       <a href="#/about" data-route="about">About</a>
       <a href="#/notes" data-route="notes">Notes</a>
       <a href="#/contact" data-route="contact">Contact</a>
     </nav>
-  </header>
+  </div>
 
   <div id="app">
     <!-- 頁面內容會在這裡動態載入 -->
@@ -41,6 +70,8 @@
     if (!location.hash) location.hash = "#/home";
   </script>
   <script src="./assets/js/vendor/emailjs.min.js"></script>
+  <script src="./assets/js/notificationSystem.js"></script>
+  <script src="./assets/js/articleSystem.js"></script>
   <script src="./assets/js/index.js"></script>
   <script src="./assets/js/weather-api.js"></script>
   <script src="./assets/js/chatbot-fixed.js"></script>
