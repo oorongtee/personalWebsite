@@ -1,13 +1,13 @@
-# 🚀 UX 優化完整報告
+# 🚀 UX Optimization Complete Report
 
-## 📊 **問題分析與解決方案**
+## 📊 **Problem Analysis & Solutions**
 
-### 原始問題：
-1. **視覺舒適度問題** - 電腦螢幕上字體太小，內容不易閱讀
-2. **手機導航問題** - nav 動畫導致導航位置偏移
-3. **第一印象吸引力** - 偏中等，缺乏視覺衝擊力
-4. **交互直覺性不足** - 按鈕、連結、表單不夠直觀
-5. **對比度不足** - 文字與背景對比度不夠強烈
+### Original Issues:
+1. **Visual Comfort Issues** - Font too small on desktop screens, content difficult to read
+2. **Mobile Navigation Problems** - Nav animations cause navigation position offset
+3. **First Impression Appeal** - Moderate impact, lacking visual punch
+4. **Interaction Intuitiveness** - Buttons, links, forms not intuitive enough
+5. **Insufficient Contrast** - Text and background contrast not strong enough
 
 ---
 

@@ -186,7 +186,7 @@ And that shift, for me, marks a genuine turning point.
     category: 'development',
     publishedAt: '2025-11-21',
     readTime: 12,
-    image: '/assets/images/pic/personalWebsite.png',
+    image: '/assets/images/projects/ray-personal-website.png',
     tags: ['AI', 'Product Management', 'Development', 'Workflow', 'Claude Sonnet'],
     featured: true
   }

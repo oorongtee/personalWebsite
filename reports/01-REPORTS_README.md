@@ -1,8 +1,46 @@
-# 📊 開發報告總覽
+# 📊 Development Reports Overview
 
-## 🎯 完整開發歷程報告
+## 🎯 Complete Development Journey Documentation
 
-本目錄包含了整個專案開發過程中的詳細報告，記錄了每個階段的改進和問題解決過程。
+This directory contains detailed reports from the entire project development process, documenting improvements and problem-solving at each stage.
+
+## 📋 Report Organization (Chronological Order)
+
+### Phase 0: Early UX Foundation (November 2025)
+- **00-UX_IMPROVEMENTS.md** - Initial UX optimization and design improvements
+- **00-UX_FIXES_FINAL.md** - Complete UX issue resolution report
+- **00-REPORTS_README.md** - This documentation overview
+
+### Phase 1: Layout & Visual System (November 19-20, 2025)
+- **01-LAYOUT_FIXES_REPORT.md** - Initial layout and responsive design fixes
+- **02-VISUAL_FIXES_REPORT.md** - Visual design improvements and UI enhancements
+
+### Phase 2: System Optimization (November 20, 2025) 
+- **03-OPTIMIZATION_REPORT.md** - Performance and functionality optimizations
+- **04-ISSUE_RESOLUTION_REPORT.md** - Technical issue tracking and resolution
+
+### Phase 3: Project Completion (November 20-21, 2025)
+- **05-FINAL_ACHIEVEMENT_REPORT.md** - Complete project summary and achievements
+
+## 📝 Development Documentation Policy
+
+**Important**: All future development reports, specifications, and iteration logs must be placed in the `/reports` directory following the chronological naming convention (##-DESCRIPTIVE_NAME.md).
+
+## 📝 Development Specifications & Logs
+
+The main README.md contains comprehensive development specifications including:
+- **AI-Assisted Development Workflow** - Complete methodology and best practices
+- **UX Improvement Journey** - Detailed design system and iteration records  
+- **Technical Architecture** - System design and implementation details
+- **Development Timeline** - Phase-by-phase development logs with dates and achievements
+- **Testing Results** - iPhone 14 Pro and cross-device compatibility testing
+
+## 🔍 How to Use These Reports
+
+1. **For Development Process Understanding**: Start with the main README.md
+2. **For Specific Issue Research**: Use the chronologically ordered reports (01-05)
+3. **For Technical Implementation**: Refer to architecture sections in main README
+4. **For UX Design Insights**: Review the UX Improvement Journey sections
 
 ### 📁 報告文件說明
 

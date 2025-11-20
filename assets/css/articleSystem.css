@@ -173,6 +173,40 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   width: 100%;
+  word-break: keep-all; /* Prevent word breaking */
+  overflow-wrap: break-word; /* Allow long words to break only when necessary */
+}
+
+/* Responsive character limits for different screen sizes */
+@media (max-width: 390px) {
+  .card-excerpt {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 391px) and (max-width: 600px) {
+  .card-excerpt {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .card-excerpt {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 901px) {
+  .card-excerpt {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
 }
 
 .note-title {
@@ -195,6 +229,40 @@
   line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  word-break: keep-all; /* Prevent word breaking */
+  overflow-wrap: break-word; /* Allow long words to break only when necessary */
+}
+
+/* Responsive character limits for note descriptions */
+@media (max-width: 390px) {
+  .note-description {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 391px) and (max-width: 600px) {
+  .note-description {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .note-description {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 901px) {
+  .note-description {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
 }
 
 /* 🏷️ 標籤和按鈕 */

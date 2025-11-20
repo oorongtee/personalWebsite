@@ -136,7 +136,7 @@ const pages = {
                 <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzQwIiBoZWlnaHQ9IjQyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJyZ2JhKDI0MCwgMjI4LCAyMTAsIDAuMSkiLz48L3N2Zz4=" 
                      alt="Ray - A digital experience craftsman focused on empathy-driven solutions" 
                      class="photo lazy-image"
-                     data-src="./assets/images/pic/RNI-Films-IMG-6B66762A-3B66-4426-A38E-D627A5555A92.JPG"
+                     data-src="/assets/images/profile/profile-alt-1.jpg"
                      loading="lazy"
                      decoding="async">
               </div>
@@ -311,20 +311,20 @@ const pages = {
           <div class="video-carousel">
             <div class="carousel-container">
               <video class="nature-video active" autoplay muted loop playsinline>
-                <source src="./assets/images/pic/1759939484377.MOV" type="video/mp4">
+                <source src="/assets/images/media/about-video-1.mov" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
               <video class="nature-video" autoplay muted loop playsinline>
-                <source src="./assets/images/pic/1759939782624.MOV" type="video/mp4">
+                <source src="/assets/images/media/about-video-2.mov" type="video/mp4"
                 Your browser does not support the video tag.
               </video>
             </div>
           </div>
           <div class="image-carousel">
             <div class="carousel-container">
-              <img src="./assets/images/pic/77120EDE-EAB9-455E-9DA1-B43B688E842A.jpg" alt="Nature Scene" class="nature-image active">
-              <img src="./assets/images/pic/BD96E9F9-612B-468F-BBCA-BECE5930AC0E.jpg" alt="Mountain Adventure" class="nature-image">
-              <img src="./assets/images/pic/DE6D93A2-A7CA-47E8-B58E-C474B15EF9C6.jpg" alt="Outdoor Exploration" class="nature-image">
+              <img src="/assets/images/gallery/nature-scene-1.jpg" alt="Nature Scene" class="nature-image active">
+              <img src="/assets/images/gallery/mountain-adventure.jpg" alt="Mountain Adventure" class="nature-image">
+              <img src="/assets/images/gallery/outdoor-exploration.jpg" alt="Outdoor Exploration" class="nature-image">
             </div>
           </div>
         </div>
@@ -397,7 +397,7 @@ const pages = {
                 <div class="timeline-dot blue"></div>
               </div>
               <div class="timeline-content">
-                <h3>Project Manager</h3>
+                <h3>Project Planner</h3>
                 <div class="company-info">
                   <span class="company-name">BITAPE Logistics Technology CO., LTD</span>
                   <span class="location">Taichung, Taiwan</span>
@@ -509,7 +509,7 @@ const pages = {
         <div class="contact-content">
         <div class="contact-intro">
           <div class="contact-avatar">
-            <img src="./assets/images/pic/head.png" alt="Ray's Photo" class="profile-photo">
+            <img src="/assets/images/profile/profile-contact.png" alt="Ray's Photo" class="profile-photo">
             <div class="status-indicator">
               <span class="status-dot"></span>
               <span class="status-text">Usually responds within 2 days</span>
@@ -660,7 +660,8 @@ const worksData = [
     technologies: ["AI-Driven Development", "JavaScript ES6+", "Context Engineering", "Claude Sonnet 4", "Modern Web APIs", "Workflow Optimization"],
     website: "",
     github: "https://github.com/oorongtee/personalWebsite",
-    image: "./assets/images/pic/personalWebsite.png"
+    document: "./docs/PersonalWebsite_Spec.pdf",
+    image: "/assets/images/projects/ray-personal-website.png"
   },
   {
     id: 2,
@@ -671,7 +672,7 @@ const worksData = [
     technologies: ["HTML", "TailwindCSS", "JavaScript"],
     website: "https://2025worldexpopractice.netlify.app/",
     github: "https://github.com/oorongtee/2025worldexpo",
-    image: "./assets/images/pic/358906446-d96358a5-d66f-4ede-ad02-c90d024f7903.png"
+    image: "/assets/images/projects/world-expo-2025.png"
   },
   {
     id: 3,
@@ -682,7 +683,7 @@ const worksData = [
     technologies: ["React", "Redux", "Bootstrap"],
     website: "https://oorongteeshoppingmall1.netlify.app/",
     github: "https://github.com/oorongtee/ShoppingMall",
-    image: "./assets/images/pic/358908403-37c23c03-6cc8-4943-b8b1-aca3178bee5f.png"
+    image: "/assets/images/projects/e-shopping-mall.png"
   },
   {
     id: 4,
@@ -693,7 +694,7 @@ const worksData = [
     technologies: ["Game Design", "Community Management", "Content Strategy", "Project Management"],
     website: "",
     github: "",
-    image: "./assets/images/pic/476145173_639227048630092_9063901635535859318_n.jpg"
+    image: "/assets/images/projects/freeport-metaverse.jpg"
   }
 ];
 
@@ -775,6 +776,7 @@ function initWorksPage() {
         <div class="detail-links">
           ${work.website ? `<a href="${work.website}" target="_blank" class="detail-link">🔗 Website</a>` : ''}
           ${work.github ? `<a href="${work.github}" target="_blank" class="detail-link">Github</a>` : ''}
+          ${work.document ? `<a href="${work.document}" target="_blank" class="detail-link">📄 Document</a>` : ''}
         </div>
       </div>
     `;
@@ -955,24 +957,9 @@ function initImageLazyLoading() {
 function loadImage(img) {
   return new Promise((resolve, reject) => {
     // 檢查是否支援 WebP 格式
-    const supportsWebP = checkWebPSupport();
+    // Use original image format - WebP conversion disabled
     let imageSrc = img.dataset.src || img.src;
-    
-    // 嘗試使用 WebP 格式（如果支援的話）
-    if (supportsWebP && imageSrc.includes('.jpg') || imageSrc.includes('.jpeg') || imageSrc.includes('.png')) {
-      const webpSrc = imageSrc.replace(/\.(jpg|jpeg|png)$/i, '.webp');
-      // 檢查 WebP 版本是否存在（簡化版，實際應該檢查伺服器回應）
-      testImageExists(webpSrc).then(exists => {
-        if (exists) {
-          imageSrc = webpSrc;
-        }
-        loadImageWithSrc(img, imageSrc, resolve, reject);
-      }).catch(() => {
-        loadImageWithSrc(img, imageSrc, resolve, reject);
-      });
-    } else {
-      loadImageWithSrc(img, imageSrc, resolve, reject);
-    }
+    loadImageWithSrc(img, imageSrc, resolve, reject);
   });
 }
 
@@ -2242,7 +2229,7 @@ function initializeApp() {
 // 圖片預載入策略
 function preloadCriticalImages() {
   const criticalImages = [
-    './assets/images/pic/RNI-Films-IMG-6B66762A-3B66-4426-A38E-D627A5555A92.JPG',
+    '/assets/images/profile/profile-alt-1.jpg',
     // 添加其他關鍵圖片
   ];
   

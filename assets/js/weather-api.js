@@ -257,7 +257,7 @@ class WeatherVisualizer {
   
   getLeafSVG() {
     // 直接使用img標籤載入外部SVG文件
-    return `<img src="./assets/images/pic/b_5d0a6b298ee6e.svg" class="leaf-svg-icon" width="48" height="48" alt="Leaf" style="object-fit: contain;">`;
+    return `<img src="/assets/images/icons/leaf.svg" class="leaf-svg-icon" width="48" height="48" alt="Leaf" style="object-fit: contain;">`;
   }
   
   getLeafSVGColor(temperature) {

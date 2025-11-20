@@ -1,12 +1,12 @@
-# 🎯 UX 問題修復完整報告
+# 🎯 UX Issue Resolution Complete Report
 
-## 🚨 **原始問題及解決方案**
+## 🚨 **Original Issues & Solutions**
 
-### 1. **NAV BAR 小螢幕跳動問題** ✅ **已修復**
+### 1. **NAV BAR Mobile Jumping Issue** ✅ **Fixed**
 
-#### 問題描述：
-- 手機導航在動畫過程中會因為尺寸變化導致位置偏移
-- 導航按鈕點擊時會造成整個 header 的佈局位移
+#### Problem Description:
+- Mobile navigation experiences position offset during animation due to size changes
+- Navigation button clicks cause layout shifts in the entire header
 
 #### 解決方案：
 ```css
