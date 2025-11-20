@@ -1643,6 +1643,49 @@ if (typeof emailjs === 'undefined') {
   console.log('✅ EmailJS initialized');
 }
 
+// Contact form rate limiting
+let lastSubmissionTime = 0;
+const SUBMISSION_COOLDOWN = 120000; // 2 minutes
+const MAX_DAILY_SUBMISSIONS = 5;
+const DAILY_SUBMISSION_KEY = 'dailySubmissions';
+const SUBMISSION_DATE_KEY = 'lastSubmissionDate';
+
+// Get current daily submission count
+function getDailySubmissionCount() {
+  const today = new Date().toDateString();
+  const lastDate = localStorage.getItem(SUBMISSION_DATE_KEY);
+  const count = parseInt(localStorage.getItem(DAILY_SUBMISSION_KEY) || '0');
+  
+  if (lastDate !== today) {
+    // Reset count for new day
+    localStorage.setItem(SUBMISSION_DATE_KEY, today);
+    localStorage.setItem(DAILY_SUBMISSION_KEY, '0');
+    return 0;
+  }
+  
+  return count;
+}
+
+// Increment daily submission count
+function incrementDailySubmissionCount() {
+  const count = getDailySubmissionCount();
+  localStorage.setItem(DAILY_SUBMISSION_KEY, (count + 1).toString());
+}
+
+// Check if user can submit
+function canSubmitMessage() {
+  const now = Date.now();
+  const timeSinceLastSubmission = now - lastSubmissionTime;
+  const dailyCount = getDailySubmissionCount();
+  
+  return {
+    canSubmit: timeSinceLastSubmission >= SUBMISSION_COOLDOWN && dailyCount < MAX_DAILY_SUBMISSIONS,
+    dailyLimitReached: dailyCount >= MAX_DAILY_SUBMISSIONS,
+    cooldownRemaining: Math.max(0, SUBMISSION_COOLDOWN - timeSinceLastSubmission),
+    dailyCount: dailyCount
+  };
+}
+
 // 處理表單提交
 function handleContactFormSubmit(e) {
   e.preventDefault();
@@ -1652,6 +1695,43 @@ function handleContactFormSubmit(e) {
   const submitBtn = document.getElementById('submit-btn');
   const btnText = submitBtn.querySelector('.btn-text');
   const btnLoading = submitBtn.querySelector('.btn-loading');
+  
+  // Check rate limiting
+  const rateLimitCheck = canSubmitMessage();
+  
+  if (!rateLimitCheck.canSubmit) {
+    if (rateLimitCheck.dailyLimitReached) {
+      if (window.NotificationManager && typeof window.NotificationManager.warning === 'function') {
+        window.NotificationManager.warning('Daily message limit reached', {
+          subtitle: `You have reached the daily limit of ${MAX_DAILY_SUBMISSIONS} messages. Please try again tomorrow or contact me directly at ray68125@gmail.com`,
+          duration: 10000,
+          actionButton: {
+            text: 'Copy Email',
+            label: 'Copy email address to clipboard',
+            onClick: () => {
+              navigator.clipboard.writeText('ray68125@gmail.com');
+              if (window.NotificationManager && typeof window.NotificationManager.success === 'function') {
+                window.NotificationManager.success('Email address copied to clipboard');
+              }
+            }
+          }
+        });
+      } else {
+        alert(`Daily message limit reached. Please try again tomorrow or contact me at ray68125@gmail.com`);
+      }
+    } else {
+      const remainingMinutes = Math.ceil(rateLimitCheck.cooldownRemaining / 60000);
+      if (window.NotificationManager && typeof window.NotificationManager.warning === 'function') {
+        window.NotificationManager.warning('Please wait before sending another message', {
+          subtitle: `To prevent spam, there's a 2-minute cooldown between messages. Please wait ${remainingMinutes} minute${remainingMinutes !== 1 ? 's' : ''} before trying again.`,
+          duration: 8000
+        });
+      } else {
+        alert(`Please wait ${remainingMinutes} minute(s) before sending another message.`);
+      }
+    }
+    return;
+  }
   
   // 清除之前的訊息
   clearFormMessage();
@@ -1771,10 +1851,24 @@ function handleContactFormSubmit(e) {
   emailjs.send('service_fetlagj', 'template_4ns0c4a', templateParams)
     .then(function(response) {
       console.log('SUCCESS!', response.status, response.text);
+      
+      // Update rate limiting tracking
+      lastSubmissionTime = Date.now();
+      incrementDailySubmissionCount();
+      
+      const remainingSubmissions = MAX_DAILY_SUBMISSIONS - getDailySubmissionCount();
+      let subtitle = 'Thank you for reaching out. I will get back to you within 24-48 hours.';
+      
+      if (remainingSubmissions <= 2 && remainingSubmissions > 0) {
+        subtitle += ` Note: You have ${remainingSubmissions} message${remainingSubmissions !== 1 ? 's' : ''} remaining today (daily limit: ${MAX_DAILY_SUBMISSIONS}).`;
+      } else if (remainingSubmissions === 0) {
+        subtitle += ' This was your last message for today. For urgent matters, please contact me directly at ray68125@gmail.com.';
+      }
+      
       if (window.NotificationManager && typeof window.NotificationManager.success === 'function') {
         window.NotificationManager.success('Message sent successfully! 🎉', {
-          subtitle: 'Thank you for reaching out. I will get back to you within 24-48 hours.',
-          duration: 8000,
+          subtitle: subtitle,
+          duration: 10000,
           icon: '🚀'
         });
       } else {

@@ -184,7 +184,7 @@ It is a force multiplier that frees humans to focus on what we do best:
 And that shift, for me, marks a genuine turning point.
 `,
     category: 'development',
-    publishedAt: '2025-11-20',
+    publishedAt: '2025-11-21',
     readTime: 12,
     image: '/assets/images/pic/personalWebsite.png',
     tags: ['AI', 'Product Management', 'Development', 'Workflow', 'Claude Sonnet'],
@@ -220,7 +220,7 @@ class ArticleCard {
             <span class="note-category" style="--category-color: ${category.color}">
               ${category.icon} ${category.name}
             </span>
-            <span class="note-date">${this.formatDate(this.article.publishDate)}</span>
+            <span class="note-date">${this.formatDate(this.article.publishedAt)}</span>
             <span class="read-time">${this.article.readTime} min read</span>
           </div>
           
@@ -409,7 +409,7 @@ class ArticlePage {
             <span class="article-category-badge" style="--category-color: ${category.color}">
               ${category.icon} ${category.name}
             </span>
-            <time class="article-date">${this.formatDate(this.article.publishDate)}</time>
+            <time class="article-date">${this.formatDate(this.article.publishedAt)}</time>
             <span class="article-read-time">${this.article.readTime} min read</span>
           </div>
           

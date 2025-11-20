@@ -48,80 +48,80 @@ This personal portfolio represents a groundbreaking experiment in **AI-agent-led
 - **Code Quality**: Generates extensive components and CSS definitions with complex but well-documented maintenance
 - **Full-Stack Thinking**: Capable of holistic thinking from frontend visuals to backend logic
 
-#### 🔧 **開發流程最佳實踐**
+#### 🔧 **Development Workflow Best Practices**
 
-##### 核心開發原則
-1. **先清理後開發**: 新功能取代舊功能時，務必先完全清除舊功能，避免 AI 將新舊功能混合造成無法修復的問題
-2. **漸進式重構**: 避免大規模 Clean Code，會導致既有功能消失。建議邊開發邊重構，或從一開始就按照程式語言規範
-3. **功能優先策略**: 先實現功能邏輯，再處理 UI 面板，隨著專案規模擴大可有效減少 Bug
-4. **文檔驅動開發**: 透過 README 整理內容並記錄開發流程，讓 AI 更好理解專案脈絡
+##### Core Development Principles
+1. **Clean Before Develop**: When replacing old features with new ones, completely remove old features first to prevent AI from mixing old and new functionality, causing irreparable issues
+2. **Progressive Refactoring**: Avoid large-scale Clean Code initiatives that can cause existing features to disappear. Recommend refactoring during development or following language standards from the beginning
+3. **Function-First Strategy**: Implement functional logic first, then handle UI panels. This effectively reduces bugs as project scale expands
+4. **Documentation-Driven Development**: Organize content and record development processes through README to help AI better understand project context
 
-##### 專案規模化挑戰
-1. **效能衰減**: 專案規模擴大時 AI 運行速度顯著下降，需要大量時間進行驗證檢查
-2. **適用場景**: 最適合初期簡單版面設計和基礎功能開發階段
+##### Project Scaling Challenges
+1. **Performance Degradation**: AI runtime significantly decreases as project scale expands, requiring extensive time for verification checks
+2. **Applicable Scenarios**: Most suitable for early-stage simple layout design and basic feature development phases
 
-##### 響應式設計策略
-1. **Mobile First 強制性**: 必須從最小螢幕開始設計，後處理 RWD，否則每次修改都需重新處理所有斷點
-2. **跨頁面一致性**: 不同路由間排版容易不一致，需建立統一的設計系統
+##### Responsive Design Strategy
+1. **Mobile First Mandatory**: Must design from smallest screen first, then handle RWD, otherwise every modification requires reprocessing all breakpoints
+2. **Cross-Page Consistency**: Layout easily becomes inconsistent between different routes, requiring establishment of unified design system
 
-##### 技術能力邊界
-1. **動畫複雜度**: 基礎動畫處理良好，但複雜動效（WebGL/three.js）能力有限
-2. **新功能風險**: 開發複雜功能時容易產生連鎖 Bug
-3. **技術債務累積**: 開發後期技術債務快速增長
+##### Technical Capability Boundaries
+1. **Animation Complexity**: Basic animations are handled well, but complex effects (WebGL/three.js) capabilities are limited
+2. **New Feature Risks**: Developing complex features easily generates cascading bugs
+3. **Technical Debt Accumulation**: Technical debt rapidly grows in later development stages
 
-#### 🛡️ **風險控制策略**
+#### 🛡️ **Risk Control Strategy**
 
-1. **版本控制**: 每個重大功能開發前務必建立版本節點
-2. **測試機制**: 建立完善的功能測試和回歸測試流程
-3. **模組化架構**: 從專案初期就建立清晰的模組邊界
-4. **功能追蹤**: 建立功能狀態追蹤機制，防止測試時功能丟失
+1. **Version Control**: Must establish version checkpoints before each major feature development
+2. **Testing Mechanisms**: Establish comprehensive functional testing and regression testing processes
+3. **Modular Architecture**: Establish clear module boundaries from project inception
+4. **Feature Tracking**: Establish feature status tracking mechanisms to prevent feature loss during testing
 
 ---
 
-## 🎨 UX 改進歷程與開發迭代記錄
+## 🎨 UX Improvement Journey & Development Iteration Records
 
-> **開發時程**: 2025-11-19 ~ 2025-11-20  
-> **開發模式**: AI 輔助迭代開發  
-> **總改版次數**: 8 個主要版本  
-> **技術債務解決**: 3 次重大重構  
+> **Development Timeline**: 2025-11-19 ~ 2025-11-20  
+> **Development Mode**: AI-Assisted Iterative Development  
+> **Total Revisions**: 8 Major Versions  
+> **Technical Debt Resolution**: 3 Major Refactorings  
 
-### Phase 1: 專案重構與響應式設計優化
-**日期**: 2025-11-19  
-**重點**: 建立完整的 RWD 系統和專案架構優化
+### Phase 1: Project Refactoring & Responsive Design Optimization
+**Date**: 2025-11-19  
+**Focus**: Establishing complete RWD system and project architecture optimization
 
-### 🎯 設計系統核心原則
+### 🎯 Design System Core Principles
 
-#### 1. **視覺舒適度 (Visual Comfort)**
-- **放寬行距**: 1.6-1.75em 的寬鬆行距，提升長文本閱讀體驗
-- **暖色調陰影**: 咖啡色系陰影 `rgba(139, 69, 19, 0.1-0.3)` 創造溫暖感
-- **柔和圓角**: 12-16px 統一圓角，避免過於銳利的視覺感受
-- **毛玻璃質感**: `backdrop-filter: blur(10px)` 現代玻璃效果
+#### 1. **Visual Comfort**
+- **Relaxed Line Height**: 1.6-1.75em generous line spacing to enhance long text reading experience
+- **Warm-toned Shadows**: Coffee-colored shadows `rgba(139, 69, 19, 0.1-0.3)` creating warmth
+- **Soft Rounded Corners**: 12-16px unified border radius, avoiding overly sharp visual feel
+- **Frosted Glass Texture**: `backdrop-filter: blur(10px)` modern glass effects
 
-#### 2. **微互動哲學 (Micro-Interaction Philosophy)**
-- **hover 縮放**: 所有可互動元素 hover 時輕微縮放至 1.02x
-- **按鈕回饋**: 點擊時縮放至 0.98x，模擬真實世界的按壓感
-- **滾動顯現**: 元素進入視窗時從 12px 下方滑入並淡入
-- **流暢過渡**: 統一 0.3s ease-in-out 過渡時間，確保動畫一致性
+#### 2. **Micro-Interaction Philosophy**
+- **Hover Scaling**: All interactive elements slightly scale to 1.02x on hover
+- **Button Feedback**: Click scaling to 0.98x, simulating real-world press sensation
+- **Scroll Reveal**: Elements slide in from 12px below and fade in when entering viewport
+- **Smooth Transitions**: Unified 0.3s ease-in-out transition timing, ensuring animation consistency
 
-#### 3. **漸進式揭露 (Progressive Disclosure)**
-- 天氣資訊預設隱藏，點擊後展開詳細資訊
-- Works 詳情面板按需顯示，避免資訊過載
-- 透明玻璃導航避免遮擋內容，保持視覺層次
+#### 3. **Progressive Disclosure**
+- Weather information hidden by default, expands to show detailed information when clicked
+- Works detail panels display on demand, avoiding information overload
+- Transparent glass navigation avoids blocking content, maintaining visual hierarchy
 
-#### 4. **回饋與確認 (Feedback & Confirmation)**
-- 所有互動都有視覺回饋（懸停、點擊效果）
-- 表單提交有成功/失敗狀態提示
-- 載入狀態有適當的等待提示
+#### 4. **Feedback & Confirmation**
+- All interactions have visual feedback (hover, click effects)
+- Form submissions have success/failure status indicators
+- Loading states have appropriate waiting indicators
 
-#### 5. **設計統一性 (Design Consistency)**
-- **跨頁面一致**: 統一的卡片系統、色彩和間距規範
-- **視覺層次**: 相同功能在不同頁面保持一致的操作方式
-- **響應式和諧**: 各裝置上保持相同的視覺比例和體驗
+#### 5. **Design Consistency**
+- **Cross-Page Uniformity**: Unified card system, color and spacing specifications
+- **Visual Hierarchy**: Same functions maintain consistent operation methods across different pages
+- **Responsive Harmony**: Maintain same visual proportions and experience across all devices
 
-#### 6. **產品導向內容 (Product-Focused Content)**
-- **使用者價值**: 內容從個人視角轉為使用者受益導向
-- **專業定位**: 突出 Product Manager 和 Technical Leader 專業形象
-- **emoji 標題**: 統一的 emoji + 英文標題系統，增加親和力
+#### 6. **Product-Focused Content**
+- **User Value**: Content shifted from personal perspective to user-benefit oriented
+- **Professional Positioning**: Highlighting Product Manager and Technical Leader professional image
+- **Emoji Titles**: Unified emoji + English title system, increasing approachability
 
 #### 7. **可及性與效能 (Accessibility & Performance)**
 - 響應式設計確保各尺寸螢幕可用性

@@ -75,8 +75,24 @@
 
 .loading-content {
   text-align: center;
-  transform: translateY(0) scale(3);
+  transform: translateY(0) scale(1.5);
   animation: loadingFloat 4s ease-in-out infinite;
+}
+
+/* Mobile optimization for loading screen */
+@media (max-width: 480px) {
+  .loading-content {
+    transform: translateY(0) scale(1);
+  }
+  
+  @keyframes loadingFloat {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-16px) scale(1);
+    }
+  }
 }
 
 .loading-text {
@@ -115,10 +131,10 @@
 
 @keyframes loadingFloat {
   0%, 100% {
-    transform: translateY(0) scale(3);
+    transform: translateY(0) scale(1.5);
   }
   50% {
-    transform: translateY(-16px) scale(3);
+    transform: translateY(-16px) scale(1.5);
   }
 }
 
@@ -2012,7 +2028,7 @@ a:hover::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: 65% 20%; /* Move image to show more of upper-right area */
   filter: brightness(0.9);
   display: block;
   opacity: 1 !important;
@@ -2790,6 +2806,8 @@ a:hover {
   border: 1px solid rgba(255, 255, 255, 0.1);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+  justify-items: center; /* Center cards horizontally */
+  align-items: start; /* Align cards to top */
 }
 
 .card {
@@ -2800,6 +2818,9 @@ a:hover {
   backdrop-filter: blur(8px);
   border: 1px solid rgba(200, 248, 221, 0.2);
   transition: all 0.3s ease;
+  width: 100%; /* Ensure cards take full available width */
+  max-width: 400px; /* Limit maximum width for better presentation */
+  margin: 0 auto; /* Center cards within their grid cell */
 }
 
 .card:hover {
@@ -4310,6 +4331,8 @@ a:hover {
     gap: 40px;
     padding: 35px;
     border-radius: 25px;
+    justify-items: center; /* Ensure cards stay centered on mobile */
+    max-width: 500px; /* Limit width for better mobile presentation */
   }
 
   .card {
@@ -4977,7 +5000,7 @@ a:hover {
   position: fixed;
   top: 0;
   right: 0;
-  width: 450px;
+  width: 100vw; /* Full screen width for better mobile experience */
   height: 100vh;
   background: rgba(20, 40, 30, 0.98);
   border-left: 1px solid rgba(200, 248, 221, 0.2);
@@ -4988,10 +5011,21 @@ a:hover {
   padding: 100px 30px 40px;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+  visibility: hidden; /* Ensure panel is completely hidden when not in use */
+  opacity: 0;
+}
+
+/* Larger screens get side panel */
+@media (min-width: 1024px) {
+  .works-detail-overlay {
+    width: 450px;
+  }
 }
 
 .works-detail-overlay.open {
   transform: translateX(0);
+  visibility: visible;
+  opacity: 1;
 }
 
 .detail-close-btn {
