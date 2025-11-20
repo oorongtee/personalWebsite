@@ -563,6 +563,17 @@ const pages = {
                   Sending...
                 </span>
               </button>
+              
+              <!-- Rate Limiting Information Panel -->
+              <div class="rate-limit-info" id="rate-limit-info">
+                <h4>📧 Message Delivery & Security</h4>
+                <p>To maintain security and prevent spam, I've implemented the following measures:</p>
+                <ul>
+                  <li><strong>Cooldown Period:</strong> 2 minutes between messages</li>
+                  <li><strong>Daily Limit:</strong> Maximum 5 messages per day</li>
+                  <li><strong>Alternative Contact:</strong> For urgent matters, email me directly at <a href="mailto:ray68125@gmail.com">ray68125@gmail.com</a></li>
+                </ul>
+              </div>
             </form>
           </div>
 
@@ -1874,6 +1885,17 @@ function handleContactFormSubmit(e) {
       } else {
         alert('Message sent successfully! Thank you for reaching out.');
       }
+      
+      // Show rate limiting info panel after successful submission
+      const rateLimitInfo = document.getElementById('rate-limit-info');
+      if (rateLimitInfo) {
+        rateLimitInfo.classList.add('show');
+        // Auto-hide after 30 seconds
+        setTimeout(() => {
+          rateLimitInfo.classList.remove('show');
+        }, 30000);
+      }
+      
       form.reset();
     })
     .catch(function(error) {

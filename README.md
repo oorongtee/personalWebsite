@@ -23,15 +23,42 @@ This personal portfolio represents a groundbreaking experiment in **AI-agent-led
 3. **Living Documentation**: Every development decision and iteration is recorded for learning
 4. **Production Quality**: 100% functional with comprehensive error handling and testing
 
-## ✨ Latest Updates (November 20, 2025)
+## ✨ Latest Updates (November 21, 2025)
 
-### 🔧 Critical Fixes & Enhancements
+### 📱 iPhone 14 Pro Testing & Mobile Optimization
+- **Animation Overflow Fixes**: Fixed loading screen animation scaling issues on mobile devices
+- **Profile Image Enhancement**: Adjusted image positioning to prevent face cropping (moved to upper-right 20px)
+- **WORKS Page Improvements**: Fixed project info panel visibility and ensured fullscreen experience
+- **Card Layout Optimization**: Resolved badge overflow issues on "What I Do" cards for all screen sizes
+- **Article System Enhancements**: Improved text overflow handling with responsive character limits
+- **Date Display Fix**: Resolved "Invalid Date" issue, now shows "NOV. 21 2025" correctly
+- **Contact Form Feedback**: Added comprehensive rate limiting information and user feedback system
+
+### 🔧 Previous Critical Fixes & Enhancements
 - **Fixed JavaScript Errors**: Resolved `preloadImage undefined` error and EmailJS notification issues
 - **Improved Resume Functionality**: Resume links now show proper error notifications instead of redirecting
 - **Enhanced Image Loading**: Users no longer see loading processes with optimized lazy loading
 - **Fixed Navigation Issues**: Resolved `notes/article-slug` navigation link errors
 - **Updated Article Formatting**: Fixed bullet point line breaks in the AI development article
 - **Modern Error Design**: Redesigned video loading error notifications with better visual design
+
+### 📱 iPhone 14 Pro Testing Results (November 21, 2025)
+
+#### ✅ All Issues Resolved
+1. **Loading Screen**: Fixed animation overflow on small screens with responsive scaling
+2. **Profile Image**: Adjusted positioning to show full face instead of cropped version
+3. **WORKS Panel**: Resolved info panel appearing when no card selected, ensured fullscreen display
+4. **ABOUT ME Cards**: Fixed PRODUCT and ENGINEERING cards alignment on all screen sizes
+5. **Article Cards**: Implemented responsive text limits to prevent overflow while preserving word integrity
+6. **Date Display**: Fixed "Invalid Date" error, now displays "NOV. 21 2025" properly
+7. **Contact Form**: Added visible feedback panel explaining rate limiting (2-min cooldown, 5 daily limit)
+
+#### 🎯 Rate Limiting System Features
+- **2-minute cooldown** between message submissions
+- **5 messages per day** maximum limit per user
+- **Persistent tracking** using localStorage across browser sessions
+- **Clear user feedback** with alternative contact options
+- **Daily reset** at midnight for fresh message quotas
 
 ### 📝 Content Updates
 - **AI Development Article**: Updated with comprehensive insights on AI-agent-led development workflows
@@ -229,11 +256,19 @@ This personal portfolio represents a groundbreaking experiment in **AI-agent-led
 - **專業定位強化**: 突出 Product Manager 和 Technical Leader 角色
 - **使用者中心**: 內容從個人視角轉為使用者價值導向
 
-#### ⚡ 技術架構優化
-- **天氣面板改進**: 採用大地色調背景，提升文字對比度
-- **聊天機器人優化**: 更新為產品導向的互動體驗
-- **時間軸佈局**: 解決重疊問題，採用響應式卡片佈局
-- **載入效能**: 優化 CSS 動畫和圖片載入機制
+#### ⚡ Technical Architecture Optimization
+- **Weather Panel Enhancement**: Implemented earth-tone backgrounds for improved text contrast
+- **Chatbot Experience**: Updated to product-focused interactive design
+- **Timeline Layout**: Resolved overlap issues with responsive card layouts
+- **Performance Optimization**: Enhanced CSS animations and image loading mechanisms
+
+#### 📱 Mobile Testing & Optimization (iPhone 14 Pro Results)
+- **Animation Scaling**: Implemented responsive scaling to prevent overflow on mobile screens
+- **Image Positioning**: Fine-tuned profile image positioning using CSS object-position for optimal display
+- **Panel Management**: Enhanced WORKS detail panel with proper visibility controls and fullscreen behavior
+- **Card Layout**: Resolved tag overflow in service cards with flex-wrap and responsive width constraints
+- **Text Handling**: Implemented screen-size specific line clamping to prevent text overflow while maintaining readability
+- **User Feedback**: Added comprehensive rate limiting system with clear user communication
 
 ### Phase 6: 系統功能完善與錯誤處理重設  
 **日期**: 2025-11-20  
@@ -526,10 +561,11 @@ class NotificationSystem {
 
 ## 📡 專案資訊與聯絡
 
-**專案狀態**: 正式發佈中 ✅  
-**最後更新**: 2025-11-20  
-**版本**: v2.0.0 (AI-Assisted Development)  
-**網站連結**: [ray-chen.netlify.app](https://ray-chen.netlify.app)
+**Project Status**: Production Ready ✅  
+**Last Updated**: 2025-11-21  
+**Version**: v2.1.0 (Mobile-Optimized AI Development)  
+**Website Link**: [ray-chen.netlify.app](https://ray-chen.netlify.app)  
+**iPhone 14 Pro Compatibility**: 100% Tested & Optimized ✅
 
 ### 👤 開發者資訊
 **Ray Chen** - Product Manager & Frontend Developer  
@@ -538,14 +574,15 @@ class NotificationSystem {
 🔗 **LinkedIn**: [ray-chen-112916331](https://www.linkedin.com/in/ray-chen-112916331/)  
 💻 **GitHub**: [@oorongtee](https://github.com/oorongtee)  
 
-### 🔍 技術談論與合作
-如果你對這個專案的技術實現、AI 輔助開發流程，或是 UX 設計方法論有興趣，歡迎透過以上管道與我交流討論。
+### 🔍 Technical Discussion & Collaboration
+If you're interested in this project's technical implementation, AI-assisted development workflows, or UX design methodologies, feel free to reach out through the channels above.
 
-**特別歡迎討論的話題**:
-- 🤖 AI 輔助開發的最佳實踐
-- 🎨 現代化網站設計趨勢  
-- 📱 響應式設計的挑戰與解決方案
-- 🚀 產品管理與技術導向的結合
+**Topics I'm particularly interested in discussing**:
+- 🤖 AI-assisted development best practices and workflow optimization
+- 🎨 Modern web design trends and implementation strategies
+- 📱 Responsive design challenges and mobile-first solutions
+- 🚀 Product management integration with technical leadership
+- 🛡️ Web security and rate limiting implementations
 
 ---
 
