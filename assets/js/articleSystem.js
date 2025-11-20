@@ -23,7 +23,7 @@ const ARTICLE_CATEGORIES = {
   },
   'product-management': {
     name: 'Product Management',
-    color: '#8B5CF6',
+    color: '#3B82F6',
     icon: '📊',
     description: 'Strategy, leadership, and product thinking'
   },
@@ -189,6 +189,114 @@ And that shift, for me, marks a genuine turning point.
     image: '/assets/images/projects/ray-personal-website.png',
     tags: ['AI', 'Product Management', 'Development', 'Workflow', 'Claude Sonnet'],
     featured: true
+  },
+  {
+    id: 'ai-build-hybrid-pm-engineer-role',
+    title: 'AI-Build and the Emerging Hybrid Role Between Product Managers and Engineers',
+    slug: 'ai-build-hybrid-pm-engineer-role',
+    excerpt: 'A critical reflection on AI-agent–driven development workflows and how they reshape the boundaries between product management and engineering roles.',
+    content: `
+# AI-Build and the Emerging Hybrid Role Between Product Managers and Engineers
+
+*A Critical Reflection on AI-Agent–Driven Development Workflows*
+
+## Introduction
+
+The boundaries separating product managers and engineers have historically been shaped by specialization: PMs articulate vision, strategy, and requirements, while engineers execute through technical implementation. However, in the wake of AI-driven development—particularly with the emergence of agentic systems—the traditional model is undergoing a structural reconfiguration.
+
+This article examines how AI-Build methodologies reshape the cognitive, operational, and collaborative landscape of software creation, especially for individuals like myself who inhabit both roles. The reflections here are deeply informed by conversations happening across the industry, notably by authors such as Vince Law, Raza Habib, and LG, whose analyses collectively point toward a convergence of responsibilities across product and engineering.
+
+## Background and Intellectual Context
+
+The current discourse across the product-development community reveals a shared recognition: AI alters not merely productivity, but the architecture of collaboration.
+
+**[Vince Law](https://vincelawco.medium.com/ai-will-not-help-product-managers-the-same-way-as-engineers-designers-3a2ebdc688bf)** argues that AI accelerates engineering far more than product management, reinforcing the PM's responsibility for strategic clarity, narrative coherence, and prioritization under conditions of abundance rather than scarcity.
+
+**[LG](https://lg.substack.com/p/the-death-of-product-development)** suggests that the traditional separation between "product specification" and "technical implementation" is dissolving, giving rise to a nonlinear loop where prototyping, testing, and iteration occur nearly instantaneously.
+
+**[Raza Habib](https://humanloop.com/blog/ai-is-blurring-the-lines-between-pms-and-engineers)** emphasizes that AI systems increasingly perform tasks historically associated with engineering workflows, necessitating a redefinition of PM responsibilities toward context design and decision-making under uncertainty.
+
+Collectively, these perspectives frame the emergence of a hybrid role—one where the PM becomes not a communicator but an orchestrator of AI-mediated execution.
+
+## My Practice: Adopting an AI-Agent–Led Development Model
+
+### 1. Reversing the Traditional Hierarchy
+
+In my own recent project, I intentionally inverted the conventional relationship between human and machine. Rather than employing the AI as a passive assistant, I designated Claude Sonnet as the primary executor across the development lifecycle:
+
+• architecture scaffolding
+• feature implementation
+• test generation
+• system-level iteration
+
+Under this paradigm, I assumed responsibility for higher-level conceptual tasks such as product objectives, system constraints, and UX rationale.
+
+### 2. Integrating PM and Engineering Functions
+
+My dual identity became an advantage rather than a complication. Instead of writing handoff documents or decomposing tasks for future engineering execution, I defined product context directly into the AI system. The AI then translated this into functional code, enabling:
+
+• reduced communication overhead
+• elimination of ambiguities inherent to human handoff
+• dramatically shortened iteration cycles
+
+In effect, the PM role shifted from documentation-heavy translation to real-time systems supervision.
+
+### 3. From "Prompt Engineer" to "Context Engineer"
+
+The most significant conceptual insight gained from this process is that AI quality is determined not by prompt cleverness but by context architecture—the structured environment of constraints, priorities, and system-level assumptions in which the model operates.
+
+This maps closely to observations by Raza Habib, who highlights that AI blurs the PM–engineer divide precisely because both roles increasingly revolve around shaping the environment for automated reasoning.
+
+### 4. Multi-Domain Cognition as a Native Operating Mode
+
+With AI handling deterministic or repetitive implementation tasks, I found myself simultaneously working across domains:
+
+• product strategy
+• UX and interaction reasoning
+• brand identity
+• system design
+• implementation validation
+
+AI did not replace these functions; it amplified them by providing immediate, executable instantiations of abstract ideas.
+
+## Critical Reflections
+
+### 1. Human Responsibility Remains Non-Transferable
+
+Even when AI performs code generation, architectural validation, testing, or refactoring, human oversight remains indispensable. The locus of responsibility simply shifts from creation to evaluation.
+
+### 2. Context Is the Primary Driver of Output Quality
+
+Poorly defined problem spaces produce hallucinated or misaligned outcomes. Conversely, clear domain-specific constraints and systems thinking yield highly reliable execution.
+
+### 3. AI Enhances Strategic and Creative Capacity
+
+By eliminating low-leverage tasks, AI allows PMs—especially those with engineering literacy—to focus on differentiation, user value, strategic mapping, and long-term system health.
+
+### 4. AI Executes; Humans Decide
+
+This aligns with Vince Law's insistence that while AI accelerates production, it cannot assume the burden of judgment, accountability, or narrative architecture.
+
+## Conclusion: Toward a New Hybrid Identity
+
+Rather than viewing myself as alternating between PM and engineer, I increasingly recognize that my actual function is that of an AI orchestrator—a designer of the information environment in which AI systems operate.
+
+This aligns with emerging academic and industry discourse:
+
+• the PM is no longer merely a communicator,
+• the engineer is no longer solely a builder,
+• and AI is no longer simply a tool.
+
+It is part of the operational fabric of product development.
+
+By integrating vision, constraints, design rationale, and continuous supervision, I participate in a new hybrid mode of product creation—one that mirrors the future of software teams where AI is embedded, autonomous, and central.
+`,
+    category: 'product-management',
+    publishedAt: '2025-11-21',
+    readTime: 8,
+    image: '/assets/images/articles/boundaryProductAndEngineer.png',
+    tags: ['AI', 'Product Management', 'Engineering', 'Hybrid Roles', 'AI-Build'],
+    featured: false
   }
 ];
 
