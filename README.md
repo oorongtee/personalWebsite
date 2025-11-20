@@ -275,6 +275,33 @@
 - **穩定的路由系統**: 支援複雜的子路由和無縫切換
 - **效能優化**: 清理冗餘程式碼和優化資源載入
 
+### Phase 7: 圖片載入與通知系統最佳化  
+**日期**: 2025-11-20  
+**重點**: 圖片載入體驗優化、NOTES 佈局重新設計、錯誤通知系統現代化
+
+#### 🖼️ 圖片載入體驗優化
+- **選擇性懶載入**: 只對文章圖片啟用懶載入，避免 UI 元素模糊問題
+- **載入狀態管理**: 完善的圖片載入成功/失敗處理機制
+- **視覺穩定性**: 防止圖片載入過程中的視覺跳動
+- **效能提升**: 優化圖片載入順序，提升頁面載入速度
+
+#### 📝 NOTES 卡片佈局重新設計
+- **左圖右文佈局**: 實現圖片 180px 固定寬度，內容區域自適應的現代卡片設計
+- **CSS 架構重構**: 統一 HTML 類名與 CSS 樣式的命名規範
+- **響應式優化**: 小螢幕自動切換為垂直佈局，保持最佳閱讀體驗
+- **視覺層次**: 改進卡片內容的層級關係和視覺重點
+
+#### 🚨 通知系統現代化改版
+- **設計語言升級**: 採用現代化的毛玻璃效果和動畫過渡
+- **寬度控制優化**: 解決錯誤提示佔據整個螢幕的問題
+- **響應式通知**: 不同螢幕尺寸下的智能寬度調整
+- **用戶體驗提升**: 更友善的錯誤訊息和視覺回饋
+
+#### 🎯 技術債務清理
+- **CSS 類名統一**: 解決 JavaScript 與 CSS 類名不匹配的問題
+- **佈局系統標準化**: 統一使用 Flexbox 佈局，提升瀏覽器相容性
+- **程式碼品質**: 移除冗餘樣式，優化 CSS 結構和可維護性
+
 ### 📈 整體開發成果與反思
 
 #### 量化成果
@@ -306,6 +333,157 @@
 - 持續優化載入速度
 - 建立完整的設計系統文件
 - 考慮添加無障礙設計功能
+
+## 📁 專案架構與技術棧
+
+### 🏗️ 目錄結構
+```
+personalWebsite/
+├── 📄 index.html                 # 主頁面 - SPA 架構
+├── 📄 favicon.svg                # 網站圖示
+├── 📄 netlify.toml              # Netlify 部署配置
+├── 📄 .gitignore                # Git 忽略檔案清單
+│
+├── 📁 assets/                   # 靜態資源目錄
+│   ├── 📁 css/                  # 樣式表系統
+│   │   ├── 🎨 home.css          # 主要樣式 (6841+ 行)
+│   │   ├── 🎨 articleSystem.css  # 文章系統樣式
+│   │   ├── 🎨 chatbot.css       # AI 聊天機器人樣式  
+│   │   └── 🎨 notificationSystem.css # 通知系統樣式
+│   │
+│   ├── 📁 js/                   # JavaScript 模組
+│   │   ├── ⚡ index.js          # 主要應用邏輯
+│   │   ├── ⚡ articleSystem.js   # 文章管理系統
+│   │   ├── ⚡ chatbot-fixed.js   # AI 聊天機器人
+│   │   ├── ⚡ weather-api.js     # 天氣 API 整合
+│   │   ├── ⚡ notificationSystem.js # 通知系統
+│   │   └── 📁 vendor/           # 第三方函式庫
+│   │       └── emailjs.min.js   # EmailJS 服務
+│   │
+│   └── 📁 images/               # 圖片資源
+│       ├── 🖼️ leaf.svg         # 天氣 Widget 圖示
+│       ├── 📁 pic/             # 個人照片與專案截圖
+│       └── 📁 articles/        # 文章配圖
+│
+├── 📁 docs/                    # 文檔與資源
+│   ├── 📋 eShoppingMallReadme.md    # 專案說明文件
+│   └── 📋 worldExpoReadme.md        # 專案說明文件  
+│
+└── 📁 reports/                 # 完整開發報告集
+    ├── 📊 README.md                   # 報告總覽與使用指南
+    ├── 🏆 FINAL_ACHIEVEMENT_REPORT.md # 完整成果總結 (A+ 評分)
+    ├── ⚡ OPTIMIZATION_REPORT.md     # 效能與功能優化報告
+    ├── 🎨 VISUAL_FIXES_REPORT.md     # 視覺設計修復報告  
+    ├── 📱 LAYOUT_FIXES_REPORT.md     # 佈局問題解決報告
+    └── 🐛 ISSUE_RESOLUTION_REPORT.md # 技術問題追蹤報告
+```
+
+### 🛠️ 技術棧詳細說明
+
+#### 前端技術
+- **HTML5**: 語意化標籤、無障礙設計
+- **CSS3**: 現代化特性 (Grid、Flexbox、Transform、Filter)
+- **Vanilla JavaScript (ES6+)**: 模組化架構、類別系統
+- **響應式設計**: Mobile-first 方法論
+- **PWA 特性**: 離線支援、快取策略
+
+#### 設計系統
+- **色彩系統**: 大地色調為主的暖色調配色
+- **字體系統**: 響應式字體縮放 (clamp 函數)
+- **間距系統**: 統一的 8px 網格系統
+- **動畫系統**: CSS Transform + Transition 優化效能
+- **毛玻璃效果**: backdrop-filter 現代視覺效果
+
+#### 外部服務整合
+- **OpenWeatherMap API**: 天氣資料服務
+- **EmailJS**: 聯絡表單郵件發送
+- **Netlify**: 靜態網站部署與 CDN
+- **Git**: 版本控制與協作
+
+#### 開發工具鏈
+- **Live Server**: 本地開發伺服器
+- **Git**: 版本控制
+- **VS Code**: 開發環境
+- **AI 輔助**: GitHub Copilot 程式碼生成
+
+### 🎯 核心功能模組
+
+#### 1. 單頁應用路由系統
+```javascript
+// 路由映射與頁面切換
+const routes = {
+  'home': HomePage,
+  'about': AboutPage,
+  'works': WorksPage,
+  'notes': NotesPage,
+  'contact': ContactPage
+}
+```
+
+#### 2. 文章管理系統 
+```javascript
+// ES6 類別架構
+class ArticleCard { /* 文章卡片渲染 */ }
+class ResponsiveGrid { /* 響應式網格佈局 */ }  
+class ArticleFilter { /* 搜尋與篩選功能 */ }
+```
+
+#### 3. 天氣 Widget 系統
+```javascript
+// 天氣資料獲取與 UI 互動
+class WeatherWidget {
+  async fetchWeatherData() { /* API 整合 */ }
+  toggleWeatherPanel() { /* UI 切換 */ }
+}
+```
+
+#### 4. AI 聊天機器人
+```javascript
+// 知識庫驅動的對話系統
+const knowledgeBase = {
+  products: [/* 產品相關 FAQ */],
+  technical: [/* 技術相關 FAQ */],
+  career: [/* 職涯相關 FAQ */]
+}
+```
+
+#### 5. 通知系統
+```javascript  
+// 統一的使用者回饋機制
+class NotificationSystem {
+  show(type, message, options) { /* 顯示通知 */ }
+  createNotification() { /* 創建通知元素 */ }
+}
+```
+
+### 📱 響應式斷點策略
+
+```css
+/* 行動設備優先的斷點設計 */
+@media (max-width: 360px)  { /* 極小螢幕 */ }
+@media (max-width: 480px)  { /* 小型手機 */ }  
+@media (max-width: 768px)  { /* 平板直向 */ }
+@media (769px-900px)       { /* 平板橫向 */ }
+@media (min-width: 901px)  { /* 桌面 */ }
+@media (min-width: 1200px) { /* 大螢幕 */ }
+```
+
+### ⚡ 效能優化策略
+
+#### 圖片最佳化
+- **選擇性懶載入**: 僅文章圖片使用懶載入
+- **WebP 格式**: 支援現代圖片格式
+- **響應式圖片**: 不同螢幕載入適當尺寸
+
+#### CSS 最佳化  
+- **關鍵路徑 CSS**: 內聯關鍵樣式
+- **非同步載入**: 非關鍵 CSS 延遲載入
+- **CSS 變數**: 提升維護性和效能
+
+#### JavaScript 最佳化
+- **模組化載入**: 按需載入功能模組
+- **事件委派**: 減少事件監聽器數量
+- **防抖節流**: 優化滾動和調整大小事件
 
 ---
 
