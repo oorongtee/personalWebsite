@@ -144,9 +144,7 @@ class PersonalChatbot {
             <div class="message-content">
               <p>🐱 Hi there, lovely human! I'm Ray's caring AI assistant kitty! I'm here to share all about Ray's amazing work with warmth and joy. What would you love to explore together? 💕</p>
               <div class="quick-actions">
-                <button class="quick-btn" data-action="skills">💻 Skills & Tech</button>
-                <button class="quick-btn" data-action="projects">🎯 Projects</button>
-                <button class="quick-btn" data-action="services">🚀 Services</button>
+                <button class="quick-btn" data-action="leaf">🌿Why there is a leaf?</button>
                 <button class="quick-btn" data-action="contact">📧 Get in Touch</button>
               </div>
             </div>
@@ -163,7 +161,9 @@ class PersonalChatbot {
             </button>
           </div>
           <div class="chat-suggestions" id="chatSuggestions">
-            <span class="suggestion" data-text="Why there is a leaf?">🌿Why there is a leaf?</span>
+            <span class="suggestion" data-text="skills">💻 Skills & Tech</span>
+            <span class="suggestion" data-text="projects">🎯 Projects</span>
+            <span class="suggestion" data-text="services">🚀 Services</span>
           </div>
         </div>
       </div>
