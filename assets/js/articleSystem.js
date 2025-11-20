@@ -480,7 +480,7 @@ class ArticlePage {
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.*?)\*/g, '<em>$1</em>')
       
-      // 段落
+      // 段落處理，特別處理包含bullet points的段落
       .split('\n\n')
       .map(paragraph => paragraph.trim())
       .filter(paragraph => paragraph)
@@ -490,6 +490,28 @@ class ArticlePage {
             paragraph.startsWith('<blockquote')) {
           return paragraph;
         }
+        
+        // 檢查是否包含bullet points (•)
+        if (paragraph.includes('•')) {
+          // 將bullet points轉換為HTML列表項目，保持換行
+          const lines = paragraph.split('\n').map(line => line.trim()).filter(line => line);
+          const processedLines = lines.map(line => {
+            if (line.startsWith('•')) {
+              return `<li>${line.substring(1).trim()}</li>`;
+            } else {
+              return line;
+            }
+          });
+          
+          // 如果所有行都是列表項目，包裝在ul中
+          if (processedLines.every(line => line.startsWith('<li>') || line === '')) {
+            return `<ul>${processedLines.join('')}</ul>`;
+          } else {
+            // 混合內容，保持原格式但替換bullet points
+            return `<p>${paragraph.replace(/•/g, '<br>•')}</p>`;
+          }
+        }
+        
         return `<p>${paragraph}</p>`;
       })
       .join('\n');

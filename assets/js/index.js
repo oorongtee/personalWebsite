@@ -727,8 +727,8 @@ function showNavigation() {
 
 // Resume error message function
 function showResumeError() {
-  if (typeof NotificationManager !== 'undefined') {
-    NotificationManager.error('Ray has not created a CV yet');
+  if (window.NotificationManager && typeof window.NotificationManager.error === 'function') {
+    window.NotificationManager.error('Ray has not created a CV yet');
   } else {
     alert('Ray has not created a CV yet');
   }
@@ -1093,8 +1093,8 @@ function setupLazyImages() {
   console.log(`Setting up lazy loading for ${images.length} article images...`);
   
   images.forEach((img, index) => {
-    // 只對文章圖片添加載入類別
-    img.classList.add('lazy-image');
+    // 添加載入類別，預設為loading狀態
+    img.classList.add('lazy-image', 'loading');
     
     // 預載入文章圖片
     if (img.src && !img.src.includes('data:image/svg+xml')) {
@@ -1102,6 +1102,7 @@ function setupLazyImages() {
         img.classList.remove('loading');
         img.classList.add('loaded');
       }).catch(() => {
+        img.classList.remove('loading');
         img.classList.add('error');
       });
     }
@@ -1410,8 +1411,14 @@ function initNavigationIndicator() {
     // 移除所有 active 類別
     document.querySelectorAll('.nav a').forEach(l => l.classList.remove('active'));
     
+    // 對於筆記文章路由，normalize 到 'notes'
+    let normalizedRoute = routeName;
+    if (routeName && routeName.startsWith('notes/')) {
+      normalizedRoute = 'notes';
+    }
+    
     // 找到對應的導航連結
-    const targetLink = document.querySelector(`.nav a[data-route="${routeName}"]`);
+    const targetLink = document.querySelector(`.nav a[data-route="${normalizedRoute}"]`);
     if (targetLink) {
       targetLink.classList.add('active');
       updateIndicator(targetLink);
@@ -2129,6 +2136,16 @@ function preloadCriticalImages() {
     link.as = 'image';
     link.href = src;
     document.head.appendChild(link);
+  });
+}
+
+// 預載入單個圖片
+function preloadImage(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error(`Failed to load image: ${src}`));
+    img.src = src;
   });
 }
 

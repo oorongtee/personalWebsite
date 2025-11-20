@@ -1,15 +1,52 @@
-# 🚀 Ray's Personal Website - 開發旅程記錄
+# 🚀 Ray's Personal Website - AI-Assisted Development Journey
 
-> 這是一個由 AI 輔助開發的個人網站專案，記錄了完整的 UX 改進歷程與開發迭代過程。
+> An AI-assisted personal portfolio showcasing the complete transformation from traditional development to AI-agent-led workflows, with comprehensive UX improvements and development iteration records.
 
-## 🤖 AI 輔助開發觀察與最佳實踐
+**🌟 [Live Website](https://ray-chen.netlify.app)** | **📱 Fully Responsive** | **🤖 AI-Driven Development**
 
-### ✨ **Copilot 開發能力分析**
+## 🎯 Project Overview
 
-#### 超乎預期的綜合能力
-- **設計系統整合**: 不僅處理基本排版，還能同時提供色系搭配、動畫參數設定、功能規劃與 UX 建議
-- **程式碼品質**: 生成大量元件與 CSS 定義項，維護複雜但註解詳細
-- **全棧思維**: 能從前端視覺到後端邏輯進行整體性思考
+This personal portfolio represents a groundbreaking experiment in **AI-agent-led development**, where Copilot AI (paired with Claude Sonnet 4) served as the primary development driver rather than just an assistant. The project showcases:
+
+### 🚀 **Key Features**
+- **AI-Driven Workflow**: Complete development lifecycle led by AI agents
+- **Modern Design System**: Glass morphism, warm earth tones, micro-interactions
+- **Responsive Architecture**: Mobile-first design with 6+ breakpoint optimizations  
+- **Interactive Weather Widget**: Real-time Taiwan weather integration with smooth animations
+- **Article Management System**: ES6-based modular architecture for content management
+- **Smart Notifications**: Modern notification system with blur effects and priority management
+- **Performance Optimized**: Lazy loading, WebP support, efficient CSS animations
+
+### 💡 **What Makes This Special**
+1. **Context Engineering**: Shifted from prompt engineering to designing information architecture for AI
+2. **Dual PM-Engineer Identity**: Seamlessly bridges product strategy with technical execution
+3. **Living Documentation**: Every development decision and iteration is recorded for learning
+4. **Production Quality**: 100% functional with comprehensive error handling and testing
+
+## ✨ Latest Updates (November 20, 2025)
+
+### 🔧 Critical Fixes & Enhancements
+- **Fixed JavaScript Errors**: Resolved `preloadImage undefined` error and EmailJS notification issues
+- **Improved Resume Functionality**: Resume links now show proper error notifications instead of redirecting
+- **Enhanced Image Loading**: Users no longer see loading processes with optimized lazy loading
+- **Fixed Navigation Issues**: Resolved `notes/article-slug` navigation link errors
+- **Updated Article Formatting**: Fixed bullet point line breaks in the AI development article
+- **Modern Error Design**: Redesigned video loading error notifications with better visual design
+
+### 📝 Content Updates
+- **AI Development Article**: Updated with comprehensive insights on AI-agent-led development workflows
+- **Project Descriptions**: Enhanced "Ray's Personal Website" description highlighting AI-driven development
+- **About Section**: Updated engineering experience description
+- **What I Do Cards**: Refined to focus on Product Management and UX-driven iteration
+
+## 🤖 AI-Assisted Development Analysis & Best Practices
+
+### ✨ **AI Development Capabilities Analysis**
+
+#### Beyond Expectations - Comprehensive Abilities
+- **Design System Integration**: Beyond basic layouts - provides color schemes, animation parameters, feature planning, and UX recommendations
+- **Code Quality**: Generates extensive components and CSS definitions with complex but well-documented maintenance
+- **Full-Stack Thinking**: Capable of holistic thinking from frontend visuals to backend logic
 
 #### 🔧 **開發流程最佳實踐**
 
