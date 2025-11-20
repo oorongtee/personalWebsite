@@ -2,8 +2,6 @@
 
 > An AI-assisted personal portfolio showcasing the complete transformation from traditional development to AI-agent-led workflows, with comprehensive UX improvements and development iteration records.
 
-**🌟 [Live Website](https://ray-chen.netlify.app)** | **📱 Fully Responsive** | **🤖 AI-Driven Development**
-
 ## 🎯 Project Overview
 
 This personal portfolio represents a groundbreaking experiment in **AI-agent-led development**, where Copilot AI (paired with Claude Sonnet 4) served as the primary development driver rather than just an assistant. The project showcases:
