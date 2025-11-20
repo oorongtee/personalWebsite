@@ -41,119 +41,149 @@ const SAMPLE_ARTICLES = [
     id: 'ai-led-development-turning-point',
     title: 'Why Letting an AI Agent Lead My Development Process Became a Turning Point',
     slug: 'ai-led-development-turning-point',
-    excerpt: 'Documenting how I used Copilot AI (paired with Claude Sonnet 4) to lead the development of my personal website, and how this fundamentally shifted my approach to product development.',
+    excerpt: 'This article documents how I used Copilot AI—paired with the Claude Sonnet 4 model—not merely as a coding assistant but as the primary driver of my personal website\'s development lifecycle.',
     content: `
 # Why Letting an AI Agent Lead My Development Process Became a Turning Point
 
-In this article, I want to document how I used Copilot AI (paired with the Claude Sonnet 4 model) to lead the development of my personal website.
+This article documents how I used Copilot AI—paired with the Claude Sonnet 4 model—not merely as a coding assistant but as the primary driver of my personal website's development lifecycle.
 
-The entire development flow, along with my observations, experiments, and iterations with AI, is written into the project's <a href="https://github.com/oorongtee/personalWebsite" target="_blank" style="color: #D97706; text-decoration: underline;">GitHub</a> README.
+All observations, experiments, and workflow iterations are recorded in the project's <a href="https://github.com/oorongtee/personalWebsite" target="_blank" style="color: #D97706; text-decoration: underline;">GitHub README</a>, serving as a living archive of how my approach evolved.
+
+---
 
 ## My Core Assumption
 
-In a real corporate environment, we should be able to confidently hand over large parts of our workflows and code implementation to AI — not just use it as a minor helper.
+In a real corporate environment, we should be able to delegate significant portions of our workflows—architecture scaffolding, code implementation, test generation, and even system design—to AI Agents.
 
-During the development process, I continuously ran AI system tests, optimized the project, and read a series of articles by <a href="https://medium.com/@simon3458" target="_blank" style="color: #D97706; text-decoration: underline;">Simon Liu</a>. His perspectives on AI Agent development have deeply influenced how I think about and design my workflow.
+Not as a minor helper, but as an operational unit within the development pipeline.
 
----
-
-## Why this AI-Agent-led development approach is a turning point for me
-
-### 1. A fundamental shift in how development is done
-
-Traditionally, the pattern is: **humans lead development, AI occasionally assists**.
-
-In this project, I deliberately flipped that dynamic:
-- **AI leads the development process and code implementation**
-- **I step in as a supervisor and decision-maker**, adjusting direction and validating outcomes
-
-### 2. Integrating my dual identity as PM and engineer
-
-As a product manager, I've always had to:
-- Write feature specs
-- Design business logic
-- Think through UX
-- Then hand all of that off to engineers
-
-Now, with the help of an AI agent, I can:
-- **Start from product and feature requirements**
-- **Ask AI to generate tests and implementation directly**
-- **Gradually feed my thinking and background context into the system**
-- **Let AI handle much of the code implementation and initial verification**
-
-This lets me stay focused on product strategy, brand, and visual design, while also being able to ship real code instead of just writing requirement documents.
-
-### 3. A role shift: from prompt engineer to context engineer
-
-My role is shifting from "someone who writes clever prompts" to **"someone who designs and maintains the right context."**
-
-In this setup:
-- **What I provide** is product vision, goals, UX rationale, constraints, and priorities
-- **AI generates** code and tests based on that context
-- **The engineering team** can focus more on core business logic and optimization, instead of grinding through repetitive low-level coding
-
-### 4. A concrete way to work across multiple domains at once
-
-This way of working finally lets me truly do the following at the same time:
-- **Ideate new features**
-- **Think through UX and user flows**
-- **Shape the brand and visual identity**
-
-And then have all of that translated into executable code very quickly.
-
-AI carries most of the implementation workload, while I supervise, review, and steer it to stay aligned with the product direction.
+During this project, I continuously ran system-level AI tests, iterated on my workflow, and studied insights from <a href="https://medium.com/@simon3458" target="_blank" style="color: #D97706; text-decoration: underline;">Simon Liu</a>, whose perspectives on Agent-based development deeply influenced how I architected the process.
 
 ---
 
-## Reflections and observations
+## Why This AI-Agent-Led Workflow Was a Turning Point for Me
 
-### 1. Reliability and risk
+### 1. A fundamental shift in the software development paradigm
 
-Even if AI can write a large portion of the code, **I still need to continuously review, test, and validate**.
+The traditional model is straightforward:
 
-AI is not "automatically correct," and I should never fully let go of human oversight.
+**Humans lead. AI assists.**
 
-### 2. Beyond prompts: the importance of context
+In this project, I intentionally inverted the hierarchy:
+• **AI leads the development workflow and implementation**
+• **I act as a supervisor, decision-maker, and system boundary designer**
 
-What truly determines the quality of AI output is **the context I provide**:
-- Product vision
-- Feature goals
-- User scenarios
-- UX principles and constraints
+This shift reframes AI from "autocomplete on steroids" to an execution engine capable of driving end-to-end development under human oversight.
 
-The clearer and more structured the context, the more logical and valuable the code AI produces.
+### 2. Integrating my dual identity as a PM and engineer
 
-### 3. A win–win for efficiency and creativity
+As a PM, my responsibilities typically include:
+• Defining product requirements
+• Designing business logic
+• Mapping user flows/UX
+• Translating all of that into documentation for engineers
 
-By offloading repetitive or mechanical development work to AI, I can devote more energy to:
-- **Product positioning**
-- **Long-term roadmap planning**
-- **Brand voice and communication style**
+But with an AI agent acting as an autonomous implementer, I can instead:
+• Start from spec-driven product requirements
+• Inject domain context into the system
+• Ask AI to generate tests, architecture, and implementation
+• Iterate on behavior through context refinement instead of manual coding
 
-It's not just about "saving time" — it's about moving my attention from low-leverage tasks to high-leverage decisions.
+This lets me remain deeply focused on product strategy, narrative, and design—while still shipping real, functional code without needing a full engineering cycle.
 
-### 4. Responsibility and accountability stay with humans
+### 3. Shifting from prompt engineer to context engineer
 
-Even though AI is driving much of the implementation, I am still ultimately responsible for:
-- **Code quality**
-- **Maintainability**
-- **Security and reliability**
+This project forced me to recognize a key insight:
 
-I also have to ensure that this AI-driven workflow actually benefits the team and the organization, instead of introducing new hidden risks.
+**The real skill isn't crafting clever prompts—it's designing context architecture.**
+
+In this workflow:
+• I define product vision, constraints, UX rationale, and priorities
+• AI synthesizes code and test suites based on that context
+• The engineering team can focus on high-leverage logic and optimization instead of repetitive boilerplate
+
+In other words, my role is evolving from writing instructions to curating the information environment AI operates within.
+
+### 4. A practical way to work across multiple domains simultaneously
+
+For the first time, I can truly operate in multiple layers of product creation at once:
+• Ideation and feature conceptualization
+• UX reasoning and flow optimization
+• Brand identity and visual direction
+
+AI becomes a multi-domain executor, translating these decisions into executable code quickly.
+
+My job becomes supervision, verification, and alignment—ensuring the implementation stays consistent with product goals.
+
+---
+
+## Reflections and Observations
+
+### 1. Reliability, risk, and human-in-the-loop accountability
+
+Even though AI can write substantial portions of the codebase, it still requires:
+• Continuous human review
+• Regression testing
+• Architectural validation
+
+AI is not "automatically correct," and relinquishing human oversight remains unacceptable.
+
+Risk management does not disappear—it simply shifts focus.
+
+### 2. Context is the true determinant of output quality
+
+The most critical variable is not prompting technique—it's the clarity and structure of context, including:
+• Product vision
+• Functional objectives
+• Edge cases and constraints
+• User journeys
+• Interaction rules
+
+High-quality context produces high-quality execution.
+
+Poor context produces hallucinated or incoherent systems.
+
+### 3. A win–win for efficiency and creative focus
+
+By outsourcing low-leverage implementation tasks to AI, I can invest more energy into:
+• Product strategy and differentiation
+• Long-term roadmap architecture
+• Narrative, brand, and communication style
+
+This isn't merely time-saving—it's an elevation of where my cognitive effort goes.
+
+### 4. Responsibility never moves to AI
+
+Even when AI drives implementation, humans are still accountable for:
+• Code quality and maintainability
+• Security, data integrity, and compliance
+• Long-term system health
+• Ensuring the workflow benefits the organization rather than introducing unseen risks
+
+AI can execute tasks, but it cannot own consequences.
 
 ---
 
 ## Final Thoughts
 
-As someone with a humanities background, I'm very aware of this irony:
+Coming from a humanities background, I can't ignore the irony:
 
-**To me, a lot of ChatGPT's code still looks ugly. And to many engineers, AI-generated code often looks ugly as well.**
+To me, much of AI-generated writing still looks aesthetically rough—just as AI-generated code may look inelegant to engineers.
 
-But even so, I'm convinced that as long as we put AI in the right position—**letting it take over repetitive implementation work instead of replacing human thinking**—it can still fundamentally change the way we build products and collaborate.
+But this does not undermine its value.
 
-The key is not to see AI as a replacement, but as a powerful amplifier that lets us focus on what humans do best: **strategic thinking, creative problem-solving, and building meaningful connections with users**.
+As long as we position AI correctly—assigning it repetitive implementation work rather than delegating judgment or creative reasoning—it can reshape how we build products and collaborate.
+
+AI is not a replacement for human insight.
+
+It is a force multiplier that frees humans to focus on what we do best:
+• Strategic thinking
+• Creative problem-solving
+• Meaningful user connection
+
+And that shift, for me, marks a genuine turning point.
 `,
-    category: 'ai-development',
+    category: 'development',
     publishedAt: '2025-11-20',
     readTime: 12,
     image: '/assets/images/pic/personalWebsite.png',

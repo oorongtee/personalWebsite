@@ -104,7 +104,7 @@ const footer = `
               </svg>
               LinkedIn
             </a>
-            <a href="./images/pic/RNI-Films-IMG-6B66762A-3B66-4426-A38E-D627A5555A92.JPG" target="_blank" title="Download Resume" download>
+            <a href="#" onclick="showResumeError(); return false;" title="Resume">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
               </svg>
@@ -226,18 +226,18 @@ const pages = {
             <div class="card-header">
               <div class="flex items-center gap-6">
                 <div class="badge services-badge-number">01</div>
-                <h3 class="card-title services-card-title">Product Strategy & Research</h3>
+                <h3 class="card-title services-card-title">Product Management</h3>
               </div>
             </div>
             <div class="card-content">
               <p class="services-card-text">
-                I conduct competitive analysis, user research, and market insights to define product vision and strategy. From blockchain platforms to metaverse games, I ground every decision in user needs.
+                I translate business goals into actionable product decisions. Through competitive analysis, user research, and clear prioritization, I shape the product roadmap and ensure every feature delivers real user and business value. From blockchain platforms to metaverse gaming, I focus on making complex ideas usable, aligned, and achievable.
               </p>
             </div>
             <div class="card-footer">
-              <span class="badge services-badge">Strategy</span>
-              <span class="badge services-badge">Research</span>
-              <span class="badge services-badge">Analysis</span>
+              <span class="badge services-badge">Product Strategy</span>
+              <span class="badge services-badge">User Research</span>
+              <span class="badge services-badge">Execution</span>
             </div>
           </div>
 
@@ -283,7 +283,7 @@ const pages = {
             <div class="card-header">
               <div class="flex items-center gap-6">
                 <div class="badge services-badge-number">04</div>
-                <h3 class="card-title services-card-title">Data & UX-Driven Iteration</h3>
+                <h3 class="card-title services-card-title">UX & Data-Driven Iteration</h3>
               </div>
             </div>
             <div class="card-content">
@@ -361,7 +361,7 @@ const pages = {
                   <h2>Engineering</h2>
                 </div>
                 <p class="expertise-description">
-                  Self-taught in front-end development with hands-on experience in JavaScript ES6+, React.js, and modern CSS frameworks. Proficient in building full-featured web applications from the ground up, including e-commerce platforms with Redux state management and responsive design. My technical experience allows me to collaborate effectively with engineers, assess feasibility, and balance architecture, performance, and UX considerations.
+                  Self-taught in front-end development with hands-on experience in JavaScript ES6+, React.js, and modern CSS frameworks. Proficient in building full-featured web applications from the ground up, including e-commerce features with Redux state management. My technical experience allows me to collaborate effectively with engineers, assess feasibility, and balance architecture, performance, and UX considerations.
                 </p>
               </div>
             </div>
@@ -614,7 +614,7 @@ const pages = {
                   </svg>
                 </a>
                 <span class="social-divider">/</span>
-                <a href="./docs/ray.pdf" target="_blank" title="Download Resume" download>
+                <a href="#" onclick="showResumeError(); return false;" title="Resume">
                   <span class="social-link-text">Resume</span>
                   <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -644,9 +644,9 @@ const worksData = [
     id: 1,
     title: "Ray's Personal Website",
     category: "dev",
-    subtitle: "Modern portfolio website with interactive features",
-    description: "A modern personal portfolio website built with Vanilla JavaScript, featuring dynamic weather effects, AI chatbot assistant, and beautiful animations. Includes responsive design, single-page application architecture, and real-time Taiwan weather API integration with visual effects.",
-    technologies: ["HTML5", "CSS3", "JavaScript ES6+", "EmailJS"],
+    subtitle: "AI-driven development workflow showcase with modern portfolio features",
+    description: "A living demonstration of AI-agent-led development, where Copilot AI paired with Claude Sonnet 4 served as the primary development driver. This portfolio showcases the complete workflow transformation from traditional coding to context engineering, featuring dynamic weather integration, AI chatbot assistant, and comprehensive development documentation in the GitHub README.",
+    technologies: ["AI-Driven Development", "JavaScript ES6+", "Context Engineering", "Claude Sonnet 4", "Modern Web APIs", "Workflow Optimization"],
     website: "",
     github: "https://github.com/oorongtee/personalWebsite",
     image: "./assets/images/pic/personalWebsite.png"
@@ -722,6 +722,15 @@ function showNavigation() {
   if (header) {
     header.classList.remove('nav-hidden');
     header.classList.add('nav-visible');
+  }
+}
+
+// Resume error message function
+function showResumeError() {
+  if (typeof NotificationManager !== 'undefined') {
+    NotificationManager.error('Ray has not created a CV yet');
+  } else {
+    alert('Ray has not created a CV yet');
   }
 }
 
@@ -1212,10 +1221,12 @@ function navigateTo(route) {
   
   if (!page) {
     console.error('錯誤: 找不到頁面內容:', route);
-    NotificationManager.warning(`Page not found: ${route}`, {
-      subtitle: 'Redirecting to home page...',
-      duration: 3000
-    });
+    if (window.NotificationManager && typeof window.NotificationManager.warning === 'function') {
+      window.NotificationManager.warning(`Page not found: ${route}`, {
+        subtitle: 'Redirecting to home page...',
+        duration: 3000
+      });
+    }
     // 導航到首頁而不是 404
     if (route !== 'home') {
       navigateTo('home');
@@ -1694,10 +1705,14 @@ function handleContactFormSubmit(e) {
       }
     });
     
-    NotificationManager.error('Form validation failed', {
-      subtitle: validation.errors.join(' | '),
-      duration: 6000
-    });
+    if (window.NotificationManager && typeof window.NotificationManager.error === 'function') {
+      window.NotificationManager.error('Form validation failed', {
+        subtitle: validation.errors.join(' | '),
+        duration: 6000
+      });
+    } else {
+      alert('Form validation failed: ' + validation.errors.join(' | '));
+    }
     form.classList.remove('form-submitting');
     return;
   }
@@ -1709,18 +1724,24 @@ function handleContactFormSubmit(e) {
   
   // 檢查 EmailJS 是否可用
   if (typeof emailjs === 'undefined') {
-    NotificationManager.error('Email service temporarily unavailable', {
-      subtitle: 'Please contact me directly at ray68125@gmail.com',
-      persistent: true,
-      actionButton: {
-        text: 'Copy Email',
-        label: 'Copy email address to clipboard',
-        onClick: () => {
-          navigator.clipboard.writeText('ray68125@gmail.com');
-          NotificationManager.success('Email address copied to clipboard');
+    if (window.NotificationManager && typeof window.NotificationManager.error === 'function') {
+      window.NotificationManager.error('Email service temporarily unavailable', {
+        subtitle: 'Please contact me directly at ray68125@gmail.com',
+        persistent: true,
+        actionButton: {
+          text: 'Copy Email',
+          label: 'Copy email address to clipboard',
+          onClick: () => {
+            navigator.clipboard.writeText('ray68125@gmail.com');
+            if (window.NotificationManager && typeof window.NotificationManager.success === 'function') {
+              window.NotificationManager.success('Email address copied to clipboard');
+            }
+          }
         }
-      }
-    });
+      });
+    } else {
+      alert('Email service temporarily unavailable. Please contact me directly at ray68125@gmail.com');
+    }
     form.classList.remove('form-submitting');
     return;
   }
@@ -1743,27 +1764,37 @@ function handleContactFormSubmit(e) {
   emailjs.send('service_fetlagj', 'template_4ns0c4a', templateParams)
     .then(function(response) {
       console.log('SUCCESS!', response.status, response.text);
-      NotificationManager.success('Message sent successfully! 🎉', {
-        subtitle: 'Thank you for reaching out. I will get back to you within 24-48 hours.',
-        duration: 8000,
-        icon: '🚀'
-      });
+      if (window.NotificationManager && typeof window.NotificationManager.success === 'function') {
+        window.NotificationManager.success('Message sent successfully! 🎉', {
+          subtitle: 'Thank you for reaching out. I will get back to you within 24-48 hours.',
+          duration: 8000,
+          icon: '🚀'
+        });
+      } else {
+        alert('Message sent successfully! Thank you for reaching out.');
+      }
       form.reset();
     })
     .catch(function(error) {
       console.error('EmailJS Error:', error);
-      NotificationManager.error('Failed to send message', {
-        subtitle: 'There was a technical issue. Please try again or contact me directly.',
-        actionButton: {
-          text: 'Copy Email',
-          label: 'Copy email address to clipboard',
-          onClick: () => {
-            navigator.clipboard.writeText('ray68125@gmail.com');
-            NotificationManager.success('Email address copied to clipboard');
-          }
-        },
-        duration: 10000
-      });
+      if (window.NotificationManager && typeof window.NotificationManager.error === 'function') {
+        window.NotificationManager.error('Failed to send message', {
+          subtitle: 'There was a technical issue. Please try again or contact me directly.',
+          actionButton: {
+            text: 'Copy Email',
+            label: 'Copy email address to clipboard',
+            onClick: () => {
+              navigator.clipboard.writeText('ray68125@gmail.com');
+              if (window.NotificationManager && typeof window.NotificationManager.success === 'function') {
+                window.NotificationManager.success('Email address copied to clipboard');
+              }
+            }
+          },
+          duration: 10000
+        });
+      } else {
+        alert('Failed to send message. Please try again or contact ray68125@gmail.com directly.');
+      }
     })
     .finally(function() {
       setLoadingState(false);
