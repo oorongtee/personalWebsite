@@ -1,4 +1,50 @@
 /* ============================================
+   🔧 ADDITIONAL RESPONSIVE FIXES
+   ============================================ */
+
+/* 修復 CONTACT 頁面在 784px 下的布局順序 */
+@media (max-width: 784px) {
+  .contact-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+  }
+  
+  .contact-form-section {
+    order: 1 !important;
+  }
+  
+  .contact-info-section {
+    order: 2 !important;
+  }
+}
+
+/* 修復頭像在中等螢幕下的跑版 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-main {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .photo-section {
+    order: -1 !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+  }
+  
+  .photo-block {
+    width: 100% !important;
+    max-width: 300px !important;
+    height: 380px !important;
+    overflow: hidden !important;
+  }
+  
+  .text-block {
+    text-align: center !important;
+  }
+}
+
+/* ============================================
    🌟 LOADING SCREEN ANIMATION
    ============================================ */
 
@@ -1895,13 +1941,20 @@ a:hover::after {
   flex-shrink: 0;
 }
 
-/* 左側?��?�?*/
+/* 左側照片區 */
 .photo-block {
   width: 340px;
   height: 420px;
   border-radius: 40px 40px 0 0;
   overflow: hidden;
   background: #0003;
+  position: relative;
+}
+
+.photo-block img.photo {
+  opacity: 1 !important;
+  filter: brightness(0.9) !important;
+  display: block !important;
 }
 
 /* ?��?下方?��? */
@@ -1946,7 +1999,7 @@ a:hover::after {
   transform: translateY(-2px);
 }
 
-/* ?�裡示�??��??�色，�??��??�照?�即??*/
+/* 這裡顯示真實照片，不要顯示佔位符顏色，真實照片即可*/
 .photo {
   width: 100%;
   height: 100%;
@@ -1954,6 +2007,13 @@ a:hover::after {
   object-position: center;
   filter: brightness(0.9);
   display: block;
+  opacity: 1 !important;
+}
+
+/* 確保主頁照片不受 lazy loading 影響 */
+.photo-block .photo:not(.lazy-image) {
+  opacity: 1 !important;
+  filter: brightness(0.9) !important;
 }
 
 /* ?�側?��??�?*/
@@ -2085,6 +2145,8 @@ a:hover {
   transition: filter 0.3s ease;
   transform: rotate(70deg); /* 基礎旋轉70度 */
   transform-origin: center;
+  opacity: 1 !important;
+  filter: none !important;
 }
 
 .weather-leaf-svg:hover {
@@ -3411,7 +3473,11 @@ a:hover {
 .notes-grid {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .note-card {
@@ -4739,6 +4805,11 @@ a:hover {
   position: relative;
 }
 
+.work-card img {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
 .work-card:hover {
   transform: translateY(-5px);
   border-color: rgba(200, 248, 221, 0.4);
@@ -6026,6 +6097,65 @@ a:hover {
 /* Services 卡片網格間距 */
 .services-section-new .grid {
   gap: 2rem !important;
+}
+
+/* 平板響應式 - 修復 Services Badge 被遮擋問題 */
+@media (min-width: 768px) and (max-width: 900px) {
+  .services-card {
+    padding: 1.5rem !important;
+  }
+  
+  .services-card-title {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .services-card-text {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .card-footer {
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    justify-content: flex-start !important;
+  }
+  
+  .services-badge {
+    font-size: 0.7rem !important;
+    padding: 0.2rem 0.6rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* 770px-900px 特定斷點 - 修復 Services 標籤被遮擋問題 */
+@media (min-width: 770px) and (max-width: 900px) {
+  .services-card {
+    padding: 1.25rem !important;
+    min-height: auto !important;
+  }
+  
+  .services-card-text {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .card-footer {
+    flex-wrap: wrap !important;
+    gap: 0.4rem !important;
+    overflow: visible !important;
+  }
+  
+  .services-badge {
+    font-size: 0.65rem !important;
+    padding: 0.15rem 0.5rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    max-width: fit-content !important;
+  }
 }
 
 /* Services Section 響應式調整 */

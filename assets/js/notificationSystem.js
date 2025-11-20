@@ -444,28 +444,30 @@ class NotificationManager {
 }
 
 // 創建全域實例
-const NotificationManager = new NotificationManager();
+const NotificationSystem = new NotificationManager();
 
-// 向後兼容的函數
+// 全域別名以保持 API 一致性
+window.NotificationManager = NotificationSystem;
+
+// 向後相容的函數
 function showSuccessMessage(message, container) {
-  return NotificationManager.success(message);
+  return NotificationSystem.success(message);
 }
 
 function showErrorMessage(message, container) {
-  return NotificationManager.error(message);
+  return NotificationSystem.error(message);
 }
 
 function showWarningMessage(message) {
-  return NotificationManager.warning(message);
+  return NotificationSystem.warning(message);
 }
 
 function showInfoMessage(message) {
-  return NotificationManager.info(message);
+  return NotificationSystem.info(message);
 }
 
 // 全域暴露
 if (typeof window !== 'undefined') {
-  window.NotificationManager = NotificationManager;
   window.showSuccessMessage = showSuccessMessage;
   window.showErrorMessage = showErrorMessage;
   window.showWarningMessage = showWarningMessage;
@@ -474,5 +476,5 @@ if (typeof window !== 'undefined') {
 
 // 模組導出 (如果支援)
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = NotificationManager;
+  module.exports = NotificationSystem;
 }

@@ -1060,36 +1060,41 @@ function createFallbackImage(alt) {
   return 'data:image/svg+xml;base64,' + btoa(svg);
 }
 
-// 顯示圖片載入錯誤提示
+// 顯示圖片載入錯誤提示 - 現代化設計
 function showImageLoadError(src) {
   const filename = src.split('/').pop();
   
   // 不要顯示太多錯誤訊息，避免干擾用戶
   if (Date.now() - (showImageLoadError.lastShown || 0) > 5000) {
-    NotificationManager.warning(`Image loading failed: ${filename}`, {
-      subtitle: 'Some images may not display correctly',
-      duration: 3000,
-      priority: 'low'
+    NotificationSystem.info(`📷 ${filename}`, {
+      title: 'Image Loading',
+      subtitle: 'Using fallback display',
+      duration: 2000,
+      position: 'bottom-right'
     });
     showImageLoadError.lastShown = Date.now();
   }
 }
 
-// 處理所有圖片延遲載入（增強版）
+// 處理特定圖片延遲載入（僅針對文章圖片）
 function setupLazyImages() {
-  const images = document.querySelectorAll('img[data-src], img.lazy-image');
+  const images = document.querySelectorAll('img[data-src], .note-card img, .article-card img');
   const startTime = performance.now();
   
-  console.log(`Setting up lazy loading for ${images.length} images...`);
+  console.log(`Setting up lazy loading for ${images.length} article images...`);
   
   images.forEach((img, index) => {
-    // 添加載入類別
-    img.classList.add('lazy-image', 'loading');
+    // 只對文章圖片添加載入類別
+    img.classList.add('lazy-image');
     
-    // 設定更好的佔位符
-    if (!img.src || img.src.includes('data:image/svg+xml')) {
-      const placeholder = createImagePlaceholder(img);
-      img.src = placeholder;
+    // 預載入文章圖片
+    if (img.src && !img.src.includes('data:image/svg+xml')) {
+      preloadImage(img.src || img.dataset.src).then(() => {
+        img.classList.remove('loading');
+        img.classList.add('loaded');
+      }).catch(() => {
+        img.classList.add('error');
+      });
     }
     
     // 設定圖片屬性以優化效能

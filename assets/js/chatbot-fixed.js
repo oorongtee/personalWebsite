@@ -6,27 +6,34 @@ class PersonalChatbot {
     this.conversations = [];
     this.isTyping = false;
     
-    // Ray's personal knowledge base
+    // Ray's comprehensive knowledge base based on current project structure
     this.knowledgeBase = {
       skills: [
-        'Product Strategy & User Research', 'React Development', 'JavaScript', 
-        'Human-Centered Design', 'Frontend Architecture', 'API Integration',
-        'Performance Optimization', 'Cross-functional Collaboration', 'Empathy-Driven Development'
+        'Product Strategy & User Research', 'AI-Led Development Process', 'JavaScript & Modern Frontend',
+        'Human-Centered Design', 'Responsive Web Architecture', 'Performance Optimization',
+        'Cross-functional Collaboration', 'Empathy-Driven Development', 'Weather API Integration'
       ],
       services: [
-        'Product Strategy & User Experience Design', 'Full-Stack Web Development',
-        'Digital Product Consulting', 'Frontend Architecture & Development',
-        'User Research & Prototyping', 'Cross-Platform Application Development',
-        'Performance & Accessibility Optimization', 'Team Collaboration & Mentoring'
+        'Product Strategy & User Experience Design', 'AI-Enhanced Web Development',
+        'Digital Product Consulting with AI Integration', 'Modern Frontend Architecture',
+        'User Research & Accessibility Optimization', 'Responsive Design Systems',
+        'Performance & Image Optimization', 'Team Collaboration & AI Workflow Mentoring'
       ],
       projects: {
-        'portfolio': 'This interactive portfolio website with weather integration',
-        'ecommerce': 'E-commerce platforms with advanced filtering',
-        'website': 'Responsive websites design using Tailwind CSS & Bootstrap',
+        'portfolio': 'Interactive portfolio with weather integration, AI chatbot, and modern article system',
+        'ai-development': 'AI-led development process documentation and implementation',
+        'notes-system': 'Modern article management system with smart image loading',
+        'responsive-design': 'Mobile-first responsive design with advanced CSS techniques'
+      },
+      technologies: {
+        'frontend': ['Vanilla JavaScript', 'Modern CSS Grid/Flexbox', 'Responsive Design', 'Performance Optimization'],
+        'ai-tools': ['Claude Sonnet 4', 'AI-led development workflow', 'Smart content generation'],
+        'apis': ['Weather API integration', 'Email.js for contact forms', 'Image optimization'],
+        'design': ['Mobile-first approach', 'Accessibility standards', 'Modern UI/UX patterns']
       },
       location: 'Taipei, Taiwan',
       email: 'ray68125@gmail.com',
-      availability: 'Available for freelance projects and consulting'
+      availability: 'Available for freelance projects and AI-enhanced development consulting'
     };
     
     this.responses = {
@@ -39,8 +46,9 @@ class PersonalChatbot {
         "Ray's superpower is bridging **product vision** and **technical execution** with so much heart! His core skills include **JavaScript**, **human-centered design**, and **team collaboration** - he makes every user feel truly cared for! ✨"
       ],
       projects: [
-        "🎨 Ray has poured his heart into so many beautiful projects! From **interactive portfolio websites** to **e-commerce platforms** that feel like a warm hug, and that make information friendly and approachable! 💕",
-        "✨ Recent work includes this lovely **weather-integrated portfolio** and **responsive e-commerce solutions** - each one crafted with such care and attention to user needs! 🌟"
+        "🎨 Ray has created such beautiful projects! This **interactive portfolio** features weather integration, an AI chatbot (that's me! 🐱), and a modern **article system** for sharing development insights! Each piece is crafted with love and attention to user experience! 💕",
+        "✨ Recent innovations include **AI-led development process** documentation, **smart image loading systems**, and **responsive design** that works perfectly on all devices - all built with genuine care for every user! 🌟",
+        "🤖 Ray's latest work showcases how **AI can enhance the development workflow** while maintaining the human touch that makes each project special and meaningful! 💝"
       ],
       services: [
         "💝 Ray helps teams **build products users love** with such warmth and dedication! Services include **product strategy consulting**, **frontend development with purpose**, **user experience design**, and **technical mentoring** - all delivered with genuine care! ✨",

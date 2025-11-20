@@ -26,11 +26,145 @@ const ARTICLE_CATEGORIES = {
     color: '#8B5CF6',
     icon: '📊',
     description: 'Strategy, leadership, and product thinking'
+  },
+  'ai-development': {
+    name: 'AI Development',
+    color: '#06B6D4',
+    icon: '🤖',
+    description: 'AI-assisted development and workflow optimization'
   }
 };
 
 // 📝 範例文章數據（未來可從 API 或 CMS 載入）
 const SAMPLE_ARTICLES = [
+  {
+    id: 'ai-led-development-turning-point',
+    title: 'Why Letting an AI Agent Lead My Development Process Became a Turning Point',
+    slug: 'ai-led-development-turning-point',
+    excerpt: 'Documenting how I used Copilot AI (paired with Claude Sonnet 4) to lead the development of my personal website, and how this fundamentally shifted my approach to product development.',
+    content: `
+# Why Letting an AI Agent Lead My Development Process Became a Turning Point
+
+In this article, I want to document how I used Copilot AI (paired with the Claude Sonnet 4 model) to lead the development of my personal website.
+
+The entire development flow, along with my observations, experiments, and iterations with AI, is written into the project's <a href="https://github.com/oorongtee/personalWebsite" target="_blank" style="color: #D97706; text-decoration: underline;">GitHub</a> README.
+
+## My Core Assumption
+
+In a real corporate environment, we should be able to confidently hand over large parts of our workflows and code implementation to AI — not just use it as a minor helper.
+
+During the development process, I continuously ran AI system tests, optimized the project, and read a series of articles by <a href="https://medium.com/@simon3458" target="_blank" style="color: #D97706; text-decoration: underline;">Simon Liu</a>. His perspectives on AI Agent development have deeply influenced how I think about and design my workflow.
+
+---
+
+## Why this AI-Agent-led development approach is a turning point for me
+
+### 1. A fundamental shift in how development is done
+
+Traditionally, the pattern is: **humans lead development, AI occasionally assists**.
+
+In this project, I deliberately flipped that dynamic:
+- **AI leads the development process and code implementation**
+- **I step in as a supervisor and decision-maker**, adjusting direction and validating outcomes
+
+### 2. Integrating my dual identity as PM and engineer
+
+As a product manager, I've always had to:
+- Write feature specs
+- Design business logic
+- Think through UX
+- Then hand all of that off to engineers
+
+Now, with the help of an AI agent, I can:
+- **Start from product and feature requirements**
+- **Ask AI to generate tests and implementation directly**
+- **Gradually feed my thinking and background context into the system**
+- **Let AI handle much of the code implementation and initial verification**
+
+This lets me stay focused on product strategy, brand, and visual design, while also being able to ship real code instead of just writing requirement documents.
+
+### 3. A role shift: from prompt engineer to context engineer
+
+My role is shifting from "someone who writes clever prompts" to **"someone who designs and maintains the right context."**
+
+In this setup:
+- **What I provide** is product vision, goals, UX rationale, constraints, and priorities
+- **AI generates** code and tests based on that context
+- **The engineering team** can focus more on core business logic and optimization, instead of grinding through repetitive low-level coding
+
+### 4. A concrete way to work across multiple domains at once
+
+This way of working finally lets me truly do the following at the same time:
+- **Ideate new features**
+- **Think through UX and user flows**
+- **Shape the brand and visual identity**
+
+And then have all of that translated into executable code very quickly.
+
+AI carries most of the implementation workload, while I supervise, review, and steer it to stay aligned with the product direction.
+
+---
+
+## Reflections and observations
+
+### 1. Reliability and risk
+
+Even if AI can write a large portion of the code, **I still need to continuously review, test, and validate**.
+
+AI is not "automatically correct," and I should never fully let go of human oversight.
+
+### 2. Beyond prompts: the importance of context
+
+What truly determines the quality of AI output is **the context I provide**:
+- Product vision
+- Feature goals
+- User scenarios
+- UX principles and constraints
+
+The clearer and more structured the context, the more logical and valuable the code AI produces.
+
+### 3. A win–win for efficiency and creativity
+
+By offloading repetitive or mechanical development work to AI, I can devote more energy to:
+- **Product positioning**
+- **Long-term roadmap planning**
+- **Brand voice and communication style**
+
+It's not just about "saving time" — it's about moving my attention from low-leverage tasks to high-leverage decisions.
+
+### 4. Responsibility and accountability stay with humans
+
+Even though AI is driving much of the implementation, I am still ultimately responsible for:
+- **Code quality**
+- **Maintainability**
+- **Security and reliability**
+
+I also have to ensure that this AI-driven workflow actually benefits the team and the organization, instead of introducing new hidden risks.
+
+---
+
+## Final Thoughts
+
+As someone with a humanities background, I'm very aware of this irony:
+
+**To me, a lot of ChatGPT's code still looks ugly. And to many engineers, AI-generated code often looks ugly as well.**
+
+But even so, I'm convinced that as long as we put AI in the right position—**letting it take over repetitive implementation work instead of replacing human thinking**—it can still fundamentally change the way we build products and collaborate.
+
+The key is not to see AI as a replacement, but as a powerful amplifier that lets us focus on what humans do best: **strategic thinking, creative problem-solving, and building meaningful connections with users**.
+`,
+    category: 'ai-development',
+    publishedAt: '2025-11-20',
+    readTime: 12,
+    image: '/assets/images/pic/personalWebsite.png',
+    tags: ['AI', 'Product Management', 'Development', 'Workflow', 'Claude Sonnet'],
+    featured: true
+  }
+];
+
+// 暫時註釋其他文章
+/*
+const OTHER_ARTICLES = [
   {
     id: 'dev-modern-css-2025',
     title: 'Modern CSS Techniques That Will Change Your Development Workflow',
@@ -213,6 +347,12 @@ Technology should make us more human, not less. The goal isn't to optimize every
     image: './assets/images/articles/digital-minimalism.jpg'
   }
 ];
+
+/*
+// 其他文章暫時註釋
+const OTHER_ARTICLES = [
+  // 其他文章會放在這裡
+*/
 
 // 🎨 文章卡片渲染器
 class ArticleCard {
@@ -452,9 +592,9 @@ class ArticlePage {
         </div>
         
         <footer class="article-footer">
-          <div class="article-author">
-            <div class="author-info">
-              <strong>Written by ${this.article.author}</strong>
+        <div class="article-author">
+          <div class="author-info">
+            <strong>Written by Ray</strong>
               <p>Product Manager & Frontend Engineer passionate about creating meaningful digital experiences.</p>
             </div>
           </div>
