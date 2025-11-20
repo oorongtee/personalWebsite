@@ -539,7 +539,7 @@ class NotificationSystem {
 
 ---
 
-## 📡 專案資訊與聯絡
+## 📡 Detail & Contact
 
 **Project Status**: Production Ready v2.1 ✅  
 **Last Updated**: 2025-11-21  
