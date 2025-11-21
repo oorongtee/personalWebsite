@@ -665,28 +665,6 @@ const worksData = [
   },
   {
     id: 2,
-    title: "2025 World Expo Website",
-    category: "dev",
-    subtitle: "Replica of Osaka World Expo 2025 official website", 
-    description: "A faithful recreation of the 2025 Osaka World Expo official website with interactive animations and responsive design (768px only). Features hover effects and card animations, built entirely from scratch without copying original code.",
-    technologies: ["HTML", "TailwindCSS", "JavaScript"],
-    website: "https://2025worldexpopractice.netlify.app/",
-    github: "https://github.com/oorongtee/2025worldexpo",
-    image: "/assets/images/projects/world-expo-2025.png"
-  },
-  {
-    id: 3,
-    title: "E-Shopping Mall",
-    category: "dev", 
-    subtitle: "Shopping cart and checkout system",
-    description: "Complete e-commerce application with shopping cart, product catalog, and checkout flow. Integrates Taiwan agricultural API data, features user authentication, Redux state management, and coupon system. Built with React and Bootstrap for responsive design.",
-    technologies: ["React", "Redux", "Bootstrap"],
-    website: "https://oorongteeshoppingmall1.netlify.app/",
-    github: "https://github.com/oorongtee/ShoppingMall",
-    image: "/assets/images/projects/e-shopping-mall.png"
-  },
-  {
-    id: 4,
     title: "Freeport Metaverse Game",
     category: "projects",
     subtitle: "A cross-platform metaverse game integrating blockchain for virtual asset management.",
@@ -1864,13 +1842,13 @@ function handleContactFormSubmit(e) {
       }
       
       if (window.NotificationManager && typeof window.NotificationManager.success === 'function') {
-        window.NotificationManager.success('Message sent successfully! 🎉', {
-          subtitle: subtitle,
+        window.NotificationManager.success('Message sent successfully! 😃', {
+          subtitle: 'Thank you for reaching out. I will reply you within 24-48 hours.',
           duration: 10000,
-          icon: '🚀'
+          icon: '📩'
         });
       } else {
-        alert('Message sent successfully! Thank you for reaching out.');
+        alert('Message sent successfully! 😃\nThank you for reaching out. I will reply you within 24-48 hours.');
       }
       
       // Show rate limiting info panel after successful submission

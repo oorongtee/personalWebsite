@@ -85,12 +85,37 @@
     transform: translateY(0) scale(1);
   }
   
+  .loading-text {
+    gap: 0.25rem;
+  }
+  
+  .loading-greeting,
+  .loading-name {
+    font-size: var(--text-2xl);
+  }
+  
   @keyframes loadingFloat {
     0%, 100% {
       transform: translateY(0) scale(1);
     }
     50% {
       transform: translateY(-16px) scale(1);
+    }
+  }
+}
+
+/* Tablet optimization for loading screen */
+@media (min-width: 481px) and (max-width: 768px) {
+  .loading-content {
+    transform: translateY(0) scale(1.2);
+  }
+  
+  @keyframes loadingFloat {
+    0%, 100% {
+      transform: translateY(0) scale(1.2);
+    }
+    50% {
+      transform: translateY(-16px) scale(1.2);
     }
   }
 }
