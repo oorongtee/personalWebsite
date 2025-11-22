@@ -669,7 +669,7 @@ const worksData = [
     category: "projects",
     subtitle: "A cross-platform metaverse game integrating blockchain for virtual asset management.",
     description: "Contributed to the planning and coordination of a metaverse game with cross-platform virtual asset management. Led community engagement, created product, and designed game missions and narrative contents. Collaborated closely with cross-functional teams to support development and feature execution.",
-    technologies: ["Game Design", "Community Management", "Content Strategy", "Project Management"],
+    technologies: ["Game Design", "Community Management", "Content Strategy"],
     website: "",
     github: "",
     image: "/assets/images/projects/freeport-metaverse.jpg"

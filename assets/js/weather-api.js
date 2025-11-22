@@ -137,6 +137,197 @@ class WeatherVisualizer {
     document.body.appendChild(weatherPanel);
     this.weatherPanel = weatherPanel;
   }
+
+  // 🎯 模組化側邊欄系統
+  createSidebar() {
+    // 定義側邊欄模組配置
+    this.sidebarModules = [
+      {
+        id: 'weather',
+        title: 'Weather',
+        svg: this.getWeatherSVG(),
+        action: () => this.toggleWeatherPanel(),
+        panelClass: 'weather-display'
+      },
+      {
+        id: 'music', 
+        title: 'Music',
+        svg: this.getMusicSVG(),
+        action: () => this.toggleMusicPlayer(),
+        panelClass: 'music-player'
+      }
+      // 🔮 未來可輕鬆添加更多模組：
+      // {
+      //   id: 'theme',
+      //   title: 'Theme Switcher', 
+      //   svg: this.getThemeSVG(),
+      //   action: () => this.toggleThemePanel(),
+      //   panelClass: 'theme-panel'
+      // }
+    ];
+    
+    // 創建側邊欄容器
+    const sidebar = document.createElement('div');
+    sidebar.className = 'leaf-sidebar leaf-sidebar-hidden';
+    
+    // 動態生成按鈕
+    const sidebarContent = document.createElement('div');
+    sidebarContent.className = 'sidebar-content';
+    
+    this.sidebarModules.forEach(module => {
+      const button = document.createElement('button');
+      button.className = `sidebar-btn ${module.id}-btn`;
+      button.setAttribute('data-panel', module.id);
+      button.setAttribute('title', module.title);
+      button.innerHTML = module.svg;
+      
+      // 添加點擊事件
+      button.addEventListener('click', module.action);
+      
+      sidebarContent.appendChild(button);
+    });
+    
+    sidebar.appendChild(sidebarContent);
+    document.body.appendChild(sidebar);
+    this.sidebar = sidebar;
+    
+    // 點擊側邊欄外部關閉
+    document.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !this.leafSvg.contains(e.target)) {
+        if (!sidebar.classList.contains('leaf-sidebar-hidden')) {
+          this.hideSidebar();
+        }
+      }
+    });
+  }
+
+  toggleSidebar() {
+    if (!this.sidebar) {
+      this.createSidebar();
+    }
+    
+    if (this.sidebar.classList.contains('leaf-sidebar-visible')) {
+      this.hideSidebar();
+    } else {
+      this.showSidebar();
+    }
+  }
+
+  showSidebar() {
+    if (!this.sidebar) {
+      this.createSidebar();
+    }
+    
+    this.sidebar.classList.remove('leaf-sidebar-hidden');
+    setTimeout(() => {
+      this.sidebar.classList.add('leaf-sidebar-visible');
+    }, 10);
+  }
+
+  hideSidebar() {
+    if (this.sidebar) {
+      this.sidebar.classList.remove('leaf-sidebar-visible');
+      this.sidebar.classList.add('leaf-sidebar-hidden');
+      
+      // 同時隱藏所有面板
+      this.hideWeatherPanel();
+      this.hideMusicPlayer();
+    }
+  }
+
+  toggleWeatherPanel() {
+    if (!this.weatherPanel) {
+      this.createWeatherDisplay();
+    }
+    
+    // 隱藏音樂播放器
+    this.hideMusicPlayer();
+    
+    if (this.weatherPanel.classList.contains('weather-visible')) {
+      this.hideWeatherPanel();
+    } else {
+      this.showWeatherPanelInSidebar();
+    }
+  }
+
+  showWeatherPanelInSidebar() {
+    if (!this.weatherPanel) {
+      this.createWeatherDisplay();
+    }
+    
+    // 更新天氣數據
+    this.updateWeatherDisplay();
+    
+    // 重新定位天氣面板到側邊欄上方
+    this.weatherPanel.classList.remove('weather-hidden');
+    this.weatherPanel.classList.add('weather-visible', 'weather-sidebar-mode');
+    
+    // 10秒後自動隱藏
+    clearTimeout(this.hideTimeout);
+    this.hideTimeout = setTimeout(() => {
+      this.hideWeatherPanel();
+    }, 10000);
+  }
+
+  createMusicPlayer() {
+    if (this.musicPlayer) return;
+    
+    const musicPlayer = document.createElement('div');
+    musicPlayer.className = 'music-player music-hidden';
+    musicPlayer.innerHTML = `
+      <div class="music-header">
+        <h4>🎵 Music Player</h4>
+        <button class="music-close" title="Close">&times;</button>
+      </div>
+      <div class="music-content">
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/682509758&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+        <div class="music-attribution">
+          <a href="https://soundcloud.com/modernarecords" title="Moderna Records" target="_blank">Moderna Records</a> · 
+          <a href="https://soundcloud.com/modernarecords/ed-carlsen-hands-heart" title="Ed Carlsen - Hands, Heart" target="_blank">Ed Carlsen - Hands, Heart</a>
+        </div>
+      </div>
+    `;
+    
+    document.body.appendChild(musicPlayer);
+    this.musicPlayer = musicPlayer;
+    
+    // 添加關閉按鈕事件
+    const closeBtn = musicPlayer.querySelector('.music-close');
+    closeBtn.addEventListener('click', () => this.hideMusicPlayer());
+  }
+
+  toggleMusicPlayer() {
+    if (!this.musicPlayer) {
+      this.createMusicPlayer();
+    }
+    
+    // 隱藏天氣面板
+    this.hideWeatherPanel();
+    
+    if (this.musicPlayer.classList.contains('music-visible')) {
+      this.hideMusicPlayer();
+    } else {
+      this.showMusicPlayer();
+    }
+  }
+
+  showMusicPlayer() {
+    if (!this.musicPlayer) {
+      this.createMusicPlayer();
+    }
+    
+    this.musicPlayer.classList.remove('music-hidden');
+    setTimeout(() => {
+      this.musicPlayer.classList.add('music-visible');
+    }, 10);
+  }
+
+  hideMusicPlayer() {
+    if (this.musicPlayer) {
+      this.musicPlayer.classList.remove('music-visible');
+      this.musicPlayer.classList.add('music-hidden');
+    }
+  }
   
   createWindRipples() {
     // 創建自然風紋波動背景
@@ -231,9 +422,9 @@ class WeatherVisualizer {
   }
   
   createLeaves() {
-    // 檢查螢幕寬度，平板和手機不創建葉子
-    if (window.innerWidth <= 768) {
-      console.log('平板/手機設備，跳過葉子創建');
+    // 檢查螢幕寬度，只在極小螢幕不創建葉子
+    if (window.innerWidth <= 320) {
+      console.log('極小螢幕設備，跳過葉子創建');
       return;
     }
     
@@ -258,6 +449,95 @@ class WeatherVisualizer {
   getLeafSVG() {
     // 直接使用img標籤載入外部SVG文件
     return `<img src="/assets/images/icons/leaf.svg" class="leaf-svg-icon" width="48" height="48" alt="Leaf" style="object-fit: contain;">`;
+  }
+
+  // 天氣SVG圖示
+  getWeatherSVG() {
+    return `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+        <circle cx="12" cy="7" r="2" opacity="0.6"/>
+        <circle cx="8" cy="11" r="1.5" opacity="0.4"/>
+        <circle cx="16" cy="13" r="1" opacity="0.3"/>
+      </svg>
+    `;
+  }
+
+  // 音樂SVG圖示
+  getMusicSVG() {
+    return `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18V5l12-2v13"/>
+        <circle cx="6" cy="18" r="3" opacity="0.8"/>
+        <circle cx="18" cy="16" r="3" opacity="0.8"/>
+        <path d="M9 9l12-2" opacity="0.6"/>
+        <circle cx="9" cy="12" r="1" opacity="0.4"/>
+        <circle cx="21" cy="10" r="1" opacity="0.4"/>
+      </svg>
+    `;
+  }
+
+  // 🔧 模組管理系統
+  addSidebarModule(moduleConfig) {
+    if (!this.sidebarModules) this.sidebarModules = [];
+    
+    // 檢查模組ID是否已存在
+    if (this.sidebarModules.find(m => m.id === moduleConfig.id)) {
+      console.warn(`Module ${moduleConfig.id} already exists`);
+      return false;
+    }
+    
+    // 添加新模組
+    this.sidebarModules.push(moduleConfig);
+    
+    // 重新創建側邊欄
+    if (this.sidebar) {
+      this.sidebar.remove();
+      this.createSidebar();
+    }
+    
+    return true;
+  }
+
+  removeSidebarModule(moduleId) {
+    if (!this.sidebarModules) return false;
+    
+    const index = this.sidebarModules.findIndex(m => m.id === moduleId);
+    if (index === -1) return false;
+    
+    // 移除模組
+    this.sidebarModules.splice(index, 1);
+    
+    // 重新創建側邊欄
+    if (this.sidebar) {
+      this.sidebar.remove();
+      this.createSidebar();
+    }
+    
+    return true;
+  }
+
+  // 🎨 未來擴展的SVG模板
+  getThemeSVG() {
+    return `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        <circle cx="12" cy="6" r="1" opacity="0.6"/>
+        <circle cx="17" cy="12" r="1" opacity="0.4"/>
+        <circle cx="12" cy="18" r="1" opacity="0.3"/>
+      </svg>
+    `;
+  }
+
+  getSettingsSVG() {
+    return `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/>
+        <circle cx="12" cy="5" r="1" opacity="0.5"/>
+        <circle cx="12" cy="19" r="1" opacity="0.5"/>
+      </svg>
+    `;
   }
   
   getLeafSVGColor(temperature) {
@@ -329,36 +609,32 @@ class WeatherVisualizer {
     // 添加點擊回饋效果
     this.triggerClickFeedback();
     
-    // 切換天氣面板顯示/隱藏
-    if (this.weatherPanel && this.weatherPanel.classList.contains('weather-visible')) {
-      this.hideWeatherPanel();
-    } else {
-      this.showWeatherPanel();
-    }
+    // 顯示或隱藏側邊欄
+    this.toggleSidebar();
   }
   
   triggerClickFeedback() {
-    // 葉子點擊時的動畫回饋 - 更自然的反饋效果
+    // 葉子點擊時的動畫回饋 - 輕微縮小到1.15倍（從1.3倍縮小）
     if (this.leafSvg) {
       // 暫時停止呼吸動畫
       this.leafSvg.style.animation = 'none';
       
-      // 點擊反饋動畫
-      this.leafSvg.style.transition = 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
-      this.leafSvg.style.transform = 'rotate(70deg) scale(1.15)';
-      this.leafSvg.style.filter = 'brightness(1.4) drop-shadow(0 0 15px rgba(50, 205, 50, 0.8))';
+      // 點擊反饋動畫 - 輕微縮小效果（從1到0.87，即1/1.15）
+      this.leafSvg.style.transition = 'all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      this.leafSvg.style.transform = 'rotate(70deg) scale(0.87)';
+      this.leafSvg.style.filter = 'brightness(1.1) drop-shadow(0 0 10px rgba(50, 205, 50, 0.6))';
       
       setTimeout(() => {
-        this.leafSvg.style.transition = 'all 0.5s ease-out';
+        this.leafSvg.style.transition = 'all 0.4s ease-out';
         this.leafSvg.style.transform = 'rotate(70deg) scale(1)';
-        this.leafSvg.style.filter = 'drop-shadow(0 0 4px rgba(50, 205, 50, 0.3))';
-      }, 300);
+        this.leafSvg.style.filter = 'drop-shadow(0 0 8px rgba(50, 205, 50, 0.4))';
+      }, 250);
       
       setTimeout(() => {
         // 恢復呼吸動畫
         this.leafSvg.style.transition = '';
-        this.leafSvg.style.animation = 'leafBreathing 3s ease-in-out infinite';
-      }, 800);
+        this.leafSvg.style.animation = 'naturalBreathing 4s ease-in-out infinite';
+      }, 650);
     }
   }
   
@@ -388,7 +664,7 @@ class WeatherVisualizer {
   
   hideWeatherPanel() {
     if (this.weatherPanel) {
-      this.weatherPanel.classList.remove('weather-visible');
+      this.weatherPanel.classList.remove('weather-visible', 'weather-sidebar-mode');
       this.weatherPanel.classList.add('weather-hidden');
     }
   }
@@ -480,17 +756,13 @@ class WeatherVisualizer {
   }
 
   handleResize() {
-    const isSmallScreen = window.innerWidth <= 768;
+    // 移除極小螢幕限制，讓所有尺寸都能顯示葉子
+    // CSS會負責響應式調整
     
-    if (isSmallScreen && this.leafSvg) {
-      // 小螢幕時移除葉子
-      this.leafSvg.remove();
-      this.leafSvg = null;
-      console.log('🔄 小螢幕模式：移除葉子');
-    } else if (!isSmallScreen && !this.leafSvg) {
-      // 大螢幕時重新創建葉子
+    // 如果葉子不存在，重新創建
+    if (!this.leafSvg) {
       this.createLeaves();
-      console.log('🔄 大螢幕模式：重新創建葉子');
+      console.log('🔄 較大螢幕模式：重新創建葉子');
     }
   }
 

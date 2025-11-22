@@ -1144,7 +1144,7 @@ a:hover::after {
   background: rgba(10, 15, 28, 0.95);
   -webkit-backdrop-filter: blur(25px);
   backdrop-filter: blur(25px);
-  z-index: 9998;
+  z-index: 9999; /* 提高層級確保在所有元素之上 */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1153,8 +1153,10 @@ a:hover::after {
   visibility: hidden;
   transform: scale(0.95);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  /* Prevent content jumping */
   overflow: hidden;
+  /* 防止滾動和布局問題 */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 .mobile-nav-overlay.open {
@@ -2006,6 +2008,10 @@ a:hover::after {
   opacity: 1 !important;
   filter: brightness(0.9) !important;
   display: block !important;
+  object-fit: cover;
+  object-position: center center; /* 預設中心位置 */
+  width: 100%;
+  height: 100%;
 }
 
 /* ?��?下方?��? */
@@ -2186,18 +2192,24 @@ a:hover {
   border-bottom: 1px solid rgba(240, 228, 210, 0.3);
 }
 
-/* SVG葉子樣式 */
+/* 🍃 葉子系統 - 基礎定位架構 */
 .weather-leaf-svg {
   position: fixed;
-  bottom: 70px; /* 往下移動10px (80px -> 70px) */
-  left: 62px;   /* 再往左移動8px (70px -> 62px) */
+  bottom: 80px;  /* 桌機基準位置 */
+  left: 80px;    /* 桌機基準位置 */
   z-index: 15;
   cursor: pointer;
-  transition: filter 0.3s ease;
-  transform: rotate(70deg); /* 基礎旋轉70度 */
+  transition: all 0.3s ease;
+  transform: rotate(70deg);
   transform-origin: center;
   opacity: 1 !important;
-  filter: none !important;
+  filter: drop-shadow(0 0 8px rgba(50, 205, 50, 0.4));
+  animation: naturalBreathing 4s ease-in-out infinite;
+  /* 響應式縮放變量 */
+  --leaf-scale: 1;
+  --leaf-size: 62px;
+  width: calc(var(--leaf-size) * var(--leaf-scale));
+  height: calc(var(--leaf-size) * var(--leaf-scale));
 }
 
 .weather-leaf-svg:hover {
@@ -2205,8 +2217,8 @@ a:hover {
 }
 
 .leaf-svg-icon {
-  width: 48px;
-  height: 48px;
+  width: 62px;
+  height: 62px;
   transition: transform 0.2s ease;
 }
 
@@ -2214,34 +2226,216 @@ a:hover {
   transform: scale(1.05);
 }
 
-/* 響應式設計 - 小螢幕隱藏葉子和天氣面板 */
-@media (max-width: 768px) {
-  .weather-leaf-svg {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
+/* 響應式設計 - 中小螢幕調整 */
+/* 📱 平板螢幕 (481px-768px) */
+@media (max-width: 768px) and (min-width: 481px) {
+  :root {
+    --leaf-position-x: 30px;
+    --leaf-position-y: 50px;
+    --sidebar-offset: 65px;
+    --panel-stack-offset: 60px;
+    --panel-width-weather: 130px;
+    --panel-width-music: 230px;
+    --leaf-scale: 0.8;
   }
   
-  .weather-display {
+  .photo-block img.photo {
+    object-fit: cover;
+    object-position: left bottom;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .weather-leaf-svg {
+    left: var(--leaf-position-x);
+    bottom: var(--leaf-position-y);
+    z-index: 20;
+  }
+  
+  .leaf-sidebar {
+    left: calc(var(--leaf-position-x) + var(--sidebar-offset));
+    bottom: var(--leaf-position-y);
+  }
+  
+  .weather-display.weather-sidebar-mode {
+    left: calc(var(--leaf-position-x) + var(--sidebar-offset));
+    bottom: calc(var(--leaf-position-y) + var(--panel-stack-offset));
+    width: var(--panel-width-weather);
+    padding: 8px 10px;
+    max-height: 120px;
+    overflow: hidden;
+    font-size: 11px;
+  }
+  
+  .weather-display.weather-sidebar-mode .weather-item {
+    padding: 2px 0;
+    font-size: 11px;
+    gap: 4px;
+  }
+  
+  .weather-display.weather-sidebar-mode .weather-location {
+    font-size: 11px;
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+  }
+  
+  .music-player {
+    left: calc(var(--leaf-position-x) + var(--sidebar-offset));
+    bottom: calc(var(--leaf-position-y) + var(--panel-stack-offset));
+    width: var(--panel-width-music);
+  }
+  
+  .music-player .music-content iframe {
+    height: 130px;
+  }
+  
+  .photo-actions {
     display: none !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
   }
 }
 
-@media (max-width: 480px) {
-  .weather-leaf-svg {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
+/* 📱 小螢幕 (426px-480px) */
+@media (max-width: 480px) and (min-width: 426px) {
+  :root {
+    --leaf-position-x: 25px;
+    --leaf-position-y: 40px;
+    --sidebar-offset: 55px;
+    --panel-stack-offset: 55px;
+    --panel-width-weather: 125px;
+    --panel-width-music: 210px;
+    --leaf-scale: 0.7;
   }
   
-  .weather-display {
+  .photo-block img.photo {
+    object-position: left bottom;
+  }
+  
+  .weather-leaf-svg {
+    left: var(--leaf-position-x);
+    bottom: var(--leaf-position-y);
+    z-index: 25;
+  }
+  
+  .leaf-sidebar {
+    left: calc(var(--leaf-position-x) + var(--sidebar-offset));
+    bottom: var(--leaf-position-y);
+  }
+  
+  .weather-display.weather-sidebar-mode {
+    left: calc(var(--leaf-position-x) + var(--sidebar-offset));
+    bottom: calc(var(--leaf-position-y) + var(--panel-stack-offset));
+    width: var(--panel-width-weather);
+    padding: 8px 10px;
+  }
+  
+  .music-player {
+    left: calc(var(--leaf-position-x) + var(--sidebar-offset));
+    bottom: calc(var(--leaf-position-y) + var(--panel-stack-offset));
+    width: var(--panel-width-music);
+  }
+  
+  .music-player .music-content iframe {
+    height: 120px;
+  }
+  
+  .photo-actions {
     display: none !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
+  }
+}
+
+@media (max-width: 425px) and (min-width: 321px) {
+  .photo-block img.photo {
+    object-position: left bottom;
+  }
+  
+  .weather-leaf-svg {
+    bottom: 25px;
+    left: 15px;
+    z-index: 25;
+  }
+  
+  .leaf-sidebar {
+    left: 65px;
+    bottom: 25px;
+  }
+  
+  .weather-display.weather-sidebar-mode {
+    left: 65px;
+    bottom: 75px;
+    width: 110px;
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+  
+  .weather-display.weather-sidebar-mode .weather-item {
+    padding: 2px 0;
+    font-size: 10px;
+  }
+  
+  .music-player {
+    left: 65px;
+    bottom: 75px;
+    width: 180px;
+  }
+  
+  .music-player .music-content iframe {
+    height: 110px;
+  }
+  
+  .photo-actions {
+    display: none !important;
+  }
+}
+  
+  .weather-display.weather-sidebar-mode .weather-item {
+    padding: 3px 0;
+    gap: 6px;
+  }
+  
+  .weather-display.weather-sidebar-mode .weather-icon {
+    font-size: 12px;
+    width: 16px;
+  }
+  
+  .weather-display.weather-sidebar-mode .weather-value {
+    font-size: 11px;
+    min-width: 25px;
+  }
+  
+  .weather-display.weather-sidebar-mode .weather-unit {
+    font-size: 10px;
+  }
+  
+  .music-player {
+    left: 80px;
+    bottom: 85px;
+    width: 180px;
+  }
+  
+  .music-player .music-header {
+    padding: 10px 12px;
+  }
+  
+  .music-player .music-header h4 {
+    font-size: 12px;
+  }
+  
+  .music-player .music-content {
+    padding: 10px 12px 12px;
+  }
+  
+  .music-player iframe {
+    height: 120px;
+  }
+  
+  .music-attribution {
+    font-size: 8px;
+    padding: 6px 8px;
+  }
+  
+  /* 隱藏按鈕區域 */
+  .photo-actions {
+    display: none !important;
   }
 }
 
@@ -4649,17 +4843,26 @@ a:hover {
     width: 200px;
     height: 260px;
   }
+  
+  .photo-block img.photo {
+    object-fit: cover;
+    object-position: left bottom; /* 顯示照片左下角部分 */
+    width: 100%;
+    height: 100%;
+  }
 
   .photo-section {
     gap: 12px;
   }
 
-  .photo-buttons {
+  .photo-buttons,
+  .photo-actions {
     gap: 10px;
     flex-direction: column;
   }
 
-  .photo-btn {
+  .photo-btn,
+  .photo-actions .btn {
     padding: 10px 12px;
     font-size: 12px;
   }
@@ -6964,8 +7167,560 @@ a:hover {
   }
 }
 
+/* 🍃 Natural Breathing Animation for Leaf - 大自然呼吸動畫 */
+@keyframes naturalBreathing {
+  0% {
+    filter: drop-shadow(0 0 8px rgba(50, 205, 50, 0.4)) brightness(1);
+    transform: rotate(70deg) scale(1);
+  }
+  25% {
+    filter: drop-shadow(0 0 12px rgba(50, 205, 50, 0.6)) brightness(1.1);
+    transform: rotate(70deg) scale(1.02);
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(50, 205, 50, 0.8)) brightness(1.2);
+    transform: rotate(70deg) scale(1.05);
+  }
+  75% {
+    filter: drop-shadow(0 0 12px rgba(50, 205, 50, 0.6)) brightness(1.1);
+    transform: rotate(70deg) scale(1.02);
+  }
+  100% {
+    filter: drop-shadow(0 0 8px rgba(50, 205, 50, 0.4)) brightness(1);
+    transform: rotate(70deg) scale(1);
+  }
+}
+
+/* 🍃 Leaf Sidebar Styles - 綠色透明玻璃感 */
+/* 🎛️ 側邊欄系統 - 相對定位架構 */
+.leaf-sidebar {
+  position: fixed;
+  bottom: 80px;  /* 與葉子同高 */
+  left: 160px;   /* 葉子右側80px距離 */
+  z-index: 14;
+  /* 建立與葉子的關聯變量 */
+  --sidebar-offset: 80px;
+  /* 響應式間距調整 */
+  --sidebar-spacing: var(--sidebar-offset);
+  transform-origin: left center;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50px) scale(0.8);
+}
+
+.leaf-sidebar-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: translateX(0) scale(1);
+  animation: slideInFromLeaf 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.leaf-sidebar-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50px) scale(0.8);
+  animation: slideOutToLeaf 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+}
+
+@keyframes slideInFromLeaf {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.8) rotateY(-15deg);
+  }
+  60% {
+    transform: translateX(5px) scale(1.02) rotateY(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotateY(0deg);
+  }
+}
+
+@keyframes slideOutToLeaf {
+  0% {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotateY(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.8) rotateY(-15deg);
+  }
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  background: linear-gradient(135deg, 
+    rgba(34, 197, 94, 0.15) 0%,
+    rgba(22, 163, 74, 0.12) 50%,
+    rgba(21, 128, 61, 0.08) 100%
+  );
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 
+    0 8px 32px rgba(34, 197, 94, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* 🎯 側邊欄按鈕樣式 - 透明玻璃風格 */
+.sidebar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  /* 透明玻璃效果 */
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* SVG 圖示樣式 */
+.sidebar-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.8);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: all 0.3s ease;
+}
+
+.sidebar-btn:hover {
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  border-color: rgba(34, 197, 94, 0.4);
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 
+    0 6px 20px rgba(34, 197, 94, 0.25),
+    0 2px 8px rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 1);
+}
+
+/* 滑鼠按下效果 */
+.sidebar-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* 活動狀態 */
+.sidebar-btn.active {
+  background: rgba(34, 197, 94, 0.25) !important;
+  border-color: rgba(34, 197, 94, 0.5) !important;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(34, 197, 94, 0.3) !important,
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.sidebar-btn.active svg {
+  stroke: #4ADE80 !important;
+}
+
+/* 天氣圖示特殊顏色 */
+.sidebar-btn[data-panel="weather"]:hover svg {
+  stroke: #60A5FA; /* 藍色 */
+}
+
+.sidebar-btn[data-panel="weather"].active svg {
+  stroke: #3B82F6 !important;
+}
+
+/* 音樂圖示特殊顏色 */
+.sidebar-btn[data-panel="music"]:hover svg {
+  stroke: #F472B6; /* 粉色 */
+}
+
+.sidebar-btn[data-panel="music"].active svg {
+  stroke: #EC4899 !important;
+}
+
+/* 移除舊樣式 - 已被SVG取代 */
+.sidebar-btn:hover .sidebar-icon {
+  filter: drop-shadow(0 2px 4px rgba(34, 197, 94, 0.4));
+  transform: scale(1.15);
+}
+
+/* 移除文字樣式 */
+
+/* Weather Panel in Sidebar Mode */
+/* 🌤️ 天氣面板系統 - 堆疊定位架構 */
+.weather-display.weather-sidebar-mode {
+  bottom: 160px;  /* 側邊欄上方80px */
+  left: 160px;    /* 與側邊欄對齊 */
+  z-index: 12;    /* 背景層級 */
+  width: 200px;   /* 桌機標準寬度 */
+  /* 面板堆疊變量 */
+  --panel-stack-offset: 80px;
+  --panel-width: 200px;
+  transform: translateY(0);
+  background: linear-gradient(135deg,
+    rgba(139, 69, 19, 0.15) 0%,
+    rgba(160, 82, 45, 0.12) 50%,
+    rgba(101, 67, 33, 0.08) 100%
+  );
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(160, 82, 45, 0.25);
+  box-shadow: 
+    0 8px 32px rgba(139, 69, 19, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* 🎵 Music Player Styles - 透明大地色感 */
+/* 🎵 音樂面板系統 - 共享定位架構 */
+.music-player {
+  position: fixed;
+  bottom: 160px;  /* 與天氣面板同位置 */
+  left: 160px;    /* 與側邊欄對齊 */
+  z-index: 12;    /* 同層級 */
+  width: 300px;   /* 音樂面板較寬 */
+  /* 共享面板變量 */
+  --panel-width: 300px;
+  max-width: 85vw;
+  background: linear-gradient(135deg,
+    rgba(139, 69, 19, 0.18) 0%,
+    rgba(160, 82, 45, 0.15) 30%,
+    rgba(205, 133, 63, 0.12) 70%,
+    rgba(222, 184, 135, 0.08) 100%
+  );
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(205, 133, 63, 0.3);
+  border-radius: 16px;
+  box-shadow: 
+    0 12px 40px rgba(139, 69, 19, 0.25),
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(30px) scale(0.9) rotateX(10deg);
+}
+
+.music-player.music-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: translateY(0) scale(1) rotateX(0deg);
+  animation: musicPlayerSlideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.music-player.music-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(30px) scale(0.9) rotateX(10deg);
+  animation: musicPlayerSlideOut 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+}
+
+@keyframes musicPlayerSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9) rotateX(10deg);
+  }
+  60% {
+    transform: translateY(-5px) scale(1.02) rotateX(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+@keyframes musicPlayerSlideOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9) rotateX(10deg);
+  }
+}
+
+.music-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(205, 133, 63, 0.2);
+  background: linear-gradient(135deg,
+    rgba(222, 184, 135, 0.1) 0%,
+    rgba(205, 133, 63, 0.05) 100%
+  );
+  border-radius: 16px 16px 0 0;
+}
+
+.music-header h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(139, 69, 19, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.music-close {
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  border: 1px solid rgba(205, 133, 63, 0.3);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.music-close::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+    rgba(222, 184, 135, 0.2) 0%,
+    rgba(205, 133, 63, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.music-close:hover {
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  border-color: rgba(222, 184, 135, 0.5);
+  color: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(205, 133, 63, 0.3);
+}
+
+.music-close:hover::before {
+  opacity: 1;
+}
+
+.music-close:active {
+  transform: scale(0.95);
+}
+
+.music-content {
+  padding: 16px 20px 20px;
+  background: linear-gradient(135deg,
+    rgba(139, 69, 19, 0.05) 0%,
+    rgba(160, 82, 45, 0.03) 100%
+  );
+  border-radius: 0 0 16px 16px;
+}
+
+.music-content iframe {
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 
+    0 4px 12px rgba(139, 69, 19, 0.2),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(205, 133, 63, 0.2);
+}
+
+.music-attribution {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  word-break: normal;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background: rgba(139, 69, 19, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(205, 133, 63, 0.2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.music-attribution a {
+  color: rgba(222, 184, 135, 0.9);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.music-attribution a:hover {
+  color: rgba(255, 255, 255, 1);
+  text-decoration: underline;
+  text-shadow: 0 0 8px rgba(222, 184, 135, 0.5);
+}
+
+/* 極小螢幕隱藏設定 - 只在320px以下隱藏 */
+/* 320px 響應式修復 - 確保葉子可見 */
+@media (max-width: 320px) {
+  .photo-block img.photo {
+    object-position: left bottom;
+  }
+  
+  .weather-leaf-svg {
+    bottom: 15px;
+    left: 8px;
+    width: 30px;
+    height: 30px;
+    z-index: 25;
+  }
+  
+  .leaf-sidebar {
+    left: 42px;
+    bottom: 15px;
+    width: 32px;
+  }
+  
+  .weather-display.weather-sidebar-mode {
+    left: 42px;
+    bottom: 55px;
+    width: 90px;
+    padding: 4px 5px;
+    max-height: 80px;
+    overflow: hidden;
+    font-size: 8px;
+  }
+  
+  .weather-display.weather-sidebar-mode .weather-item {
+    padding: 1px 0;
+    font-size: 8px;
+  }
+  
+  .weather-display.weather-sidebar-mode .weather-location {
+    font-size: 8px;
+    margin-bottom: 2px;
+  }
+  
+  .music-player {
+    left: 42px;
+    bottom: 55px;
+    width: 140px;
+  }
+  
+  .music-player .music-content iframe {
+    height: 70px;
+  }
+  
+  .photo-actions {
+    display: none !important;
+  }
+}
+
+/* 📱 響應式變量系統 - 中型螢幕 (769px-1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  :root {
+    --leaf-position-x: 60px;
+    --leaf-position-y: 60px;
+    --sidebar-offset: 70px;
+    --panel-stack-offset: 70px;
+    --panel-width-weather: 170px;
+    --panel-width-music: 270px;
+    --leaf-scale: 0.9;
+  }
+  
+  .photo-block img.photo {
+    object-position: left bottom;
+  }
+  
+  .weather-leaf-svg {
+    left: var(--leaf-position-x);
+    bottom: var(--leaf-position-y);
+  }
+  
+  .leaf-sidebar {
+    left: calc(var(--leaf-position-x) + var(--sidebar-offset));
+    bottom: var(--leaf-position-y);
+  }
+  
+  .weather-display.weather-sidebar-mode {
+    left: calc(var(--leaf-position-x) + var(--sidebar-offset));
+    bottom: calc(var(--leaf-position-y) + var(--panel-stack-offset));
+    width: var(--panel-width-weather);
+  }
+  
+  .music-player {
+    left: calc(var(--leaf-position-x) + var(--sidebar-offset));
+    bottom: calc(var(--leaf-position-y) + var(--panel-stack-offset));
+    width: var(--panel-width-music);
+  }
+}
+
+/* 768px以下手機導航修復 */
+@media (max-width: 768px) {
+  body.mobile-nav-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+  
+  .mobile-nav-overlay {
+    z-index: 10000; /* 確保在所有元素之上 */
+  }
+  
+  .mobile-nav-overlay.open {
+    transform: scale(1);
+  }
+  
+  /* 防止導航開啟時其他元素干擾 */
+  .mobile-nav-overlay.open ~ * {
+    pointer-events: none;
+  }
+  
+  /* 確保導航按鈕可點擊 */
+  .mobile-menu-toggle {
+    z-index: 10001;
+    position: relative;
+  }
+}
+
 /* Accessibility Improvements */
 @media (prefers-reduced-motion: reduce) {
+  .weather-leaf-svg {
+    animation: none !important;
+  }
+  
+  .leaf-sidebar,
+  .music-player,
+  .sidebar-btn {
+    transition: none !important;
+    animation: none !important;
+  }
+  
   .form-group input,
   .form-group textarea,
   .btn,
