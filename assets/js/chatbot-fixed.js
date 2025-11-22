@@ -122,8 +122,31 @@ class PersonalChatbot {
       <!-- Chat Toggle Button -->
       <div class="chat-toggle" id="chatToggle">
         <div class="chat-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 9H9V9h4V7h2v2h2v2h-2v2h-2v-2z"/>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <!-- Cat head -->
+            <circle cx="12" cy="12" r="8" fill="currentColor" opacity="0.9"/>
+            <!-- Cat ears -->
+            <polygon points="7,6 9,2 11,6" fill="currentColor"/>
+            <polygon points="13,6 15,2 17,6" fill="currentColor"/>
+            <!-- Inner ears -->
+            <polygon points="8,5.5 9,3 10,5.5" fill="currentColor" opacity="0.6"/>
+            <polygon points="14,5.5 15,3 16,5.5" fill="currentColor" opacity="0.6"/>
+            <!-- Eyes -->
+            <ellipse cx="9.5" cy="10" rx="1" ry="1.5" fill="#000" opacity="0.8"/>
+            <ellipse cx="14.5" cy="10" rx="1" ry="1.5" fill="#000" opacity="0.8"/>
+            <!-- Eye shine -->
+            <circle cx="9.8" cy="9.5" r="0.3" fill="#fff" opacity="0.9"/>
+            <circle cx="14.8" cy="9.5" r="0.3" fill="#fff" opacity="0.9"/>
+            <!-- Nose -->
+            <polygon points="12,12.5 11.2,13.5 12.8,13.5" fill="#ff69b4" opacity="0.8"/>
+            <!-- Mouth -->
+            <path d="M 12 13.5 Q 10.5 15 9 14.5" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.7"/>
+            <path d="M 12 13.5 Q 13.5 15 15 14.5" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.7"/>
+            <!-- Whiskers -->
+            <line x1="6" y1="11" x2="8.5" y2="11.5" stroke="currentColor" stroke-width="0.5" opacity="0.6"/>
+            <line x1="6.5" y1="13" x2="8.5" y2="13" stroke="currentColor" stroke-width="0.5" opacity="0.6"/>
+            <line x1="15.5" y1="11.5" x2="18" y2="11" stroke="currentColor" stroke-width="0.5" opacity="0.6"/>
+            <line x1="15.5" y1="13" x2="17.5" y2="13" stroke="currentColor" stroke-width="0.5" opacity="0.6"/>
           </svg>
         </div>
         <div class="chat-pulse"></div>

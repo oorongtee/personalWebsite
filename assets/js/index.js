@@ -347,7 +347,7 @@ const pages = {
             <div class="node-marker">
               <span class="node-icon">👋</span>
             </div>
-            <div class="timeline-card glassmorphism" data-node="intro">
+            <div class="timeline-card glassmorphism timeline-card-intro" data-node="intro">
               <div class="card-header">
                 <h3>Hello, I'm Ray</h3>
                 <span class="card-badge">Introduction</span>
@@ -373,7 +373,7 @@ const pages = {
             <div class="node-marker">
               <span class="node-icon">⚡</span>
             </div>
-            <div class="timeline-card glassmorphism" data-node="skills">
+            <div class="timeline-card glassmorphism timeline-card-skills" data-node="skills">
               <div class="card-header">
                 <h3>Core Capabilities</h3>
                 <span class="card-badge skills">Skills</span>
@@ -390,7 +390,7 @@ const pages = {
               <div class="card-expanded-content">
                 <div class="skills-grid">
                   <div class="skill-category">
-                    <h4>🎯 Product Management</h4>
+                    <h4>Product Management</h4>
                     <ul>
                       <li>Strategic roadmap planning & prioritization</li>
                       <li>Cross-functional team coordination</li>
@@ -399,7 +399,7 @@ const pages = {
                     </ul>
                   </div>
                   <div class="skill-category">
-                    <h4>💻 Technical Skills</h4>
+                    <h4>Technical Skills</h4>
                     <ul>
                       <li>React.js & modern JavaScript (ES6+)</li>
                       <li>Responsive web design & CSS</li>
@@ -417,7 +417,7 @@ const pages = {
             <div class="node-marker">
               <span class="node-icon">🚀</span>
             </div>
-            <div class="timeline-card glassmorphism" data-node="experience">
+            <div class="timeline-card glassmorphism timeline-card-experience" data-node="experience">
               <div class="card-header">
                 <h3>Professional Journey</h3>
                 <span class="card-badge experience">Experience</span>
@@ -460,7 +460,7 @@ const pages = {
             <div class="node-marker">
               <span class="node-icon">🌟</span>
             </div>
-            <div class="timeline-card glassmorphism" data-node="vision">
+            <div class="timeline-card glassmorphism timeline-card-vision" data-node="vision">
               <div class="card-header">
                 <h3>Future Vision</h3>
                 <span class="card-badge vision">What's Next</span>
@@ -526,20 +526,21 @@ const pages = {
             <section class="about-section">
               <h3><span class="section-icon"></span>My Superpowers</h3>
               <div class="values-grid playful">
-                <div class="value-item playful">
-                  <span class="value-icon">🎯</span>
+                <div class="value-item playful truth-telling">
                   <h4>Truth-Telling</h4>
                   <p>No corporate BS here. I say what I mean, mean what I say, and build products that actually solve real problems.</p>
                 </div>
-                <div class="value-item playful">
-                  <span class="value-icon">🧠</span>
+                <div class="value-item playful mind-reading">
                   <h4>Mind-Reading</h4>
                   <p>Actually just really good user research, but it feels like magic when you nail what users need before they know it themselves.</p>
                 </div>
-                <div class="value-item playful">
-                  <span class="value-icon">🌱</span>
+                <div class="value-item playful evolution-mode">
                   <h4>Evolution Mode</h4>
                   <p>Constantly leveling up my skills. Today's React.js might be tomorrow's AI-powered something. Staying future-ready!</p>
+                </div>
+                <div class="value-item playful system-thinking">
+                  <h4>System Thinking</h4>
+                  <p>I see the big picture while managing the details. Building scalable solutions that grow with your vision, not just quick fixes.</p>
                 </div>
               </div>
             </section>
@@ -550,7 +551,7 @@ const pages = {
             </section>
 
             <section class="about-section">
-              <h3><span class="section-icon">🎯</span> Next Mission</h3>
+              <h3><span class="section-icon"></span>Next Mission</h3>
               <p>Ready to join forces with teams who want to build stuff that matters. Small social impact projects? Yes please! Consulting gigs where I can flex both my PM and dev muscles? Double yes! Let's create digital experiences that make people's lives genuinely better.</p>
             </section>
 

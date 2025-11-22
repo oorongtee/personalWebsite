@@ -123,26 +123,44 @@ class WeatherVisualizer {
     const weatherPanel = document.createElement('div');
     weatherPanel.className = 'weather-display weather-hidden';
     weatherPanel.innerHTML = `
-      <div class="weather-location">📍 Taipei</div>
-      <div class="weather-item">
-        <span class="weather-icon">💨</span>
-        <span class="weather-value" id="windSpeed">--</span>
-        <span class="weather-unit">m/s</span>
+      <div class="weather-header">
+        <h4>Weather</h4>
+        <button class="weather-close" title="Close">&times;</button>
       </div>
-      <div class="weather-item">
-        <span class="weather-icon wind-direction" id="windDirection">🧭</span>
-        <span class="weather-value" id="windDir">--</span>
-        <span class="weather-unit">°</span>
-      </div>
-      <div class="weather-item">
-        <span class="weather-icon">🌡️</span>
-        <span class="weather-value" id="airTemp">--</span>
-        <span class="weather-unit">°C</span>
+      <div class="weather-content">
+        <div class="weather-location">📍 Taipei</div>
+        <div class="weather-grid">
+          <div class="weather-item">
+            <span class="weather-icon">💨</span>
+            <div class="weather-data">
+              <span class="weather-value" id="windSpeed">--</span>
+              <span class="weather-unit">m/s</span>
+            </div>
+          </div>
+          <div class="weather-item">
+            <span class="weather-icon wind-direction" id="windDirection">🧭</span>
+            <div class="weather-data">
+              <span class="weather-value" id="windDir">--</span>
+              <span class="weather-unit">°</span>
+            </div>
+          </div>
+          <div class="weather-item">
+            <span class="weather-icon">🌡️</span>
+            <div class="weather-data">
+              <span class="weather-value" id="airTemp">--</span>
+              <span class="weather-unit">°C</span>
+            </div>
+          </div>
+        </div>
       </div>
     `;
     
     document.body.appendChild(weatherPanel);
     this.weatherPanel = weatherPanel;
+    
+    // 添加關閉按鈕事件
+    const closeBtn = weatherPanel.querySelector('.weather-close');
+    closeBtn.addEventListener('click', () => this.hideWeatherPanel());
   }
 
   // 🎯 模組化側邊欄系統

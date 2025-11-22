@@ -3030,40 +3030,199 @@ a:hover {
 
 /* ========= Weather Visualization ========= */
 
-/* 🌿 天氣面板 - 溫暖大地色系 */
+/* 🌿 天氣面板 - 匹配音樂面板設計 */
 .weather-display {
   position: fixed;
   bottom: calc(var(--leaf-base-y, 30px) + var(--panel-stack-height, 60px) + 20px);
   left: calc(var(--leaf-base-x, 20px) + var(--sidebar-horizontal-offset, 60px));
-  background: linear-gradient(135deg, 
-    rgba(139, 119, 101, 0.95) 0%,
-    rgba(160, 142, 124, 0.92) 100%);
-  -webkit-backdrop-filter: blur(15px) saturate(150%);
-  backdrop-filter: blur(15px) saturate(150%);
-  border-radius: 12px;
-  padding: 8px 6px 6px 6px;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  width: min(140px, calc(100vw - var(--sidebar-horizontal-offset, 60px) - 20px));
-  max-height: calc(100vh - var(--leaf-base-y, 30px) - var(--panel-stack-height, 60px) - 60px);
-  border: 1px solid rgba(139, 69, 19, 0.3);
-  box-shadow: var(--shadow-lg);
+  z-index: 12;
+  width: min(280px, var(--panel-default-width));
+  max-width: calc(100vw - var(--leaf-base-x) - var(--sidebar-horizontal-offset) - 15px);
+  background: linear-gradient(135deg,
+    rgba(34, 197, 94, 0.18) 0%,
+    rgba(6, 182, 212, 0.15) 30%,
+    rgba(74, 222, 128, 0.12) 70%,
+    rgba(167, 243, 208, 0.08) 100%
+  );
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 16px;
+  box-shadow: 
+    0 12px 40px rgba(34, 197, 94, 0.25),
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(34, 197, 94, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(30px) scale(0.9);
   transform-origin: bottom left;
+}
+
+.weather-display.weather-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: translateY(0) scale(1) rotateX(0deg);
+  animation: weatherPanelSlideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.weather-display.weather-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(30px) scale(0.9) rotateX(10deg);
+  animation: weatherPanelSlideOut 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+}
+
+@keyframes weatherPanelSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9) rotateX(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+@keyframes weatherPanelSlideOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9) rotateX(10deg);
+  }
+}
+
+.weather-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(34, 197, 94, 0.2);
+  background: linear-gradient(135deg,
+    rgba(74, 222, 128, 0.1) 0%,
+    rgba(34, 197, 94, 0.05) 100%
+  );
+  border-radius: 16px 16px 0 0;
+}
+
+.weather-header h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(34, 197, 94, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.weather-close {
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
   overflow: hidden;
-  font-size: 0.8rem;
+}
+
+.weather-close:hover {
+  background: linear-gradient(135deg,
+    rgba(34, 197, 94, 0.2) 0%,
+    rgba(34, 197, 94, 0.1) 100%
+  );
+  border-color: rgba(34, 197, 94, 0.5);
+  color: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.weather-content {
+  padding: 20px;
 }
 
 .weather-location {
-  color: #FAF8F5;
-  font-size: 10px;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 14px;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 2px;
-  padding-bottom: 2px;
-  border-bottom: 1px solid rgba(250, 248, 245, 0.2);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 16px;
+  text-shadow: 0 1px 2px rgba(34, 197, 94, 0.3);
+}
+
+.weather-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.weather-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg,
+    rgba(74, 222, 128, 0.08) 0%,
+    rgba(34, 197, 94, 0.05) 100%
+  );
+  border-radius: 12px;
+  border: 1px solid rgba(34, 197, 94, 0.15);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.weather-item:hover {
+  background: linear-gradient(135deg,
+    rgba(74, 222, 128, 0.12) 0%,
+    rgba(34, 197, 94, 0.08) 100%
+  );
+  border-color: rgba(34, 197, 94, 0.25);
+  transform: translateX(2px);
+}
+
+.weather-icon {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+  filter: brightness(1.2);
+}
+
+.weather-icon.wind-direction {
+  transition: transform 0.5s ease;
+}
+
+.weather-data {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.weather-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 2px rgba(34, 197, 94, 0.3);
+}
+
+.weather-unit {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
 }
 
 .weather-subtitle {
@@ -8672,5 +8831,348 @@ a:hover {
   .card {
     transition: none !important;
     animation: none !important;
+  }
+}
+
+/* ============================================
+   🎨 ABOUT PAGE SUPERPOWER CARDS COLORS
+   ============================================ */
+
+.values-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.values-grid.playful {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+@media (min-width: 1200px) {
+  .values-grid.playful {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .values-grid.playful {
+    grid-template-columns: 1fr;
+  }
+}
+
+.value-item.playful {
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.value-item.playful::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+}
+
+.value-item.playful:hover::before {
+  opacity: 0.15;
+}
+
+.value-item.playful h4 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+.value-item.playful p {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* Truth-Telling Card - Primary Green */
+.value-item.truth-telling {
+  background: rgba(34, 197, 94, 0.08);
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+.value-item.truth-telling::before {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+}
+
+.value-item.truth-telling h4 {
+  color: var(--color-primary-light);
+}
+
+.value-item.truth-telling:hover {
+  background: rgba(34, 197, 94, 0.12);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.2);
+}
+
+/* Mind-Reading Card - Warm Orange */
+.value-item.mind-reading {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.value-item.mind-reading::before {
+  background: linear-gradient(135deg, var(--color-secondary), #FBBF24);
+}
+
+.value-item.mind-reading h4 {
+  color: var(--color-secondary);
+}
+
+.value-item.mind-reading:hover {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.2);
+}
+
+/* Evolution Mode Card - Calm Cyan */
+.value-item.evolution-mode {
+  background: rgba(6, 182, 212, 0.08);
+  border-color: rgba(6, 182, 212, 0.2);
+}
+
+.value-item.evolution-mode::before {
+  background: linear-gradient(135deg, var(--color-accent), #38BDF8);
+}
+
+.value-item.evolution-mode h4 {
+  color: var(--color-accent);
+}
+
+.value-item.evolution-mode:hover {
+  background: rgba(6, 182, 212, 0.12);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(6, 182, 212, 0.2);
+}
+
+/* System Thinking Card - Purple Theme */
+.value-item.system-thinking {
+  background: rgba(147, 51, 234, 0.08);
+  border-color: rgba(147, 51, 234, 0.2);
+}
+
+.value-item.system-thinking::before {
+  background: linear-gradient(135deg, #9333EA, #A855F7);
+}
+
+.value-item.system-thinking h4 {
+  color: #A855F7;
+}
+
+.value-item.system-thinking:hover {
+  background: rgba(147, 51, 234, 0.12);
+  border-color: #9333EA;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(147, 51, 234, 0.2);
+}
+
+/* Responsive styles for weather panel - match music player behavior */
+/* Fix timeline overlap issue at medium screens (850-1024px) */
+@media (max-width: 1024px) and (min-width: 850px) {
+  .timeline-line {
+    display: none; /* Hide timeline line to prevent overlap */
+  }
+  
+  .node-marker {
+    display: none; /* Hide blue indicators to prevent overlap */
+  }
+  
+  .timeline-node {
+    margin-bottom: 2rem; /* Reduce spacing */
+  }
+  
+  .timeline-card {
+    max-width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  .timeline-node:nth-child(even),
+  .timeline-node:nth-child(odd) {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 768px) {
+  .weather-display {
+    left: calc(var(--leaf-base-x) + 40px);
+    bottom: calc(var(--leaf-base-y) + 50px);
+    width: min(240px, calc(100vw - var(--leaf-base-x) - 60px));
+  }
+  
+  .weather-header {
+    padding: 12px 16px;
+  }
+  
+  .weather-header h4 {
+    font-size: 14px;
+  }
+  
+  .weather-content {
+    padding: 16px;
+  }
+  
+  .weather-item {
+    padding: 10px 12px;
+  }
+  
+  .weather-value {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-display {
+    left: 42px;
+    bottom: 55px;
+    width: min(260px, calc(100vw - 60px));
+  }
+  
+  .weather-header {
+    padding: 10px 12px;
+  }
+  
+  .weather-header h4 {
+    font-size: 13px;
+  }
+  
+  .weather-content {
+    padding: 12px;
+  }
+  
+  .weather-item {
+    padding: 8px 10px;
+  }
+  
+  .weather-value {
+    font-size: 14px;
+  }
+  
+  /* Fix weather panel positioning to match music panel */
+  .weather-display.weather-sidebar-mode {
+    left: 42px;
+    bottom: 55px;
+    width: min(240px, calc(100vw - 60px));
+  }
+}
+
+/* ============================================
+   🎨 TIMELINE CARD COLOR SYSTEM
+   ============================================ */
+
+/* Hello I'm Ray Card - Primary Green */
+.timeline-card-intro {
+  border-left: 4px solid var(--color-primary);
+}
+
+.timeline-card-intro .card-badge {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white;
+}
+
+.timeline-card-intro::before {
+  background: linear-gradient(135deg, 
+    rgba(34, 197, 94, 0.1) 0%, 
+    rgba(74, 222, 128, 0.05) 100%);
+}
+
+/* Core Capabilities Card - Warm Orange */
+.timeline-card-skills {
+  border-left: 4px solid var(--color-secondary);
+}
+
+.timeline-card-skills .card-badge {
+  background: linear-gradient(135deg, var(--color-secondary), #FBBF24);
+  color: white;
+}
+
+.timeline-card-skills::before {
+  background: linear-gradient(135deg, 
+    rgba(245, 158, 11, 0.1) 0%, 
+    rgba(251, 191, 36, 0.05) 100%);
+}
+
+/* Professional Journey Card - Calm Cyan */
+.timeline-card-experience {
+  border-left: 4px solid var(--color-accent);
+}
+
+.timeline-card-experience .card-badge {
+  background: linear-gradient(135deg, var(--color-accent), #38BDF8);
+  color: white;
+}
+
+.timeline-card-experience::before {
+  background: linear-gradient(135deg, 
+    rgba(6, 182, 212, 0.1) 0%, 
+    rgba(56, 189, 248, 0.05) 100%);
+}
+
+/* Future Vision Card - Purple Theme */
+.timeline-card-vision {
+  border-left: 4px solid #9333EA;
+}
+
+.timeline-card-vision .card-badge {
+  background: linear-gradient(135deg, #9333EA, #A855F7);
+  color: white;
+}
+
+.timeline-card-vision::before {
+  background: linear-gradient(135deg, 
+    rgba(147, 51, 234, 0.1) 0%, 
+    rgba(168, 85, 247, 0.05) 100%);
+}
+
+/* Ensure timeline cards have the proper backdrop for color overlays */
+.timeline-card-intro::before,
+.timeline-card-skills::before,
+.timeline-card-experience::before,
+.timeline-card-vision::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.timeline-card-intro:hover::before,
+.timeline-card-skills:hover::before,
+.timeline-card-experience:hover::before,
+.timeline-card-vision:hover::before {
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .values-grid.playful {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .value-item.playful {
+    padding: 1.5rem;
   }
 }
