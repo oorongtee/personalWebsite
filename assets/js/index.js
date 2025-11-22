@@ -337,79 +337,208 @@ const pages = {
       <div class="hero-content">
         <h1>About Me.</h1>
         
+        <!-- Tone Selector -->
+        <div class="about-tone-selector">
+          <div class="tone-tabs">
+            <button class="tone-tab active" data-tone="professional">
+              <span class="tab-icon">💼</span>
+              Professional
+            </button>
+            <button class="tone-tab" data-tone="creative">
+              <span class="tab-icon">✨</span>
+              Creative & Warm
+            </button>
+            <button class="tone-tab" data-tone="playful">
+              <span class="tab-icon">🎯</span>
+              Playful & Modern
+            </button>
+          </div>
+        </div>
+        
         <div class="about-content">
-        <!-- About Me Section -->
-        <section class="about-me-section">
-          
-          <div class="expertise-list">
-            <div class="expertise-item">
-              <div class="expertise-content">
-                <div class="expertise-header">
-                  <span class="expertise-icon product"></span>
-                  <h2>Product</h2>
-                </div>
-                <p class="expertise-description">
-                  Bringing multidisciplinary background in political economy and philosophy to product challenges with analytical rigor and human-centered thinking. Experienced in defining product vision and strategy, conducting market analysis, and creating user-centered workflows.
-                </p>
-              </div>
+          <!-- Professional Version -->
+          <div class="about-version active" id="about-professional">
+            <div class="about-header">
+              <h2 class="about-headline">Bridging Strategy and Execution Through Human-Centered Design</h2>
             </div>
+            
+            <section class="about-section">
+              <h3><span class="section-icon">🎯</span> Background</h3>
+              <p>With a foundation in political economy and philosophy, I bring analytical rigor and human-centered thinking to product challenges. My multidisciplinary background enables me to approach complex problems with both strategic depth and empathetic understanding of user needs.</p>
+            </section>
 
-            <div class="expertise-item">
-              <div class="expertise-content">
-                <div class="expertise-header">
-                  <span class="expertise-icon engineering"></span>
-                  <h2>Engineering</h2>
+            <section class="about-section">
+              <h3><span class="section-icon">💎</span> Core Values</h3>
+              <div class="values-grid">
+                <div class="value-item">
+                  <span class="value-icon">🤝</span>
+                  <h4>Sincerity</h4>
+                  <p>Authentic communication builds trust and enables meaningful collaboration across teams.</p>
                 </div>
-                <p class="expertise-description">
-                  Self-taught in front-end development with hands-on experience in JavaScript ES6+, React.js, and modern CSS frameworks. Proficient in building full-featured web applications from the ground up, including e-commerce features with Redux state management. My technical experience allows me to collaborate effectively with engineers, assess feasibility, and balance architecture, performance, and UX considerations.
-                </p>
+                <div class="value-item">
+                  <span class="value-icon">❤️</span>
+                  <h4>Empathy</h4>
+                  <p>Understanding user perspectives drives better product decisions and inclusive design solutions.</p>
+                </div>
+                <div class="value-item">
+                  <span class="value-icon">📚</span>
+                  <h4>Continuous Learning</h4>
+                  <p>Staying curious and adaptable in an evolving technological landscape ensures long-term success.</p>
+                </div>
               </div>
-            </div>
+            </section>
+
+            <section class="about-section">
+              <h3><span class="section-icon">🌟</span> Professional Experience</h3>
+              <div class="experience-summary">
+                <div class="exp-item">
+                  <h4>Product Management</h4>
+                  <p>Led blockchain application development at Locas Technology, focusing on user research, market analysis, and cross-functional team coordination.</p>
+                </div>
+                <div class="exp-item">
+                  <h4>Project Planning</h4>
+                  <p>Contributed to Freeport Metaverse game development at BITAPE, integrating innovative blockchain technologies with engaging user experiences.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="about-section">
+              <h3><span class="section-icon">🎨</span> Interests & Inspiration</h3>
+              <p>I find inspiration in science fiction and philosophy literature, architectural exploration during travels, and photography that captures the interplay of light and shadow. These pursuits inform my approach to design and problem-solving.</p>
+            </section>
+
+            <section class="about-section">
+              <h3><span class="section-icon">🚀</span> Future Direction</h3>
+              <p>I'm passionate about working on meaningful projects that create positive social impact. Currently available for product management consulting and collaborative projects that prioritize user empathy and technical excellence.</p>
+            </section>
           </div>
-        </section>
 
-        <!-- Work Experience Section -->
-        <section class="work-experience-section">
-          <h2>Work Experience</h2>
-          
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-date">
-                <span class="date-range">Aug 2023 - Oct 2023</span>
-                <div class="timeline-dot orange"></div>
-              </div>
-              <div class="timeline-content">
-                <h3>Product Manager</h3>
-                <div class="company-info">
-                  <span class="company-name">Locas Technology CO., LTD</span>
-                  <span class="location">Taipei, Taiwan</span>
-                </div>
-                <div class="job-description">
-                  <p>Product development for blockchain application in conception and testing phase.</p>
-                  
-                </div>
-              </div>
+          <!-- Creative & Warm Version -->
+          <div class="about-version" id="about-creative">
+            <div class="about-header">
+              <h2 class="about-headline">Creating Digital Experiences with Heart and Purpose</h2>
             </div>
+            
+            <section class="about-section">
+              <h3><span class="section-icon">🌱</span> My Journey</h3>
+              <p>My path began in the thoughtful world of political economy and philosophy, where I learned to see beyond surfaces and understand the deeper currents that shape human behavior. This foundation naturally led me to product management, where I discovered my love for creating meaningful digital experiences that truly serve people's needs.</p>
+            </section>
 
-            <div class="timeline-item">
-              <div class="timeline-date">
-                <span class="date-range">Mar 2022 - May 2023</span>
-                <div class="timeline-dot blue"></div>
-              </div>
-              <div class="timeline-content">
-                <h3>Project Planner</h3>
-                <div class="company-info">
-                  <span class="company-name">BITAPE Logistics Technology CO., LTD</span>
-                  <span class="location">Taichung, Taiwan</span>
+            <section class="about-section">
+              <h3><span class="section-icon">💫</span> What Drives Me</h3>
+              <div class="values-grid warm">
+                <div class="value-item warm">
+                  <span class="value-icon">🌸</span>
+                  <h4>Genuine Connection</h4>
+                  <p>I believe in the power of authentic relationships to create products that people genuinely love and find useful in their daily lives.</p>
                 </div>
-                <div class="job-description">
-                  <p>Contributed to Freeport Metaverse game planning and coordination, integrating blockchain technology.</p>
-                 
+                <div class="value-item warm">
+                  <span class="value-icon">🤗</span>
+                  <h4>Empathetic Understanding</h4>
+                  <p>Every user has a story, and I'm passionate about understanding these stories to create more inclusive and thoughtful solutions.</p>
+                </div>
+                <div class="value-item warm">
+                  <span class="value-icon">🌟</span>
+                  <h4>Joyful Growth</h4>
+                  <p>Learning is a lifelong adventure, and I approach each new challenge with curiosity, wonder, and enthusiasm.</p>
                 </div>
               </div>
-            </div>
+            </section>
+
+            <section class="about-section">
+              <h3><span class="section-icon">🎭</span> My Creative Adventures</h3>
+              <div class="experience-summary warm">
+                <div class="exp-item warm">
+                  <h4>Blockchain Innovation</h4>
+                  <p>At Locas Technology, I helped bring complex blockchain concepts to life through user-friendly experiences, making the technology accessible and meaningful.</p>
+                </div>
+                <div class="exp-item warm">
+                  <h4>Metaverse Storytelling</h4>
+                  <p>With BITAPE, I contributed to creating the Freeport Metaverse—a digital world where technology meets imagination and community.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="about-section">
+              <h3><span class="section-icon">🎪</span> Life Beyond Code</h3>
+              <p>When I'm not designing digital experiences, you'll find me lost in a good science fiction novel, wandering through cities to admire their architecture, or capturing moments through photography. These passions fuel my creativity and remind me that the best products are those that enhance and celebrate human experience.</p>
+            </section>
+
+            <section class="about-section">
+              <h3><span class="section-icon">🌈</span> Let's Create Something Beautiful</h3>
+              <p>I'm excited about collaborating on projects that make a positive difference in people's lives. Whether it's a small community initiative or a larger social impact venture, I believe in the power of thoughtful design and genuine care to create lasting change.</p>
+            </section>
           </div>
-        </section>
+
+          <!-- Playful & Modern Version -->
+          <div class="about-version" id="about-playful">
+            <div class="about-header">
+              <h2 class="about-headline">Product Manager + Front-end Developer = Digital Magic ✨</h2>
+            </div>
+            
+            <section class="about-section">
+              <h3><span class="section-icon">🚀</span> The Origin Story</h3>
+              <p>Plot twist: I started in political economy and philosophy (yes, really! 📚), then discovered my superpower was translating complex ideas into user-friendly experiences. Now I'm that rare breed who speaks both "business strategy" and "JavaScript" fluently. 🤓</p>
+            </section>
+
+            <section class="about-section">
+              <h3><span class="section-icon">⚡</span> My Superpowers</h3>
+              <div class="values-grid playful">
+                <div class="value-item playful">
+                  <span class="value-icon">🎯</span>
+                  <h4>Truth-Telling</h4>
+                  <p>No corporate BS here. I say what I mean, mean what I say, and build products that actually solve real problems.</p>
+                </div>
+                <div class="value-item playful">
+                  <span class="value-icon">🧠</span>
+                  <h4>Mind-Reading*</h4>
+                  <p>*Actually just really good user research, but it feels like magic when you nail what users need before they know it themselves.</p>
+                </div>
+                <div class="value-item playful">
+                  <span class="value-icon">🌱</span>
+                  <h4>Evolution Mode</h4>
+                  <p>Constantly leveling up my skills. Today's React.js might be tomorrow's AI-powered something. Staying future-ready! 🤖</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="about-section">
+              <h3><span class="section-icon">🎮</span> Level Completions</h3>
+              <div class="experience-summary playful">
+                <div class="exp-item playful">
+                  <h4>🔗 Blockchain Quest at Locas Technology</h4>
+                  <p>Navigated the wild west of crypto tech to create user experiences that actually made sense. Achievement unlocked: Making blockchain less scary! 🏆</p>
+                </div>
+                <div class="exp-item playful">
+                  <h4>🌍 Metaverse Builder at BITAPE</h4>
+                  <p>Helped craft digital worlds where imagination meets reality. Think Ready Player One, but with better UX and fewer evil corporations. 😄</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="about-section">
+              <h3><span class="section-icon">🎪</span> When I'm Not Coding...</h3>
+              <p>You'll catch me devouring sci-fi novels (current obsession: anything with AI that doesn't take over the world 🤖), street photography adventures (always hunting for that perfect light ✨), or getting lost in architectural rabbit holes during travel. Pro tip: I can discuss both Blade Runner AND CSS Grid with equal enthusiasm! 🤓</p>
+            </section>
+
+            <section class="about-section">
+              <h3><span class="section-icon">🎯</span> Next Mission</h3>
+              <p>Ready to join forces with teams who want to build stuff that matters. Small social impact projects? Yes please! 🙌 Consulting gigs where I can flex both my PM and dev muscles? Double yes! Let's create digital experiences that make people's lives genuinely better. 🚀</p>
+            </section>
+
+            <section class="about-section contact-cta">
+              <div class="cta-content">
+                <h3>Ready to Build Something Awesome? 🎉</h3>
+                <p>Let's chat about your next project over virtual coffee! ☕</p>
+                <a href="#/contact" class="btn btn-primary cta-button">
+                  <span>Start the Conversation</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </section>
+          </div>
         </div>
       </div>
     </main>
@@ -2363,6 +2492,64 @@ function showNavigationForContent() {
     header.classList.add('nav-visible');
   }
 }
+
+// About Page Tone Switching Functionality
+function initAboutToneSwitching() {
+  const toneButtons = document.querySelectorAll('.tone-tab');
+  const aboutVersions = document.querySelectorAll('.about-version');
+
+  console.log('Initializing about tone switching...', { toneButtons: toneButtons.length, aboutVersions: aboutVersions.length });
+
+  toneButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const selectedTone = this.getAttribute('data-tone');
+      console.log('Tone selected:', selectedTone);
+
+      // Update button states
+      toneButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+
+      // Update content versions with fade effect
+      aboutVersions.forEach(version => {
+        if (version.classList.contains('active')) {
+          version.style.opacity = '0';
+          setTimeout(() => {
+            version.classList.remove('active');
+            
+            // Show new version
+            const newVersion = document.querySelector(`.about-version[id="about-${selectedTone}"]`);
+            if (newVersion) {
+              newVersion.classList.add('active');
+              setTimeout(() => {
+                newVersion.style.opacity = '1';
+              }, 50);
+            }
+          }, 300);
+        }
+      });
+    });
+  });
+
+  console.log('About tone switching initialized successfully');
+}
+
+// Modified navigateTo function to initialize about page functionality
+const originalNavigateTo = window.navigateTo;
+window.navigateTo = function(route) {
+  // Call original function
+  if (originalNavigateTo) {
+    originalNavigateTo(route);
+  } else {
+    navigateTo(route);
+  }
+  
+  // Initialize about page functionality after page load
+  if (route === 'about') {
+    setTimeout(() => {
+      initAboutToneSwitching();
+    }, 100);
+  }
+};
 
 // 確保在 DOM 完全載入後初始化
 if (document.readyState === 'loading') {

@@ -1103,48 +1103,421 @@ a:hover::after {
 }
 
 /* ============================================
-   📱 RESPONSIVE UTILITIES
+   📄 ABOUT PAGE STYLES - Three Tone System
    ============================================ */
 
-/* ============================================
-   📱 MOBILE NAVIGATION OVERLAY - Fixed Animation Issues
-   ============================================ */
+.about-page {
+  padding: 0;
+}
 
-/* Mobile menu toggle button - Fixed positioning */
-.mobile-menu-toggle {
-  display: none;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  color: var(--color-text-primary);
-  font-size: 1.25rem;
-  cursor: pointer;
-  padding: 0.75rem;
-  border-radius: 12px;
-  transition: all 0.25s ease;
-  /* Fixed positioning to prevent navigation drift */
-  position: relative;
-  z-index: 1001;
+.about-tone-selector {
+  margin: 2rem 0 3rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.tone-tabs {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 6px;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
-.mobile-menu-toggle:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: scale(1.05);
+.tone-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 14px;
+  background: transparent;
+  color: var(--color-text-tertiary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
-/* Full-screen mobile navigation overlay - Fixed positioning */
+.tone-tab.active {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.tone-tab:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-secondary);
+}
+
+.tab-icon {
+  font-size: 1.1em;
+}
+
+/* About Content Versions */
+.about-version {
+  display: none;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.about-version.active {
+  display: block;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about-headline {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.about-section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.about-section:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.section-icon {
+  font-size: 1.2em;
+  opacity: 0.8;
+}
+
+.about-section p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Values Grid System */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.value-item {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.value-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.value-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.value-item h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.value-item p {
+  font-size: 0.9rem;
+  color: var(--color-text-tertiary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Experience Summary */
+.experience-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.exp-item {
+  padding: 1.5rem;
+  background: rgba(34, 197, 94, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(34, 197, 94, 0.1);
+  transition: all 0.3s ease;
+}
+
+.exp-item:hover {
+  background: rgba(34, 197, 94, 0.08);
+  transform: translateX(8px);
+}
+
+.exp-item h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary-light);
+  margin: 0 0 0.5rem 0;
+}
+
+.exp-item p {
+  color: var(--color-text-secondary);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Tone-specific Styling */
+
+/* Creative & Warm Version */
+.values-grid.warm .value-item {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(34, 197, 94, 0.05) 100%);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.values-grid.warm .value-item:hover {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(34, 197, 94, 0.08) 100%);
+}
+
+.experience-summary.warm .exp-item {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(34, 197, 94, 0.05) 100%);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.experience-summary.warm .exp-item:hover {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(34, 197, 94, 0.08) 100%);
+}
+
+/* Playful & Modern Version */
+.values-grid.playful .value-item {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(6, 182, 212, 0.05) 100%);
+  border-color: rgba(168, 85, 247, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.values-grid.playful .value-item::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, rgba(168, 85, 247, 0.3), rgba(6, 182, 212, 0.3), rgba(168, 85, 247, 0.3));
+  z-index: -1;
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.values-grid.playful .value-item:hover::before {
+  opacity: 1;
+}
+
+.experience-summary.playful .exp-item {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(6, 182, 212, 0.05) 100%);
+  border-color: rgba(168, 85, 247, 0.2);
+}
+
+.experience-summary.playful .exp-item h4 {
+  color: var(--color-accent);
+}
+
+/* Contact CTA Section */
+.contact-cta {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(74, 222, 128, 0.08) 100%);
+  border-color: rgba(34, 197, 94, 0.2);
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.cta-content h3 {
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Responsive Design for About Page */
+@media (max-width: 768px) {
+  .tone-tabs {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .tone-tab {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .about-section {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .value-item,
+  .exp-item {
+    padding: 1.25rem;
+  }
+  
+  .about-headline {
+    font-size: clamp(1.25rem, 5vw, 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 1rem;
+  }
+  
+  .about-section h3 {
+    font-size: 1.2rem;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .section-icon {
+    font-size: 1.5em;
+  }
+  
+  .value-item,
+  .exp-item {
+    padding: 1rem;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   📱 RESPONSIVE UTILITIES
+   ============================================ */
+
+/* ============================================
+   🚀 新版手機導航系統 - 防止跑版和佈局偏移
+   ============================================ */
+
+/* Mobile menu toggle button - 完全固定的結構 */
+.mobile-menu-toggle {
+  display: none;
+  /* 絕對固定的尺寸 */
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  max-width: 44px;
+  max-height: 44px;
+  /* 防止任何佈局變化 */
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  /* 防止佈局偏移的關鍵設置 */
+  box-sizing: border-box;
+  contain: layout size style;
+  will-change: auto;
+}
+
+.mobile-menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  /* 移除 scale 動畫以防止佈局偏移 */
+}
+
+/* 重新設計的全屏導航覆蓋層 */
 .mobile-nav-overlay {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(10, 15, 28, 0.95);
-  -webkit-backdrop-filter: blur(25px);
-  backdrop-filter: blur(25px);
-  z-index: 9999; /* 提高層級確保在所有元素之上 */
+  /* 美化的背景漸層 */
+  background: 
+    linear-gradient(135deg, 
+      rgba(10, 15, 28, 0.98) 0%,
+      rgba(26, 32, 44, 0.96) 50%,
+      rgba(45, 55, 72, 0.95) 100%
+    );
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(150%);
+  z-index: 9999;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1152,11 +1525,11 @@ a:hover::after {
   opacity: 0;
   visibility: hidden;
   transform: scale(0.95);
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* 防止滾動問題 */
   overflow: hidden;
-  /* 防止滾動和布局問題 */
-  -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobile-nav-overlay.open {
@@ -1165,87 +1538,169 @@ a:hover::after {
   transform: scale(1);
 }
 
+/* 重新設計的導航菜單 */
 .mobile-nav-menu {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
   text-align: center;
+  padding: 2rem;
+  /* 防止菜單項目跑版 */
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .mobile-nav-menu a {
-  font-size: 2.5rem; /* Larger for better touch targets */
-  font-weight: 700;
-  color: var(--color-text-primary); /* Higher contrast */
-  text-decoration: none;
-  padding: 1.5rem 3rem; /* Larger touch areas */
-  border-radius: 1.5rem;
-  transition: all 0.25s ease;
-  transform: translateY(30px);
-  opacity: 0;
-  animation: mobileNavSlideIn 0.5s ease forwards;
-  /* Enhanced visual feedback */
-  border: 2px solid transparent;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  min-height: 60px; /* Ensure adequate touch target */
+  /* 固定的觸控目標尺寸 */
+  min-height: 64px;
+  width: 100%;
+  /* 居中對齊內容 */
   display: flex;
   align-items: center;
   justify-content: center;
+  /* 響應式字體大小 */
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  /* 美化的卡片樣式 */
+  background: 
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1rem 2rem;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  /* 動畫效果 */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(30px);
+  opacity: 0;
+  /* 防止觸控問題 */
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  /* 陰影效果 */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-.mobile-nav-menu a:nth-child(1) { animation-delay: 0.1s; }
-.mobile-nav-menu a:nth-child(2) { animation-delay: 0.2s; }
-.mobile-nav-menu a:nth-child(3) { animation-delay: 0.3s; }
-.mobile-nav-menu a:nth-child(4) { animation-delay: 0.4s; }
-.mobile-nav-menu a:nth-child(5) { animation-delay: 0.5s; }
+/* 動畫延遲 */
+.mobile-nav-menu a:nth-child(1) { animation: slideInFromBottom 0.6s ease 0.1s forwards; }
+.mobile-nav-menu a:nth-child(2) { animation: slideInFromBottom 0.6s ease 0.2s forwards; }
+.mobile-nav-menu a:nth-child(3) { animation: slideInFromBottom 0.6s ease 0.3s forwards; }
+.mobile-nav-menu a:nth-child(4) { animation: slideInFromBottom 0.6s ease 0.4s forwards; }
+.mobile-nav-menu a:nth-child(5) { animation: slideInFromBottom 0.6s ease 0.5s forwards; }
 
-.mobile-nav-menu a:hover {
+/* 增強的hover效果 */
+.mobile-nav-menu a:hover,
+.mobile-nav-menu a:focus {
   color: #FFFFFF;
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(74, 222, 128, 0.15) 100%);
+  background: 
+    linear-gradient(135deg,
+      rgba(34, 197, 94, 0.25) 0%,
+      rgba(74, 222, 128, 0.15) 100%
+    );
   border-color: rgba(34, 197, 94, 0.4);
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 8px 16px rgba(34, 197, 94, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 24px rgba(34, 197, 94, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-nav-menu a:active {
-  transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 4px 8px rgba(34, 197, 94, 0.15);
+  transform: translateY(0);
+  box-shadow: 
+    0 4px 12px rgba(34, 197, 94, 0.15),
+    0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
+/* 重新設計的關閉按鈕 */
 .mobile-nav-close {
   position: absolute;
-  top: 2rem;
-  right: 2rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  color: var(--color-text-primary);
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 1rem;
-  border-radius: 50%;
-  transition: all 0.25s ease;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  /* Fixed size to prevent layout shifts */
-  width: 56px;
-  height: 56px;
+  top: 1.5rem;
+  right: 1.5rem;
+  /* 固定尺寸 */
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: 
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  /* 防止佈局偏移 */
+  flex-shrink: 0;
 }
 
 .mobile-nav-close:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: 
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0.15) 100%
+    );
   border-color: rgba(255, 255, 255, 0.4);
-  transform: rotate(90deg) scale(1.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: rotate(90deg) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-@keyframes mobileNavSlideIn {
+/* 新的滑入動畫 */
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
   to {
-    transform: translateY(0);
     opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 確保在各種螢幕尺寸下的一致性 */
+@media (max-height: 600px) {
+  .mobile-nav-menu {
+    gap: 1rem;
+  }
+  
+  .mobile-nav-menu a {
+    min-height: 52px;
+    font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .mobile-nav-menu {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .mobile-nav-menu a {
+    min-height: 56px;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+  }
+  
+  .mobile-nav-close {
+    top: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
   }
 }
 
@@ -2195,8 +2650,8 @@ a:hover {
 /* 🍃 葉子系統 - 基礎定位架構 */
 .weather-leaf-svg {
   position: fixed;
-  bottom: 80px;  /* 桌機基準位置 */
-  left: 80px;    /* 桌機基準位置 */
+  bottom: var(--leaf-base-y);
+  left: var(--leaf-base-x);
   z-index: 15;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -2205,9 +2660,6 @@ a:hover {
   opacity: 1 !important;
   filter: drop-shadow(0 0 8px rgba(50, 205, 50, 0.4));
   animation: naturalBreathing 4s ease-in-out infinite;
-  /* 響應式縮放變量 */
-  --leaf-scale: 1;
-  --leaf-size: 62px;
   width: calc(var(--leaf-size) * var(--leaf-scale));
   height: calc(var(--leaf-size) * var(--leaf-scale));
 }
@@ -2226,17 +2678,52 @@ a:hover {
   transform: scale(1.05);
 }
 
-/* 響應式設計 - 中小螢幕調整 */
+/* 🍃 統一響應式定位系統 - 確保所有元素正確相對定位 */
+/* 基礎變量定義 */
+:root {
+  /* 葉子基礎定位 */
+  --leaf-base-x: 80px;
+  --leaf-base-y: 80px;
+  --leaf-scale: 1;
+  --leaf-size: 62px;
+  
+  /* 側邊欄相對偏移 */
+  --sidebar-horizontal-offset: 80px; /* 葉子右側距離 */
+  --sidebar-vertical-align: 0px; /* 與葉子垂直對齊 */
+  
+  /* 面板堆疊系統 */
+  --panel-stack-height: 80px; /* 面板在側邊欄上方距離 */
+  --panel-default-width: 200px;
+  --panel-compact-width: 180px;
+  
+  /* 聊天機器人定位 */
+  --chatbot-position-x: 20px;
+  --chatbot-position-y: 20px;
+}
+
+/* 📱 大平板螢幕 (769px-1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  :root {
+    --leaf-base-x: 60px;
+    --leaf-base-y: 60px;
+    --leaf-scale: 0.9;
+    --sidebar-horizontal-offset: 70px;
+    --panel-stack-height: 70px;
+    --panel-default-width: 180px;
+  }
+}
+
 /* 📱 平板螢幕 (481px-768px) */
 @media (max-width: 768px) and (min-width: 481px) {
   :root {
-    --leaf-position-x: 30px;
-    --leaf-position-y: 50px;
-    --sidebar-offset: 65px;
-    --panel-stack-offset: 60px;
-    --panel-width-weather: 130px;
-    --panel-width-music: 230px;
+    --leaf-base-x: 30px;
+    --leaf-base-y: 50px;
     --leaf-scale: 0.8;
+    --sidebar-horizontal-offset: 65px;
+    --panel-stack-height: 60px;
+    --panel-default-width: 160px;
+    --panel-compact-width: 140px;
+    --chatbot-position-x: 15px;
   }
   
   .photo-block img.photo {
@@ -2244,49 +2731,6 @@ a:hover {
     object-position: left bottom;
     width: 100%;
     height: 100%;
-  }
-  
-  .weather-leaf-svg {
-    left: var(--leaf-position-x);
-    bottom: var(--leaf-position-y);
-    z-index: 20;
-  }
-  
-  .leaf-sidebar {
-    left: calc(var(--leaf-position-x) + var(--sidebar-offset));
-    bottom: var(--leaf-position-y);
-  }
-  
-  .weather-display.weather-sidebar-mode {
-    left: calc(var(--leaf-position-x) + var(--sidebar-offset));
-    bottom: calc(var(--leaf-position-y) + var(--panel-stack-offset));
-    width: var(--panel-width-weather);
-    padding: 8px 10px;
-    max-height: 120px;
-    overflow: hidden;
-    font-size: 11px;
-  }
-  
-  .weather-display.weather-sidebar-mode .weather-item {
-    padding: 2px 0;
-    font-size: 11px;
-    gap: 4px;
-  }
-  
-  .weather-display.weather-sidebar-mode .weather-location {
-    font-size: 11px;
-    margin-bottom: 4px;
-    padding-bottom: 4px;
-  }
-  
-  .music-player {
-    left: calc(var(--leaf-position-x) + var(--sidebar-offset));
-    bottom: calc(var(--leaf-position-y) + var(--panel-stack-offset));
-    width: var(--panel-width-music);
-  }
-  
-  .music-player .music-content iframe {
-    height: 130px;
   }
   
   .photo-actions {
@@ -2297,45 +2741,18 @@ a:hover {
 /* 📱 小螢幕 (426px-480px) */
 @media (max-width: 480px) and (min-width: 426px) {
   :root {
-    --leaf-position-x: 25px;
-    --leaf-position-y: 40px;
-    --sidebar-offset: 55px;
-    --panel-stack-offset: 55px;
-    --panel-width-weather: 125px;
-    --panel-width-music: 210px;
+    --leaf-base-x: 25px;
+    --leaf-base-y: 40px;
     --leaf-scale: 0.7;
+    --sidebar-horizontal-offset: 55px;
+    --panel-stack-height: 55px;
+    --panel-default-width: 140px;
+    --panel-compact-width: 125px;
+    --chatbot-position-x: 12px;
   }
   
   .photo-block img.photo {
     object-position: left bottom;
-  }
-  
-  .weather-leaf-svg {
-    left: var(--leaf-position-x);
-    bottom: var(--leaf-position-y);
-    z-index: 25;
-  }
-  
-  .leaf-sidebar {
-    left: calc(var(--leaf-position-x) + var(--sidebar-offset));
-    bottom: var(--leaf-position-y);
-  }
-  
-  .weather-display.weather-sidebar-mode {
-    left: calc(var(--leaf-position-x) + var(--sidebar-offset));
-    bottom: calc(var(--leaf-position-y) + var(--panel-stack-offset));
-    width: var(--panel-width-weather);
-    padding: 8px 10px;
-  }
-  
-  .music-player {
-    left: calc(var(--leaf-position-x) + var(--sidebar-offset));
-    bottom: calc(var(--leaf-position-y) + var(--panel-stack-offset));
-    width: var(--panel-width-music);
-  }
-  
-  .music-player .music-content iframe {
-    height: 120px;
   }
   
   .photo-actions {
@@ -2343,43 +2760,39 @@ a:hover {
   }
 }
 
+/* 📱 很小螢幕 (321px-425px) */
 @media (max-width: 425px) and (min-width: 321px) {
+  :root {
+    --leaf-base-x: 15px;
+    --leaf-base-y: 25px;
+    --leaf-scale: 0.6;
+    --sidebar-horizontal-offset: 50px;
+    --panel-stack-height: 50px;
+    --panel-default-width: 120px;
+    --panel-compact-width: 110px;
+    --chatbot-position-x: 10px;
+  }
+  
   .photo-block img.photo {
     object-position: left bottom;
   }
   
-  .weather-leaf-svg {
-    bottom: 25px;
-    left: 15px;
-    z-index: 25;
+  .photo-actions {
+    display: none !important;
   }
-  
-  .leaf-sidebar {
-    left: 65px;
-    bottom: 25px;
-  }
-  
-  .weather-display.weather-sidebar-mode {
-    left: 65px;
-    bottom: 75px;
-    width: 110px;
-    padding: 6px 8px;
-    font-size: 10px;
-  }
-  
-  .weather-display.weather-sidebar-mode .weather-item {
-    padding: 2px 0;
-    font-size: 10px;
-  }
-  
-  .music-player {
-    left: 65px;
-    bottom: 75px;
-    width: 180px;
-  }
-  
-  .music-player .music-content iframe {
-    height: 110px;
+}
+
+/* 📱 極小螢幕 (≤320px) */
+@media (max-width: 320px) {
+  :root {
+    --leaf-base-x: 10px;
+    --leaf-base-y: 20px;
+    --leaf-scale: 0.5;
+    --sidebar-horizontal-offset: 45px;
+    --panel-stack-height: 45px;
+    --panel-default-width: 110px;
+    --panel-compact-width: 100px;
+    --chatbot-position-x: 8px;
   }
   
   .photo-actions {
@@ -2387,56 +2800,57 @@ a:hover {
   }
 }
   
-  .weather-display.weather-sidebar-mode .weather-item {
-    padding: 3px 0;
-    gap: 6px;
-  }
-  
-  .weather-display.weather-sidebar-mode .weather-icon {
-    font-size: 12px;
-    width: 16px;
-  }
-  
-  .weather-display.weather-sidebar-mode .weather-value {
-    font-size: 11px;
-    min-width: 25px;
-  }
-  
-  .weather-display.weather-sidebar-mode .weather-unit {
-    font-size: 10px;
-  }
-  
-  .music-player {
-    left: 80px;
-    bottom: 85px;
-    width: 180px;
-  }
-  
-  .music-player .music-header {
-    padding: 10px 12px;
-  }
-  
-  .music-player .music-header h4 {
-    font-size: 12px;
-  }
-  
-  .music-player .music-content {
-    padding: 10px 12px 12px;
-  }
-  
-  .music-player iframe {
-    height: 120px;
-  }
-  
-  .music-attribution {
-    font-size: 8px;
-    padding: 6px 8px;
-  }
-  
-  /* 隱藏按鈕區域 */
-  .photo-actions {
-    display: none !important;
-  }
+/* 🎯 所有元素響應式樣式調整 - 確保一致的縮放和間距 */
+
+/* 天氣面板響應式內容調整 */
+.weather-display.weather-sidebar-mode .weather-item {
+  padding: calc(3px * var(--leaf-scale, 1)) 0;
+  gap: calc(6px * var(--leaf-scale, 1));
+  font-size: calc(12px * var(--leaf-scale, 1));
+}
+
+.weather-display.weather-sidebar-mode .weather-icon {
+  font-size: calc(12px * var(--leaf-scale, 1));
+  width: calc(16px * var(--leaf-scale, 1));
+}
+
+.weather-display.weather-sidebar-mode .weather-value {
+  font-size: calc(11px * var(--leaf-scale, 1));
+  min-width: calc(25px * var(--leaf-scale, 1));
+}
+
+.weather-display.weather-sidebar-mode .weather-unit {
+  font-size: calc(10px * var(--leaf-scale, 1));
+}
+
+.weather-display.weather-sidebar-mode .weather-location {
+  font-size: calc(13px * var(--leaf-scale, 1));
+  margin-bottom: calc(4px * var(--leaf-scale, 1));
+  padding-bottom: calc(4px * var(--leaf-scale, 1));
+}
+
+/* 音樂播放器響應式調整 */
+.music-player .music-header {
+  padding: calc(10px * var(--leaf-scale, 1)) calc(12px * var(--leaf-scale, 1));
+}
+
+.music-player .music-header h4 {
+  font-size: calc(14px * var(--leaf-scale, 1));
+}
+
+.music-player .music-content {
+  padding: calc(10px * var(--leaf-scale, 1)) calc(12px * var(--leaf-scale, 1)) calc(12px * var(--leaf-scale, 1));
+}
+
+.music-player iframe {
+  height: calc(150px * var(--leaf-scale, 1));
+  min-height: 100px;
+}
+
+.music-attribution {
+  font-size: calc(9px * var(--leaf-scale, 1));
+  padding: calc(6px * var(--leaf-scale, 1)) calc(8px * var(--leaf-scale, 1));
+}
 }
 
 /* 平板尺寸的天氣面板調整 */
@@ -7195,13 +7609,9 @@ a:hover {
 /* 🎛️ 側邊欄系統 - 相對定位架構 */
 .leaf-sidebar {
   position: fixed;
-  bottom: 80px;  /* 與葉子同高 */
-  left: 160px;   /* 葉子右側80px距離 */
+  bottom: calc(var(--leaf-base-y) + var(--sidebar-vertical-align));
+  left: calc(var(--leaf-base-x) + var(--sidebar-horizontal-offset));
   z-index: 14;
-  /* 建立與葉子的關聯變量 */
-  --sidebar-offset: 80px;
-  /* 響應式間距調整 */
-  --sidebar-spacing: var(--sidebar-offset);
   transform-origin: left center;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   opacity: 0;
@@ -7367,13 +7777,10 @@ a:hover {
 /* Weather Panel in Sidebar Mode */
 /* 🌤️ 天氣面板系統 - 堆疊定位架構 */
 .weather-display.weather-sidebar-mode {
-  bottom: 160px;  /* 側邊欄上方80px */
-  left: 160px;    /* 與側邊欄對齊 */
-  z-index: 12;    /* 背景層級 */
-  width: 200px;   /* 桌機標準寬度 */
-  /* 面板堆疊變量 */
-  --panel-stack-offset: 80px;
-  --panel-width: 200px;
+  bottom: calc(var(--leaf-base-y) + var(--panel-stack-height));
+  left: calc(var(--leaf-base-x) + var(--sidebar-horizontal-offset));
+  z-index: 12;
+  width: var(--panel-compact-width);
   transform: translateY(0);
   background: linear-gradient(135deg,
     rgba(139, 69, 19, 0.15) 0%,
@@ -7387,13 +7794,19 @@ a:hover {
     0 8px 32px rgba(139, 69, 19, 0.2),
     0 2px 8px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: 12px 10px;
+  font-size: 12px;
 }
 
 /* 🎵 Music Player Styles - 透明大地色感 */
 /* 🎵 音樂面板系統 - 共享定位架構 */
 .music-player {
   position: fixed;
-  bottom: 160px;  /* 與天氣面板同位置 */
+  bottom: calc(var(--leaf-base-y) + var(--panel-stack-height));
+  left: calc(var(--leaf-base-x) + var(--sidebar-horizontal-offset));
+  z-index: 12;
+  width: var(--panel-default-width);
+  /* 保持原有樣式 */
   left: 160px;    /* 與側邊欄對齊 */
   z-index: 12;    /* 同層級 */
   width: 300px;   /* 音樂面板較寬 */

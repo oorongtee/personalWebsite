@@ -2,8 +2,8 @@
 
 .chatbot-container {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: var(--chatbot-position-y, 20px);
+  right: var(--chatbot-position-x, 20px);
   z-index: 9999;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   display: none; /* 初始隱藏 */
