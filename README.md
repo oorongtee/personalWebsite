@@ -21,9 +21,41 @@ This personal portfolio represents a groundbreaking experiment in **AI-agent-led
 3. **Living Documentation**: Every development decision and iteration is recorded for learning
 4. **Production Quality**: 100% functional with comprehensive error handling and testing
 
-## ✨ Latest Updates - Version 2.1 (November 21, 2025)
+## ✨ Latest Updates - Version 2.4.0 (November 25, 2025)
 
-### 🎯 **Version 2.1 - Project Organization & Production Release**
+### 🎯 **Version 2.4.0 - Enhanced UX & Cross-Browser Compatibility**
+
+#### 🎨 **Sidebar & Panel Interaction Enhancements**
+- **Positioning System**: Enhanced panel positioning with 20px vertical offset to prevent overlap with sidebar on smaller screens
+- **Protected Interactions**: Implemented intelligent click protection - panels only close on "leaf" clicks, preventing accidental sidebar closing when interacting with panel content
+- **Centralized Management**: Unified panel management system with improved hideAllPanels() function for consistent behavior
+- **Responsive Optimization**: Enhanced positioning calculations across all breakpoint ranges (360px → 1200px+)
+
+#### 🔄 **About Page Timeline Re-rendering System**
+- **Navigation Consistency**: Resolved timeline card disappearing issues when returning to About page from other sections
+- **Cleanup & Re-initialization**: Implemented comprehensive timeline.cleanup() and re-initialization methods for proper state management
+- **Content Optimization**: Streamlined About page content, removed skill preview tags for cleaner presentation
+- **Scroll Distance Reduction**: Optimized card expansion scroll calculations from 120px to 60px for better UX
+
+#### 🌐 **Cross-Browser Compatibility Overhaul**
+- **Webkit Prefix Support**: Added -webkit-backdrop-filter prefixes to 15+ CSS instances for Safari compatibility
+- **Hyphenation Enhancement**: Implemented -webkit-hyphens alongside standard hyphens for improved text rendering
+- **CSS Validation**: Resolved 17 CSS compatibility warnings across multiple files
+- **Universal Support**: Enhanced glassmorphism effects and blur filters for consistent rendering across all modern browsers
+
+#### 📱 **Responsive Design Refinements**
+- **Weather Panel Optimization**: Compressed weather panel dimensions for better small screen utilization
+- **Font Scaling System**: Implemented three-tier responsive font scaling (0.8rem → 0.75rem → 0.7rem)
+- **Layout Consistency**: Enhanced calc() functions for precise positioning across all device sizes
+- **Touch-Friendly Interactions**: Improved touch target sizes and interaction feedback for mobile users
+
+#### 🛠️ **Technical Architecture Improvements**
+- **Modular CSS Organization**: Enhanced CSS custom properties system for better maintainability
+- **Event Handler Optimization**: Streamlined JavaScript event management with improved click detection logic
+- **Performance Enhancement**: Optimized CSS animations and transitions for smoother user experience
+- **Code Quality**: Comprehensive code cleanup with improved documentation and commenting
+
+### 🎯 Previous Updates - Version 2.1 - Project Organization & Production Release
 
 #### 🗂️ **Complete Project Structure Overhaul**
 - **Asset Organization**: Restructured image directory with organized categories:
@@ -519,13 +551,13 @@ class NotificationSystem {
 
 ## 📡 Detail & Contact
 
-**Project Status**: Production Ready v2.1 ✅  
-**Last Updated**: 2025-11-21  
-**Version**: v2.1.0 (Organized & Mobile-Optimized)  
+**Project Status**: Production Ready v2.4.0 ✅  
+**Last Updated**: 2025-11-25  
+**Version**: v2.4.0 (Enhanced UX & Cross-Browser Compatibility)  
 **Website Link**: [ray-chen.netlify.app](https://ray-chen.netlify.app)  
-**iPhone 14 Pro Compatibility**: 100% Tested & Optimized ✅  
-**Project Organization**: Complete Asset Restructure ✅  
-**Documentation**: Fully Translated & Organized ✅
+**Cross-Browser Compatibility**: 100% Safari, Chrome, Firefox, Edge ✅  
+**Sidebar UX Enhancement**: Complete Interaction System Overhaul ✅  
+**About Page Consistency**: Timeline Re-rendering System ✅
 
 ### 👤 **Developer Information**
 **Ray Chen** - Product Manager & Frontend Developer  

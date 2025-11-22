@@ -10,6 +10,14 @@ class WeatherVisualizer {
       airTemperature: 25   // 預設溫度 25°C
     };
     
+    // 🎭 哲學引言配置
+    this.philosophicalQuotes = [
+      "What I see is thinking, what I hear is thinking too -- Deleuze",
+      "Knowledge is not for knowing: knowledge is for cutting -- Foucault", 
+      "The body is our general medium for having a world -- Merleau-Ponty"
+    ];
+    this.currentQuoteIndex = 0;
+    
     this.currentData = { ...this.defaultValues };
     this.isApiWorking = false;
     
@@ -115,7 +123,7 @@ class WeatherVisualizer {
     const weatherPanel = document.createElement('div');
     weatherPanel.className = 'weather-display weather-hidden';
     weatherPanel.innerHTML = `
-      <div class="weather-location">📍 Taipei, Taiwan</div>
+      <div class="weather-location">📍 Taipei</div>
       <div class="weather-item">
         <span class="weather-icon">💨</span>
         <span class="weather-value" id="windSpeed">--</span>
@@ -131,7 +139,6 @@ class WeatherVisualizer {
         <span class="weather-value" id="airTemp">--</span>
         <span class="weather-unit">°C</span>
       </div>
-      <div class="weather-status-dot ${this.isApiWorking ? 'online' : 'offline'}" id="apiStatus" title="${this.isApiWorking ? '即時數據' : '預設數據'}"></div>
     `;
     
     document.body.appendChild(weatherPanel);
@@ -155,6 +162,13 @@ class WeatherVisualizer {
         svg: this.getMusicSVG(),
         action: () => this.toggleMusicPlayer(),
         panelClass: 'music-player'
+      },
+      {
+        id: 'quote',
+        title: 'Philosophy',
+        svg: this.getQuoteSVG(),
+        action: () => this.toggleQuoteWidget(),
+        panelClass: 'quote-widget'
       }
       // 🔮 未來可輕鬆添加更多模組：
       // {
@@ -191,12 +205,20 @@ class WeatherVisualizer {
     document.body.appendChild(sidebar);
     this.sidebar = sidebar;
     
-    // 點擊側邊欄外部關閉
+    // 只有點擊葉子時才收起側邊欄和面板
     document.addEventListener('click', (e) => {
-      if (!sidebar.contains(e.target) && !this.leafSvg.contains(e.target)) {
+      const isClickOnPanel = e.target.closest('.weather-display, .music-player, .quote-widget');
+      
+      // 點擊葉子時關閉 sidebar 和所有面板
+      if (this.leafSvg && this.leafSvg.contains(e.target)) {
         if (!sidebar.classList.contains('leaf-sidebar-hidden')) {
           this.hideSidebar();
+          this.hideAllPanels();
         }
+      }
+      // 點擊面板或 sidebar 時不做任何操作，保持開啟狀態
+      else if (isClickOnPanel || sidebar.contains(e.target)) {
+        return;
       }
     });
   }
@@ -235,17 +257,24 @@ class WeatherVisualizer {
     }
   }
 
+  // 🎯 統一面板管理 - 確保只有一個面板顯示
+  hideAllPanels() {
+    this.hideWeatherPanel();
+    this.hideMusicPlayer();
+    this.hideQuoteWidget();
+  }
+
   toggleWeatherPanel() {
     if (!this.weatherPanel) {
       this.createWeatherDisplay();
     }
     
-    // 隱藏音樂播放器
-    this.hideMusicPlayer();
-    
     if (this.weatherPanel.classList.contains('weather-visible')) {
       this.hideWeatherPanel();
     } else {
+      // 隱藏所有其他面板
+      this.hideMusicPlayer();
+      this.hideQuoteWidget();
       this.showWeatherPanelInSidebar();
     }
   }
@@ -280,7 +309,10 @@ class WeatherVisualizer {
         <button class="music-close" title="Close">&times;</button>
       </div>
       <div class="music-content">
-        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/682509758&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" 
+          allow="autoplay; encrypted-media" 
+          sandbox="allow-same-origin allow-scripts allow-popups"
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/682509758&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
         <div class="music-attribution">
           <a href="https://soundcloud.com/modernarecords" title="Moderna Records" target="_blank">Moderna Records</a> · 
           <a href="https://soundcloud.com/modernarecords/ed-carlsen-hands-heart" title="Ed Carlsen - Hands, Heart" target="_blank">Ed Carlsen - Hands, Heart</a>
@@ -301,12 +333,12 @@ class WeatherVisualizer {
       this.createMusicPlayer();
     }
     
-    // 隱藏天氣面板
-    this.hideWeatherPanel();
-    
     if (this.musicPlayer.classList.contains('music-visible')) {
       this.hideMusicPlayer();
     } else {
+      // 隱藏所有其他面板
+      this.hideWeatherPanel();
+      this.hideQuoteWidget();
       this.showMusicPlayer();
     }
   }
@@ -327,6 +359,76 @@ class WeatherVisualizer {
       this.musicPlayer.classList.remove('music-visible');
       this.musicPlayer.classList.add('music-hidden');
     }
+  }
+
+  // 🎭 哲學引言面板控制
+  toggleQuoteWidget() {
+    if (!this.quoteWidget) {
+      this.createQuoteWidget();
+    }
+    
+    if (this.quoteWidget.classList.contains('quote-visible')) {
+      this.hideQuoteWidget();
+    } else {
+      // 隱藏所有其他面板
+      this.hideWeatherPanel();
+      this.hideMusicPlayer();
+      this.showQuoteWidget();
+    }
+  }
+
+  showQuoteWidget() {
+    if (!this.quoteWidget) {
+      this.createQuoteWidget();
+    }
+    
+    this.quoteWidget.classList.remove('quote-hidden');
+    setTimeout(() => {
+      this.quoteWidget.classList.add('quote-visible');
+    }, 10);
+  }
+
+  hideQuoteWidget() {
+    if (this.quoteWidget) {
+      this.quoteWidget.classList.remove('quote-visible');
+      this.quoteWidget.classList.add('quote-hidden');
+    }
+  }
+
+  createQuoteWidget() {
+    this.quoteWidget = document.createElement('div');
+    this.quoteWidget.className = 'quote-widget quote-hidden';
+    
+    this.quoteWidget.innerHTML = `
+      <div class="quote-content">
+        <div class="quote-text">${this.philosophicalQuotes[this.currentQuoteIndex]}</div>
+        <button class="quote-refresh" onclick="weatherVisualizer.refreshQuote()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 4v6h-6"/>
+            <path d="M1 20v-6h6"/>
+            <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10"/>
+            <path d="M3.51 15a9 9 0 0 0 14.85 3.36L23 14"/>
+          </svg>
+        </button>
+      </div>
+    `;
+    
+    document.body.appendChild(this.quoteWidget);
+  }
+
+  refreshQuote() {
+    this.currentQuoteIndex = (this.currentQuoteIndex + 1) % this.philosophicalQuotes.length;
+    const quoteText = this.quoteWidget.querySelector('.quote-text');
+    
+    // 淡出動畫
+    quoteText.style.opacity = '0';
+    quoteText.style.transform = 'translateY(10px)';
+    
+    setTimeout(() => {
+      quoteText.textContent = this.philosophicalQuotes[this.currentQuoteIndex];
+      quoteText.style.opacity = '1';
+      quoteText.style.transform = 'translateY(0)';
+    }, 200);
   }
   
   createWindRipples() {
@@ -477,6 +579,21 @@ class WeatherVisualizer {
     `;
   }
 
+  // 引言SVG圖示
+  getQuoteSVG() {
+    return `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7.5 8.25h9m-9 3H12"/>
+        <path d="M7.5 3v2.25M16.5 3v2.25"/>
+        <path d="M3.75 9.75h16.5"/>
+        <rect x="3.75" y="5.25" width="16.5" height="13.5" rx="2" ry="2" opacity="0.3"/>
+        <circle cx="9" cy="12" r="0.5" opacity="0.6"/>
+        <circle cx="12" cy="12" r="0.5" opacity="0.6"/>
+        <circle cx="15" cy="12" r="0.5" opacity="0.6"/>
+      </svg>
+    `;
+  }
+
   // 🔧 模組管理系統
   addSidebarModule(moduleConfig) {
     if (!this.sidebarModules) this.sidebarModules = [];
@@ -609,8 +726,13 @@ class WeatherVisualizer {
     // 添加點擊回饋效果
     this.triggerClickFeedback();
     
-    // 顯示或隱藏側邊欄
-    this.toggleSidebar();
+    // 顯示或隱藏側邊欄，同時隱藏所有面板
+    if (!this.sidebar || this.sidebar.classList.contains('leaf-sidebar-hidden')) {
+      this.showSidebar();
+    } else {
+      this.hideSidebar();
+      this.hideAllPanels();
+    }
   }
   
   triggerClickFeedback() {

@@ -333,156 +333,198 @@ const pages = {
     ${footer}
   `,
   about: `
-    <main class="page-content about-page">
+    <main class="page-content about-page timeline-page">
       <div class="hero-content">
         <h1>About Me.</h1>
+        <p class="page-subtitle">My journey through technology, creativity, and human connection</p>
         
-        <!-- Tone Selector -->
-        <div class="about-tone-selector">
-          <div class="tone-tabs">
-            <button class="tone-tab active" data-tone="professional">
-              <span class="tab-icon">💼</span>
-              Professional
-            </button>
-            <button class="tone-tab" data-tone="creative">
-              <span class="tab-icon">✨</span>
-              Creative & Warm
-            </button>
-            <button class="tone-tab" data-tone="playful">
-              <span class="tab-icon">🎯</span>
-              Playful & Modern
-            </button>
+        <!-- Interactive Timeline Container -->
+        <div class="timeline-container">
+          <div class="timeline-line"></div>
+          
+          <!-- Timeline Nodes -->
+          <div class="timeline-node" data-category="introduction">
+            <div class="node-marker">
+              <span class="node-icon">👋</span>
+            </div>
+            <div class="timeline-card glassmorphism" data-node="intro">
+              <div class="card-header">
+                <h3>Hello, I'm Ray</h3>
+                <span class="card-badge">Introduction</span>
+              </div>
+              <div class="card-content">
+                <p>A Product Manager and Front-end Developer who bridges strategy with execution, creating digital experiences that truly matter to people.</p>
+              </div>
+              <div class="card-expand-trigger">
+                <span>Learn More</span>
+                <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="card-expanded-content">
+                <h4>My Philosophy</h4>
+                <p>I believe technology becomes powerful when it connects with people on a human level. My background in political economy and philosophy gives me a unique lens for approaching product challenges with both analytical rigor and empathetic understanding.</p>
+                <p>As a Product Manager and Front-end Developer, I focus on creating digital experiences that bridge the gap between complex technical concepts and meaningful human interactions. Every project is an opportunity to make technology more accessible and impactful for the people who use it.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-node" data-category="skills">
+            <div class="node-marker">
+              <span class="node-icon">⚡</span>
+            </div>
+            <div class="timeline-card glassmorphism" data-node="skills">
+              <div class="card-header">
+                <h3>Core Capabilities</h3>
+                <span class="card-badge skills">Skills</span>
+              </div>
+              <div class="card-content">
+                <p>Versatile skill set spanning product strategy, user experience, and technical implementation.</p>
+              </div>
+              <div class="card-expand-trigger">
+                <span>View Skills</span>
+                <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="card-expanded-content">
+                <div class="skills-grid">
+                  <div class="skill-category">
+                    <h4>🎯 Product Management</h4>
+                    <ul>
+                      <li>Strategic roadmap planning & prioritization</li>
+                      <li>Cross-functional team coordination</li>
+                      <li>User research & market analysis</li>
+                      <li>Agile development methodologies</li>
+                    </ul>
+                  </div>
+                  <div class="skill-category">
+                    <h4>💻 Technical Skills</h4>
+                    <ul>
+                      <li>React.js & modern JavaScript (ES6+)</li>
+                      <li>Responsive web design & CSS</li>
+                      <li>API integration & data visualization</li>
+                      <li>Rapid prototyping & MVP development</li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-node" data-category="experience">
+            <div class="node-marker">
+              <span class="node-icon">🚀</span>
+            </div>
+            <div class="timeline-card glassmorphism" data-node="experience">
+              <div class="card-header">
+                <h3>Professional Journey</h3>
+                <span class="card-badge experience">Experience</span>
+              </div>
+              <div class="card-content">
+                <p>Building innovative products in blockchain and metaverse technologies, focusing on user adoption and meaningful experiences.</p>
+              </div>
+              <div class="card-expand-trigger">
+                <span>View Experience</span>
+                <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="card-expanded-content">
+                <div class="experience-timeline">
+                  <div class="exp-item">
+                    <div class="exp-header">
+                      <h4>Product Manager</h4>
+                      <span class="exp-company">Locas Technology</span>
+                      <span class="exp-period">2023-2024</span>
+                    </div>
+                    <p>Led blockchain application development with focus on user research, competitive analysis, and cross-functional team coordination. Successfully bridged complex technical concepts with user-friendly experiences.</p>
+                  </div>
+                  <div class="exp-item">
+                    <div class="exp-header">
+                      <h4>Project Coordinator</h4>
+                      <span class="exp-company">BITAPE</span>
+                      <span class="exp-period">2022-2023</span>
+                    </div>
+                    <p>Contributed to Freeport Metaverse game development, integrating innovative blockchain technologies with engaging user experiences. Managed community engagement and content strategy.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="timeline-node" data-category="vision">
+            <div class="node-marker">
+              <span class="node-icon">🌟</span>
+            </div>
+            <div class="timeline-card glassmorphism" data-node="vision">
+              <div class="card-header">
+                <h3>Future Vision</h3>
+                <span class="card-badge vision">What's Next</span>
+              </div>
+              <div class="card-content">
+                <p>Passionate about creating technology that makes a positive impact on people's lives and communities.</p>
+              </div>
+              <div class="card-expand-trigger">
+                <span>Learn More</span>
+                <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="card-expanded-content">
+                <h4>What Drives Me Forward</h4>
+                <p>I'm excited about collaborating on projects that create meaningful change. Whether it's improving accessibility, building sustainable solutions, or fostering genuine human connections through technology.</p>
+                <div class="vision-items">
+                  <div class="vision-item">
+                    <h5>Social Impact</h5>
+                    <p>Working on products that address real societal challenges and improve quality of life for communities.</p>
+                  </div>
+                  <div class="vision-item">
+                    <h5>Collaborative Innovation</h5>
+                    <p>Building bridges between diverse teams, ideas, and technologies to create solutions greater than the sum of their parts.</p>
+                  </div>
+                  <div class="vision-item">
+                    <h5>Intentional Technology</h5>
+                    <p>Developing tools and experiences that enhance human capabilities without overwhelming or replacing human judgment.</p>
+                  </div>
+                </div>
+                <div class="cta-section">
+                  <p><strong>Ready to collaborate?</strong> I'm open to consulting opportunities, product partnerships, and meaningful projects.</p>
+                  <a href="#/contact" class="timeline-cta-btn" onclick="navigateTo('contact')">
+                    <span>Start a Conversation</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+    </main>
         
         <div class="about-content">
-          <!-- Professional Version -->
-          <div class="about-version active" id="about-professional">
-            <div class="about-header">
-              <h2 class="about-headline">Bridging Strategy and Execution Through Human-Centered Design</h2>
-            </div>
-            
-            <section class="about-section">
-              <h3><span class="section-icon">🎯</span> Background</h3>
-              <p>With a foundation in political economy and philosophy, I bring analytical rigor and human-centered thinking to product challenges. My multidisciplinary background enables me to approach complex problems with both strategic depth and empathetic understanding of user needs.</p>
-            </section>
 
-            <section class="about-section">
-              <h3><span class="section-icon">💎</span> Core Values</h3>
-              <div class="values-grid">
-                <div class="value-item">
-                  <span class="value-icon">🤝</span>
-                  <h4>Sincerity</h4>
-                  <p>Authentic communication builds trust and enables meaningful collaboration across teams.</p>
-                </div>
-                <div class="value-item">
-                  <span class="value-icon">❤️</span>
-                  <h4>Empathy</h4>
-                  <p>Understanding user perspectives drives better product decisions and inclusive design solutions.</p>
-                </div>
-                <div class="value-item">
-                  <span class="value-icon">📚</span>
-                  <h4>Continuous Learning</h4>
-                  <p>Staying curious and adaptable in an evolving technological landscape ensures long-term success.</p>
-                </div>
-              </div>
-            </section>
 
-            <section class="about-section">
-              <h3><span class="section-icon">🌟</span> Professional Experience</h3>
-              <div class="experience-summary">
-                <div class="exp-item">
-                  <h4>Product Management</h4>
-                  <p>Led blockchain application development at Locas Technology, focusing on user research, market analysis, and cross-functional team coordination.</p>
-                </div>
-                <div class="exp-item">
-                  <h4>Project Planning</h4>
-                  <p>Contributed to Freeport Metaverse game development at BITAPE, integrating innovative blockchain technologies with engaging user experiences.</p>
-                </div>
-              </div>
-            </section>
 
-            <section class="about-section">
-              <h3><span class="section-icon">🎨</span> Interests & Inspiration</h3>
-              <p>I find inspiration in science fiction and philosophy literature, architectural exploration during travels, and photography that captures the interplay of light and shadow. These pursuits inform my approach to design and problem-solving.</p>
-            </section>
-
-            <section class="about-section">
-              <h3><span class="section-icon">🚀</span> Future Direction</h3>
-              <p>I'm passionate about working on meaningful projects that create positive social impact. Currently available for product management consulting and collaborative projects that prioritize user empathy and technical excellence.</p>
-            </section>
-          </div>
-
-          <!-- Creative & Warm Version -->
-          <div class="about-version" id="about-creative">
-            <div class="about-header">
-              <h2 class="about-headline">Creating Digital Experiences with Heart and Purpose</h2>
-            </div>
-            
-            <section class="about-section">
-              <h3><span class="section-icon">🌱</span> My Journey</h3>
-              <p>My path began in the thoughtful world of political economy and philosophy, where I learned to see beyond surfaces and understand the deeper currents that shape human behavior. This foundation naturally led me to product management, where I discovered my love for creating meaningful digital experiences that truly serve people's needs.</p>
-            </section>
-
-            <section class="about-section">
-              <h3><span class="section-icon">💫</span> What Drives Me</h3>
-              <div class="values-grid warm">
-                <div class="value-item warm">
-                  <span class="value-icon">🌸</span>
-                  <h4>Genuine Connection</h4>
-                  <p>I believe in the power of authentic relationships to create products that people genuinely love and find useful in their daily lives.</p>
-                </div>
-                <div class="value-item warm">
-                  <span class="value-icon">🤗</span>
-                  <h4>Empathetic Understanding</h4>
-                  <p>Every user has a story, and I'm passionate about understanding these stories to create more inclusive and thoughtful solutions.</p>
-                </div>
-                <div class="value-item warm">
-                  <span class="value-icon">🌟</span>
-                  <h4>Joyful Growth</h4>
-                  <p>Learning is a lifelong adventure, and I approach each new challenge with curiosity, wonder, and enthusiasm.</p>
-                </div>
-              </div>
-            </section>
-
-            <section class="about-section">
-              <h3><span class="section-icon">🎭</span> My Creative Adventures</h3>
-              <div class="experience-summary warm">
-                <div class="exp-item warm">
-                  <h4>Blockchain Innovation</h4>
-                  <p>At Locas Technology, I helped bring complex blockchain concepts to life through user-friendly experiences, making the technology accessible and meaningful.</p>
-                </div>
-                <div class="exp-item warm">
-                  <h4>Metaverse Storytelling</h4>
-                  <p>With BITAPE, I contributed to creating the Freeport Metaverse—a digital world where technology meets imagination and community.</p>
-                </div>
-              </div>
-            </section>
-
-            <section class="about-section">
-              <h3><span class="section-icon">🎪</span> Life Beyond Code</h3>
-              <p>When I'm not designing digital experiences, you'll find me lost in a good science fiction novel, wandering through cities to admire their architecture, or capturing moments through photography. These passions fuel my creativity and remind me that the best products are those that enhance and celebrate human experience.</p>
-            </section>
-
-            <section class="about-section">
-              <h3><span class="section-icon">🌈</span> Let's Create Something Beautiful</h3>
-              <p>I'm excited about collaborating on projects that make a positive difference in people's lives. Whether it's a small community initiative or a larger social impact venture, I believe in the power of thoughtful design and genuine care to create lasting change.</p>
-            </section>
-          </div>
 
           <!-- Playful & Modern Version -->
           <div class="about-version" id="about-playful">
             <div class="about-header">
-              <h2 class="about-headline">Product Manager + Front-end Developer = Digital Magic ✨</h2>
+              <h2 class="about-headline">Product Manager + Front-end Developer</h2>
             </div>
             
             <section class="about-section">
-              <h3><span class="section-icon">🚀</span> The Origin Story</h3>
-              <p>Plot twist: I started in political economy and philosophy (yes, really! 📚), then discovered my superpower was translating complex ideas into user-friendly experiences. Now I'm that rare breed who speaks both "business strategy" and "JavaScript" fluently. 🤓</p>
+              <h3><span class="section-icon"></span>The Origin Story</h3>
+              <p>I started in political economy and philosophy (yes, really! ), then discovered my superpower was translating complex ideas into user-friendly experiences. Now I'm that rare breed who speaks both "product management" and "JavaScript" fluently.</p>
             </section>
 
             <section class="about-section">
-              <h3><span class="section-icon">⚡</span> My Superpowers</h3>
+              <h3><span class="section-icon"></span>My Superpowers</h3>
               <div class="values-grid playful">
                 <div class="value-item playful">
                   <span class="value-icon">🎯</span>
@@ -491,51 +533,31 @@ const pages = {
                 </div>
                 <div class="value-item playful">
                   <span class="value-icon">🧠</span>
-                  <h4>Mind-Reading*</h4>
-                  <p>*Actually just really good user research, but it feels like magic when you nail what users need before they know it themselves.</p>
+                  <h4>Mind-Reading</h4>
+                  <p>Actually just really good user research, but it feels like magic when you nail what users need before they know it themselves.</p>
                 </div>
                 <div class="value-item playful">
                   <span class="value-icon">🌱</span>
                   <h4>Evolution Mode</h4>
-                  <p>Constantly leveling up my skills. Today's React.js might be tomorrow's AI-powered something. Staying future-ready! 🤖</p>
+                  <p>Constantly leveling up my skills. Today's React.js might be tomorrow's AI-powered something. Staying future-ready!</p>
                 </div>
               </div>
             </section>
 
             <section class="about-section">
-              <h3><span class="section-icon">🎮</span> Level Completions</h3>
-              <div class="experience-summary playful">
-                <div class="exp-item playful">
-                  <h4>🔗 Blockchain Quest at Locas Technology</h4>
-                  <p>Navigated the wild west of crypto tech to create user experiences that actually made sense. Achievement unlocked: Making blockchain less scary! 🏆</p>
-                </div>
-                <div class="exp-item playful">
-                  <h4>🌍 Metaverse Builder at BITAPE</h4>
-                  <p>Helped craft digital worlds where imagination meets reality. Think Ready Player One, but with better UX and fewer evil corporations. 😄</p>
-                </div>
-              </div>
-            </section>
-
-            <section class="about-section">
-              <h3><span class="section-icon">🎪</span> When I'm Not Coding...</h3>
-              <p>You'll catch me devouring sci-fi novels (current obsession: anything with AI that doesn't take over the world 🤖), street photography adventures (always hunting for that perfect light ✨), or getting lost in architectural rabbit holes during travel. Pro tip: I can discuss both Blade Runner AND CSS Grid with equal enthusiasm! 🤓</p>
+              <h3><span class="section-icon"></span>When I'm Not Coding...</h3>
+              <p>You'll catch me devouring sci-fi novels, street photography adventures, or getting lost in architectural rabbit holes during travel. I can discuss both Blade Runner AND Javascript with equal enthusiasm!</p>
             </section>
 
             <section class="about-section">
               <h3><span class="section-icon">🎯</span> Next Mission</h3>
-              <p>Ready to join forces with teams who want to build stuff that matters. Small social impact projects? Yes please! 🙌 Consulting gigs where I can flex both my PM and dev muscles? Double yes! Let's create digital experiences that make people's lives genuinely better. 🚀</p>
+              <p>Ready to join forces with teams who want to build stuff that matters. Small social impact projects? Yes please! Consulting gigs where I can flex both my PM and dev muscles? Double yes! Let's create digital experiences that make people's lives genuinely better.</p>
             </section>
 
             <section class="about-section contact-cta">
               <div class="cta-content">
-                <h3>Ready to Build Something Awesome? 🎉</h3>
+                <h3>Ready to Build Something Awesome?</h3>
                 <p>Let's chat about your next project over virtual coffee! ☕</p>
-                <a href="#/contact" class="btn btn-primary cta-button">
-                  <span>Start the Conversation</span>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                  </svg>
-                </a>
               </div>
             </section>
           </div>
@@ -2493,44 +2515,215 @@ function showNavigationForContent() {
   }
 }
 
-// About Page Tone Switching Functionality
-function initAboutToneSwitching() {
-  const toneButtons = document.querySelectorAll('.tone-tab');
-  const aboutVersions = document.querySelectorAll('.about-version');
+// Interactive Timeline Functionality for About Page
+class TimelineManager {
+  constructor() {
+    this.timelineNodes = [];
+    this.observer = null;
+    this.isInitialized = false;
+  }
+  
+  cleanup() {
+    if (this.observer) {
+      this.observer.disconnect();
+      this.observer = null;
+    }
+    // 移除之前的事件監聽器
+    this.timelineNodes.forEach(node => {
+      const expandTrigger = node.querySelector('.card-expand-trigger');
+      if (expandTrigger) {
+        expandTrigger.replaceWith(expandTrigger.cloneNode(true));
+      }
+    });
+    this.timelineNodes = [];
+  }
 
-  console.log('Initializing about tone switching...', { toneButtons: toneButtons.length, aboutVersions: aboutVersions.length });
+  init() {
+    // 重置初始化狀態，允許重新渲染
+    this.cleanup();
+    this.isInitialized = false;
+    
+    this.timelineNodes = document.querySelectorAll('.timeline-node');
+    if (this.timelineNodes.length === 0) return;
+    
+    console.log('🚀 Initializing interactive timeline...', { nodes: this.timelineNodes.length });
+    
+    // Setup intersection observer for scroll animations
+    this.setupScrollAnimations();
+    
+    // Setup card interactions
+    this.setupCardInteractions();
+    
+    // Setup accessibility
+    this.setupAccessibility();
+    
+    this.isInitialized = true;
+    console.log('✅ Timeline initialized successfully');
+  }
 
-  toneButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const selectedTone = this.getAttribute('data-tone');
-      console.log('Tone selected:', selectedTone);
+  setupScrollAnimations() {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    
+    if (prefersReducedMotion.matches) {
+      // Skip animations if user prefers reduced motion
+      this.timelineNodes.forEach(node => node.classList.add('animate-in'));
+      return;
+    }
 
-      // Update button states
-      toneButtons.forEach(btn => btn.classList.remove('active'));
-      this.classList.add('active');
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Add staggered animation delay based on index
+            const nodeIndex = Array.from(this.timelineNodes).indexOf(entry.target);
+            setTimeout(() => {
+              entry.target.classList.add('animate-in');
+            }, nodeIndex * 150);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '-100px 0px -100px 0px',
+        threshold: 0.3
+      }
+    );
 
-      // Update content versions with fade effect
-      aboutVersions.forEach(version => {
-        if (version.classList.contains('active')) {
-          version.style.opacity = '0';
-          setTimeout(() => {
-            version.classList.remove('active');
-            
-            // Show new version
-            const newVersion = document.querySelector(`.about-version[id="about-${selectedTone}"]`);
-            if (newVersion) {
-              newVersion.classList.add('active');
-              setTimeout(() => {
-                newVersion.style.opacity = '1';
-              }, 50);
-            }
-          }, 300);
+    this.timelineNodes.forEach(node => {
+      this.observer.observe(node);
+    });
+  }
+
+  setupCardInteractions() {
+    const timelineCards = document.querySelectorAll('.timeline-card');
+    
+    timelineCards.forEach(card => {
+      const expandTrigger = card.querySelector('.card-expand-trigger');
+      const expandedContent = card.querySelector('.card-expanded-content');
+      
+      if (!expandTrigger || !expandedContent) return;
+
+      expandTrigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.toggleCard(card);
+      });
+
+      // Keyboard support
+      expandTrigger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.toggleCard(card);
         }
       });
-    });
-  });
 
-  console.log('About tone switching initialized successfully');
+      // Make expand trigger focusable
+      expandTrigger.setAttribute('tabindex', '0');
+      expandTrigger.setAttribute('role', 'button');
+    });
+  }
+
+  toggleCard(card) {
+    const isExpanded = card.classList.contains('expanded');
+    const expandTrigger = card.querySelector('.card-expand-trigger span');
+    
+    if (isExpanded) {
+      card.classList.remove('expanded');
+      expandTrigger.textContent = this.getExpandText(card);
+      card.setAttribute('aria-expanded', 'false');
+    } else {
+      // Close other expanded cards for better UX
+      document.querySelectorAll('.timeline-card.expanded').forEach(otherCard => {
+        if (otherCard !== card) {
+          otherCard.classList.remove('expanded');
+          otherCard.setAttribute('aria-expanded', 'false');
+          const otherTrigger = otherCard.querySelector('.card-expand-trigger span');
+          if (otherTrigger) {
+            otherTrigger.textContent = this.getExpandText(otherCard);
+          }
+        }
+      });
+      
+      card.classList.add('expanded');
+      expandTrigger.textContent = 'Show Less';
+      card.setAttribute('aria-expanded', 'true');
+      
+      // Reduced scroll distance - only slight adjustment
+      setTimeout(() => {
+        const cardRect = card.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Only scroll if card is significantly out of view
+        if (cardRect.bottom > windowHeight + 50) {
+          const scrollOffset = window.scrollY + (cardRect.bottom - windowHeight) + 80; // Small adjustment
+          window.scrollTo({ 
+            top: scrollOffset,
+            behavior: 'smooth'
+          });
+        }
+      }, 300);
+    }
+  }
+
+  getExpandText(card) {
+    const nodeData = card.getAttribute('data-node');
+    const expandTexts = {
+      'intro': 'Learn More',
+      'skills': 'View Skills', 
+      'experience': 'View Experience',
+      'projects': 'Explore Projects',
+      'vision': 'Learn More'
+    };
+    return expandTexts[nodeData] || 'Learn More';
+  }
+
+  setupAccessibility() {
+    // Add ARIA labels and descriptions
+    this.timelineNodes.forEach((node, index) => {
+      const card = node.querySelector('.timeline-card');
+      const expandTrigger = node.querySelector('.card-expand-trigger');
+      const expandedContent = node.querySelector('.card-expanded-content');
+      
+      if (card && expandTrigger && expandedContent) {
+        const nodeId = `timeline-node-${index}`;
+        const contentId = `timeline-content-${index}`;
+        
+        card.setAttribute('id', nodeId);
+        expandedContent.setAttribute('id', contentId);
+        expandTrigger.setAttribute('aria-controls', contentId);
+        expandTrigger.setAttribute('aria-expanded', 'false');
+        
+        // Add descriptive labels
+        const category = node.getAttribute('data-category');
+        const title = card.querySelector('.card-header h3')?.textContent;
+        
+        if (title) {
+          expandTrigger.setAttribute('aria-label', `Expand ${title} section`);
+        }
+      }
+    });
+  }
+
+  destroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+      this.observer = null;
+    }
+    this.isInitialized = false;
+  }
+}
+
+// Global timeline manager instance
+let timelineManager = null;
+
+// Initialize timeline when on about page
+function initTimelinePage() {
+  if (document.querySelector('.timeline-page')) {
+    if (!timelineManager) {
+      timelineManager = new TimelineManager();
+    }
+    timelineManager.init();
+  }
 }
 
 // Modified navigateTo function to initialize about page functionality
@@ -2546,7 +2739,7 @@ window.navigateTo = function(route) {
   // Initialize about page functionality after page load
   if (route === 'about') {
     setTimeout(() => {
-      initAboutToneSwitching();
+      initTimelinePage();
     }, 100);
   }
 };
