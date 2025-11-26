@@ -246,11 +246,8 @@ AI introduces a new collaborative territory where every team member participates
 The quality of the model's output depends on the completeness, consistency, and richness of this collective context.
 
 In this domain:
-
 The PM is not the only person defining intent.
-
 Designers are not the only ones constructing experiential logic.
-
 Engineers are not the only ones shaping system constraints.
 
 All roles contribute to the evolving semantic environment that the AI relies on to reason and create. Teams move from collaborating through artifacts to collaborating through a shared cognitive substrate.
@@ -277,11 +274,8 @@ The PM becomes less a translator across silos and more a steward of coherence, d
 Reflecting on this evolution, I no longer view my work as toggling between PM and engineer modes. A more accurate description is an AI-oriented product role—one that integrates vision, constraints, reasoning, system design, and continuous supervision of autonomous executors.
 
 In this emerging model:
-
 The PM is not merely articulating strategy.
-
 The engineer is not merely building systems.
-
 And AI is not merely a productivity tool.
 
 AI becomes part of the operational substrate of product development.

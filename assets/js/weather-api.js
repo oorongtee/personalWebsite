@@ -119,61 +119,16 @@ class WeatherVisualizer {
   }
   
   createWeatherDisplay() {
-    // 創建氣象資訊顯示面板（隱藏狀態）
-    const weatherPanel = document.createElement('div');
-    weatherPanel.className = 'weather-display weather-hidden';
-    weatherPanel.innerHTML = `
-      <div class="weather-header">
-        <h4>Weather</h4>
-        <button class="weather-close" title="Close">&times;</button>
-      </div>
-      <div class="weather-content">
-        <div class="weather-location">📍 Taipei</div>
-        <div class="weather-grid">
-          <div class="weather-item">
-            <span class="weather-icon">💨</span>
-            <div class="weather-data">
-              <span class="weather-value" id="windSpeed">--</span>
-              <span class="weather-unit">m/s</span>
-            </div>
-          </div>
-          <div class="weather-item">
-            <span class="weather-icon wind-direction" id="windDirection">🧭</span>
-            <div class="weather-data">
-              <span class="weather-value" id="windDir">--</span>
-              <span class="weather-unit">°</span>
-            </div>
-          </div>
-          <div class="weather-item">
-            <span class="weather-icon">🌡️</span>
-            <div class="weather-data">
-              <span class="weather-value" id="airTemp">--</span>
-              <span class="weather-unit">°C</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
-    
-    document.body.appendChild(weatherPanel);
-    this.weatherPanel = weatherPanel;
-    
-    // 添加關閉按鈕事件
-    const closeBtn = weatherPanel.querySelector('.weather-close');
-    closeBtn.addEventListener('click', () => this.hideWeatherPanel());
+    // 天氣顯示面板功能已暫時停用
+    // 天氣數據仍會在背景獲取並用於視覺效果
+    console.log('🌤️ Weather display UI disabled - weather data still active for visual effects');
+    return;
   }
 
   // 🎯 模組化側邊欄系統
   createSidebar() {
-    // 定義側邊欄模組配置
+    // 定義側邊欄模組配置 (移除天氣模組)
     this.sidebarModules = [
-      {
-        id: 'weather',
-        title: 'Weather',
-        svg: this.getWeatherSVG(),
-        action: () => this.toggleWeatherPanel(),
-        panelClass: 'weather-display'
-      },
       {
         id: 'music', 
         title: 'Music',
@@ -466,30 +421,12 @@ class WeatherVisualizer {
   }
   
   updateWeatherDisplay() {
-    const windSpeedEl = document.getElementById('windSpeed');
-    const airTempEl = document.getElementById('airTemp');
-    const windDirectionEl = document.getElementById('windDirection');
-    const windDirEl = document.getElementById('windDir');
-    const apiStatusEl = document.getElementById('apiStatus');
-    
-    console.log('🔍 查找天氣顯示元素:', {
-      windSpeedEl: !!windSpeedEl,
-      airTempEl: !!airTempEl, 
-      windDirectionEl: !!windDirectionEl,
-      windDirEl: !!windDirEl,
-      apiStatusEl: !!apiStatusEl
+    // 由於天氣UI已停用，只記錄數據更新
+    console.log('🌤️ Weather data updated (UI disabled):', {
+      windSpeed: this.currentData.windSpeed.toFixed(1) + ' m/s',
+      temperature: this.currentData.airTemperature.toFixed(1) + '°C',
+      windDirection: Math.round(this.currentData.windDirection) + '°'
     });
-    
-    if (windSpeedEl) windSpeedEl.textContent = this.currentData.windSpeed.toFixed(1);
-    if (airTempEl) airTempEl.textContent = this.currentData.airTemperature.toFixed(1);
-    if (windDirectionEl) {
-      windDirectionEl.style.transform = `rotate(${this.currentData.windDirection}deg)`;
-    }
-    if (windDirEl) windDirEl.textContent = Math.round(this.currentData.windDirection);
-    if (apiStatusEl) {
-      apiStatusEl.className = `weather-status-dot ${this.isApiWorking ? 'online' : 'offline'}`;
-      apiStatusEl.title = this.isApiWorking ? '即時數據' : '預設數據';
-    }
   }
   
   updateVisualEffects() {

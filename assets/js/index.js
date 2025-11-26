@@ -58,7 +58,7 @@ const footer = `
         <!-- 左邊：介紹和信息 -->
         <div class="footer-section footer-left">
           <h4>Ray</h4>
-          <p>Product Manager & Front-end Engineer bridging strategy and execution — creating digital experiences shaped by technology, grounded in human behavior, and refined through both empathy and technical craft.</p>
+          <p>Product Manager & Front-end Developer bridging strategy and execution — creating digital experiences shaped by technology, grounded in human behavior, and refined through both empathy and technical craft.</p>
         </div>
 
         <!-- 中間：聯絡信息 -->
@@ -231,7 +231,7 @@ const pages = {
             </div>
             <div class="card-content">
               <p class="services-card-text">
-                I translate business goals into actionable product decisions. Through competitive analysis, user research, and clear prioritization, I shape the product roadmap and ensure every feature delivers real user and business value. From blockchain platforms to metaverse gaming, I focus on making complex ideas usable, aligned, and achievable.
+                I translate business goals into actionable product decisions. Through competitive analysis, user research, and clear prioritization, I shape the product roadmap and ensure every feature delivers real user and business value.
               </p>
             </div>
             <div class="card-footer">
@@ -269,7 +269,7 @@ const pages = {
             </div>
             <div class="card-content">
               <p class="services-card-text">
-                I facilitate communication between business, design, and engineering teams. Having worked across blockchain application and gaming. I understand how to align technical feasibility with business goals.
+                I facilitate communication between business, design, and engineering teams. I understand how to align technical feasibility with business goals.
               </p>
             </div>
             <div class="card-footer">
@@ -345,7 +345,7 @@ const pages = {
           <!-- Timeline Nodes -->
           <div class="timeline-node" data-category="introduction">
             <div class="node-marker">
-              <span class="node-icon">👋</span>
+              <span class="node-icon"></span>
             </div>
             <div class="timeline-card glassmorphism timeline-card-intro" data-node="intro">
               <div class="card-header">
@@ -371,7 +371,7 @@ const pages = {
 
           <div class="timeline-node" data-category="skills">
             <div class="node-marker">
-              <span class="node-icon">⚡</span>
+              <span class="node-icon"></span>
             </div>
             <div class="timeline-card glassmorphism timeline-card-skills" data-node="skills">
               <div class="card-header">
@@ -379,7 +379,7 @@ const pages = {
                 <span class="card-badge skills">Skills</span>
               </div>
               <div class="card-content">
-                <p>Versatile skill set spanning product strategy, user experience, and technical implementation.</p>
+                <p>Versatile skill set spanning product management, user experience, and technical implementation.</p>
               </div>
               <div class="card-expand-trigger">
                 <span>View Skills</span>
@@ -394,7 +394,7 @@ const pages = {
                     <ul>
                       <li>Strategic roadmap planning & prioritization</li>
                       <li>Cross-functional team coordination</li>
-                      <li>User research & market analysis</li>
+                      <li>User research & Data analysis</li>
                       <li>Agile development methodologies</li>
                     </ul>
                   </div>
@@ -415,7 +415,7 @@ const pages = {
 
           <div class="timeline-node" data-category="experience">
             <div class="node-marker">
-              <span class="node-icon">🚀</span>
+              <span class="node-icon"></span>
             </div>
             <div class="timeline-card glassmorphism timeline-card-experience" data-node="experience">
               <div class="card-header">
@@ -423,7 +423,7 @@ const pages = {
                 <span class="card-badge experience">Experience</span>
               </div>
               <div class="card-content">
-                <p>Building innovative products in blockchain and metaverse technologies, focusing on user adoption and meaningful experiences.</p>
+                <p>Building innovative products in blockchain technologies, focusing on user adoption and meaningful experiences.</p>
               </div>
               <div class="card-expand-trigger">
                 <span>View Experience</span>
@@ -437,17 +437,17 @@ const pages = {
                     <div class="exp-header">
                       <h4>Product Manager</h4>
                       <span class="exp-company">Locas Technology</span>
-                      <span class="exp-period">2023-2024</span>
+                      <span class="exp-period">2023Aug-2023Oct</span>
                     </div>
-                    <p>Led blockchain application development with focus on user research, competitive analysis, and cross-functional team coordination. Successfully bridged complex technical concepts with user-friendly experiences.</p>
+                    <p>Blockchain application development with focus on user research, competitive analysis, and cross-functional team coordination. Bridged complex technical concepts with user-friendly experiences.</p>
                   </div>
                   <div class="exp-item">
                     <div class="exp-header">
                       <h4>Project Coordinator</h4>
-                      <span class="exp-company">BITAPE</span>
-                      <span class="exp-period">2022-2023</span>
+                      <span class="exp-company">BITAPE Technology</span>
+                      <span class="exp-period">2022Mar-2023May</span>
                     </div>
-                    <p>Contributed to Freeport Metaverse game development, integrating innovative blockchain technologies with engaging user experiences. Managed community engagement and content strategy.</p>
+                    <p>Contributed to Freeport Metaverse game development, integrating innovative blockchain technologies with engaging user experiences. Managed community engagement, game design and content strategy.</p>
                   </div>
                 </div>
               </div>
@@ -458,7 +458,7 @@ const pages = {
 
           <div class="timeline-node" data-category="vision">
             <div class="node-marker">
-              <span class="node-icon">🌟</span>
+              <span class="node-icon"></span>
             </div>
             <div class="timeline-card glassmorphism timeline-card-vision" data-node="vision">
               <div class="card-header">
@@ -520,39 +520,39 @@ const pages = {
             
             <section class="about-section">
               <h3><span class="section-icon"></span>The Origin Story</h3>
-              <p>I started in political economy and philosophy (yes, really! ), then discovered my superpower was translating complex ideas into user-friendly experiences. Now I'm that rare breed who speaks both "product management" and "JavaScript" fluently.</p>
+              <p>Started in political economy and philosophy, got lost in big ideas, and accidentally discovered my real talent: translating complexity into experiences people actually enjoy using. Now I'm that rare creature who speaks product strategy, user empathy, and JavaScript—fluently.</p>
             </section>
 
             <section class="about-section">
-              <h3><span class="section-icon"></span>My Superpowers</h3>
+              <h3><span class="section-icon"></span>What I Bring</h3>
               <div class="values-grid playful">
                 <div class="value-item playful truth-telling">
                   <h4>Truth-Telling</h4>
-                  <p>No corporate BS here. I say what I mean, mean what I say, and build products that actually solve real problems.</p>
+                  <p>No buzzword soup here. I call things as they are, cut through the noise, and build products that solve real, human problems — not imaginary KPI fantasies.</p>
                 </div>
                 <div class="value-item playful mind-reading">
                   <h4>Mind-Reading</h4>
-                  <p>Actually just really good user research, but it feels like magic when you nail what users need before they know it themselves.</p>
+                  <p>Not actual magic—just sharp user research plus a habit of observing people a little too closely. The result? Features that feel like I read your mind.</p>
                 </div>
                 <div class="value-item playful evolution-mode">
                   <h4>Evolution Mode</h4>
-                  <p>Constantly leveling up my skills. Today's React.js might be tomorrow's AI-powered something. Staying future-ready!</p>
+                  <p>I’m always upgrading. Today it's React.js and product frameworks; tomorrow it might be AI-driven ecosystems or something we don’t even have a name for yet.</p>
                 </div>
                 <div class="value-item playful system-thinking">
                   <h4>System Thinking</h4>
-                  <p>I see the big picture while managing the details. Building scalable solutions that grow with your vision, not just quick fixes.</p>
+                  <p>I zoom out to see the system, zoom in to fix the detail, and connect everything into something scalable, maintainable, and meaningful.</p>
                 </div>
               </div>
             </section>
 
             <section class="about-section">
               <h3><span class="section-icon"></span>When I'm Not Coding...</h3>
-              <p>You'll catch me devouring sci-fi novels, street photography adventures, or getting lost in architectural rabbit holes during travel. I can discuss both Blade Runner AND Javascript with equal enthusiasm!</p>
+              <p>You'll catch me devouring sci-fi novels, street photography adventures, or getting lost in architectural rabbit holes during travel. I can discuss both Blade Runner && Javascript with equal enthusiasm!</p>
             </section>
 
             <section class="about-section">
-              <h3><span class="section-icon"></span>Next Mission</h3>
-              <p>Ready to join forces with teams who want to build stuff that matters. Small social impact projects? Yes please! Consulting gigs where I can flex both my PM and dev muscles? Double yes! Let's create digital experiences that make people's lives genuinely better.</p>
+              <h3><span class="section-icon"></span>What I’m Looking For</h3>
+              <p>I’m ready to team up with people who want to build things that matter. Small social impact ideas that need clarity? I’m in. Consulting projects where I can flex both PM strategy and dev execution? Even better. Let’s make digital experiences that genuinely improve life—one thoughtful interface at a time.</p>
             </section>
 
             <section class="about-section contact-cta">
@@ -596,20 +596,6 @@ const pages = {
           <div class="works-detail-section" id="worksDetail">
             <!-- 項目詳情會動態生成 -->
           </div>
-        </div>
-      </div>
-    </main>
-
-    ${footer}
-  `,
-  
-  play: `
-    <main class="page-content">
-      <div class="hero-content">
-        <h1>Play</h1>
-        <div class="page-text">
-          <p>This is where I showcase my creative projects and experimentations.</p>
-          <p>Coming soon...</p>
         </div>
       </div>
     </main>
@@ -668,7 +654,7 @@ const pages = {
             </div>
           </div>
           <div class="contact-personal-info">
-            <p class="contact-subtitle">Hi there! I'm Ray — a Product Manager & Front-end Engineer.</p>
+            <p class="contact-subtitle">Hi there! I'm Ray — a Product Manager & Front-end Developer.</p>
             <p class="response-info">💬 I read and respond to every message myself. Whether you're reaching out about opportunities, collaboration, or simply to connect, I'm always happy to hear from you.</p>
           </div>
         </div>
@@ -809,7 +795,7 @@ const worksData = [
     category: "dev",
     subtitle: "AI-driven development workflow showcase with modern portfolio features",
     description: "A living demonstration of AI-agent-led development, where Copilot AI paired with Claude Sonnet 4 served as the primary development driver. This portfolio showcases the complete workflow transformation from traditional coding to context engineering, featuring dynamic weather integration, AI chatbot assistant, and comprehensive development documentation in the GitHub README.",
-    technologies: ["AI-Driven Development", "JavaScript ES6+", "Context Engineering", "Claude Sonnet 4", "Modern Web APIs", "Workflow Optimization"],
+    technologies: ["AI-Driven Development", "Context Engineering", "Claude Sonnet 4", "Workflow Optimization"],
     website: "",
     github: "https://github.com/oorongtee/personalWebsite",
     document: "./docs/PersonalWebsite_Spec.pdf",
@@ -820,7 +806,7 @@ const worksData = [
     title: "Freeport Metaverse Game",
     category: "projects",
     subtitle: "A cross-platform metaverse game integrating blockchain for virtual asset management.",
-    description: "Contributed to the planning and coordination of a metaverse game with cross-platform virtual asset management. Led community engagement, created product, and designed game missions and narrative contents. Collaborated closely with cross-functional teams to support development and feature execution.",
+    description: "Contributed to the planning and coordination of a metaverse game with cross-platform virtual asset management. Hand-on with community engagement, created product, and designed game missions and narrative contents. Collaborated closely with cross-functional teams to support development and feature execution.",
     technologies: ["Game Design", "Community Management", "Content Strategy"],
     website: "",
     github: "",
@@ -2423,12 +2409,12 @@ function initEnhancedHoverEffects() {
 
 // ♿ Accessibility Features
 function initAccessibilityFeatures() {
-  // Add focus indicators for keyboard navigation
-  const focusableElements = document.querySelectorAll('a, button, input, textarea, [tabindex]:not([tabindex="-1"])');
+  // Focus indicators for keyboard navigation (excluding nav links)
+  const focusableElements = document.querySelectorAll('input, textarea, [tabindex]:not([tabindex="-1"])');
   
   focusableElements.forEach(element => {
     element.addEventListener('focus', () => {
-      element.style.outline = '3px solid rgba(34, 197, 94, 0.6)';
+      element.style.outline = '2px solid rgba(34, 197, 94, 0.6)';
       element.style.outlineOffset = '2px';
     });
     
@@ -2438,7 +2424,7 @@ function initAccessibilityFeatures() {
     });
   });
   
-  console.log('♿ Accessibility features initialized');
+  console.log('♿ Accessibility features initialized (nav elements excluded)');
 }
 
 // ⚡ Performance Optimizations
