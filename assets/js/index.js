@@ -515,17 +515,20 @@ const pages = {
           <!-- Playful & Modern Version -->
           <div class="about-version enhanced-section" id="about-enhanced">
             <div class="about-header">
-              <h2 class="about-headline">Product Manager + Front-end Developer</h2>
+              <h2 class="about-headline gradient-headline">Product Manager + Front-end Developer</h2>
             </div>
             
-            <section class="about-section">
-              <h3><span class="section-icon"></span>The Origin Story</h3>
-              <p>Started in political economy and philosophy, got lost in big ideas, and accidentally discovered my real talent: translating complexity into experiences people actually enjoy using. Now I'm that rare creature who speaks product strategy, user empathy, and JavaScript—fluently.</p>
+            <section class="about-section origin-story-section">
+              <div class="content-box earth-shadow hover-animated accessible">
+                <h4><span class="section-icon"></span>The Origin Story</h4>
+                <p>Started in political economy and philosophy, got lost in big ideas, and accidentally discovered my real talent: translating complexity into experiences people actually enjoy using. Now I'm that rare creature who speaks product strategy, user empathy, and JavaScript—fluently.</p>
+              </div>
             </section>
 
-            <section class="about-section">
-              <h3><span class="section-icon"></span>What I Bring</h3>
-              <div class="values-grid playful">
+            <section class="about-section what-i-bring-section">
+              <div class="content-box earth-shadow hover-animated accessible">
+                <h4><span class="section-icon"></span>What I Bring</h4>
+                <div class="values-grid playful">
                 <div class="value-item playful truth-telling">
                   <h4>Truth-Telling</h4>
                   <p>No buzzword soup here. I call things as they are, cut through the noise, and build products that solve real, human problems — not imaginary KPI fantasies.</p>
@@ -542,25 +545,30 @@ const pages = {
                   <h4>System Thinking</h4>
                   <p>I zoom out to see the system, zoom in to fix the detail, and connect everything into something scalable, maintainable, and meaningful.</p>
                 </div>
+                </div>
               </div>
             </section>
 
-            <section class="about-section">
-              <h3><span class="section-icon"></span>When I'm Not Coding...</h3>
-              <p>You'll catch me devouring sci-fi novels, street photography adventures, or getting lost in architectural rabbit holes during travel. I can discuss both Blade Runner && Javascript with equal enthusiasm!</p>
-            </section>
+            <section class="about-section personal-section">
+              <div class="content-box earth-shadow hover-animated accessible">
+                <h4><span class="section-icon"></span>When I'm Not Coding...</h4>
+                <p>You'll catch me devouring sci-fi novels, street photography adventures, or getting lost in architectural rabbit holes during travel. I can discuss both Blade Runner && Javascript with equal enthusiasm!</p>
+                <h4><span class="section-icon"></span>What I’m Looking For</h4>
+                <p>I’m ready to team up with people who want to build things that matter. Small social impact ideas that need clarity? I’m in. Consulting projects where I can flex both PM strategy and dev execution? Even better. Let’s make digital experiences that genuinely improve life—one thoughtful interface at a time.</p>
 
-            <section class="about-section">
-              <h3><span class="section-icon"></span>What I’m Looking For</h3>
-              <p>I’m ready to team up with people who want to build things that matter. Small social impact ideas that need clarity? I’m in. Consulting projects where I can flex both PM strategy and dev execution? Even better. Let’s make digital experiences that genuinely improve life—one thoughtful interface at a time.</p>
-            </section>
-
-            <section class="about-section contact-cta">
-              <div class="cta-content">
-                <h3>Ready to Build Something Awesome?</h3>
-                <p>Let's chat about your next project over virtual coffee! ☕</p>
+                <div class="cta-content">
+                  <h3>Ready to Build Something Awesome?</h3>
+                  <p>Let's chat about your next project over virtual coffee!</p>
+                  <a href="#/contact" class="contact-btn" onclick="navigateTo('contact'); return false;">
+                    <span>Get In Touch</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </section>
+            
           </div>
         </div>
       </div>

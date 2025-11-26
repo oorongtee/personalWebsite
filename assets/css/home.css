@@ -2300,6 +2300,203 @@ a:hover::after {
   box-shadow: 0 8px 24px rgba(139, 119, 100, 0.4);
 }
 
+/* ============================================
+   🌟 ENHANCED ABOUT ME SECTION STYLES
+   ============================================ */
+
+/* Bright Green Gradient Headline - Centered */
+.about-headline.gradient-headline {
+  text-align: center;
+  background: linear-gradient(135deg, 
+    #53b577 0%, 
+    #16a34a 30%, 
+    #22c55e 70%, 
+    #4ade80 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin: 2rem 0;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  /* Static gradient - no animation */
+}
+
+/* Enhanced Content Boxes with Earth and Ocean Tones */
+.content-box {
+  background: rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  padding: clamp(1.8rem, 4vw, 3rem);
+  margin-bottom: 2.5rem;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Enhanced Earth-tone and Ocean-tone Shadows */
+.content-box.earth-shadow {
+  box-shadow: 
+    0 12px 40px rgba(139, 119, 100, 0.18),
+    0 6px 20px rgba(160, 134, 115, 0.12),
+    0 2px 8px rgba(20, 184, 166, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border-left: 3px solid rgba(34, 197, 94, 0.3);
+}
+
+/* Enhanced Hover Animation with Accessibility */
+.content-box.hover-animated:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    0 20px 60px rgba(139, 119, 100, 0.25),
+    0 10px 30px rgba(160, 134, 115, 0.18),
+    0 4px 12px rgba(20, 184, 166, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+  border-left-color: rgba(34, 197, 94, 0.5);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* Enhanced Focus States for Accessibility */
+.content-box.accessible:focus-within {
+  outline: 3px solid rgba(34, 197, 94, 0.6);
+  outline-offset: 4px;
+  border-color: rgba(34, 197, 94, 0.4);
+}
+
+/* Accessibility - Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .content-box.hover-animated:hover {
+    transform: none;
+    animation: none;
+  }
+  
+  .about-headline.gradient-headline {
+    animation: none;
+    background: #22c55e;
+    -webkit-text-fill-color: #22c55e;
+    color: #22c55e;
+  }
+}
+
+/* Focus states for accessibility */
+.content-box.accessible:focus-within {
+  outline: 2px solid #22c55e;
+  outline-offset: 4px;
+}
+
+/* Section spacing */
+.about-section {
+  margin-bottom: 2rem;
+}
+
+.about-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Enhanced Section headers within content boxes */
+.content-box h3 {
+  color: var(--color-text-primary);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 1.8rem;
+  margin-top: 0;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content-box h3:not(:first-child) {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Content styling within boxes */
+.content-box p {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+}
+
+.content-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* CTA content styling */
+.content-box .cta-content {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2rem;
+}
+
+.content-box .cta-content h3 {
+  font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+  color: var(--color-primary-light);
+  margin-bottom: 1rem;
+  border: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+.content-box .cta-content p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--color-text-secondary);
+  margin: 0 0 2rem 0;
+}
+
+/* Contact Button Styling */
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, 
+    var(--color-primary) 0%, 
+    var(--color-primary-light) 50%, 
+    rgba(20, 184, 166, 0.9) 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: 2px solid transparent;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 
+    0 8px 24px rgba(34, 197, 94, 0.3),
+    0 4px 12px rgba(20, 184, 166, 0.2);
+  cursor: pointer;
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: linear-gradient(135deg, 
+    var(--color-primary-light) 0%, 
+    var(--color-primary) 50%, 
+    rgba(20, 184, 166, 1) 100%);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 12px 36px rgba(34, 197, 94, 0.4),
+    0 6px 18px rgba(20, 184, 166, 0.3);
+}
+
+.contact-btn:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.contact-btn svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.contact-btn:hover svg {
+  transform: translateX(3px);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .visual-story-grid {
@@ -2347,6 +2544,63 @@ a:hover::after {
   .cta-actions {
     flex-direction: column;
     align-items: center;
+  }
+  
+  /* Enhanced responsive for content boxes */
+  .content-box {
+    padding: 1.5rem 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 20px;
+  }
+  
+  .content-box h3 {
+    font-size: 1.4rem;
+  }
+  
+  .content-box .cta-content {
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .contact-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-box {
+    padding: 1.25rem 0.75rem;
+    border-radius: 16px;
+  }
+  
+  .about-headline.gradient-headline {
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .contact-btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .content-box h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-box {
+    padding: 1.25rem 0.75rem;
+    border-radius: 16px;
+  }
+  
+  .about-headline.gradient-headline {
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
   }
   
   .cta-actions .btn {
