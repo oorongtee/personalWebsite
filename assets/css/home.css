@@ -1399,6 +1399,13 @@ a:hover::after {
   line-height: 1.5;
 }
 
+/* Ensure skill category list items use the same color */
+.skill-category ul li {
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  padding: 0.25rem 0;
+}
+
 .card-expanded-content li:last-child {
   border-bottom: none;
 }
@@ -1421,9 +1428,9 @@ a:hover::after {
 .skill-category h4 {
   margin-bottom: 0.75rem;
   font-size: 1rem;
-  color: #4ADEEF;
+  color: #FFFFFF;
   font-weight: 600;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* Experience Timeline */
@@ -2309,9 +2316,8 @@ a:hover::after {
   text-align: center;
   background: linear-gradient(135deg, 
     #53b577 0%, 
-    #16a34a 30%, 
     #22c55e 70%, 
-    #4ade80 100%);
+    #087430 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -2495,6 +2501,11 @@ a:hover::after {
 
 .contact-btn:hover svg {
   transform: translateX(3px);
+}
+
+/* Remove sliding effect from contact button */
+.contact-btn::before {
+  display: none;
 }
 
 /* Responsive Design */
