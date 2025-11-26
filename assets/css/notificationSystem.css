@@ -110,32 +110,37 @@
    通知類型樣式 (Notification Types)
    ================================ */
 
+/* 大地色與海洋色調通知系統 - 符合無障礙原則 */
 .notification-success {
   background: linear-gradient(135deg, 
-    rgba(16, 185, 129, 0.9) 0%, 
-    rgba(34, 197, 94, 0.8) 100%);
-  color: white;
+    rgba(107, 142, 90, 0.95) 0%, 
+    rgba(139, 151, 126, 0.9) 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(107, 142, 90, 0.8);
 }
 
 .notification-error {
   background: linear-gradient(135deg, 
-    rgba(239, 68, 68, 0.9) 0%, 
-    rgba(220, 38, 127, 0.8) 100%);
-  color: white;
+    rgba(139, 119, 100, 0.95) 0%, 
+    rgba(160, 134, 115, 0.9) 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(139, 119, 100, 0.8);
 }
 
 .notification-warning {
   background: linear-gradient(135deg, 
-    rgba(245, 158, 11, 0.9) 0%, 
-    rgba(251, 191, 36, 0.8) 100%);
-  color: white;
+    rgba(139, 151, 126, 0.95) 0%, 
+    rgba(160, 170, 145, 0.9) 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(139, 151, 126, 0.8);
 }
 
 .notification-info {
   background: linear-gradient(135deg, 
-    rgba(59, 130, 246, 0.9) 0%, 
-    rgba(99, 102, 241, 0.8) 100%);
-  color: white;
+    rgba(20, 184, 166, 0.95) 0%, 
+    rgba(6, 182, 212, 0.9) 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(20, 184, 166, 0.8);
 }
 
 /* ================================

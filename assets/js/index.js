@@ -513,7 +513,7 @@ const pages = {
 
 
           <!-- Playful & Modern Version -->
-          <div class="about-version" id="about-playful">
+          <div class="about-version enhanced-section" id="about-enhanced">
             <div class="about-header">
               <h2 class="about-headline">Product Manager + Front-end Developer</h2>
             </div>

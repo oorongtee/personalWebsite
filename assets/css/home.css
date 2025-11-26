@@ -361,9 +361,9 @@ h2, .text-h2 {
   color: var(--color-text-primary);
 }
 
-/* H3 - Subsection Titles */
+/* H3 - Subsection Titles - 調整為更小的字體 */
 h3, .text-h3 {
-  font-size: var(--text-2xl);
+  font-size: var(--text-lg);
   font-weight: var(--font-semibold);
   line-height: var(--leading-snug);
   margin-bottom: var(--space-4);
@@ -1171,7 +1171,7 @@ a:hover::after {
   box-shadow: 0 0 10px rgba(20, 184, 166, 0.3);
 }
 
-/* Timeline Nodes */
+/* Timeline Nodes - 移除藍色點點，只保留時間線 */
 .timeline-node {
   position: relative;
   display: flex;
@@ -1201,44 +1201,13 @@ a:hover::after {
   margin-right: 0;
 }
 
-/* Node Markers */
+/* 隱藏所有節點標記，只保留時間線 */
 .node-marker {
-  position: absolute;
-  left: 50%;
-  top: 2rem;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg,
-    var(--ocean-teal) 0%,
-    var(--ocean-blue) 100%
-  );
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 
-    0 8px 32px rgba(20, 184, 166, 0.3),
-    0 2px 8px var(--glass-shadow),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  z-index: 10;
-  transition: all 0.3s ease;
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
-}
-
-.node-marker:hover {
-  transform: translateX(-50%) scale(1.1);
-  box-shadow: 
-    0 12px 40px rgba(20, 184, 166, 0.4),
-    0 4px 12px var(--glass-shadow),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  display: none;
 }
 
 .node-icon {
-  font-size: 1.5rem;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  display: none;
 }
 
 /* Timeline Cards - Glassmorphism Design */
@@ -1386,7 +1355,7 @@ a:hover::after {
   transform: rotate(180deg);
 }
 
-/* Expanded Content */
+/* Expanded Content - 改善顏色對比 */
 .card-expanded-content {
   max-height: 0;
   overflow: hidden;
@@ -1400,18 +1369,21 @@ a:hover::after {
   padding: 1.5rem;
 }
 
+/* 高對比標題設計 - 確保易讀性 */
 .card-expanded-content h4 {
   margin: 0 0 1rem 0;
   font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--color-text-primary);
+  font-weight: 700;
+  color: #FFFFFF;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .card-expanded-content h5 {
   margin: 0 0 0.5rem 0;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--ocean-teal);
+  color: #4ADEEF;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .card-expanded-content ul {
@@ -1449,7 +1421,9 @@ a:hover::after {
 .skill-category h4 {
   margin-bottom: 0.75rem;
   font-size: 1rem;
-  color: var(--ocean-teal);
+  color: #4ADEEF;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Experience Timeline */
@@ -1607,13 +1581,13 @@ a:hover::after {
   }
   
   .timeline-line {
-    left: 30px;
+    left: 20px;
   }
   
   .timeline-node,
   .timeline-node:nth-child(even) {
     flex-direction: row;
-    padding-left: 80px;
+    padding-left: 50px;
   }
   
   .timeline-node .timeline-card,
@@ -1624,13 +1598,11 @@ a:hover::after {
   }
   
   .node-marker {
-    left: 30px;
-    width: 50px;
-    height: 50px;
+    display: none;
   }
   
   .node-icon {
-    font-size: 1.2rem;
+    display: none;
   }
   
   .skills-grid {
@@ -1649,21 +1621,19 @@ a:hover::after {
   }
   
   .timeline-line {
-    left: 20px;
+    left: 15px;
   }
   
   .timeline-node {
-    padding-left: 60px;
+    padding-left: 40px;
   }
   
   .node-marker {
-    left: 20px;
-    width: 40px;
-    height: 40px;
+    display: none;
   }
   
   .node-icon {
-    font-size: 1rem;
+    display: none;
   }
   
   .card-header {
@@ -1884,6 +1854,222 @@ a:hover::after {
 /* ============================================
    📱 RESPONSIVE UTILITIES
    ============================================ */
+
+/* ============================================
+   🎨 ENHANCED ABOUT PAGE STYLES - 重新設計的About頁面樣式
+   ============================================ */
+
+/* Enhanced About Section */
+.about-enhanced .intro-badge {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.about-enhanced .about-headline {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-align: center;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+}
+
+.about-enhanced .lead-text {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 3rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  border-radius: 2px;
+}
+
+.text-center .section-title::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Enhanced Value Props */
+.value-props.about-enhanced {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.value-item.enhanced {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.value-item.enhanced:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(34, 197, 94, 0.3);
+  transform: translateY(-2px);
+}
+
+.value-item.enhanced svg {
+  color: var(--color-primary-light);
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.value-item.enhanced span {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+/* Approach Cards */
+.approach-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.approach-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.approach-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(34, 197, 94, 0.3);
+  transform: translateY(-2px);
+}
+
+.approach-card h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 0.75rem 0;
+}
+
+.approach-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Skills & Experience Section */
+.skills-experience-section {
+  padding: 2rem 0;
+}
+
+.skill-category-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.skill-category-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(34, 197, 94, 0.3);
+  transform: translateY(-2px);
+}
+
+.skill-category-card .card-header h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary-light);
+  margin: 0;
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.skill-list li:last-child {
+  border-bottom: none;
+}
+
+.skill-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary-light);
+  font-weight: bold;
+}
+
+/* CTA Card */
+.cta-card {
+  background: linear-gradient(135deg, 
+    rgba(34, 197, 94, 0.1) 0%, 
+    rgba(74, 222, 128, 0.05) 100%);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.cta-card h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 1rem 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .approach-cards {
+    gap: 0.75rem;
+  }
+  
+  .approach-card {
+    padding: 1.25rem;
+  }
+  
+  .value-item.enhanced {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  
+  .skill-category-card {
+    margin-bottom: 1rem;
+  }
+}
 
 /* ============================================
    🚀 新版手機導航系統 - 防止跑版和佈局偏移
